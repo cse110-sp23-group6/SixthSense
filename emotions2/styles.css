@@ -13,6 +13,18 @@ body{
   margin-top: 100px;
 }
 
+.rightvector {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.leftvector {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
 .buttons {
   margin-top: 20px;
 }
