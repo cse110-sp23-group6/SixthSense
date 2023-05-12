@@ -1,0 +1,65 @@
+/* Set default styles for the body */
+body {
+	margin: 0;
+	padding: 0;
+    font-family: 'Anek Devanagari', sans-serif;
+	background-image: url("background.png");
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+/* Style the header */
+
+*{
+    font-family: 'Anek Devanagari', sans-serif;
+}
+/* Style the main button */
+button {
+	background-color: #413070;
+	color: white;
+	padding: 15px;
+	border-radius: 20px;
+	font-size: 18px;
+    float: right;
+    margin-right: 30px;
+    margin-top: 20px;
+    border: #8A2BE2;
+}
+
+/* Style the main button on hover */
+button:hover {
+	background-color: #8A2BE2;
+}
+
+/* Style the main content */
+main{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+    text-align: center;
+}
+
+/* Style the main content title */
+h2{
+	color: white;
+	font-size: 85px;
+	margin: 0px;
+    margin-bottom: 0px;
+}
+
+/* Style the main content buttons */
+.inner-button{
+	font-size: 24px;
+	padding: 20px 40px;
+	background-color: #413070;
+	color: white;
+	border-radius: 10px;
+	margin: 15px;
+}
+
+/* Style the main content buttons on hover */
+.inner-button:hover {
+    background-color: #8A2BE2;
+}
