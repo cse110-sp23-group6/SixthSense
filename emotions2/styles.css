@@ -7,10 +7,16 @@ body{
     rgb(101,84,204)
   );
   color:aliceblue;
+  overflow: hidden;
 }
 
 h1{
+  text-align: center;
   font-size: 50px;
+  font-family: "Lucida Console", "Courier New", monospace;
+  margin-left: 20%;
+  margin-right: 20%;
+  position: relative;
 }
 
 .container {
@@ -25,7 +31,7 @@ h1{
   height: auto;
 }
 
-/* vectors for background*/
+/* vectors for background */
 .rightvector {
   position: absolute;
   top: 0px;
@@ -47,7 +53,7 @@ h1{
 }
 
 button {
-  /* rounded borders*/
+  /* rounded borders */
   border: none;
   border-radius: 12px;
 
@@ -57,7 +63,37 @@ button {
   padding: 10px 20px;
   font-size: 20px;
   margin-bottom: 10px;
-  width: 50%; /* Adjust the width as needed */
+  width: 55%; /* Adjust the width as needed */
+}
+
+/* navigation buttons */
+#traversal {
+  margin-left: 25%;
+  margin-right: 25%;
+  position: relative;
+  text-align: center;
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.back {
+  background-color: rgb(65,48,112);
+  align-self: center;
+  width: 25%;
+  height: 55px;
+  line-height: 1em;
+  font-weight: bold;
+}
+
+.next {
+  background-color: rgb(65,48,112);
+  align-self: center;
+  width: 25%;
+  height: 55px;
+  line-height: 1em;
+  font-weight: bold;
 }
 
 @media (max-width: 768px) {
