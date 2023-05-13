@@ -6,13 +6,25 @@ body{
     rgb(146,122,235) 47% ,
     rgb(101,84,204)
   );
+  color:aliceblue;
+}
+
+h1{
+  font-size: 50px;
 }
 
 .container {
   text-align: center;
   margin-top: 100px;
+  height: 100vh;
 }
 
+.image{
+  max-width: 100%;
+  height: auto;
+}
+
+/* vectors for background*/
 .rightvector {
   position: absolute;
   top: 0px;
@@ -25,12 +37,30 @@ body{
   left: 0px;
 }
 
+/* buttons */
 .buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 20px;
 }
 
 button {
+  /* rounded borders*/
+  border: none;
+  border-radius: 12px;
+
+  background-color: rgba(65,48,112,.7);
+  color:aliceblue;
+
   padding: 10px 20px;
-  font-size: 16px;
-  margin: 5px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  width: 50%; /* Adjust the width as needed */
+}
+
+@media (max-width: 768px) {
+  button {
+    width: 80%; /* Adjust the width for smaller screens */
+  }
 }
