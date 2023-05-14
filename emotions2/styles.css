@@ -13,20 +13,25 @@ body{
 h1{
   text-align: center;
   font-size: 50px;
-  font-family: "Lucida Console", "Courier New", monospace;
   margin-left: 20%;
   margin-right: 20%;
   position: relative;
 }
 
 .container {
+  animation: fadeInAnimation ease 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
   text-align: center;
   margin-top: 100px;
   height: 100vh;
   width: 100%
 }
 
-.image{
+.images{
+  animation: fadeInAnimation ease 1.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
   max-width: 100%;
   height: auto;
 }
@@ -46,6 +51,7 @@ h1{
 
 /* buttons */
 .buttons {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -99,5 +105,14 @@ button {
 @media (max-width: 768px) {
   button {
     width: 80%; /* Adjust the width for smaller screens */
+  }
+}
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
   }
 }
