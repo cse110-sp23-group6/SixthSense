@@ -3,12 +3,16 @@ body {
     background-size: cover;
     background-position: center;
     text-align: center;
+    font-family: 'Anek Devanagari', sans-serif;
+    font-weight: 700;
 }
 
 h1 {
+    font-family: 'Anek Devanagari', sans-serif;
     font-size: 48px;
     color: white;
     margin-top: 200px;
+    font-weight: 750;
 }
 
 .fortune-box {
@@ -19,6 +23,7 @@ h1 {
     margin: 20px;
     background-color: rgba(255, 255, 255, 0.2);
     padding: 10px;
+    transition: transform 0.25s ease;
 }
 
 .fortune-box img {
@@ -30,4 +35,10 @@ h1 {
 .fortune-box p {
     font-size: 24px;
     color: #ffffff;
+}
+
+
+.fortune-box:hover {
+    transform: scale(1.2);
+    color:rgba(130, 24, 218, 0.241)
 }
