@@ -1,0 +1,89 @@
+body {
+    background: linear-gradient(28.76deg, #6554CC 18.11%, #413070 78.69%) fixed;
+    background-repeat: no-repeat;
+
+    font-family: 'Anek Devanagari', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    color: #FFFFFF;
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.button {
+    background: rgba(65, 48, 112, 0.5);
+    border-radius: 1.25rem;
+    border: none;
+    color: #FFFFFF;
+    font-size: xx-large;
+    font-weight: 600;
+    padding: 1rem;
+
+    width: fit-content;
+
+    transition: all .2s ease-in-out;
+}
+
+.button:active{
+}
+
+.button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    transform: scale(1.02);
+}
+
+#left-elements {
+    align-items: center;
+}
+
+#right-elements {
+    align-items: flex-end;
+}
+
+.column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#nav-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#nav-buttons button {
+    background: #D9D9D9;
+    border-radius: 0.5rem;
+    /*position: relative; /* If you want text inside of it */
+    margin-left: 2rem;
+    width: 5rem;
+    height: 5rem;
+    font-size: 1.5rem;
+}
+
+#reading{
+    border-style: solid;
+    border-color: gray;
+    background-color: lightgray;
+    padding:2px;
+    color: black;
+    font-family: 'Anek Devanagari', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 85%;
+    font-size:1.5rem;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+#aura-image {
+    height: 45%;
+}
