@@ -1,12 +1,13 @@
 body {
     background-image: url(bg.png);
     background-size: cover;
-    background-position: 50% 25%;
+    background-position: center top;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     text-align: center;
     font-family: 'Anek Devanagari', sans-serif;
     font-weight: 700;
-} 
+}
 
 h1 {
     font-family: 'Anek Devanagari', sans-serif;
