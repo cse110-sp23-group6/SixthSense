@@ -3,8 +3,8 @@
 
 /*TASKS LEFT: 
  - need to add navigation buttons 
- - fix the issue 
- - make the image buttons rounded */
+ - fix the issue done
+ - make the image buttons rounded done */
 
 body{
     /* background gradient */
@@ -16,6 +16,7 @@ body{
     );
     color:aliceblue;
     overflow: hidden;
+   /* background-color: transparent; */
   }
 
   .container {
@@ -34,15 +35,54 @@ body{
     margin-top: 20px;
   }
 
+  .round-button {
+    border-radius: 50%;
+    border: none;
+  }
   /*background vectors*/
   .leftvector {
     position: absolute;
     top: 0px;
     left: 0px;
+    z-index: -1; 
   }
 
   .rightvector {
     position: absolute;
     bottom: 0px;
     right: 0px;
+    z-index: -1;
   }
+/* Navigation buttons */
+.navigation-left {
+  position: absolute;
+  bottom: 100px;
+  left: 90px;
+  z-index: 1;
+}
+
+.navigation-right {
+  position: absolute;
+  bottom: 100px;
+  right: 90px;
+  z-index: 1;
+}
+
+.button-left, .button-right {
+  border: none;
+  border-radius: 10%;
+  background-color:  rgb(101,84,204); 
+  color: white;
+  width: 170px;
+  height: 90px;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
