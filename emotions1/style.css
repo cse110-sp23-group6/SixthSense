@@ -1,10 +1,7 @@
 
-/*ISSUE: need images to be in front and vectors in the back*/
-
 /*TASKS LEFT: 
- - need to add navigation buttons 
- - fix the issue done
- - make the image buttons rounded done */
+- make the screen resizable 
+- generate the random images */ 
 
 body{
     /* background gradient */
@@ -16,35 +13,40 @@ body{
     );
     color:aliceblue;
     overflow: hidden;
-   /* background-color: transparent; */
   }
 
   .container {
     text-align: center;
     margin-top: 100px;
-    height: 100vh;
-    width: 100%
+    width: 100%; 
+    height: auto;
   }
 
 /* buttons */
 .buttons {
-    /*TODO: make the images have rounded edges*/ 
+
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    
   }
 
   .round-button {
     border-radius: 50%;
     border: none;
   }
+
   /*background vectors*/
   .leftvector {
     position: absolute;
     top: 0px;
     left: 0px;
     z-index: -1; 
+    max-width: 50%;
+    max-height: 100%;
   }
 
   .rightvector {
@@ -52,13 +54,18 @@ body{
     bottom: 0px;
     right: 0px;
     z-index: -1;
+    max-width: 50%;
+    max-height: 100%;
   }
+
 /* Navigation buttons */
 .navigation-left {
   position: absolute;
   bottom: 100px;
   left: 90px;
   z-index: 1;
+  width: 25%;
+  height: 55px;
 }
 
 .navigation-right {
@@ -66,23 +73,26 @@ body{
   bottom: 100px;
   right: 90px;
   z-index: 1;
+  width: 25%;
+  height: 55px;
 }
 
 .button-left, .button-right {
   border: none;
-  border-radius: 10%;
+  border-radius: 12px;
   background-color:  rgb(101,84,204); 
   color: white;
-  width: 170px;
-  height: 90px;
-  font-size: 2.5rem;
+  /* max-width: 100%;
+  height: auto; */
+  font-size: 20px; 
   cursor: pointer;
+  width: 50%;
+  height: 55px;
 }
 
-
-
-
-
-
-
+/*resizable images*/
+img {
+  width: 100%;
+  height: auto;
+}
 
