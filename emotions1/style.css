@@ -1,7 +1,7 @@
 
-/*TASKS LEFT: 
-- make the screen resizable 
-- generate the random images */ 
+/*ISSUES: 
+- not centering properly
+- radius is cutting off the edges */
 
 body{
     /* background gradient */
@@ -16,10 +16,14 @@ body{
   }
 
   .container {
+    align-items: center;
     text-align: center;
+    
     margin-top: 100px;
     width: 100%; 
-    height: auto;
+    height: 100%;
+    align-content: center;
+   
   }
 
 /* buttons */
@@ -29,14 +33,17 @@ body{
     flex-direction: row;
     align-items: center;
     margin-top: 40px;
-    margin-left: 40px;
-    margin-right: 40px;
+    max-width: 100%;
+    height: auto;
+    margin-left: 9%;
+    margin-right: 5%;
     
   }
 
   .round-button {
-    border-radius: 50%;
+    align-items: center;
     border: none;
+    margin-left: -2%;
   }
 
   /*background vectors*/
@@ -62,7 +69,7 @@ body{
 .navigation-left {
   position: absolute;
   bottom: 100px;
-  left: 90px;
+  left: 3%;
   z-index: 1;
   width: 25%;
   height: 55px;
@@ -71,7 +78,7 @@ body{
 .navigation-right {
   position: absolute;
   bottom: 100px;
-  right: 90px;
+  right: 4%;
   z-index: 1;
   width: 25%;
   height: 55px;
@@ -82,8 +89,6 @@ body{
   border-radius: 12px;
   background-color:  rgb(101,84,204); 
   color: white;
-  /* max-width: 100%;
-  height: auto; */
   font-size: 20px; 
   cursor: pointer;
   width: 50%;
@@ -92,7 +97,7 @@ body{
 
 /*resizable images*/
 img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
