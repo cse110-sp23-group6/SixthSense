@@ -28,25 +28,21 @@ h1{
   width: 100%
 }
 
-.images{
-  animation: fadeInAnimation ease 1.5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  max-width: 100%;
-  height: auto;
-}
-
 /* vectors for background */
 .rightvector {
   position: absolute;
   top: 0px;
   right: 0px;
+  max-width: 50%;
+  max-height: 100%;
 }
 
 .leftvector {
   position: absolute;
   bottom: 0px;
   left: 0px;
+  max-width: 50%;
+  max-height: 100%;
 }
 
 /* buttons */
@@ -100,6 +96,15 @@ button {
   height: 55px;
   line-height: 1em;
   font-weight: bold;
+}
+
+.images {
+  animation: fadeInAnimation ease 1.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 @media (max-width: 768px) {
