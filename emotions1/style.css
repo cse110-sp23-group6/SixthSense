@@ -32,8 +32,9 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     margin-top: 40px;
-    max-width: 100%;
+    max-width: 175vh;
     height: auto;
     margin-left: 9%;
     margin-right: 5%;
