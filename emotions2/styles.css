@@ -84,7 +84,7 @@ button {
   justify-content: space-between;
 }
 
-.back {
+#back {
   background-color: rgb(65,48,112);
   align-self: center;
   width: 25%;
@@ -93,7 +93,7 @@ button {
   font-weight: bold;
 }
 
-.next {
+#next {
   background-color: rgb(65,48,112);
   align-self: center;
   width: 25%;
