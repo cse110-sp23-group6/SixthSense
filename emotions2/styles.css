@@ -76,7 +76,7 @@ button {
   color:white;
 
   padding: 2vh 3vh;
-  font-size: calc(1.2vh + 0.5vw + 5px);
+  font-size: calc(1.7vh + 0.5vw);
   margin-bottom: 2vh;
   width: 55%; /* Adjust the width as needed */
   height: 10vh;
@@ -104,19 +104,21 @@ button:hover {
   background-color: rgb(65,48,112);
   align-self: center;
   width: 25%;
-  height: 55px;
+  height: 10vh;
   line-height: 1em;
   font-weight: bold;
-  padding-bottom: 4vh;
+  font-size: calc(1vh + 1vw);
 }
 
 #next {
   background-color: rgb(65,48,112);
   align-self: center;
   width: 25%;
-  height: 55px;
+  height: 10vh;
   line-height: 1em;
   font-weight: bold;
+  font-size: calc(1vh + 1vw);
+
 }
 
 /* animate fade in */
