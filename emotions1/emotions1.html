@@ -3,16 +3,23 @@
 <head>
   <title>Emotions1 Page</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- Link the image storage -->
+  <script src="emotions1.js" type="module"></script>
 </head>
 <body>
   <div class="container">
+
     <h1 id="prompt">Which picture do you resonate most with?</h1>
+    
+    <!-- Display Images -->
     <div class="buttons">
-        <button class="round-button" style="background-color: transparent;"> <img src="assets/selectionpics/anger1.png" > </button>
-        <button class="round-button" style="background-color: transparent;"> <img src="assets/selectionpics/disgust1.png"> </button>
-        <button class="round-button" style="background-color: transparent;"> <img src="assets/selectionpics/fear1.png"></button>
-        <button class="round-button" style="background-color: transparent;"> <img src="assets/selectionpics/joy1.png"> </button>
-        <button class="round-button" style="background-color: transparent;"> <img src="assets/selectionpics/sadness1.png"> </button>
+
+        <button class="round-button" style="background-color: transparent;"> <img id="anger" > </button>
+        <button class="round-button" style="background-color: transparent;"> <img id="disgust" ></button>
+        <button class="round-button" style="background-color: transparent;"> <img id="joy" ></button>
+        <button class="round-button" style="background-color: transparent;"> <img id="fear" ></button>
+        <button class="round-button" style="background-color: transparent;"> <img id="sadness" > </button>
+
     </div>
     
     <div class="images">
