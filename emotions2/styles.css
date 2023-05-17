@@ -70,13 +70,13 @@ h1{
 button {
   /* rounded borders */
   border: none;
-  border-radius: 12px;
+  border-radius: 2vh;
 
   background-color: rgba(65,48,112,.7);
   color:white;
 
-  padding: 2vh 3vh;
-  font-size: calc(2.1vh + 0.8vw);
+  padding: 2vh 2vh;
+  font-size: calc(1.5vh + 0.9vw);
   margin-bottom: 2vh;
   width: 55%; /* Adjust the width as needed */
   height: 10vh;
@@ -131,7 +131,7 @@ button:hover {
   object-fit: cover;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   button {
     width: 80%; /* Adjust the width for smaller screens */
   }
