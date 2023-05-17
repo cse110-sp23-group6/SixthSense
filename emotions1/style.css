@@ -16,33 +16,32 @@ body{
 }
 
 .container {
-  align-items: center;
   text-align: center;
+  /*justify-content: center;*/
+  align-items: center;
+  width: 80%; 
+  margin-left: 10%;
+  margin-right: 10%;
   
-  margin-top: 100px;
-  width: 100%; 
   height: 100%;
-  align-content: center;
+
  
 }
 
 /* buttons */
 .buttons {
-  /*
-  display: flex;
+
+  /*display: flex;
   flex-direction: row;
   align-items: center;
   margin-top: 40px;
   max-width: 100%;
   height: auto;
   margin-left: 9%;
-  margin-right: 5%;
-  */
+  margin-right: 5%;*/
   display: grid;
-  position:absolute;
   grid-template-columns: repeat(5, 1fr);
-  width: 80vw;
-  left: 10vw;
+  gap: 2vh;
   
 }
 
@@ -50,8 +49,6 @@ body{
   align-items: center;
   border: none;
   margin-left: -2%;
-  width: auto;
-  height: 8vh;
 }
 
 /*background vectors*/
@@ -76,31 +73,38 @@ body{
 /* Navigation buttons */
 .navigation-left {
 position: absolute;
-bottom: 5vh;
-left: 3%;
+top: 80%;
+left: 4%;
 z-index: 1;
+font-size: 8vh;
+text-align: center;
 width: 25%;
-height: 75px;
+height: 40%;
+display: inline-block;
 }
 
 .navigation-right {
 position: absolute;
-bottom: 5vh;
+text-align: center;
+top: 80%;
 right: 4%;
+font-size: 8vh;
 z-index: 1;
 width: 25%;
-height: 75px;
+height: 40%;
 }
 
 .button-left, .button-right {
+align-content: center;
+align-items: center;
 border: none;
 border-radius: 12px;
 background-color:  rgb(101,84,204); 
 color: white;
-font-size: 20px; 
+font-size: 100%; 
 cursor: pointer;
-width: 50%;
-height: 55px;
+width: 100%;
+height: 40%;
 }
 
 /*resizable images*/
@@ -109,8 +113,6 @@ max-width: 100%;
 height: auto;
 }
 
-#prompt{
-  font-size: calc(3vh + 4vw);
-  margin-top: -10vh;
+#prompt {
+  font-size: min(8vh, calc((4vw + 4ch) / 2));
 }
-
