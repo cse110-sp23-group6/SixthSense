@@ -76,20 +76,20 @@ body{
 /* Navigation buttons */
 .navigation-left {
 position: absolute;
-bottom: 30px;
+bottom: 5vh;
 left: 3%;
 z-index: 1;
 width: 25%;
-height: 55px;
+height: 75px;
 }
 
 .navigation-right {
 position: absolute;
-bottom: 30px;
+bottom: 5vh;
 right: 4%;
 z-index: 1;
 width: 25%;
-height: 55px;
+height: 75px;
 }
 
 .button-left, .button-right {
@@ -110,7 +110,7 @@ height: auto;
 }
 
 #prompt{
-  font-size: calc(2vh + 3vw);
+  font-size: calc(3vh + 4vw);
   margin-top: -10vh;
 }
 
