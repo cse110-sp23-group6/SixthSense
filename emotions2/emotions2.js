@@ -40,15 +40,15 @@ window.onload = function() {
     let angerButton = document.getElementById("anger");
 
     let rand;
-    rand = randomInt(3);
+    rand = randomInt(Object.keys(joyQuotes).length);
     setQuote(rand, joyButton);
-    rand = randomInt(3);
+    rand = randomInt(Object.keys(sadnessQuotes).length);
     setQuote(rand, sadnessButton);
-    rand = randomInt(3);
+    rand = randomInt(Object.keys(disgustQuotes).length);
     setQuote(rand, disgustButton);
-    rand = randomInt(3);
+    rand = randomInt(Object.keys(fearQuotes).length);
     setQuote(rand, fearButton);
-    rand = randomInt(3);
+    rand = randomInt(Object.keys(angerQuotes).length);
     setQuote(rand, angerButton);
 };
 
