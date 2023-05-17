@@ -27,6 +27,7 @@ h1{
   margin-right: 20%;
   position: relative;
   height: 8vh;
+  margin-bottom: 2vh;
 }
 
 .container {
@@ -62,7 +63,7 @@ h1{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5vh;
+  margin-top: 10vh;
 
 }
 
@@ -75,7 +76,7 @@ button {
   color:white;
 
   padding: 2vh 3vh;
-  font-size: calc(1.5vh + 0.5vw);
+  font-size: calc(1.2vh + 0.5vw + 5px);
   margin-bottom: 2vh;
   width: 55%; /* Adjust the width as needed */
   height: 10vh;
@@ -91,7 +92,8 @@ button:hover {
   margin-right: 25%;
   position: relative;
   text-align: center;
-  margin-top: 5vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
   height: 20vh;
   display: flex;
   flex-direction: row;
@@ -105,6 +107,7 @@ button:hover {
   height: 55px;
   line-height: 1em;
   font-weight: bold;
+  padding-bottom: 4vh;
 }
 
 #next {
