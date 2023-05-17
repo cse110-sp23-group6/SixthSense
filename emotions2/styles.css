@@ -78,6 +78,10 @@ button {
   width: 55%; /* Adjust the width as needed */
 }
 
+button:hover {
+  transform: scale(1.1);
+}
+
 /* navigation buttons */
 #traversal {
   margin-left: 25%;

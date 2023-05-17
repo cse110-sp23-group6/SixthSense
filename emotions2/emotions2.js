@@ -56,7 +56,7 @@ window.onload = function() {
  * Function that takes in a value and outputs a random integer that ranges
  * 0 to max.
  * 
- * @param {*} max - maximum possible int to be generated.
+ * @param {integer} max - maximum possible int to be generated.
  * @returns the randomly generated integer.
  */
 function randomInt(max) {
@@ -67,8 +67,8 @@ function randomInt(max) {
  * Finds the quote corresponding to the randomly generated integer then fills the
  * content of the button with that quote.
  * 
- * @param {*} int - the randomly generated integer.
- * @param {*} button - the button to place the quote in.
+ * @param {integer} int - the randomly generated integer.
+ * @param {element} button - the button to place the quote in.
  */
 function setQuote(int, button) {
     let attribute = button.getAttribute('id');
