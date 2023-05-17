@@ -21,43 +21,6 @@ body {
 	
   }
 
-
-body .layer1,
-body .layer2,
-body .layer3 {
-  pointer-events: none;
-}
-
-.layer1 {
-	position: absolute;
-	width: 14px;
-	height: 570px;
-	left: 0px;
-	top: 245px;
-	background: linear-gradient(281.58deg, #9760B9 16.06%, rgba(78, 61, 181, 0.26) 89.61%);
-  }
-  
-  .layer2 {
-	position: absolute;
-	width: 1319px;
-	height: 548px;
-	left: -14px;
-	top: 382px;
-	background: linear-gradient(134.31deg, #6554CC 61.9%, #8A78F5 95.78%);
-  }
-  
-  .layer3 {
-	position: absolute;
-	width: 1042px;
-	height: 349px;
-	left: 1280px;
-	top: 690px;
-	background: linear-gradient(258.13deg, #7645C6 51.11%, #332845 95.05%);
-	mix-blend-mode: normal;
-	transform: matrix(-1, 0, 0, 1, 0, 0);
-  }
-  
-  
   
 @keyframes fadeInAnimation {
     0% {
