@@ -16,14 +16,17 @@
     <h1 id="title">Create Profile</h1>
     <!-- form part -->
     <div class="container">
+        <!-- name -->
         <label for="name">Name: </label>
         <input type="text" id="name" required>
         <br>
+        <!-- birthday -->
         <label for="birthday">Birthday:</label>
-        <input type="text" id="month" maxlength="2" oninput="validateNumberInput(this)" required>
-        <input type="text" id="date" maxlength="2" oninput="validateNumberInput(this)" required>
-        <input type="text" id="year" maxlength="4" oninput="validateNumberInput(this)" required>
+        <input type="text" id="year" placeholder = "yyyy" maxlength="2" oninput="validateNumberInput(this)" required>
+        <input type="text" id="date" placeholder = "dd" maxlength="2" oninput="validateNumberInput(this)" required>
+        <input type="text" id="month" placeholder = "mm" maxlength="4" oninput="validateNumberInput(this)" required>
         <br>
+        <!-- relationship status -->
         <label for="status">Relationship Status:</label>
         <select id="status">
             <option value="single">Single</option>
@@ -31,8 +34,14 @@
             <option value="complicated">it's complicated</option>
             <option value="married">Married</option>
         </select>
-        <br>
-        <button type="button" onclick="submitForm()">Submit</button>
+        <br>     
+    </div>
+    <!-- buttons to go home or create profile -->
+    <div class="buttons">
+        <nav id="traversal">
+            <button id="home">Home</button>
+            <button id="submit">Submit</button>
+        </nav>
     </div>
 </body>
 </html>
