@@ -92,10 +92,10 @@ select{
     border-radius: .8vh;
     float: right;
     margin-right: 35%;
-    text: black;
+    color: black;
 }
-#status{
-    text: black;
+option {
+    color: black;
 }
 
 /* navigation elements */
