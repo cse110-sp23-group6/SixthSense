@@ -1,8 +1,4 @@
 /* Set default styles for the body */
-
-
-/* Set default styles for the body */
-/* Set default styles for the body */
 body {
 	margin-right: 0;
 	padding: 0;
@@ -103,7 +99,7 @@ h1 {
 }
 
 .grad1 {
-	background-image: url(bgvector1.png);
+	background-image: url(assets/bgvector1.png);
 	position: fixed;
 	width: 100vw;
 	height: 570px;
@@ -113,7 +109,7 @@ h1 {
 }
 
 .grad2 {
-	background-image: url(bgvector2.png);
+	background-image: url(assets/bgvector2.png);
 	position: absolute;
 	width: 100vw;
 	height: 548px;
@@ -123,7 +119,7 @@ h1 {
 }
 
 .grad3 {
-	background-image: url(bgvector3.png);
+	background-image: url(assets/bgvector3.png);
 	position: absolute;
 	width: 1042px;
 	height: 349px;
