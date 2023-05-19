@@ -19,7 +19,7 @@ html, body{
 }
 h1{
     text-align: center;
-    font-size: calc(2vh + 2vw);
+    font-size: calc(6vh + 2vw);
     font-weight: 600;
     margin-left: 20%;
     margin-right: 20%;
@@ -32,12 +32,11 @@ h1{
     animation: fadeInAnimation ease 5s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    text-align: center;
-    margin-top: 4vh;
+    margin-top: 20vh;
     height: 100vh;
     width: 100%;
 }
-  
+
 /* vectors for background */
 .rightvector {
     position: absolute;
@@ -54,4 +53,35 @@ h1{
     max-width: 50%;
     max-height: 100%;
 }
-  
+
+/* labels aligned to the left */
+label{
+    margin-left: calc(25% - 8px); /* 8px accounts for the default margin of the input elements */
+    width: 33.33%;
+    font-size: calc(5vh + 0.9vw);
+}
+
+/* inputs aligned to the right */
+.input-container{
+    /* rounded edges */
+    display: flex;
+    justify-content: flex-end;
+}
+.input-container input{
+    border: none;
+    border-radius: 12px;
+    padding: 10px;
+    height: 10vh;
+}
+
+#date, 
+#month{
+    width: 5vh;
+    margin-right: 1vh;
+}
+
+#year{
+    width: 10vh;
+    margin-right:-1vh;
+}
+
