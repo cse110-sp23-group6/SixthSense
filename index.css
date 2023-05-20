@@ -1,8 +1,4 @@
 /* Set default styles for the body */
-
-
-/* Set default styles for the body */
-/* Set default styles for the body */
 body {
 	margin-right: 0;
 	padding: 0;
@@ -102,36 +98,11 @@ h1 {
 	transform: scale(1.1);
 }
 
-.grad1 {
-	background-image: url(bgvector1.png);
-	position: fixed;
-	width: 100vw;
-	height: 570px;
-	left: 0px;
-	top: 245px;
-	z-index: -1;
-}
-
-.grad2 {
-	background-image: url(bgvector2.png);
+.vector {
 	position: absolute;
-	width: 100vw;
-	height: 548px;
-	left: -14px;
-	top: 382px;
+	bottom: -75px;
+	left: -3px;
 	z-index: -1;
-}
-
-.grad3 {
-	background-image: url(bgvector3.png);
-	position: absolute;
-	width: 1042px;
-	height: 349px;
-	left: 1280px;
-	top: 690px;
-	z-index: -1;
-
-	color: linear-gradient(258.13deg, #7645C6 51.11%, #332845 95.05%);
-	mix-blend-mode: normal;
-	transform: matrix(-1, 0, 0, 1, 0, 0);
+	width: 100%;
+	max-height: 75%;
 }
