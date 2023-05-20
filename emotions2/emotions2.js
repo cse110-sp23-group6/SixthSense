@@ -1,78 +1,56 @@
-/* array of quotes corresponding to the five core emotions */
-let joyQuotes = {
-    0: "I can't change the direction of the wind, but I can adjust my sails to always reach my destination.",
-    1: "The future belongs to those who believe in the beauty of their dreams.",
-    2: "The best way to cheer yourself up is to try to cheer somebody else up." ,
-};
-
-let sadnessQuotes = {
-    0: "The greater your capacity to love, the greater your capacity to feel the pain.",
-    1: "The walls we build around us to keep out the hurt also keep out the joy.",
-    2: "People cry not because they’re weak. It’s because they’ve been strong for too long.",
-};
-
-let disgustQuotes = {
-    0: "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
-    1: "Disgust is the one human emotion that guarantees loyalty.",
-    2: "I'm not arguing, I'm just explaining why I'm right.",
-};
-
-let fearQuotes = {
-    0: "Worrying about outcomes over which I have no control is punishing myself before the universe has decided whether I ought to be punished.",
-    1: "Never let the future disturb you. You will meet it, if you have to, with the same weapons of reason which today arm you against the present.",
-    2: "Our anxiety does not empty tomorrow of its sorrows, but only empties today of its strengths.",
-};
-
-let angerQuotes = {
-    0: "Holding on to anger is like grasping a hot coal with the intent of throwing it at someone else; you are the one who gets burned.",
-    1: "Never go to bed mad. Stay up and fight.",
-    2: "It's not about avoiding the things that make you angry; it's about learning how to control your reactions to them.",
-};
-
-//window.addEventListener('DOMContentLoaded', init);
-
-/* generates new quotes each time the window loads */
-window.onload = function() {
-    let joyButton = document.getElementById("joy");
-    let sadnessButton = document.getElementById("sadness");
-    let disgustButton = document.getElementById("disgust");
-    let fearButton = document.getElementById("fear");
-    let angerButton = document.getElementById("anger");
-
-    let rand;
-    rand = randomInt(Object.keys(joyQuotes).length);
-    setQuote(rand, joyButton);
-    rand = randomInt(Object.keys(sadnessQuotes).length);
-    setQuote(rand, sadnessButton);
-    rand = randomInt(Object.keys(disgustQuotes).length);
-    setQuote(rand, disgustButton);
-    rand = randomInt(Object.keys(fearQuotes).length);
-    setQuote(rand, fearButton);
-    rand = randomInt(Object.keys(angerQuotes).length);
-    setQuote(rand, angerButton);
-};
-
-/**
- * Function that takes in a value and outputs a random integer that ranges
- * 0 to max.
- * 
- * @param {integer} max - maximum possible int to be generated.
- * @returns the randomly generated integer.
- */
-function randomInt(max) {
-    return Math.floor(Math.random() * max);
-}
-
-/**
- * Finds the quote corresponding to the randomly generated integer then fills the
- * content of the button with that quote.
- * 
- * @param {integer} int - the randomly generated integer.
- * @param {element} button - the button to place the quote in.
- */
-function setQuote(int, button) {
-    let attribute = button.getAttribute('id');
-    let array = eval(`${attribute}Quotes`);
-    let quote = array[int];
-    button.innerText = quote;
-}
+// JavaScript code to randomize button order and set a randomly chosen quote as the text content of each button
+document.addEventListener("DOMContentLoaded", function() {
+    // Object with quotes for each emotion
+    const quotes = {
+      joy: [
+        "I can't change the direction of the wind, but I can adjust my sails to always reach my destination.",
+        "The future belongs to those who believe in the beauty of their dreams.",
+        "The best way to cheer yourself up is to try to cheer somebody else up." 
+      ],
+      sadness: [
+        "The greater your capacity to love, the greater your capacity to feel the pain.",
+        "The walls we build around us to keep out the hurt also keep out the joy.",
+        "People cry not because they’re weak. It’s because they’ve been strong for too long."
+      ],
+      disgust: [
+        "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+        "Disgust is the one human emotion that guarantees loyalty.",
+        "I'm not arguing, I'm just explaining why I'm right."
+      ],
+      fear: [
+        "Worrying about outcomes over which I have no control is punishing myself before the universe has decided whether I ought to be punished.",
+        "Never let the future disturb you. You will meet it, if you have to, with the same weapons of reason which today arm you against the present.",
+        "Our anxiety does not empty tomorrow of its sorrows, but only empties today of its strengths.",
+      ],
+      anger: [
+        "Holding on to anger is like grasping a hot coal with the intent of throwing it at someone else; you are the one who gets burned.",
+        "Never go to bed mad. Stay up and fight.",
+        "It's not about avoiding the things that make you angry; it's about learning how to control your reactions to them.",
+      ]
+    };
+  
+    // Array of emotions
+    const emotions = ["joy", "sadness", "disgust", "fear", "anger"];
+  
+    // Randomly shuffle the array
+    for (let i = emotions.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [emotions[i], emotions[j]] = [emotions[j], emotions[i]];
+    }
+  
+    // Create buttons and append them to the container
+    const buttonContainer = document.getElementById("buttonContainer");
+    emotions.forEach(emotion => {
+      const randomQuoteIndex = Math.floor(Math.random() * quotes[emotion].length);
+      const randomQuote = quotes[emotion][randomQuoteIndex];
+  
+      const button = document.createElement("button");
+      button.classList.add("button");
+      button.textContent = randomQuote;
+      button.addEventListener("click", function() {
+        localStorage.setItem("emotion2", JSON.stringify(emotion));
+      });
+      buttonContainer.appendChild(button);
+    });
+  });
+  
