@@ -1,0 +1,128 @@
+/* style for all texts*/
+/*@font-face{
+    font-family: AnekDevanagari;
+    src: url("assets/font/AnekDevanagari-VariableFont_wdth,wght.ttf");
+}*/
+*{
+    font-family:  sans-serif;
+    color:white;
+}
+
+/* background */
+html, body{
+    height: 100%;
+    /* background gradient */
+    background-image: linear-gradient(
+      to bottom,
+      rgb(65,48,112)50%,
+      rgb(101,84,204)
+    );
+    overflow: hidden;
+}
+/* header 1 */
+h1{
+    text-align: center;
+    font-size: calc(6vh + 2vw);
+    font-weight: 600;
+    margin-left: 20%;
+    margin-right: 20%;
+    position: relative;
+    height: 8vh;
+    margin-bottom: 2vh;
+}
+
+/* vectors for background */
+.rightvector {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    max-width: 50%;
+    max-height: 100%;
+}
+  
+.leftvector {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    max-width: 50%;
+    max-height: 100%;
+}
+
+/* container (form) */
+.container {
+    animation: fadeInAnimation ease 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    margin-left: calc(25% - 8px);
+    margin-top: 20vh;
+    font-size: calc(4vh + 0.9vw);
+}
+
+/* input boxes */
+input{
+    border: none;
+    border-radius: .8vh;
+    padding: 0.8vh;
+    color: black;
+    float: right;
+    font-size: calc(3vh);
+}
+/* alignments */
+#name{
+    margin-right: 35%;
+}
+#month{
+    width: 5vh;
+}
+#date{
+    width: 5vh;
+    margin-left: 1vh;
+    margin-right: 1vh;
+}
+#year{
+    width: 10vh;
+    margin-right: 35%
+}
+
+/* select box to match input boxes */
+select{
+    font-size: 3vh;
+    padding: 0.8vh;
+    border: none;
+    border-radius: .8vh;
+    float: right;
+    margin-right: 35%;
+    color: black;
+}
+option {
+    color: black;
+}
+
+/* navigation elements */
+button{
+    border: none;
+    border-radius: 2vh;
+
+    background-color: rgb(65,48,112);
+    align-self: center;
+    width: 25%;
+    height: 7vh;
+    padding: 2vh 2vh;
+    line-height: 1em;
+    font-weight: bold;
+    font-size: calc(1vh + 1vw);
+}
+
+
+#traversal {
+    margin-left: 25%;
+    margin-right: 25%;
+    position: relative;
+    text-align: center;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

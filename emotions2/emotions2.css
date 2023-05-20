@@ -1,0 +1,147 @@
+/* fonts */
+@font-face{
+  font-family: AnekDevanagari;
+  src: url(assets/font/AnekDevanagari-VariableFont_wdth,wght.ttf);
+}
+*{
+  font-family: 'AnekDevanagari', sans-serif;
+}
+
+body{
+  /* background gradient */
+  background-image: linear-gradient(
+    to left,
+    rgb(176,148,255),
+    rgb(146,122,235) 47% ,
+    rgb(101,84,204)
+  );
+  color:white;
+  overflow: hidden;
+}
+
+h1{
+  text-align: center;
+  font-size: calc(2vh + 2vw);
+  font-weight: 600;
+  margin-left: 20%;
+  margin-right: 20%;
+  position: relative;
+  height: 8vh;
+  margin-bottom: 2vh;
+}
+
+.container {
+  animation: fadeInAnimation ease 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  text-align: center;
+  margin-top: 4vh;
+  height: 100vh;
+  width: 100%;
+}
+
+/* vectors for background */
+.rightvector {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  max-width: 50%;
+  max-height: 100%;
+}
+
+.leftvector {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  max-width: 50%;
+  max-height: 100%;
+}
+
+/* buttons */
+.buttons {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
+
+}
+
+button {
+  /* rounded borders */
+  border: none;
+  border-radius: 2vh;
+
+  background-color: rgba(65,48,112,.7);
+  color:white;
+
+  padding: 2vh 2vh;
+  font-size: calc(0.9vh + 0.9vw);
+  margin-bottom: 2vh;
+  width: 55%; /* Adjust the width as needed */
+  height: 10vh;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* navigation buttons */
+#traversal {
+  margin-left: 25%;
+  margin-right: 25%;
+  position: relative;
+  text-align: center;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  height: 20vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#back {
+  background-color: rgb(65,48,112);
+  align-self: center;
+  width: 25%;
+  height: 10vh;
+  line-height: 1em;
+  font-weight: bold;
+  font-size: calc(1vh + 1vw);
+}
+
+#next {
+  background-color: rgb(65,48,112);
+  align-self: center;
+  width: 25%;
+  height: 10vh;
+  line-height: 1em;
+  font-weight: bold;
+  font-size: calc(1vh + 1vw);
+
+}
+
+/* animate fade in */
+.images {
+  animation: fadeInAnimation ease 1.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (max-width: 860px) {
+  button {
+    width: 80%; /* Adjust the width for smaller screens */
+  }
+}
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
