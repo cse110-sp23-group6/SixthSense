@@ -78,8 +78,8 @@ left: 4%;
 z-index: 1;
 font-size: 8vh;
 text-align: center;
-width: 25%;
-height: 40%;
+width: 20%;
+height: 30%;
 display: inline-block;
 }
 
@@ -90,8 +90,8 @@ top: 80%;
 right: 4%;
 font-size: 8vh;
 z-index: 1;
-width: 25%;
-height: 40%;
+width: 20%;
+height: 30%;
 }
 
 .button-left, .button-right {
