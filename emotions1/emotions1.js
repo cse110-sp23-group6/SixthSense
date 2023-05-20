@@ -103,3 +103,54 @@ function shuffle(arr){
     return arr;
 }
 
+
+// Function to handle the button click event
+function handleButtonClick(index) {
+    // Store the selected emotion in local storage
+    localStorage.setItem('selectedEmotion', index);
+  }
+  
+  // Function to handle the back button click event
+  function handleBackButtonClick() {
+    // Perform the necessary action for going back
+    console.log('Going back');
+  }
+  
+  // Function to handle the next button click event
+  function handleNextButtonClick() {
+    // Perform the necessary action for going next
+    console.log('Going next');
+  }
+  
+  // Retrieve the buttons and images
+  const buttons = document.querySelectorAll('.round-button');
+  const images = document.querySelectorAll('.leftvector');
+  
+  // Add event listeners to the buttons
+  buttons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      handleButtonClick(index);
+    });
+  });
+  
+  // Retrieve the stored emotion on page load
+  const storedEmotion = localStorage.getItem('selectedEmotion');
+  if (storedEmotion !== null) {
+    // add logic here to handle the previously selected emotion
+  }
+  
+  // Navigation buttons
+  const backButton = document.querySelector('.button-left');
+  const nextButton = document.querySelector('.button-right');
+  
+  backButton.addEventListener('click', handleBackButtonClick);
+  nextButton.addEventListener('click', handleNextButtonClick);
+
+
+
+
+
+
+
+
+
