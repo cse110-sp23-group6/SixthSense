@@ -1,12 +1,11 @@
 /* style for all texts*/
-/*@font-face{
+@font-face{
     font-family: AnekDevanagari;
-    src: url("assets/font/AnekDevanagari-VariableFont_wdth,wght.ttf");
-}*/
-*{
-    font-family:  sans-serif;
-    color:white;
+    src: url(../font/AnekDevanagari-VariableFont_wdth\,wght.ttf);
 }
+*{
+    font-family: 'AnekDevanagari', sans-serif;
+  }
 
 /* background */
 html, body{
@@ -17,6 +16,7 @@ html, body{
       rgb(65,48,112)50%,
       rgb(101,84,204)
     );
+    color:white;
     overflow: hidden;
 }
 /* header 1 */
@@ -98,12 +98,18 @@ option {
     color: black;
 }
 
+select:invalid,
+select option[value=""] {
+  color: gray;
+}
+
 /* navigation elements */
 button{
     border: none;
     border-radius: 2vh;
 
     background-color: rgb(65,48,112);
+    color:white;
     align-self: center;
     width: 25%;
     height: 7vh;
@@ -113,6 +119,9 @@ button{
     font-size: calc(1vh + 1vw);
 }
 
+button:hover {
+    transform: scale(1.1);
+}
 
 #traversal {
     margin-left: 25%;

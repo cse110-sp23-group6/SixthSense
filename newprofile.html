@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <title>New Profile Page</title>
-  <link rel="stylesheet" type="text/css" href="newprofile.css">
-  <script src="newprofile.js" type="module"></script>
+  <link rel="stylesheet" type="text/css" href="assets/styles/newprofile.css">
+  <script src="assets/scripts/newprofile.js" type="module"></script>
 </head>
 <body>
     <!-- vectors -->
     <div class="images">
-        <img src="assets/pics/newprofileleftback.png" class="leftvector">
-        <img src="assets/pics/newprofileleftfront.png" class="leftvector">
-        <img src="assets/pics/newprofileright.png" class="rightvector">
+        <img src="assets/images/newprofileleftback.png" class="leftvector">
+        <img src="assets/images/newprofileleftfront.png" class="leftvector">
+        <img src="assets/images/newprofileright.png" class="rightvector">
     </div>
     <!-- title -->
     <h1 id="title">Create Profile</h1>
@@ -28,10 +28,11 @@
         <br>
         <!-- relationship status -->
         <label for="status">Relationship Status:</label>
-        <select id="status">
+        <select id="status" required>
+            <option id="holder" value="" disabled selected hidden>select status</option>
             <option value="single">Single</option>
-            <option value="inRelationship">In a Relationship</option>
-            <option value="complicated">it's complicated</option>
+            <option value="inRelationship">In a relationship</option>
+            <option value="complicated">It's complicated</option>
             <option value="married">Married</option>
         </select>
         <br>     
