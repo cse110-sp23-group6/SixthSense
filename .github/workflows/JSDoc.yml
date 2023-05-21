@@ -1,21 +1,20 @@
-name: JSDoc Convention Check
-
+name: JSDoc Workflow
 on:
   push:
     branches:
       - main
-      - master
 
 jobs:
-  lint:
+  build:
+    name: Build and Document
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v2
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run JSDoc convention check
-        run: npm run jsdoc:check
+      - name: Generate JSDoc documentation
+        uses: andstor/jsdoc-action@v1.2.1
