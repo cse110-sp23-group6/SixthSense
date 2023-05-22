@@ -1,3 +1,18 @@
+/*
+ * File Name: emotions2.js
+ * Purpose: randomly show quotes and save results to local storage in "emotions2"
+ * 
+ * @param quotes - the quotes to be shown categorized by emotion
+ * @param {array} emotions - the 5 emotions
+ * @param buttonContainer - documentID of div where we will be adding buttons
+ * @param randomQuoteIndex - index of the quote (randomized) of the category
+ * @param randomQuote - the quote to be displayed
+ * @param button - each button that will be added
+ * 
+ * @return emotions2 - name of the emotion that the person chose
+ */
+
+
 // JavaScript code to randomize button order and set a randomly chosen quote as the text content of each button
 document.addEventListener("DOMContentLoaded", function() {
     // Object with quotes for each emotion
