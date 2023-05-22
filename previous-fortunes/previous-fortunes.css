@@ -26,7 +26,7 @@ h1 {
     margin-top: 3%;
     position: relative;
     height: 8vh;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
 }
 
 .leftvector {
@@ -44,12 +44,11 @@ h1 {
 
 .profile {
     text-align: center;
-    max-width: 500px;
-    width: 30vw;
+    margin-top: 2%;
+    width: 25%;
     border-radius: 20px;
     height: 65vh;
     max-height: 800px;
-    margin: 20px;
     background-color: rgba(65, 48, 112, 0.75);
     text-overflow: ellipsis;
     overflow: hidden;
@@ -80,40 +79,52 @@ h1 {
 
 .list {
     height: 65vh;
-    width: 65vw;
+    width: 68%;
     overflow: auto;
-    margin: 20px;
+    float: right;
     border-radius: 20px;
     background-color: rgba(65, 48, 112, 0.75);
     border-collapse: separate;
-    border-spacing: 15px;
+    border-spacing: 20px;
 }
 
-.entry {
-    display: block;
-    background-color: rgba(175, 164, 241, 0.75);
-    font-size: 2.7vmin;
-    text-overflow: ellipsis;
+.readingEntry{
+    width: 95%;
+    height: 10vh;
+    /* entry box */
+    white-space: nowrap;
     overflow: hidden;
-    white-space:nowrap;
-    width: 48vw;
-    max-height: 10vh;
-    border-radius: 15px;
-    padding-left: 2vw;
-    padding-top: 1.5vh;
-    padding-right: 2vw;
+    text-overflow: ellipsis;
+    border-radius: 5px;
+    background-color: rgba(175, 164, 241, 0.75);
+    padding: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    /* font */
+    font-size: 30px;
 }
 
-.date {
-    background-color: rgba(175, 164, 241, 0.75);
-    text-align: center;
-    font-weight: 500;
-    font-size: 2.6vmin;
-    padding-left: 1vw;
-    padding-top: 0.75vh;
-    padding-right: 1vw;
-    border-radius: 15px;
+#expanded-content{
+    background-color: lightblue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    padding: 5px;
+    border: none;
+    width: 70%;
+    height: 70%;
 }
+
+.expanded-box {
+    display: none; /* Initially hide the expanded box */
+  }
+  
+  .expanded {
+    display: block; /* Show the expanded box when expanded class is added */
+  }
+  
 
 #back, #next {
     margin-left: 25%;
