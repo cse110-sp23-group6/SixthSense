@@ -62,13 +62,17 @@ document.addEventListener("DOMContentLoaded", function() {
     const randomQuoteIndex = Math.floor(Math.random() * quotes[emotion].length);
     const randomQuote = quotes[emotion][randomQuoteIndex];
     
-    //create butto
+    //create button
     const button = document.createElement("button");
     button.classList.add("button");
     button.textContent = randomQuote;
     //when they click a button, you send the emotion to local storage
     button.addEventListener("click", function() {
-      localStorage.setItem("emotion2", JSON.stringify(emotion));
+      const emotion2 = {
+        emotion: emotion,
+        timestamp: new Date().toISOString()
+      }
+      localStorage.setItem("emotion2", JSON.stringify(emotion2));
     });
     //add it to the page
   buttonContainer.appendChild(button);
@@ -78,15 +82,15 @@ document.addEventListener("DOMContentLoaded", function() {
 /* 
  * function: eventListener for back
  * purpose: navigate back to emotions1.html
- */
+ 
 document.getElementById("back").addEventListener("click", function() {
   document.location.href = "emotions1.html";
 });
 /* 
  * function: eventListener for next
  * purpose: navigate forward to readings.html
- */
+ 
 document.getElementById("next").addEventListener("click", function() {
   document.location.href = "reading.html";
-});
+});*/
 
