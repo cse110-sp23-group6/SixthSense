@@ -37,12 +37,14 @@ let set3 = {
 // Generate a new set of images on page load. 
 window.onload = function() {
 
-    // Access the element
-    let angerButton = document.getElementById("anger");
-    let disgustButton = document.getElementById("disgust");
-    let fearButton = document.getElementById("fear");
-    let joyButton = document.getElementById("joy");
-    let sadnessButton = document.getElementById("sadness");
+    // Access the element containers, generic ids before set 
+    // Numbers in order from left to right
+    // Default order: anger, disgust, fear, joy, sadness
+    let firstButton = document.getElementById("one");
+    let secondButton = document.getElementById("two");
+    let thirdButton = document.getElementById("three");
+    let fourthButton = document.getElementById("four");
+    let fifthButton = document.getElementById("five");
 
     
     // Select random set 
@@ -52,14 +54,32 @@ window.onload = function() {
     // Generate shuffled list to randomize order within the set 
     let nums = [0, 1, 2, 3, 4]; 
     let shuffled = shuffle(nums);
+    console.log(shuffled);
 
     // Make all images from that set, without repeats 
-    imageSet(randSet, joyButton, shuffled[0]);
-    imageSet(randSet, angerButton, shuffled[1]);
-    imageSet(randSet, disgustButton, shuffled[2]);
-    imageSet(randSet, fearButton, shuffled[3]);
-    imageSet(randSet, sadnessButton, shuffled[4]);
+    imageSet(randSet, firstButton, shuffled[0]);
+    imageSet(randSet, secondButton, shuffled[1]);
+    imageSet(randSet, thirdButton, shuffled[2]);
+    imageSet(randSet, fourthButton, shuffled[3]);
+    imageSet(randSet, fifthButton, shuffled[4]);
 
+    //when they click a button, you send the emotion to local storage
+    firstButton.addEventListener("click", function() {
+      console.log(firstButton.id);
+    });
+    secondButton.addEventListener("click", function() {
+      console.log(secondButton.id);
+    });
+    thirdButton.addEventListener("click", function() {
+      console.log(thirdButton.id);
+    });
+    fourthButton.addEventListener("click", function() {
+      console.log(fourthButton.id);
+    });
+    fifthButton.addEventListener("click", function() {
+      console.log(fifthButton.id);
+    });
+       
 };
 
 /**
@@ -85,12 +105,26 @@ window.onload = function() {
     let idx = int + 1;
     let selectedSet = eval(`set${idx}`);
 
-    // Acess the corresponding button (ie: "joy")
-    let attribute = button.getAttribute('id'); 
-
+    // Update button id to correspond to image 
+    if(selectedSet[index].search("anger") != -1) {
+      button.id = "anger";
+    }
+    else if(selectedSet[index].search("joy") != -1) {
+      button.id = "joy";
+    }
+    else if(selectedSet[index].search("sadness") != -1) {
+      button.id = "sadness";
+    }
+    else if(selectedSet[index].search("fear") != -1) {
+      button.id = "fear";
+    }
+    else {
+      button.id = "disgust";
+    }
+  
     // Display image in random order from the set 
     button.setAttribute("src", selectedSet[index]);
-    
+  
 }
 
 /**
