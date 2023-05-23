@@ -82,20 +82,22 @@ h1 {
     width: 68%;
     overflow: auto;
     float: right;
-    border-radius: 20px;
+    border-radius: 15px;
     background-color: rgba(65, 48, 112, 0.75);
     border-collapse: separate;
     border-spacing: 20px;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
 .readingEntry{
-    width: 95%;
+    width: 99%;
     height: 10vh;
     /* entry box */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    border-radius: 5px;
+    border-radius: 15px;
     background-color: rgba(175, 164, 241, 0.75);
     padding: 5px;
     margin-bottom: 5px;
@@ -105,16 +107,24 @@ h1 {
 }
 
 #expanded-content{
-    background-color: lightblue;
+    background-color: rgba(65, 48, 112, 0.95);
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-30%, -40%);
     font-size: 30px;
-    padding: 5px;
+    padding: 20px;
     border: none;
-    width: 70%;
-    height: 70%;
+    border-radius: 10px;
+    width: 68%; /* Adjust the width to match the list box */
+    height: 0; /* Start with a height of 0 */
+    z-index: 1; /* Set a higher z-index to position it in front */
+    overflow: hidden; /* Hide content that exceeds the height */
+    transition: height 0.3s ease-in-out; /* Add a transition effect */
+}
+
+.expanded {
+    height: 65vh; /* Expand to the desired height */
 }
 
 .expanded-box {
@@ -125,7 +135,9 @@ h1 {
     display: block; /* Show the expanded box when expanded class is added */
   }
   
-
+.close-button{
+    background-color: blue;
+}
 #back, #next {
     margin-left: 25%;
     margin-right: 25%;

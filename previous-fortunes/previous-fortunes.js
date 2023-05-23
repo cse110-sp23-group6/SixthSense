@@ -5,6 +5,7 @@ for (let i = 0; i < listItems.length; i++) {
   listItems[i].addEventListener('click', function() {
     const selectedItem = this.textContent;
     expandedContent.textContent = selectedItem;
+    expandedContent.style.height = '0'; // Set initial height to 0
     expandedContent.classList.add('expanded');
 
     // Create and append the close button
@@ -18,5 +19,10 @@ for (let i = 0; i < listItems.length; i++) {
       expandedContent.classList.remove('expanded');
       expandedContent.removeChild(closeButton); // Remove the close button
     });
+
+    // Trigger the animation after a short delay to allow for height update
+    setTimeout(() => {
+      expandedContent.style.height = '65vh'; // Set the final expanded height
+    }, 10);
   });
 }
