@@ -65,21 +65,27 @@ window.onload = function () {
   imageSet(randSet, fifthButton, shuffled[4])
 
   // Check button id is properly assigned (use for local storage later)
+  // Send to local storager
   firstButton.addEventListener ('click', function() {
+    localStorage.setItem("emotion1", JSON.stringify(firstButton.id));
     console.log(firstButton.id)
   })
   secondButton.addEventListener ('click', function() {
+    localStorage.setItem("emotion1", JSON.stringify(secondButton.id));
     console.log(secondButton.id)
   })
   thirdButton.addEventListener ('click', function() {
+    localStorage.setItem("emotion1", JSON.stringify(thirdButton.id));
     console.log(thirdButton.id)
   })
   fourthButton.addEventListener ('click', function() {
+    localStorage.setItem("emotion1", JSON.stringify(fourthButton.id));
     console.log(fourthButton.id)
   })
   fifthButton.addEventListener ('click', function() {
+    localStorage.setItem("emotion1", JSON.stringify(fifthButton.id));
     console.log(fifthButton.id)
-  }) 
+  })
 };
 
 /**
@@ -135,6 +141,7 @@ function shuffle (arr){
   return arr;
 }
 
+// TODO: delete this ? 
 // Function to handle the button click event
 function handleButtonClick (index) {
   // Store the selected emotion in local storage
@@ -157,18 +164,13 @@ function handleNextButtonClick () {
 const buttons = document.querySelectorAll('.round-button');
 const images = document.querySelectorAll('.leftvector');
 
+// TODO: do we need this?
 // Add event listeners to the buttons
 buttons.forEach((button, index) => {
   button.addEventListener('click', () => {
     handleButtonClick(index)
   })
 })
-
-// Retrieve the stored emotion on page load
-const storedEmotion = localStorage.getItem('selectedEmotion');
-if (storedEmotion !== null) {
-  // add logic here to handle the previously selected emotion
-}
 
 // Navigation buttons
 const backButton = document.querySelector('.button-left')
