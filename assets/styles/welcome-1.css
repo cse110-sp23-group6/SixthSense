@@ -107,7 +107,7 @@ header {
 button {
 	background-color: #413070;
 	color: white;
-	padding: 15px;
+	padding: 2vmas;
 	border-radius: 12px;
 	font-size: 20px;
 	margin-right: 30px;
@@ -115,6 +115,7 @@ button {
 	border: none;
 	font-weight: bold;
 	transition: transform 0.3s ease;
+	border: 2px solid;
 }
 
 /* Style the main button on hover */
@@ -131,15 +132,17 @@ main {
 	justify-content: center;
 	height: 80vh;
 	text-align: center;
-	margin: 0;
+	margin-top: 2vh;
 }
 
 /* Style the main content title */
 h1 {
 	color: white;
-	font-size: 85px;
-	margin: 0;
+	font-size: max(20vh, 40px);
 	margin-bottom: 0;
+	border: 2px solid;
+	margin-top: 2vh;
+
 }
 
 /* Style the main content buttons */
@@ -154,6 +157,7 @@ h1 {
 	width: 300px;
 	height: 40px; 
 	transition: transform 0.3s ease;
+	border: 2px solid;
 }
 
 /* Style the main content buttons on hover */
