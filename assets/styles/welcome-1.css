@@ -5,18 +5,16 @@ body {
 	font-family: 'Anek Devanagari', sans-serif;
 	position: relative;
 	background-image: 
-		linear-gradient(281.58deg, #9760B9 16.06%, rgba(78, 61, 181, 0.26) 89.61%),
+		linear-gradient(281.58deg, #9760B9 16.06%, rgba(78 61 181 / 26%) 89.61%),
 		linear-gradient(134.31deg, #6554CC 61.9%, #8A78F5 95.78%),
 		linear-gradient(258.13deg, #7645C6 51.11%, #332845 95.05%);
-		
 	background-size: cover;
 	background-attachment: fixed;
-
 	animation: fadeInAnimation ease 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 	
-  }
+}
 /* .images {
   animation: fadeInAnimation ease 1.5s;
   animation-iteration-count: 1;
@@ -82,7 +80,6 @@ body {
 	mix-blend-mode: normal;
 	transform: matrix(-1, 0, 0, 1, 0, 0);
 } */
-  
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
@@ -107,11 +104,11 @@ header {
 button {
 	background-color: #413070;
 	color: white;
-	padding: 2vmas;
+	padding: 15px;
 	border-radius: 12px;
-	font-size: 20px;
-	margin-right: 30px;
-	margin-top: 20px;
+	font-size: max(calc(2vh + 2vw), 10px);
+	margin-right: 3vw;
+	margin-top: 2vh;
 	border: none;
 	font-weight: bold;
 	transition: transform 0.3s ease;
@@ -120,7 +117,7 @@ button {
 
 /* Style the main button on hover */
 button:hover {
-	background-color: rgba(65,48,112,.7);
+	background-color: rgba(65 48 112 / 70%);
 	transform: scale(1.1);
 }
 
@@ -133,29 +130,38 @@ main {
 	height: 80vh;
 	text-align: center;
 	margin-top: 2vh;
+	border: 2px solid;
 }
 
 /* Style the main content title */
 h1 {
 	color: white;
-	font-size: max(20vh, 40px);
-	margin-bottom: 0;
+	font-size: max(15vh, 40px);
 	border: 2px solid;
-	margin-top: 2vh;
+	margin: 1vh;
+	position: absolute;
 
+}
+
+#top-line {
+	top: 5vh;
+}
+
+#bottom-line{
+	top: 24vh;
 }
 
 /* Style the main content buttons */
 .inner-button {
 	border: none;
-	font-size: 24px;
-	padding: 25px 40px;
+	font-size: 10vh;
+	padding: 1vh;
 	background-color: rgb(65, 48, 112);
 	color: white;
 	border-radius: 12px;
 	margin: 15px;
-	width: 300px;
-	height: 40px; 
+	width: 60vw;
+	height: 20vh; 
 	transition: transform 0.3s ease;
 	border: 2px solid;
 }
