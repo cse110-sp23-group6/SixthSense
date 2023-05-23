@@ -119,8 +119,13 @@ button{
     font-size: calc(1vh + 1vw);
 }
 
-button:hover {
+button:hover:enabled {
     transform: scale(1.1);
+}
+
+button:disabled {
+    background-color: gray;
+    color:lightgray;
 }
 
 #traversal {
