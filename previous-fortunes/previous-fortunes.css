@@ -136,7 +136,13 @@ h1 {
   }
   
 .close-button{
-    background-color: blue;
+    background-color: rgba(175, 164, 241, 0.75);
+    border: none;
+    border-radius: 10px;
+    font-size: 30px;
+    text-align: center;
+    justify-content: center;
+    height: 10%;
 }
 #back, #next {
     margin-left: 25%;
