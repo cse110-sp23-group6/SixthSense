@@ -32,11 +32,11 @@ function validateInput (event) {
     submitButton.disabled = true
   }
 
-  const yearValid = yearBox.value.match(numbers);
-  const dateValid = dateBox.value.match(numbers);
-  const monthValid = monthBox.value.match(numbers);
-  const nameValid = nameBox.value.match(letters);
-  const statusValue = statusBox.value;
+  const yearValid = yearBox.value.match(numbers)
+  const dateValid = dateBox.value.match(numbers)
+  const monthValid = monthBox.value.match(numbers)
+  const nameValid = nameBox.value.match(letters)
+  const statusValue = statusBox.value
 
   // If everything is inputed correctly, allow for submitting
   if (yearValid && dateValid && monthValid && nameValid && statusValue !== '') {
@@ -50,11 +50,11 @@ function validateInput (event) {
  */
 function handleSubmit () {
   // Get input values
-  const name = nameBox.value;
-  const year = yearBox.value;
-  const date = dateBox.value;
-  const month = monthBox.value;
-  const status = statusBox.value;
+  const name = nameBox.value
+  const year = yearBox.value
+  const date = dateBox.value
+  const month = monthBox.value
+  const status = statusBox.value
 
   // Create an object to store the form data
   const formData = {
