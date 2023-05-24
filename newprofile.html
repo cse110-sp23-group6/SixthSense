@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>New Profile Page</title>
+  <link rel="stylesheet" type="text/css" href="assets/styles/newprofile.css">
+  <script src="assets/scripts/newprofile.js" type="module"></script>
+</head>
+<body>
+    <!-- vectors -->
+    <div class="images">
+        <img src="assets/images/newprofileleftback.png" class="leftvector">
+        <img src="assets/images/newprofileleftfront.png" class="leftvector">
+        <img src="assets/images/newprofileright.png" class="rightvector">
+    </div>
+    <!-- title -->
+    <h1 id="title">Create Profile</h1>
+    <!-- form part -->
+    <div class="container">
+        <!-- name -->
+        <label for="name">Name: </label>
+        <input type="text" id="name" required>
+        <br>
+        <!-- birthday -->
+        <label for="birthday">Birthday:</label>
+        <input type="text" id="year" placeholder = "yyyy" maxlength="4" oninput="validateNumberInput(this)" required>
+        <input type="text" id="date" placeholder = "dd" maxlength="2" oninput="validateNumberInput(this)" required>
+        <input type="text" id="month" placeholder = "mm" maxlength="2" oninput="validateNumberInput(this)" required>
+        <br>
+        <!-- relationship status -->
+        <label for="status">Relationship Status:</label>
+        <select id="status" required>
+            <option id="holder" value="" disabled selected hidden>select status</option>
+            <option value="single">Single</option>
+            <option value="inRelationship">In a relationship</option>
+            <option value="complicated">It's complicated</option>
+            <option value="married">Married</option>
+        </select>
+        <br>     
+    </div>
+    <!-- buttons to go home or create profile -->
+    <div class="buttons">
+        <nav id="traversal">
+            <button id="home">Home</button>
+            <button id="submit">Submit</button>
+        </nav>
+    </div>
+</body>
+</html>

@@ -1,5 +1,5 @@
 body {
-    background-image: url(assets/todays-bg.png);
+    background-image: url(../images/choose-fortune/todays-bg.png);
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -37,14 +37,14 @@ body {
 }
 
 .layer1 {
-    background-image: url(assets/v1.png);
+    background-image: url(../images/choose-fortune/v1.png);
     opacity: 0;
     animation-delay: 2.5s;
     animation: fadeIn 0.5s ease-in forwards;
 }
 
 .layer2 {
-    background-image: url(assets/v2.png);
+    background-image: url(../images/choose-fortune/v2.png);
     opacity: 0;
     animation-delay: 3s;
     animation: fadeIn 1s ease-in forwards;

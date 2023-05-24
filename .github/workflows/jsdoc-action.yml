@@ -1,0 +1,18 @@
+name: JSDoc Action Patch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build and Document
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Generate JSDoc documentation
+        uses: zhennann/jsdoc-action@v1.2.1

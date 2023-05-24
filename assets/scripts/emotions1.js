@@ -6,31 +6,31 @@
 //Set 1: Abstract Paints 
 let set1 = {
  
-    0: "assets/selectionpics/anger1.png",
-    1: "assets/selectionpics/disgust1.png",
-    2: "assets/selectionpics/fear1.png",
-    3: "assets/selectionpics/joy1.png",
-    4: "assets/selectionpics/sadness1.png"
+    0: "assets/images/selectionpics/anger1.png",
+    1: "assets/images/selectionpics/disgust1.png",
+    2: "assets/images/selectionpics/fear1.png",
+    3: "assets/images/selectionpics/joy1.png",
+    4: "assets/images/selectionpics/sadness1.png"
     
 };
 //Set 2: Fantasy Scapes 
 let set2 = {
  
-    0: "assets/selectionpics/anger2.png",
-    1: "assets/selectionpics/disgust2.png",
-    2: "assets/selectionpics/fear2.png",
-    3: "assets/selectionpics/joy2.png",
-    4: "assets/selectionpics/sadness2.png"
+    0: "assets/images/selectionpics/anger2.png",
+    1: "assets/images/selectionpics/disgust2.png",
+    2: "assets/images/selectionpics/fear2.png",
+    3: "assets/images/selectionpics/joy2.png",
+    4: "assets/images/selectionpics/sadness2.png"
 
 };
 //Set 3: Landscapes 
 let set3 = {
  
-    0: "assets/selectionpics/anger3.png" ,
-    1: "assets/selectionpics/disgust3.png" ,
-    2: "assets/selectionpics/fear3.png",
-    3: "assets/selectionpics/joy3.png",
-    4: "assets/selectionpics/sadness3.png"
+    0: "assets/images/selectionpics/anger3.png" ,
+    1: "assets/images/selectionpics/disgust3.png" ,
+    2: "assets/images/selectionpics/fear3.png",
+    3: "assets/images/selectionpics/joy3.png",
+    4: "assets/images/selectionpics/sadness3.png"
 
 };
 
@@ -102,4 +102,55 @@ function shuffle(arr){
     for(var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
     return arr;
 }
+
+
+// Function to handle the button click event
+function handleButtonClick(index) {
+    // Store the selected emotion in local storage
+    localStorage.setItem('selectedEmotion', index);
+  }
+  
+  // Function to handle the back button click event
+  function handleBackButtonClick() {
+    // Perform the necessary action for going back
+    console.log('Going back');
+  }
+  
+  // Function to handle the next button click event
+  function handleNextButtonClick() {
+    // Perform the necessary action for going next
+    console.log('Going next');
+  }
+  
+  // Retrieve the buttons and images
+  const buttons = document.querySelectorAll('.round-button');
+  const images = document.querySelectorAll('.leftvector');
+  
+  // Add event listeners to the buttons
+  buttons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      handleButtonClick(index);
+    });
+  });
+  
+  // Retrieve the stored emotion on page load
+  const storedEmotion = localStorage.getItem('selectedEmotion');
+  if (storedEmotion !== null) {
+    // add logic here to handle the previously selected emotion
+  }
+  
+  // Navigation buttons
+  const backButton = document.querySelector('.button-left');
+  const nextButton = document.querySelector('.button-right');
+  
+  backButton.addEventListener('click', handleBackButtonClick);
+  nextButton.addEventListener('click', handleNextButtonClick);
+
+
+
+
+
+
+
+
 
