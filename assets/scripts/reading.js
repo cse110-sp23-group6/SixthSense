@@ -3,6 +3,10 @@ import { randomArrayItem } from "./helpers.js";
 
 const SECONDS_PER_DAY = 86400;
 
+/**
+ * Runs on page initialization. Generates a reading based on emotion1 and emotion2
+ * and records it to localstorage.
+ */
 async function init() {
 	const urlParams = new URLSearchParams(window.location.search);
 	const currentUnixTimestamp = Date.now() / 1000.;
@@ -32,15 +36,17 @@ async function init() {
 		window.location.href = "emotions2.html" + window.location.search;
 	}
 
+	// Calculate overall emotion based on emotion1 and emotion2
 	const emotion1 = emotion1Obj.emotion;
 	const emotion2 = emotion2Obj.emotion;
 	const overallEmotion = EMOTIONS_TABLE[emotion1][emotion2];
 	
+	// Generate a random reading from readings list
 	let reading = randomArrayItem(READINGS[readingType][overallEmotion]);
 	auraImage.src = `assets/emotion_auras/${overallEmotion}.gif`;
-
 	readingBox.textContent = reading;
 
+	// Update localstorage
 	let currentReadings = JSON.parse(localStorage.getItem("readings"));
 	if (currentReadings == null) {
 		currentReadings = [];
