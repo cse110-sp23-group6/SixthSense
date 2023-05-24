@@ -178,3 +178,4 @@ const nextButton = document.querySelector('.button-right')
 
 backButton.addEventListener('click', handleBackButtonClick)
 nextButton.addEventListener('click', handleNextButtonClick)
+
