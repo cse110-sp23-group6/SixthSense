@@ -21,22 +21,22 @@ $(document).ready(function() {
         delay += 100;
     });
 
-    const love_div = document.getElementById("love_div");
+    const love_div = document.getElementById("love-div");
     love_div.addEventListener("click", function() {
         handleNavigation("love");
     });
 
-    const career_div = document.getElementById("career_div");
+    const career_div = document.getElementById("career-div");
     career_div.addEventListener("click", function() {
         handleNavigation("career");
     });
     
-    const health_div = document.getElementById("health_div");
+    const health_div = document.getElementById("health-div");
     health_div.addEventListener("click", function() {
         handleNavigation("health");
     });
 
-    const friends_and_family_div = document.getElementById("friends_and_family_div");
+    const friends_and_family_div = document.getElementById("friends-and-family-div");
     friends_and_family_div.addEventListener("click", function() {
         handleNavigation("friends_and_family");
     });
