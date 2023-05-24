@@ -79,7 +79,7 @@ button {
   font-size: calc(0.9vh + 0.9vw);
   margin-bottom: 2vh;
   width: 55%; /* Adjust the width as needed */
-  height: 10vh;
+  height: 11vh;
 }
 
 button:hover {
