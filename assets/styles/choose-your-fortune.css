@@ -65,28 +65,27 @@ h1 {
 
 .fortune-box {
     display: inline-block;
-    width: 200px;
-    height: 200px;
-    border-radius: 20px;
-    margin: 2px;
+    width: max(28vh, 20px);
+    height: 28vh;
+    border-radius: 1vw;
+    margin: 1vw;
     background-color: rgba(255, 255, 255, 0.2);
-    padding: 2px;
+    padding: 0.1vw;
     transition: transform 0.25s ease;
     opacity: 0;
     animation: fadeIn 1s ease-in forwards;
     animation-delay: 2s; /* delay this animation until after text animation */
-    border: 2px solid;
 }
 
 .fortune-box img {
-    width: auto;
-    height: 15vh;
-    margin-top: 20px;
+    width: 18vh;
+    height: 18vh;
+    margin-top: 2vh;
     transition: transform 0.25s ease;
 }
 
 .fortune-box p {
-    font-size: 4vh;
+    font-size: 3vh;
     color: #ffffff;
 }
 
@@ -97,4 +96,3 @@ h1 {
 .fortune-box:hover img {
     transform: scale(1.25);
 }
-
