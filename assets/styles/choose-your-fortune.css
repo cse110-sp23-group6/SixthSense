@@ -75,6 +75,7 @@ h1 {
     opacity: 0;
     animation: fadeIn 1s ease-in forwards;
     animation-delay: 2s; /* delay this animation until after text animation */
+    cursor: pointer;
 }
 
 .fortune-box img {

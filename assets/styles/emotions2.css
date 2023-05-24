@@ -80,6 +80,7 @@ button {
   margin-bottom: 2vh;
   width: 55%; /* Adjust the width as needed */
   height: 10vh;
+  cursor: pointer;
 }
 
 button:hover {

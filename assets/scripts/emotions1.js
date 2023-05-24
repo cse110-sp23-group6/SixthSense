@@ -1,4 +1,5 @@
-import { shuffleArray } from "./helpers.js";
+import { shuffleArray, randomInt } from "./helpers.js";
+import { READING_TYPES } from "./constants.js";
 /**
  * Randomly generate one set of images to show for each emotion. 
  * The order of images within each set is randomized as well. 
@@ -34,7 +35,16 @@ let set3 = {
 };
 
 // Generate a new set of images on page load. 
-window.onload = function () {
+function init() {
+  // Kick out of the flow if reading type hasn't been set (i.e. rea)
+  const urlParams = new URLSearchParams(window.location.search);
+
+	let readingType = urlParams.get("reading");
+	if (readingType == null || !READING_TYPES.includes(readingType)) {
+		window.location.href = "choose-your-fortune.html";
+	}
+
+  // Move on to next page if it 
 
   // Access the element
   let angerButton = document.getElementById("anger");
@@ -64,7 +74,7 @@ window.onload = function () {
 
   // Select random set 
   let randSet;
-  randSet = randomInt(0, sets.length - 1);
+  randSet = randomInt(0, 2);
 
   // Generate shuffled list to randomize order within the set 
   let shuffledIndices = shuffleArray([0, 1, 2, 3, 4]);
@@ -76,6 +86,8 @@ window.onload = function () {
   imageSet(randSet, fearButton, shuffledIndices[3]);
   imageSet(randSet, sadnessButton, shuffledIndices[4]);
 };
+
+window.addEventListener('DOMContentLoaded', init);
 
 /**
  * Finds the set corresponding to the passed in integer, and fills the 
@@ -101,32 +113,20 @@ function imageSet(int, button, index) {
 // Function to handle the button click event
 function handleEmotionButtonClick(emotion) {
   // Store the selected emotion in local storage
-  localStorage.setItem('emotion1', {
+  localStorage.setItem('emotion1', JSON.stringify({
     emotion: emotion,
     timestamp: Date.now() / 1000.
-  });
+  }));
 }
 
 // Function to handle the back button click event
-function handleBackButtonClick() {
-  // Perform the necessary action for going back
-  console.log('Going back');
+function handleNextButtonClick() {
+	window.location.href = "emotions2.html" + window.location.search;
 }
 
 // Function to handle the next button click event
-function handleNextButtonClick() {
-  // Perform the necessary action for going next
-  console.log('Going next');
-}
-
-// Retrieve the buttons and images
-const buttons = document.querySelectorAll('.round-button');
-const images = document.querySelectorAll('.leftvector');
-
-// Retrieve the stored emotion on page load
-const storedEmotion = localStorage.getItem('selectedEmotion');
-if (storedEmotion !== null) {
-  // add logic here to handle the previously selected emotion
+function handleBackButtonClick() {
+  window.location.href = "choose-your-fortune.html";
 }
 
 // Navigation buttons

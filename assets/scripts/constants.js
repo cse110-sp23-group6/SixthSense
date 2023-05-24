@@ -1,7 +1,14 @@
 // Array of emotions
-export const EMOTIONS = ["joy", "sadness", "disgust", "fear", "anger"];
+export const RAW_EMOTIONS = ["joy", "sadness", "disgust", "fear", "anger"];
 
 export const READING_TYPES = [
+	"career",
+	"health",
+	"love",
+	"friends_and_family"
+]
+
+export const EMOTIONS = [
 	"ecstasy",
 	"melancholy",
 	"intrigue",

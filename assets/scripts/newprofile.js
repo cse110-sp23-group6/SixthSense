@@ -5,17 +5,17 @@ function showSelectedOption(selectedOption) {
   selectBox.innerHTML = '<option value="' + status + '" selected>' + selectedOption + '</option>';
 }
 
-  function validateNumberInput(input) {
-    var value = input.value;
-    
-    // Remove any non-digit characters from the input value
-    var cleanedValue = value.replace(/\D/g, '');
-    
-    // Update the input value with the cleaned value
-    input.value = cleanedValue;
-  }
+function validateNumberInput(input) {
+  var value = input.value;
 
-  // Function to handle form submission
+  // Remove any non-digit characters from the input value
+  var cleanedValue = value.replace(/\D/g, '');
+
+  // Update the input value with the cleaned value
+  input.value = cleanedValue;
+}
+
+// Function to handle form submission
 function handleSubmit() {
   // Get input values
   var name = document.getElementById("name").value;
@@ -40,4 +40,3 @@ function handleSubmit() {
 // Attach event listener to the submit button
 var submitButton = document.getElementById("submit");
 submitButton.addEventListener("click", handleSubmit);
-  

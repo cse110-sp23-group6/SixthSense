@@ -1,4 +1,4 @@
-import { READINGS, EMOTIONS_TABLE, READING_TYPES } from "./constants.js";
+import { READINGS, EMOTIONS_TABLE, EMOTIONS, READING_TYPES } from "./constants.js";
 import { randomArrayItem } from "./helpers.js";
 
 const SECONDS_PER_DAY = 86400;
