@@ -1,5 +1,5 @@
 //formattedReadings
-var formattedReadings = [
+let formattedReadings = [
   {
     date: "May 17, 2023",
     reading: "I sense that your love life may be filled with passion, excitement, and deep emotional connections with your partner. You may feel deeply in love and connected to your partner, and you may be experiencing a sense of joy and fulfillment in your relationship. Remember to cherish and nurture your feelings of ecstasy and stay open to new possibilities and experiences that come with it."
@@ -41,7 +41,7 @@ var formattedReadings = [
 localStorage.setItem('formattedReadings', JSON.stringify(formattedReadings));
 
 //newReading
-var newReading = {
+let newReading = {
     date: "May 18 2023",
     reading: "This is a test to check if my check for new reading and then add it to the formattedReadings list as well as adding it to the list on the screen works. If this doesn't work I'm going to literally cry. Hopefully this works and I don't have to worry about this stuff no more."
 };
