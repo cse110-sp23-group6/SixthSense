@@ -26,7 +26,7 @@ function validateInput (event) {
   if (id === 'name' && !input.match(letters)) {
     submitButton.disabled = true
   }
-  
+
   // Check if Birthday inputs are not valid
   if (id !== 'name' && id !== 'status' && !input.match(numbers)) {
     submitButton.disabled = true
