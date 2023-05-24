@@ -1,3 +1,7 @@
+var formattedReadings = localStorage.getItem('formattedReadings')
+  ? JSON.parse(localStorage.getItem('formattedReadings'))
+  : [];
+
 function createEntries(listItems) {
   for (let i = 0; i < listItems.length; i++) {
     listItems[i].addEventListener('click', function() {
@@ -58,13 +62,34 @@ function openSelectedItem() {
   }
 }
 
+function deleteSelectedItem() {
+  var selectedItem = document.querySelector('.selected');
+  if (selectedItem) {
+    // Delete the selected item from the list
+    selectedItem.remove();
 
+    // Remove the corresponding entry from formattedReadings array
+    var selectedText = selectedItem.innerText;
+    var selectedDate = selectedText.split(' - ')[0];
+
+    formattedReadings = formattedReadings.filter(function(reading) {
+      return reading.date !== selectedDate;
+    });
+
+    // Update the formattedReadings in local storage
+    localStorage.setItem('formattedReadings', JSON.stringify(formattedReadings));
+
+    console.log('Deleted:', selectedText);
+  } else {
+    console.log('No item selected.');
+  }
+}
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Check if formatted readings exist in local storage
+  /*// Check if formatted readings exist in local storage
   var formattedReadings = localStorage.getItem('formattedReadings')
     ? JSON.parse(localStorage.getItem('formattedReadings'))
-    : [];
+    : [];*/
 
   // Get the <ul> element to populate
   var ulElement = document.getElementById('readingList');
@@ -108,4 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   var openButton = document.getElementById('openButton');
   openButton.addEventListener('click', openSelectedItem);
+
+  var deleteButton = document.getElementById('delete');
+  deleteButton.addEventListener('click', deleteSelectedItem);
 });
