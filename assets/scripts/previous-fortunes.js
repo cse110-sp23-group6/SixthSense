@@ -2,17 +2,17 @@ document.addEventListener('DOMContentLoaded', function() {
   // Check if readings exist in local storage
   if (localStorage.getItem('readings')) {
     // Retrieve the readings from local storage
-    var readings = JSON.parse(localStorage.getItem('readings'));
+    let readings = JSON.parse(localStorage.getItem('readings'));
 
     // Get the <ul> element to populate
-    var ulElement = document.getElementById('readingList');
+    let ulElement = document.getElementById('readingList');
 
     // Create an array to store the dynamically created <li> elements
-    var liElements = [];
+    let liElements = [];
 
     // Loop through the readings and create <li> elements
     readings.forEach(function(reading) {
-      var liElement = document.createElement('li');
+      let liElement = document.createElement('li');
       liElement.innerText = reading.date + ' - ' + reading.reading;
       ulElement.appendChild(liElement);
 

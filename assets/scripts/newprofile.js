@@ -1,15 +1,15 @@
 /* show what they chose on the select box */
 function showSelectedOption(selectedOption) {
-  var selectBox = document.getElementById("status");
-  var selectedOption = selectBox.options[selectBox.selectedIndex].text;
+  let selectBox = document.getElementById("status");
+  let selectedOption = selectBox.options[selectBox.selectedIndex].text;
   selectBox.innerHTML = '<option value="' + status + '" selected>' + selectedOption + '</option>';
 }
 
 function validateNumberInput(input) {
-  var value = input.value;
+  let value = input.value;
 
   // Remove any non-digit characters from the input value
-  var cleanedValue = value.replace(/\D/g, '');
+  let cleanedValue = value.replace(/\D/g, '');
 
   // Update the input value with the cleaned value
   input.value = cleanedValue;
@@ -18,14 +18,14 @@ function validateNumberInput(input) {
 // Function to handle form submission
 function handleSubmit() {
   // Get input values
-  var name = document.getElementById("name").value;
-  var year = document.getElementById("year").value;
-  var date = document.getElementById("date").value;
-  var month = document.getElementById("month").value;
-  var status = document.getElementById("status").value;
+  let name = document.getElementById("name").value;
+  let year = document.getElementById("year").value;
+  let date = document.getElementById("date").value;
+  let month = document.getElementById("month").value;
+  let status = document.getElementById("status").value;
 
   // Create an object to store the form data
-  var formData = {
+  let formData = {
     name: name,
     year: year,
     date: date,
@@ -38,5 +38,5 @@ function handleSubmit() {
 }
 
 // Attach event listener to the submit button
-var submitButton = document.getElementById("submit");
+let submitButton = document.getElementById("submit");
 submitButton.addEventListener("click", handleSubmit);
