@@ -84,7 +84,7 @@ h2 {
     color: white;
     font-family: 'Anek Devanagari', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size:1.5rem;
-    opacity: .8;
+    opacity: 1;
 }
 
 #aura-image {
@@ -152,8 +152,9 @@ h2 {
     top: 0;
     left: 0;
     z-index: -1; 
-    max-width: 50%;
+    max-width: 80%;
     max-height: 100%;
+    opacity: .8;
   }
 
 
@@ -163,6 +164,6 @@ h2 {
     right: 0;
     bottom: 0;
     z-index: -1; 
-    max-width: 50%;
+    max-width: 70%;
     max-height: 100%;
   }
