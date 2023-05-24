@@ -79,7 +79,6 @@ h1 {
 }
 
 .fortune-box img {
-    display: none;
     width: auto;
     height: 15vh;
     margin-top: 20px;
