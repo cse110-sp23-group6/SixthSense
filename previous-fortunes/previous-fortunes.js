@@ -1,4 +1,4 @@
-var formattedReadings = localStorage.getItem('formattedReadings')
+let formattedReadings = localStorage.getItem('formattedReadings')
   ? JSON.parse(localStorage.getItem('formattedReadings'))
   : [];
 
@@ -23,7 +23,7 @@ function createEntries(listItems) {
 
 // Function to create the close button for the expanded content
 function createCloseButton() {
-  var closeButton = document.createElement('button');
+  let closeButton = document.createElement('button');
   closeButton.className = 'close-button';
   closeButton.innerText = 'Close';
   closeButton.addEventListener('click', closeExpandedContent);
@@ -32,27 +32,27 @@ function createCloseButton() {
 
 // Function to close the expanded content
 function closeExpandedContent() {
-  var expandedContent = document.getElementById('expanded-content');
+  let expandedContent = document.getElementById('expanded-content');
   expandedContent.classList.remove('expanded');
 }
 
 // Function to open the selected list item
 function openSelectedItem() {
-  var selectedItem = document.querySelector('.selected');
+  let selectedItem = document.querySelector('.selected');
   if (selectedItem) {
     // Open the selected item (perform the desired action)
     // For example:
     console.log('Opening:', selectedItem.innerText);
-    var text = selectedItem.innerText;
+    let text = selectedItem.innerText;
     
     // Get the expanded content element
-    var expandedContent = document.getElementById('expanded-content');
+    let expandedContent = document.getElementById('expanded-content');
     
     // Clear the content
     expandedContent.innerHTML = text;
     
     // Add the close button to the expanded content
-    var closeButton = createCloseButton();
+    let closeButton = createCloseButton();
     expandedContent.appendChild(closeButton);
     
     // Add the expanded class to show the expanded content
@@ -63,14 +63,14 @@ function openSelectedItem() {
 }
 
 function deleteSelectedItem() {
-  var selectedItem = document.querySelector('.selected');
+  let selectedItem = document.querySelector('.selected');
   if (selectedItem) {
     // Delete the selected item from the list
     selectedItem.remove();
 
     // Remove the corresponding entry from formattedReadings array
-    var selectedText = selectedItem.innerText;
-    var selectedDate = selectedText.split(' - ')[0];
+    let selectedText = selectedItem.innerText;
+    let selectedDate = selectedText.split(' - ')[0];
 
     formattedReadings = formattedReadings.filter(function(reading) {
       return reading.date !== selectedDate;
@@ -92,14 +92,14 @@ document.addEventListener('DOMContentLoaded', function() {
     : [];*/
 
   // Get the <ul> element to populate
-  var ulElement = document.getElementById('readingList');
+  let ulElement = document.getElementById('readingList');
 
   // Create an array to store the dynamically created <li> elements
-  var liElements = [];
+  let liElements = [];
 
   // Function to add a reading to the list
   function addReadingToList(reading) {
-    var liElement = document.createElement('li');
+    let liElement = document.createElement('li');
     liElement.innerText = reading.date + ' - ' + reading.reading;
     ulElement.appendChild(liElement); // Append to the end
     liElements.push(liElement);
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Check if there is a new reading in local storage
   if (localStorage.getItem('newReading')) {
-    var newReading = JSON.parse(localStorage.getItem('newReading'));
+    let newReading = JSON.parse(localStorage.getItem('newReading'));
 
     // Check if the new reading has the correct properties
     if (newReading.hasOwnProperty('date') && newReading.hasOwnProperty('reading')) {
@@ -131,9 +131,9 @@ document.addEventListener('DOMContentLoaded', function() {
   createEntries(liElements); // Move the function call here
 
   
-  var openButton = document.getElementById('openButton');
+  let openButton = document.getElementById('openButton');
   openButton.addEventListener('click', openSelectedItem);
 
-  var deleteButton = document.getElementById('delete');
+  let deleteButton = document.getElementById('delete');
   deleteButton.addEventListener('click', deleteSelectedItem);
 });
