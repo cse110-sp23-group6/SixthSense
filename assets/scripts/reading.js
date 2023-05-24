@@ -40,6 +40,18 @@ async function init() {
 	auraImage.src = `assets/emotion_auras/${overallEmotion}.gif`;
 
 	readingBox.textContent = reading;
+
+	let currentReadings = JSON.parse(localStorage.getItem("readings"));
+	if (currentReadings == null) {
+		currentReadings = [];
+	}
+
+	currentReadings.push({
+		date: (new Date()).toISOString(),
+		reading: reading
+	});
+
+	localStorage.setItem("readings", JSON.stringify(currentReadings));
 }
 
 window.addEventListener('DOMContentLoaded', init);

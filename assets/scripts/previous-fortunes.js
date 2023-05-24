@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Check if formatted readings exist in local storage
-  if (localStorage.getItem('formattedReadings')) {
-    // Retrieve the formatted readings from local storage
-    var formattedReadings = JSON.parse(localStorage.getItem('formattedReadings'));
+  // Check if readings exist in local storage
+  if (localStorage.getItem('readings')) {
+    // Retrieve the readings from local storage
+    var readings = JSON.parse(localStorage.getItem('readings'));
 
     // Get the <ul> element to populate
     var ulElement = document.getElementById('readingList');
@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create an array to store the dynamically created <li> elements
     var liElements = [];
 
-    // Loop through the formatted readings and create <li> elements
-    formattedReadings.forEach(function(reading) {
+    // Loop through the readings and create <li> elements
+    readings.forEach(function(reading) {
       var liElement = document.createElement('li');
       liElement.innerText = reading.date + ' - ' + reading.reading;
       ulElement.appendChild(liElement);

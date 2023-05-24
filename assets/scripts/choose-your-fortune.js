@@ -1,3 +1,5 @@
+const SECONDS_PER_DAY = 86400;
+
 $(document).ready(function() {
     let headerText = $('#header-text');
     let text = headerText.text();
@@ -21,25 +23,41 @@ $(document).ready(function() {
 
     const love_div = document.getElementById("love_div");
     love_div.addEventListener("click", function() {
-        navigateToEmotion("love");
+        handleNavigation("love");
     });
 
     const career_div = document.getElementById("career_div");
     career_div.addEventListener("click", function() {
-        navigateToEmotion("career");
+        handleNavigation("career");
     });
     
     const health_div = document.getElementById("health_div");
     health_div.addEventListener("click", function() {
-        navigateToEmotion("health");
+        handleNavigation("health");
     });
 
     const friends_and_family_div = document.getElementById("friends_and_family_div");
     friends_and_family_div.addEventListener("click", function() {
-        navigateToEmotion("friends_and_family");
+        handleNavigation("friends_and_family");
     });
 });
 
-function navigateToEmotion(type) {
-    window.location.assign("emotions1.html?reading=" + type);
+function handleNavigation(type) {
+	const emotion1Obj = JSON.parse(localStorage.getItem("emotion1"));
+	const emotion2Obj = JSON.parse(localStorage.getItem("emotion2"));
+	const currentUnixTimestamp = Date.now() / 1000.;
+
+	// If no emotion1 is set or emotion1 was set > 12 hours ago, redirect to emotion1
+	if (emotion1Obj == null ||
+			emotion1Obj.emotion == null ||
+			currentUnixTimestamp - emotion1Obj.timestamp > SECONDS_PER_DAY / 2) {
+        window.location.assign("emotions1.html?reading=" + type);
+        // If no emotion2 is set or emotion2 was set > 12 hours ago, redirect to emotion1
+    } else if (emotion2Obj == null ||
+			emotion2Obj.emotion == null ||
+			currentUnixTimestamp - emotion1Obj.timestamp > SECONDS_PER_DAY / 2) {
+        window.location.assign("emotions2.html?reading=" + type);
+	} else {
+        window.location.assign("reading.html?reading=" + type);
+    }
 }
