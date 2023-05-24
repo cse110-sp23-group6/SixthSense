@@ -37,7 +37,7 @@ h2 {
     font-weight: 600;
     padding: 1rem;
 
-    height: 2em;
+    height: 12vh;
     width: auto;
     top: 80vh;
     position: absolute;
@@ -85,11 +85,15 @@ h2 {
     padding:2px;
     color: black;
     font-family: 'Anek Devanagari', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size:1.5rem;
-    right: 12.5vw;
-    position: absolute;
     width: 45vw;
-    top: 35vh;
+    height: inherit;
+    align-items: center;
+    left: 46vw;
+    position: absolute;
+    top: 31vh;
+    font-size: 1.35rem;
+    height: 40vh;
+
 }
 
 #aura-image {
@@ -133,16 +137,18 @@ h2 {
 }
 
 #create-profile {
-    margin-top: 1.5rem;
-    grid-row: 4;
-    grid-column: 2;
+    position: absolute;
+    right: 10vw;
+    height: 12vh;
+    width: auto;
+    font-size: calc(2vh+2vw);
 }
 
 #your-reading{
     font-family: 'Anek Devanagari', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 3rem;
-    grid-row: 2;
+    font-size:  max(7vh, 7px);    grid-row: 2;
     grid-column: 2;    
+    height: max(40vh, 10vw);
     text-align: center;
 }
 
@@ -157,3 +163,4 @@ h2 {
     flex-direction: row;
     justify-content: flex-end;
 }
+
