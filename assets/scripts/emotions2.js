@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     joy: [
       'I can\'t change the direction of the wind, but I can adjust my sails to always reach my destination.',
       'The future belongs to those who believe in the beauty of their dreams.',
-      'The best way to cheer yourself up is to try to cheer somebody else up.' 
+      'The best way to cheer yourself up is to try to cheer somebody else up.'
     ],
     sadness: [
       'The greater your capacity to love, the greater your capacity to feel the pain.',
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Create buttons and append them to the container
-  const buttonContainer = document.getElementById('buttonContainer');
+  const buttonContainer = document.getElementById('buttonContainer')
   emotions.forEach(emotion => {
     // choose random quote from each category
     const randomQuoteIndex = Math.floor(Math.random() * quotes[emotion].length)
@@ -79,9 +79,9 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 document.getElementById('back').addEventListener('click', function () {
-  location.href = 'emotions1.html';
+  location.href = 'emotions1.html'
 })
 
 document.getElementById('next').addEventListener('click', function () {
-  location.href = 'reading.html';
+  location.href = 'reading.html'
 })
