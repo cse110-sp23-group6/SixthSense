@@ -65,12 +65,12 @@ h1 {
 
 .fortune-box {
     display: inline-block;
-    width: 28vh;
-    height: 28vh;
+    width: 200px;
+    height: 200px;
     border-radius: 20px;
-    margin: 4vh;
+    margin: 2px;
     background-color: rgba(255, 255, 255, 0.2);
-    padding: 2vh;
+    padding: 2px;
     transition: transform 0.25s ease;
     opacity: 0;
     animation: fadeIn 1s ease-in forwards;
@@ -79,6 +79,7 @@ h1 {
 }
 
 .fortune-box img {
+    display: none;
     width: auto;
     height: 15vh;
     margin-top: 20px;
@@ -97,3 +98,4 @@ h1 {
 .fortune-box:hover img {
     transform: scale(1.25);
 }
+
