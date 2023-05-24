@@ -52,9 +52,9 @@ body {
 
 h1 {
     font-family: 'Anek Devanagari', sans-serif;
-    font-size: 48px;
+    font-size: 10vh;
     color: white;
-    margin-top: 200px;
+    margin-top: 12vh;
     font-weight: 750;
 }
 
@@ -65,16 +65,17 @@ h1 {
 
 .fortune-box {
     display: inline-block;
-    width: 200px;
-    height: 200px;
+    width: 22vh;
+    height: 22vh;
     border-radius: 20px;
-    margin: 20px;
+    margin: 4vh;
     background-color: rgba(255, 255, 255, 0.2);
     padding: 10px;
     transition: transform 0.25s ease;
     opacity: 0;
     animation: fadeIn 1s ease-in forwards;
     animation-delay: 2s; /* delay this animation until after text animation */
+    border: 2px solid;
 }
 
 .fortune-box img {
