@@ -1,6 +1,6 @@
-$(document).ready(function() {
-    let headerText = $('#header-text');
-    let text = headerText.text();
+document.addEventListener("DOMContentLoaded", function() {
+    let headerText = document.getElementById('header-text');
+    let text = headerText.textContent;
     let html = '';
 
     for(let i = 0; i < text.length; i++) {
@@ -11,11 +11,13 @@ $(document).ready(function() {
         }
     }
 
-    headerText.html(html);
+    headerText.innerHTML = html;
 
     let delay = 100; // time in milliseconds between each character
-    $('.header-hidden').each(function() {
-        $(this).delay(delay).animate({opacity: 1}, 200);
+    document.querySelectorAll('.header-hidden').forEach(function(elem) {
+        setTimeout(function() {
+            elem.style.opacity = 1;
+        }, delay);
         delay += 100;
     });
 });
