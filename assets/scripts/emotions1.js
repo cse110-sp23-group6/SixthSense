@@ -36,8 +36,8 @@ const set3 = {
 const sets = [
   set1,
   set2,
-  set3,
-];
+  set3
+]
 
 // Generate a new set of images on page load.
 window.onload = function () {
@@ -51,13 +51,14 @@ window.onload = function () {
   const fifthButton = document.getElementById('five')
 
   // Select random set
-  let randSet = randomInt(3)
+  let randSet = -1
+  randSet = randomInt(3)
 
   // Generate shuffled list to randomize order within the set
   const nums = [0, 1, 2, 3, 4]
   const shuffled = shuffle(nums)
 
-  // Make all images from that set, without repeats 
+  // Make all images from that set, without repeats
   imageSet(randSet, firstButton, shuffled[0])
   imageSet(randSet, secondButton, shuffled[1])
   imageSet(randSet, thirdButton, shuffled[2])
@@ -66,27 +67,27 @@ window.onload = function () {
 
   // Check button id is properly assigned (use for local storage later)
   // Send to local storager
-  firstButton.addEventListener ('click', function() {
-    localStorage.setItem("emotion1", JSON.stringify(firstButton.id));
+  firstButton.addEventListener('click', function () {
+    localStorage.setItem('emotion1', JSON.stringify(firstButton.id))
     console.log(firstButton.id)
   })
-  secondButton.addEventListener ('click', function() {
-    localStorage.setItem("emotion1", JSON.stringify(secondButton.id));
+  secondButton.addEventListener('click', function () {
+    localStorage.setItem('emotion1', JSON.stringify(secondButton.id))
     console.log(secondButton.id)
   })
-  thirdButton.addEventListener ('click', function() {
-    localStorage.setItem("emotion1", JSON.stringify(thirdButton.id));
+  thirdButton.addEventListener('click', function () {
+    localStorage.setItem('emotion1', JSON.stringify(thirdButton.id))
     console.log(thirdButton.id)
   })
-  fourthButton.addEventListener ('click', function() {
-    localStorage.setItem("emotion1", JSON.stringify(fourthButton.id));
+  fourthButton.addEventListener('click', function () {
+    localStorage.setItem('emotion1', JSON.stringify(fourthButton.id))
     console.log(fourthButton.id)
   })
-  fifthButton.addEventListener ('click', function() {
-    localStorage.setItem("emotion1", JSON.stringify(fifthButton.id));
+  fifthButton.addEventListener('click', function () {
+    localStorage.setItem('emotion1', JSON.stringify(fifthButton.id))
     console.log(fifthButton.id)
   })
-};
+}
 
 /**
  * Given an integer input, outputs a random integer value between
@@ -99,7 +100,7 @@ function randomInt (val) {
 }
 
 /**
-* Finds the set corresponding to the passed in integer, and fills the 
+* Finds the set corresponding to the passed in integer, and fills the
 * button content to display the corresponding image.
 * @param {*} int - the randomly generated integer.
 * @param {*} button - the button to place the quote in.
@@ -111,70 +112,28 @@ function imageSet (int, button, index) {
   const selectedSet = sets[idx]
 
   // Update button id to correspond to image
-  if(selectedSet[index].search('anger') != -1) {
+  if (selectedSet[index].search('anger') !== -1) {
     button.id = 'anger'
-  }
-  else if(selectedSet[index].search('joy') != -1) {
+  } else if (selectedSet[index].search('joy') !== -1) {
     button.id = 'joy'
-  }
-  else if(selectedSet[index].search('sadness') != -1) {
+  } else if (selectedSet[index].search('sadness') !== -1) {
     button.id = 'sadness'
-  }
-  else if(selectedSet[index].search('fear') != -1) {
+  } else if (selectedSet[index].search('fear') !== -1) {
     button.id = 'fear'
-  }
-  else {
+  } else {
     button.id = 'disgust'
   }
 
-  // Display image in random order from the set 
+  // Display image in random order from the set
   button.setAttribute('src', selectedSet[index])
 }
 
 /**
- * Provides a random shuffling of the passed in integer array. 
- * @param {*} arr - the passed in integer array to be shuffled. 
- * @returns shuffled array that is the same size as the original. 
+ * Provides a random shuffling of the passed in integer array.
+ * @param {*} arr - the passed in integer array to be shuffled.
+ * @returns shuffled array that is the same size as the original.
  */
-function shuffle (arr){
-  for(var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
+function shuffle (arr) {
+  for (let j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x)
   return arr;
 }
-
-// TODO: delete this ? 
-// Function to handle the button click event
-function handleButtonClick (index) {
-  // Store the selected emotion in local storage
-  localStorage.setItem('selectedEmotion', index)
-}
-  
-// Function to handle the back button click event
-function handleBackButtonClick () {
-  // Perform the necessary action for going back
-  console.log('Going back')
-}
-
-// Function to handle the next button click event
-function handleNextButtonClick () {
-  // Perform the necessary action for going next
-  console.log('Going next')
-}
-
-// Retrieve the buttons and images
-const buttons = document.querySelectorAll('.round-button');
-const images = document.querySelectorAll('.leftvector');
-
-// TODO: do we need this?
-// Add event listeners to the buttons
-buttons.forEach((button, index) => {
-  button.addEventListener('click', () => {
-    handleButtonClick(index)
-  })
-})
-
-// Navigation buttons
-const backButton = document.querySelector('.button-left')
-const nextButton = document.querySelector('.button-right')
-
-backButton.addEventListener('click', handleBackButtonClick)
-nextButton.addEventListener('click', handleNextButtonClick)
