@@ -134,6 +134,9 @@ function imageSet (int, button, index) {
  * @returns shuffled array that is the same size as the original.
  */
 function shuffle (arr) {
-  for (let j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x)
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
   return arr;
 }
