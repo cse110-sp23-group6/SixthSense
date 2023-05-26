@@ -19,5 +19,5 @@ jobs:
         with:
           source_dir: ./assets/scripts
           recurse: true
-          output_dir: ./assets/scripts
+          output_dir: ./assets/scripts/documentation
 
