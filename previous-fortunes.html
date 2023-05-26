@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>Previous Fortunes Page</title>
-  <link rel="stylesheet" type="text/css" href="assets/styles/choose-your-fortune.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/previous-fortunes.css">
   <script src="assets/scripts/previous-fortunes.js" type="module"></script>
 </head>
 
@@ -10,25 +10,31 @@
     <h1 id="title">Previous Fortunes</h1>
 
     <div class="profile">
-        <img src="assets/pics/spongebob.jpg" class="profilepic">
+        <img src="assets/images/spongebob.jpg" class="profilepic">
         <p class="name">Spongebob Squarepants</p>
         <p class="info">21 years old</p>
         <p class="info">9 fortunes total</p>
     </div>
 
-    <ul id="readingList">
-    </ul>
+    <button id="openButton">Open</button>
+    
+    <div class="list-container">
+        <ul id="readingList">
+            <!-- List items go here -->
+        </ul>
+    </div>
+
 
     <div class="expanded-box" id="expanded-content"></div>
 
     <nav id="traversal">
         <button id="back">Back</button>
-        <button id="next">Delete Fortune</button>
+        <button id="delete">Delete Fortune</button>
     </nav>
 
     <div class="vectors">
-        <img src="assets/pics/vector3.png" class="leftvector">
-        <img src="assets/pics/vector2.png" class="leftvector">
+        <img src="assets/images/prevfortunes-vector3.png" class="leftvector">
+        <img src="assets/images/prevfortunes-vector2.png" class="leftvector">
     </div>
 </body>
 </html>

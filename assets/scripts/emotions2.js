@@ -1,4 +1,4 @@
-/*
+/**
  * File Name: emotions2.js
  * Purpose: randomly show quotes and save results to local storage in "emotions2"
  */

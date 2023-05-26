@@ -38,7 +38,7 @@ $(document).ready(function () {
 
   const friendsAndFamilyDiv = document.getElementById('friends-and-family-div')
   friendsAndFamilyDiv.addEventListener('click', function () {
-    handleNavigation('friends-and-family')
+    handleNavigation('friends_and_family')
   })
 })
 

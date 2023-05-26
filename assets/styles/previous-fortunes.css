@@ -77,36 +77,57 @@ h1 {
     font-size: 2.75vmin;
 }
 
+button{
+    border: none;
+    border-radius: 12px;
+    background-color: rgba(65, 48, 112, 70%);
+    font-size: 15px;
+}
+#openButton{
+  position: absolute;
+  top: 20%;
+  right: 2%;
+  font-size: 25px;
+  width: 10%;
+  justify-content: center;
+}
 ul {
+    position: absolute;
+    top: 30%;
+    right: 2%;
     height: 65vh;
     width: 68%;
     overflow: auto;
     float: right;
     border-radius: 15px;
     background-color: rgba(65, 48, 112, 0.75);
-    border-collapse: separate;
     border-spacing: 20px;
     padding-left: .5%;
     padding-right: .5%;
 }
 
 li{
-    width: 99%;
+    width: 98%;
     height: 10vh;
     /* entry box */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    align-items: center;
     border-radius: 15px;
     background-color: rgba(175, 164, 241, 0.75);
-    padding: 5px;
-    margin-bottom: 5px;
-    margin-top: 5px;
+    padding: .5%;
+    margin-bottom: .5%;
+    margin-top: .5%;
     /* font */
     font-size: 30px;
 }
 
-#expanded-content{
+.selected{
+    box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff, inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#expanded-content {
     background-color: rgba(65, 48, 112, 0.95);
     position: absolute;
     top: 50%;
@@ -117,14 +138,9 @@ li{
     border: none;
     border-radius: 10px;
     width: 68%; /* Adjust the width to match the list box */
-    height: 0; /* Start with a height of 0 */
     z-index: 1; /* Set a higher z-index to position it in front */
     overflow: hidden; /* Hide content that exceeds the height */
     transition: height 0.3s ease-in-out; /* Add a transition effect */
-}
-
-.expanded {
-    height: 65vh; /* Expand to the desired height */
 }
 
 .expanded-box {
@@ -132,6 +148,7 @@ li{
   }
   
   .expanded {
+    height: 65vh; /* Expand to the desired height */
     display: block; /* Show the expanded box when expanded class is added */
   }
   
@@ -142,8 +159,9 @@ li{
     font-size: 30px;
     text-align: center;
     justify-content: center;
-    height: 10%;
+    float: right;
 }
+
 #back, #next {
     margin-left: 25%;
     margin-right: 25%;

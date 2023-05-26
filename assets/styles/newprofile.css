@@ -1,26 +1,29 @@
-/* style for all texts*/
-@font-face{
+/* style for all texts */
+@font-face {
     font-family: AnekDevanagari;
-    src: url(../font/AnekDevanagari-VariableFont_wdth\,wght.ttf);
+    src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
 }
-*{
-    font-family: 'AnekDevanagari', sans-serif;
-  }
+
+* {
+    font-family: AnekDevanagari, sans-serif;
+}
 
 /* background */
-html, body{
+html, body {
     height: 100%;
+
     /* background gradient */
     background-image: linear-gradient(
       to bottom,
-      rgb(65,48,112)50%,
-      rgb(101,84,204)
+      rgb(65 48 112)50%,
+      rgb(101 84 204)
     );
     color:white;
     overflow: hidden;
 }
+
 /* header 1 */
-h1{
+h1 {
     text-align: center;
     font-size: calc(6vh + 2vw);
     font-weight: 600;
@@ -34,16 +37,16 @@ h1{
 /* vectors for background */
 .rightvector {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 0;
+    right: 0;
     max-width: 50%;
     max-height: 100%;
 }
   
 .leftvector {
     position: absolute;
-    bottom: 0px;
-    left: 0px;
+    bottom: 0;
+    left: 0;
     max-width: 50%;
     max-height: 100%;
 }
@@ -59,7 +62,7 @@ h1{
 }
 
 /* input boxes */
-input{
+input {
     border: none;
     border-radius: .8vh;
     padding: 0.8vh;
@@ -67,18 +70,22 @@ input{
     float: right;
     font-size: calc(3vh);
 }
+
 /* alignments */
 #name{
     margin-right: 35%;
 }
+
 #month{
     width: 5vh;
 }
+
 #date{
     width: 5vh;
     margin-left: 1vh;
     margin-right: 1vh;
 }
+
 #year{
     width: 10vh;
     margin-right: 35%
@@ -94,6 +101,7 @@ select{
     margin-right: 35%;
     color: black;
 }
+
 option {
     color: black;
 }
@@ -104,32 +112,33 @@ select option[value=""] {
 }
 
 /* navigation elements */
-button{
+button {
     border: none;
     border-radius: 2vh;
-
-    background-color: rgb(65,48,112);
+    background-color: rgb(65 48 112);
     color:white;
     align-self: center;
     width: 25%;
     height: 7vh;
-    padding: 2vh 2vh;
+    padding: 2vh;
     line-height: 1em;
     font-weight: bold;
     font-size: calc(1vh + 1vw);
 }
 
-button:hover {
+button:disabled {
+    background-color: gray;
+    color:lightgray;
+}
+
+button:hover:enabled {
     transform: scale(1.1);
 }
 
 #traversal {
-    margin-left: 25%;
-    margin-right: 25%;
+    margin: 1vh 25%;
     position: relative;
     text-align: center;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
     height: 20vh;
     display: flex;
     flex-direction: row;
