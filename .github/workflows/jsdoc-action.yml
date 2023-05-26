@@ -16,3 +16,8 @@ jobs:
 
       - name: Generate JSDoc documentation
         uses: zhennann/jsdoc-action@v1.2.1
+        with:
+          source_dir: ./assets/scripts
+          recurse: true
+          output_dir: ./assets/scripts
+
