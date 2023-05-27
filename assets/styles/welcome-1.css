@@ -1,8 +1,17 @@
+@font-face {
+    font-family: AnekDevanagari;
+    src: url("assets/font/AnekDevanagari-VariableFont_wdth,wght.ttf");
+}
+
+* {
+    font-family: AnekDevanagari, sans-serif;
+    color: white;
+}
+
 /* Set default styles for the body */
 body {
 	margin-right: 0;
 	padding: 0;
-	font-family: 'Anek Devanagari', sans-serif;
 	position: relative;
 
 	/*
@@ -19,73 +28,6 @@ body {
     animation-fill-mode: forwards;
   }
 
-/* .images {
-  animation: fadeInAnimation ease 1.5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.grad1 {
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	max-width: 50%;
-	max-height: 100%;
-}
-
-.grad2 {
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	max-width: 50%;
-	max-height: 100%;
-}
-
-.grad3 {
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	max-width: 50%;
-	max-height: 100%;
-} */
-
-  /* .grad1 {
-	background-image: url(bgvector1.png);
-	top: 0px;
-	right: 0px;
-	max-width: 100vw;
-	max-height: 100vh;
-	border: 2px solid;
-}
-
-.grad2 {
-	background-image: url(bgvector2.png);
-	top: 0px;
-	right: 0px;
-	max-width: 100vw;
-	max-height: 100vh;
-	border: 2px solid;
-	display: hidden;
-}
-
-.grad3 {
-	background-image: url(bgvector3.png);
-	position: absolute;
-	width: 1042px;
-	height: 349px;
-	left: 1280px;
-	top: 690px;
-	z-index: -1;
-	display: hidden;
-
-	color: linear-gradient(258.13deg, #7645C6 51.11%, #332845 95.05%);
-	mix-blend-mode: normal;
-	transform: matrix(-1, 0, 0, 1, 0, 0);
-} */
-  
 @keyframes fade-in-animation {
     0% {
         opacity: 0;
@@ -94,12 +36,6 @@ body {
     100% {
         opacity: 1;
      }
-}
-
-
-* {
-	font-family: "AnekDevanagari", sans-serif;
-	font-weight: bold;
 }
 
 header {
