@@ -40,6 +40,10 @@ const sets = [
   set3
 ]
 
+// To save the id of the selected button
+let buttonId
+let next
+
 // Generate a new set of images on page load.
 function init() {
   const urlParams = new URLSearchParams(window.location.search)
@@ -48,6 +52,9 @@ function init() {
   if (readingType == null || !READING_TYPES.includes(readingType)) {
     window.location.href = 'choose-your-fortune.html'
   }
+  
+  next = document.getElementById('next')
+  next.disabled = true
 
   // Grab all the circular buttons
   const buttons = [
@@ -69,21 +76,21 @@ function init() {
     buttons[i].setAttribute('src', randomSet[emotion]);
 
     buttons[i].addEventListener("click", function() {
-      handleEmotionButtonClick(emotion);
+      let selected = buttons[i]
+      buttonId = selected.getAttribute('id')
+      if (selected.classList.contains('selected')) {
+        next.disabled = true
+        selected.classList.remove('selected')
+      } else {
+        next.disabled = false
+        buttons.forEach(button => {
+          button.classList.remove('selected')
+        })
+        selected.classList.add('selected')
+      }
     });
   }
-}
-
-/**
- * Writes emotion that was clicked to localstorage
- * @param {string} emotion - emotion that was clicked 
- */
-function handleEmotionButtonClick (emotion) {
-  // Store the selected emotion in local storage
-  localStorage.setItem('emotion1', JSON.stringify({
-    emotion,
-    timestamp: Date.now() / 1000.0
-  }))
+  next.addEventListener('click', handleBackButtonClick)
 }
 
 window.addEventListener('DOMContentLoaded', init)
@@ -92,6 +99,10 @@ window.addEventListener('DOMContentLoaded', init)
  * Moves to next page in flow (emotions2), and passes along desired fortune type
  */
 function handleNextButtonClick () {
+  localStorage.setItem('emotion1', JSON.stringify({
+    buttonId, 
+    timestamp: Date.now() / 1000.0
+  }))
   window.location.href = 'emotions2.html' + window.location.search
 }
 

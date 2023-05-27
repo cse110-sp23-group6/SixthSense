@@ -95,8 +95,8 @@ h1 {
   font-size: calc(1vh + 1vw);
 }
 
-.button-left,
-.button-right {
+#button-left,
+#button-right {
   align-content: center;
   align-items: center;
   border: none;
@@ -107,6 +107,20 @@ h1 {
   cursor: pointer;
   width: 50%;
   height: 30%;
+}
+
+.selected{
+  box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff, inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#button-right:disabled {
+  background-color: gray;
+  color:lightgray;
+  cursor: default;
+}
+
+button:hover:enabled {
+  transform: scale(1.1);
 }
 
 /* resizable images */

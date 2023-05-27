@@ -79,10 +79,6 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  transform: scale(1.1);
-}
-
 /* navigation buttons */
 #traversal {
   position: relative;
@@ -114,6 +110,10 @@ button:hover {
   font-size: calc(1vh + 1vw);
 }
 
+.selected{
+  box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff, inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
 /* animate fade in */
 .images {
   animation: fade-in ease 1.5s;
@@ -122,6 +122,15 @@ button:hover {
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+#next:disabled {
+  background-color: gray;
+  color:lightgray;
+}
+
+button:hover:enabled {
+  transform: scale(1.1);
 }
 
 @media (width <= 860px) {
