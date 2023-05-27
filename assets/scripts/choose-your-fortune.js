@@ -1,8 +1,8 @@
 const SECONDS_PER_DAY = 86400
 
 document.addEventListener("DOMContentLoaded", function() {
-  const headerText = $('#header-text')
-  const text = headerText.text()
+  const headerText = document.getElementById('header-text');
+  const text = headerText.textContent;
   let html = ''
 
   for (let i = 0; i < text.length; i++) {
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  headerText.html(html)
+  headerText.innerHTML = html;
 
   let delay = 100 // time in milliseconds between each character
   document.querySelectorAll('.header-hidden').forEach(function(elem) {
@@ -43,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function() {
   friendsAndFamilyDiv.addEventListener('click', function () {
     handleNavigation('friends_and_family')
   })
-})
 
 function handleNavigation (type) {
   const emotion1Obj = JSON.parse(localStorage.getItem('emotion1'))
