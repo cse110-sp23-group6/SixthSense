@@ -1,25 +1,21 @@
 /* fonts */
-@font-face{
+@font-face {
   font-family: AnekDevanagari;
   src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
 }
 
-*{
+* {
   font-family: AnekDevanagari, sans-serif;
 }
 
-body{
+body {
   /* background gradient */
-  background-image: linear-gradient(to right, 
-    hsl(254, 75%, 76%),
-    hsl(248, 70%, 68%) 47%,
-    hsl(255, 61%, 57%)
-  );
-  color:aliceblue;
+  background-image: linear-gradient(to right, #a994f0, #8474e7 47%, #704ed4);
+  color: aliceblue;
   overflow: hidden;
 }
 
-h1{
+h1 {
   text-align: center;
   margin-top: 5%;
   font-size: min(8vh, calc((4vw + 4ch) / 2));
@@ -28,7 +24,7 @@ h1{
 .container {
   text-align: center;
   align-items: center;
-  width: 80%; 
+  width: 80%;
   margin-left: 10%;
   margin-right: 10%;
   height: 100%;
@@ -47,6 +43,7 @@ h1{
   align-items: center;
   border: none;
   margin-left: -2%;
+  cursor: pointer;
 }
 
 .round-button:hover {
@@ -58,7 +55,7 @@ h1{
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1; 
+  z-index: -1;
   max-width: 50%;
   max-height: 100%;
 }
@@ -73,7 +70,7 @@ h1{
 }
 
 /* Navigation buttons */
-  .navigation-left {
+.navigation-left {
   position: absolute;
   top: 80%;
   left: 4%;
@@ -98,14 +95,15 @@ h1{
   font-size: calc(1vh + 1vw);
 }
 
-#button-left, #button-right {
+#button-left,
+#button-right {
   align-content: center;
   align-items: center;
   border: none;
   border-radius: 12px;
-  background-color: rgb(65,48,112, .7);
+  background-color: #704ed4;
   color: white;
-  font-size: 100%; 
+  font-size: 100%;
   cursor: pointer;
   width: 50%;
   height: 30%;
