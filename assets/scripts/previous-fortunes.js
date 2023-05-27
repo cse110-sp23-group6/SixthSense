@@ -1,5 +1,5 @@
-let formattedReadings = localStorage.getItem('formattedReadings')
-  ? JSON.parse(localStorage.getItem('formattedReadings'))
+let formattedReadings = localStorage.getItem('readings')
+  ? JSON.parse(localStorage.getItem('readings'))
   : [];
 
 function createEntries(listItems) {
@@ -77,7 +77,7 @@ function deleteSelectedItem() {
     });
 
     // Update the formattedReadings in local storage
-    localStorage.setItem('formattedReadings', JSON.stringify(formattedReadings));
+    localStorage.setItem('readings', JSON.stringify(formattedReadings));
 
     console.log('Deleted:', selectedText);
   } else {
@@ -106,32 +106,32 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Check if there is a new reading in local storage
-  if (localStorage.getItem('newReading')) {
-    let newReading = JSON.parse(localStorage.getItem('newReading'));
+  // if (localStorage.getItem('newReading')) {
+  //   let newReading = JSON.parse(localStorage.getItem('newReading'));
 
-    // Check if the new reading has the correct properties
-    if (newReading.hasOwnProperty('date') && newReading.hasOwnProperty('reading')) {
+  //   // Check if the new reading has the correct properties
+  //   if (newReading.hasOwnProperty('date') && newReading.hasOwnProperty('reading')) {
 
-      // Add the new reading to the beginning of the formattedReadings array
-      formattedReadings.unshift(newReading);
+  //     // Add the new reading to the beginning of the formattedReadings array
+  //     formattedReadings.unshift(newReading);
 
-      // Remove the new reading from local storage
-      localStorage.removeItem('newReading');
+  //     // Remove the new reading from local storage
+  //     localStorage.removeItem('newReading');
 
-      // Update the formattedReadings in local storage
-      localStorage.setItem('formattedReadings', JSON.stringify(formattedReadings));
-    }
-  }
-  // Loop through the existing formatted readings and add them to the list in order
-  for (var i = 0; i < formattedReadings.length; i++) {
-    addReadingToList(formattedReadings[i]);
-    console.log(formattedReadings[i]);
-  }
+  //     // Update the formattedReadings in local storage
+  //     localStorage.setItem('formattedReadings', JSON.stringify(formattedReadings));
+  //   }
+  // }
+  // // Loop through the existing formatted readings and add them to the list in order
+  // for (var i = 0; i < formattedReadings.length; i++) {
+  //   addReadingToList(formattedReadings[i]);
+  //   console.log(formattedReadings[i]);
+  // }
 
   createEntries(liElements); // Move the function call here
 
   
-  let openButton = document.getElementById('openButton');
+  let openButton = document.getElementById('open-button');
   openButton.addEventListener('click', openSelectedItem);
 
   let deleteButton = document.getElementById('delete');

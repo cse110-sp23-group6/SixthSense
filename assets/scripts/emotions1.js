@@ -3,36 +3,37 @@
  * The order of images within each set is randomized as well.
  */
 
+import { shuffleArray, randomInt } from './helpers.js'
+import { RAW_EMOTIONS } from './constants.js'
+
+
 // Set 1: Abstract Paints
 const set1 = {
-
-  0: 'assets/images/selectionpics/anger1.png',
-  1: 'assets/images/selectionpics/disgust1.png',
-  2: 'assets/images/selectionpics/fear1.png',
-  3: 'assets/images/selectionpics/joy1.png',
-  4: 'assets/images/selectionpics/sadness1.png'
-
+  joy: 'assets/images/selectionpics/joy1.png',
+  sadness: 'assets/images/selectionpics/sadness1.png',
+  disgust: 'assets/images/selectionpics/disgust1.png',
+  fear: 'assets/images/selectionpics/fear1.png',
+  anger: 'assets/images/selectionpics/anger1.png'
 }
+
 // Set 2: Fantasy Scapes
 const set2 = {
-
-  0: 'assets/images/selectionpics/anger2.png',
-  1: 'assets/images/selectionpics/disgust2.png',
-  2: 'assets/images/selectionpics/fear2.png',
-  3: 'assets/images/selectionpics/joy2.png',
-  4: 'assets/images/selectionpics/sadness2.png'
-
+  joy: 'assets/images/selectionpics/joy2.png',
+  sadness: 'assets/images/selectionpics/sadness2.png',
+  disgust: 'assets/images/selectionpics/disgust2.png',
+  fear: 'assets/images/selectionpics/fear2.png',
+  anger: 'assets/images/selectionpics/anger2.png'
 }
+
 // Set 3: Landscapes
 const set3 = {
-
-  0: 'assets/images/selectionpics/anger3.png',
-  1: 'assets/images/selectionpics/disgust3.png',
-  2: 'assets/images/selectionpics/fear3.png',
-  3: 'assets/images/selectionpics/joy3.png',
-  4: 'assets/images/selectionpics/sadness3.png'
-
+  joy: 'assets/images/selectionpics/joy3.png',
+  sadness: 'assets/images/selectionpics/sadness3.png',
+  disgust: 'assets/images/selectionpics/disgust3.png',
+  fear: 'assets/images/selectionpics/fear3.png',
+  anger: 'assets/images/selectionpics/anger3.png'
 }
+
 const sets = [
   set1,
   set2,
@@ -40,103 +41,65 @@ const sets = [
 ]
 
 // Generate a new set of images on page load.
-window.onload = function () {
+function init() {
   // Access the element containers, generic ids before set
   // Numbers in order from left to right
   // Default order: anger, disgust, fear, joy, sadness
-  const firstButton = document.getElementById('one')
-  const secondButton = document.getElementById('two')
-  const thirdButton = document.getElementById('three')
-  const fourthButton = document.getElementById('four')
-  const fifthButton = document.getElementById('five')
+  const buttons = [
+    document.getElementById('one'),
+    document.getElementById('two'),
+    document.getElementById('three'),
+    document.getElementById('four'),
+    document.getElementById('five')
+  ];
 
   // Select random set
-  let randSet = -1
-  randSet = randomInt(3)
+  let randomSet = sets[randomInt(0, 2)];
 
   // Generate shuffled list to randomize order within the set
-  const nums = [0, 1, 2, 3, 4]
-  const shuffled = shuffle(nums)
+  const shuffledEmotions = shuffleArray(RAW_EMOTIONS)
 
-  // Make all images from that set, without repeats
-  imageSet(randSet, firstButton, shuffled[0])
-  imageSet(randSet, secondButton, shuffled[1])
-  imageSet(randSet, thirdButton, shuffled[2])
-  imageSet(randSet, fourthButton, shuffled[3])
-  imageSet(randSet, fifthButton, shuffled[4])
+  for (let i = 0; i < buttons.length; i++) {
+    let emotion = shuffledEmotions[i];
+    buttons[i].setAttribute('src', randomSet[emotion]);
 
-  // Check button id is properly assigned (use for local storage later)
-  // Send to local storager
-  firstButton.addEventListener('click', function () {
-    localStorage.setItem('emotion1', JSON.stringify(firstButton.id))
-    console.log(firstButton.id)
-  })
-  secondButton.addEventListener('click', function () {
-    localStorage.setItem('emotion1', JSON.stringify(secondButton.id))
-    console.log(secondButton.id)
-  })
-  thirdButton.addEventListener('click', function () {
-    localStorage.setItem('emotion1', JSON.stringify(thirdButton.id))
-    console.log(thirdButton.id)
-  })
-  fourthButton.addEventListener('click', function () {
-    localStorage.setItem('emotion1', JSON.stringify(fourthButton.id))
-    console.log(fourthButton.id)
-  })
-  fifthButton.addEventListener('click', function () {
-    localStorage.setItem('emotion1', JSON.stringify(fifthButton.id))
-    console.log(fifthButton.id)
-  })
-}
-
-/**
- * Given an integer input, outputs a random integer value between
- * 0 and the inputted integer.
- * @param {*} val - upper bound on the range of integers.
- * @returns integer within 0 and val.
- */
-function randomInt (val) {
-  return Math.floor(Math.random() * val)
-}
-
-/**
-* Finds the set corresponding to the passed in integer, and fills the
-* button content to display the corresponding image.
-* @param {*} int - the randomly generated integer.
-* @param {*} button - the button to place the quote in.
-* @param {*} index - the index within the set to select.
-*/
-function imageSet (int, button, index) {
-  // Access the passed in set
-  const idx = int
-  const selectedSet = sets[idx]
-
-  // Update button id to correspond to image
-  if (selectedSet[index].search('anger') !== -1) {
-    button.id = 'anger'
-  } else if (selectedSet[index].search('joy') !== -1) {
-    button.id = 'joy'
-  } else if (selectedSet[index].search('sadness') !== -1) {
-    button.id = 'sadness'
-  } else if (selectedSet[index].search('fear') !== -1) {
-    button.id = 'fear'
-  } else {
-    button.id = 'disgust'
+    buttons[i].addEventListener("click", function() {
+      handleEmotionButtonClick(emotion);
+    });
   }
-
-  // Display image in random order from the set
-  button.setAttribute('src', selectedSet[index])
 }
 
 /**
- * Provides a random shuffling of the passed in integer array.
- * @param {*} arr - the passed in integer array to be shuffled.
- * @returns shuffled array that is the same size as the original.
+ * Writes emotion that was clicked to localstorage
+ * @param {string} emotion - emotion that was clicked 
  */
-function shuffle (arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]]
-  }
-  return arr
+function handleEmotionButtonClick (emotion) {
+  // Store the selected emotion in local storage
+  localStorage.setItem('emotion1', JSON.stringify({
+    emotion,
+    timestamp: Date.now() / 1000.0
+  }))
 }
+
+window.addEventListener('DOMContentLoaded', init)
+
+/**
+ * Moves to next page in flow (emotions2), and passes along desired fortune type
+ */
+function handleNextButtonClick () {
+  window.location.href = 'emotions2.html' + window.location.search
+}
+
+/**
+ * Moves to next page in flow (emotions2), resets desired fortune type
+ */
+function handleBackButtonClick () {
+  window.location.href = 'choose-your-fortune.html'
+}
+
+// Navigation buttons
+const backButton = document.querySelector('.button-left')
+const nextButton = document.querySelector('.button-right')
+
+backButton.addEventListener('click', handleBackButtonClick)
+nextButton.addEventListener('click', handleNextButtonClick)

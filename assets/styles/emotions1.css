@@ -9,14 +9,14 @@
   font-family: AnekDevanagari, sans-serif;
 }
 
-body{
+body {
   /* background gradient */
   background-image: linear-gradient(to right, 
     hsl(254, 75%, 76%),
     hsl(248, 70%, 68%) 47%,
     hsl(255, 61%, 57%)
   );
-  color:aliceblue;
+  color: aliceblue;
   overflow: hidden;
 }
 
@@ -29,7 +29,7 @@ h1{
 .container {
   text-align: center;
   align-items: center;
-  width: 80%; 
+  width: 80%;
   margin-left: 10%;
   margin-right: 10%;
   height: 100%;
@@ -48,6 +48,7 @@ h1{
   align-items: center;
   border: none;
   margin-left: -2%;
+  cursor: pointer;
 }
 
 .round-button:hover {
