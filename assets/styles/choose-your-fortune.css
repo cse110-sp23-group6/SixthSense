@@ -1,5 +1,5 @@
 body {
-  background-image: url(../images/choose-fortune/todays-bg.png);
+  background-image: url("../images/choose-fortune/todays-bg.png");
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -70,7 +70,7 @@ h1 {
   height: 200px;
   border-radius: 20px;
   margin: 20px;
-  background-color: #ffffff33;
+  background-color: #fff3;
   padding: 10px;
   transition: transform 0.25s ease;
   opacity: 0;
