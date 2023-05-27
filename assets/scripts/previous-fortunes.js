@@ -3,8 +3,8 @@
  */
 import { EMOTIONS_TABLE, EMOTIONS } from "./constants.js";
 //create variable formattedReadings which pulls from local storage. used throughout the page
-let formattedReadings = localStorage.getItem('formattedReadings')
-  ? JSON.parse(localStorage.getItem('formattedReadings'))
+let formattedReadings = localStorage.getItem('readings')
+  ? JSON.parse(localStorage.getItem('readings'))
   : [];
 /*
  * function name: getStarSign
@@ -142,7 +142,7 @@ function deleteSelectedItem() {
       return reading.date !== selectedDate;
     });
     // Update the formattedReadings in local storage
-    localStorage.setItem('formattedReadings', JSON.stringify(formattedReadings));
+    localStorage.setItem('readings', JSON.stringify(formattedReadings));
     console.log('Deleted:', selectedText);
   } else {
     console.log('No item selected.');
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let loveElement = document.getElementById('relationship');
   loveElement.textContent = formData.status;
   // Get the <ul> element to populate
-  let ulElement = document.getElementById('readingList');
+  let ulElement = document.getElementById('reading-list');
   // Create an array to store the dynamically created <li> elements
   let liElements = [];
   // Function to add a reading to the list
@@ -189,27 +189,10 @@ document.addEventListener('DOMContentLoaded', function() {
     ulElement.appendChild(liElement); // Append to the end
     liElements.push(liElement);
   }
-  // Check if there is a new reading in local storage
-  if (localStorage.getItem('newReading')) {
-    let newReading = JSON.parse(localStorage.getItem('newReading'));
-    // Check if the new reading has the correct properties
-    if (newReading.hasOwnProperty('date') && newReading.hasOwnProperty('reading')) {
-      // Add the new reading to the beginning of the formattedReadings array
-      formattedReadings.unshift(newReading);
-      // Remove the new reading from local storage
-      localStorage.removeItem('newReading');
-      // Update the formattedReadings in local storage
-      localStorage.setItem('formattedReadings', JSON.stringify(formattedReadings));
-    }
-  }
-  // Loop through the existing formatted readings and add them to the list in order
-  for (var i = 0; i < formattedReadings.length; i++) {
-    addReadingToList(formattedReadings[i]);
-    console.log(formattedReadings[i]);
-  }
-  createEntries(liElements); 
-  //openbutton
-  let openButton = document.getElementById('openButton');
+
+  createEntries(liElements); // Move the function call here
+  
+  let openButton = document.getElementById('open-button');
   openButton.addEventListener('click', openSelectedItem);
   //deletebutton
   let deleteButton = document.getElementById('delete');
