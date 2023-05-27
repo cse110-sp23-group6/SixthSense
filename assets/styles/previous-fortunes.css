@@ -1,0 +1,169 @@
+@font-face {
+    font-family: AnekDevanagari;
+    src: url(assets/font/AnekDevanagari-VariableFont_wdth,wght.ttf);
+}
+
+* {
+    font-family: AnekDevanagari, sans-serif;
+    color: white;
+}
+  
+body {
+    background-image: linear-gradient(
+        to right,
+        #6554cc,
+        #8f6fc4
+    );
+}
+
+h1 {
+    text-align: center;
+    font-size: calc(6vh + 2vw);
+    font-weight: 600;
+    margin: 3% 20% 5%;
+    position: relative;
+    height: 8vh;
+}
+
+.leftvector {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 75%;
+    max-height: 100%;
+    z-index: -1; 
+}
+
+.profile, .list {
+    display: inline-block;
+}
+
+.profile {
+    text-align: center;
+    margin-left:5%;
+    margin-top: 2%;
+    width: 20%;
+    border-radius: 20px;
+    height: 65vh;
+    max-height: 800px;
+    background-color: #413070bf;
+    text-overflow: ellipsis;
+}
+
+#finalemotion {
+    max-width: 80%;
+    width: 20vw;
+    border-radius: 20px;
+    margin: 3vh 1vw 0;
+}
+
+#name {
+    font-size: 4vmin;
+    font-weight: 600;
+    margin: 1vh 2vw;
+}
+
+#star-sign,
+#status {
+    margin-top: 1vh;
+    font-size: 2.75vmin;
+}
+
+button{
+    border: none;
+    border-radius: 12px;
+    background-color: #413070b3;
+    font-size: 15px;
+}
+
+#open-button{
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  font-size: 25px;
+  padding: 1%;
+  justify-content: center;
+}
+
+ul {
+    position: absolute;
+    top: 25%;
+    right: 5%;
+    height: 65vh;
+    width: 67%;
+    overflow: auto;
+    float: right;
+    border-radius: 15px;
+    background-color: #413070bf;
+    border-spacing: 20px;
+    padding-left: .5%;
+    padding-right: .5%;
+}
+
+li {
+    width: 98%;
+    height: 10vh;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    align-items: center;
+    border-radius: 15px;
+    background-color: #afa4f1bf;
+    padding: 0.5%;
+    margin: 0.5% 0;
+    font-size: 30px;
+}
+
+.selected{
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, inset 0 0 10px #00000080;
+}
+
+#expanded-content {
+    background-color: #413070f2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-30%, -40%);
+    font-size: 30px;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    width: 68%; /* Adjust the width to match the list box */
+    z-index: 1; /* Set a higher z-index to position it in front */
+    overflow: hidden; /* Hide content that exceeds the height */
+    transition: height 0.3s ease-in-out; /* Add a transition effect */
+}
+
+.expanded-box {
+    display: none; /* Initially hide the expanded box */
+  }
+  
+  .expanded {
+    height: 65vh; /* Expand to the desired height */
+    display: block; /* Show the expanded box when expanded class is added */
+  }
+  
+.close-button{
+    background-color: #afa4f1bf;
+    border: none;
+    border-radius: 10px;
+    font-size: 30px;
+    text-align: center;
+    justify-content: center;
+    float: right;
+}
+
+#traversal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 1vh;
+    margin-bottom: 2%;
+}
+
+#back, #delete{
+    padding: 2%;
+    font-size: 25px;
+}
