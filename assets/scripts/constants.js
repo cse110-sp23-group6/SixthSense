@@ -1,4 +1,5 @@
 // Array of emotions
+
 export const RAW_EMOTIONS = [
   'joy', 
   'sadness', 

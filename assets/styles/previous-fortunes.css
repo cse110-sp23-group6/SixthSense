@@ -1,6 +1,6 @@
 @font-face {
     font-family: AnekDevanagari;
-    src: url("assets/font/AnekDevanagari-VariableFont_wdth,wght.ttf");
+    src: url(assets/font/AnekDevanagari-VariableFont_wdth,wght.ttf);
 }
 
 * {
@@ -40,30 +40,31 @@ h1 {
 
 .profile {
     text-align: center;
+    margin-left:5%;
     margin-top: 2%;
-    width: 25%;
+    width: 20%;
     border-radius: 20px;
     height: 65vh;
     max-height: 800px;
     background-color: #413070bf;
     text-overflow: ellipsis;
-    overflow: hidden;
 }
 
-.profilepic {
-    max-width: 60%;
+#finalemotion {
+    max-width: 80%;
     width: 20vw;
     border-radius: 20px;
     margin: 3vh 1vw 0;
 }
 
-.name {
+#name {
     font-size: 4vmin;
     font-weight: 600;
     margin: 1vh 2vw;
 }
 
-.info {
+#star-sign,
+#status {
     margin-top: 1vh;
     font-size: 2.75vmin;
 }
@@ -78,18 +79,18 @@ button{
 #open-button{
   position: absolute;
   top: 20%;
-  right: 2%;
+  right: 5%;
   font-size: 25px;
-  width: 10%;
+  padding: 1%;
   justify-content: center;
 }
 
 ul {
     position: absolute;
-    top: 30%;
-    right: 2%;
+    top: 25%;
+    right: 5%;
     height: 65vh;
-    width: 68%;
+    width: 67%;
     overflow: auto;
     float: right;
     border-radius: 15px;
@@ -152,12 +153,17 @@ li {
     float: right;
 }
 
-#back, #next {
-    margin: 1vh 25%;
-    position: relative;
-    text-align: center;
-    height: 20vh;
+#traversal {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 1vh;
+    margin-bottom: 2%;
+}
+
+#back, #delete{
+    padding: 2%;
+    font-size: 25px;
 }
