@@ -83,7 +83,7 @@ button{
     background-color: rgba(65, 48, 112, 70%);
     font-size: 15px;
 }
-#openButton{
+#open-button{
   position: absolute;
   top: 20%;
   right: 2%;

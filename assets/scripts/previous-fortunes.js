@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
   createEntries(liElements); // Move the function call here
 
   
-  let openButton = document.getElementById('openButton');
+  let openButton = document.getElementById('open-button');
   openButton.addEventListener('click', openSelectedItem);
 
   let deleteButton = document.getElementById('delete');

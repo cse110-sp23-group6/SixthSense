@@ -21,7 +21,7 @@ function init () {
   const emotions = shuffleArray(RAW_EMOTIONS)
 
   // Create buttons and append them to the container
-  const buttonContainer = document.getElementById('buttonContainer')
+  const buttonContainer = document.getElementById('button-container')
   emotions.forEach(emotion => {
     // choose random quote from each category
     const randomQuote = randomArrayItem(QUOTES[emotion])
