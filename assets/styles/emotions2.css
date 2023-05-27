@@ -24,7 +24,7 @@ h1 {
   text-align: center;
   font-size: calc(2vh + 2vw);
   font-weight: 600;
-  margin: 0 20% 2vh 20%;
+  margin: 0 20% 2vh;
   position: relative;
   height: 8vh;
 }
@@ -69,7 +69,6 @@ button {
   /* rounded borders */
   border: none;
   border-radius: 2vh;
-
   background-color: #413070b3;
   color: white;
   padding: 2vh;
