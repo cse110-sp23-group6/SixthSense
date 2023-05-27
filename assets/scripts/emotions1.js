@@ -41,8 +41,27 @@ const sets = [
 ]
 
 // To save the id of the selected button
-let buttonId
-let next
+let buttonId;
+let next;
+let selectedEmotion;
+
+/**
+ * Moves to next page in flow (emotions2), and passes along desired fortune type
+ */
+function handleNextButtonClick () {
+  localStorage.setItem('emotion1', JSON.stringify({
+    emotion: selectedEmotion, 
+    timestamp: Date.now() / 1000.0
+  }))
+  window.location.href = 'emotions2.html' + window.location.search
+}
+
+/**
+ * Moves to next page in flow (emotions2), resets desired fortune type
+ */
+function handleBackButtonClick () {
+  window.location.href = 'choose-your-fortune.html'
+}
 
 // Generate a new set of images on page load.
 function init() {
@@ -53,7 +72,7 @@ function init() {
     window.location.href = 'choose-your-fortune.html'
   }
   
-  next = document.getElementById('next')
+  next = document.getElementById('button-right')
   next.disabled = true
 
   // Grab all the circular buttons
@@ -76,6 +95,7 @@ function init() {
     buttons[i].setAttribute('src', randomSet[emotion]);
 
     buttons[i].addEventListener("click", function() {
+      selectedEmotion = emotion;
       let selected = buttons[i]
       buttonId = selected.getAttribute('id')
       if (selected.classList.contains('selected')) {
@@ -90,32 +110,13 @@ function init() {
       }
     });
   }
-  next.addEventListener('click', handleBackButtonClick)
+  next.addEventListener('click', handleNextButtonClick)
 }
 
 window.addEventListener('DOMContentLoaded', init)
 
-/**
- * Moves to next page in flow (emotions2), and passes along desired fortune type
- */
-function handleNextButtonClick () {
-  localStorage.setItem('emotion1', JSON.stringify({
-    buttonId, 
-    timestamp: Date.now() / 1000.0
-  }))
-  window.location.href = 'emotions2.html' + window.location.search
-}
-
-/**
- * Moves to next page in flow (emotions2), resets desired fortune type
- */
-function handleBackButtonClick () {
-  window.location.href = 'choose-your-fortune.html'
-}
-
 // Navigation buttons
-const backButton = document.querySelector('.button-left')
-const nextButton = document.querySelector('.button-right')
+const backButton = document.getElementById('button-left')
 
 backButton.addEventListener('click', handleBackButtonClick)
-nextButton.addEventListener('click', handleNextButtonClick)
+
