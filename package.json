@@ -1,5 +1,5 @@
 {
-  "name": "SixthSense",
+  "name": "sixthsense",
   "scripts": {
     "test": "jest"
   },
