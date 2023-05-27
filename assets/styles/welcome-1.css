@@ -162,6 +162,11 @@ h1 {
 	transform: scale(1.1);
 }
 
+/* Style the user button when disabled */
+#user:disabled {
+	visibility: hidden;
+}
+
 .vector {
 	position: absolute;
 	bottom: -75px;

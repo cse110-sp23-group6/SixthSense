@@ -33,11 +33,18 @@ const set3 = {
   4: 'assets/images/selectionpics/sadness3.png'
 
 }
+
 const sets = [
   set1,
   set2,
   set3
 ]
+
+// To save the id of the selected button
+let buttonId
+let next
+
+let imageButtons = []
 
 // Generate a new set of images on page load.
 window.onload = function () {
@@ -45,10 +52,17 @@ window.onload = function () {
   // Numbers in order from left to right
   // Default order: anger, disgust, fear, joy, sadness
   const firstButton = document.getElementById('one')
+  imageButtons.push(firstButton)
   const secondButton = document.getElementById('two')
+  imageButtons.push(secondButton)
   const thirdButton = document.getElementById('three')
+  imageButtons.push(thirdButton)
   const fourthButton = document.getElementById('four')
+  imageButtons.push(fourthButton)
   const fifthButton = document.getElementById('five')
+  imageButtons.push(fifthButton)
+  next = document.getElementById('button-right')
+  next.disabled = true
 
   // Select random set
   let randSet = -1
@@ -65,28 +79,45 @@ window.onload = function () {
   imageSet(randSet, fourthButton, shuffled[3])
   imageSet(randSet, fifthButton, shuffled[4])
 
+  imageButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      if (this.classList.contains('selected')) {
+        next.disabled = true
+        this.classList.remove('selected')
+      } else {
+        next.disabled = false
+        imageButtons.forEach(button => {
+          button.classList.remove('selected')
+        })
+        this.classList.add('selected')
+      }
+      buttonId = this.id
+    })
+  })
+
   // Check button id is properly assigned (use for local storage later)
   // Send to local storager
   firstButton.addEventListener('click', function () {
-    localStorage.setItem('emotion1', JSON.stringify(firstButton.id))
-    console.log(firstButton.id)
+    buttonId = firstButton.id
   })
   secondButton.addEventListener('click', function () {
-    localStorage.setItem('emotion1', JSON.stringify(secondButton.id))
-    console.log(secondButton.id)
+    buttonId = secondButton.id
   })
   thirdButton.addEventListener('click', function () {
-    localStorage.setItem('emotion1', JSON.stringify(thirdButton.id))
-    console.log(thirdButton.id)
+    buttonId = thirdButton.id
   })
   fourthButton.addEventListener('click', function () {
-    localStorage.setItem('emotion1', JSON.stringify(fourthButton.id))
-    console.log(fourthButton.id)
+    buttonId = fourthButton.id
   })
   fifthButton.addEventListener('click', function () {
-    localStorage.setItem('emotion1', JSON.stringify(fifthButton.id))
-    console.log(fifthButton.id)
+    buttonId = fifthButton.id
   })
+
+  next.addEventListener('click', function () {
+    localStorage.setItem('emotion1', JSON.stringify(buttonId))
+    location.href = 'emotions2.html'
+  })
+
 }
 
 /**

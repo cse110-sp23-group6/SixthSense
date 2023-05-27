@@ -45,43 +45,64 @@ document.addEventListener('DOMContentLoaded', function () {
     ]
   }
 
-  // Array of emotions
-  const emotions = ['joy', 'sadness', 'disgust', 'fear', 'anger']
+// Array of emotions
+const emotions = ['joy', 'sadness', 'disgust', 'fear', 'anger']
 
-  // Randomly shuffle the array
-  for (let i = emotions.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [emotions[i], emotions[j]] = [emotions[j], emotions[i]]
-  }
+// Array of quote buttons
+const allButtons = []
 
-  // Create buttons and append them to the container
-  const buttonContainer = document.getElementById('buttonContainer')
-  emotions.forEach(emotion => {
-    // choose random quote from each category
-    const randomQuoteIndex = Math.floor(Math.random() * quotes[emotion].length)
-    const randomQuote = quotes[emotion][randomQuoteIndex]
+let next = document.getElementById('next')
+next.disabled = true
+let emotion2
 
-    // create button
-    const button = document.createElement('button')
-    button.classList.add('button')
-    button.textContent = randomQuote
-    // when they click a button, you send the emotion to local storage
-    button.addEventListener('click', function () {
-      const emotion2 = {
-        emotion,
-        timestamp: new Date().toISOString()
-      }
-      localStorage.setItem('emotion2', JSON.stringify(emotion2))
-    })
-    // add it to the page
-    buttonContainer.appendChild(button)
+// Randomly shuffle the array
+for (let i = emotions.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [emotions[i], emotions[j]] = [emotions[j], emotions[i]]
+}
+
+// Create buttons and append them to the container
+const buttonContainer = document.getElementById('buttonContainer')
+emotions.forEach(emotion => {
+  // choose random quote from each category
+  const randomQuoteIndex = Math.floor(Math.random() * quotes[emotion].length)
+  const randomQuote = quotes[emotion][randomQuoteIndex]
+
+  // create button
+  const button = document.createElement('button')
+  button.classList.add('button')
+  button.textContent = randomQuote
+  // populate array with buttons
+  allButtons.push(button)
+  // when they click a button, you send the emotion to local storage
+  button.addEventListener('click', function () {
+    if (this.classList.contains('selected')) {
+      next.disabled = true
+      this.classList.remove('selected')
+    } else {
+      next.disabled = false
+      allButtons.forEach(button => {
+        button.classList.remove('selected')
+      })
+      this.classList.add('selected')
+    }
+    emotion2 = {
+      emotion,
+      timestamp: new Date().toISOString()
+    }
+  })
+  // add it to the page
+  buttonContainer.appendChild(button)
+  })
+
+  document.getElementById('back').addEventListener('click', function () {
+    location.href = 'emotions1.html'
+  })
+  
+  next.addEventListener('click', function () {
+    console.log('next button clicked')
+    localStorage.setItem('emotion2', JSON.stringify(emotion2))
+    location.href = 'reading.html'
   })
 })
 
-document.getElementById('back').addEventListener('click', function () {
-  location.href = 'emotions1.html'
-})
-
-document.getElementById('next').addEventListener('click', function () {
-  location.href = 'reading.html'
-})
