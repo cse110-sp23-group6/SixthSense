@@ -4,7 +4,7 @@
  */
 
 import { shuffleArray, randomInt } from './helpers.js'
-import { RAW_EMOTIONS } from './constants.js'
+import { RAW_EMOTIONS, READING_TYPES } from './constants.js'
 
 
 // Set 1: Abstract Paints
@@ -42,9 +42,14 @@ const sets = [
 
 // Generate a new set of images on page load.
 function init() {
-  // Access the element containers, generic ids before set
-  // Numbers in order from left to right
-  // Default order: anger, disgust, fear, joy, sadness
+  const urlParams = new URLSearchParams(window.location.search)
+
+  const readingType = urlParams.get('reading')
+  if (readingType == null || !READING_TYPES.includes(readingType)) {
+    window.location.href = 'choose-your-fortune.html'
+  }
+
+  // Grab all the circular buttons
   const buttons = [
     document.getElementById('one'),
     document.getElementById('two'),
