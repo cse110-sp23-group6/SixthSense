@@ -6,6 +6,7 @@ import { EMOTIONS_TABLE, EMOTIONS } from "./constants.js";
 let formattedReadings = localStorage.getItem('readings')
   ? JSON.parse(localStorage.getItem('readings'))
   : [];
+
 /*
  * function name: getStarSign
  * purpose: take in month and date and return the starsign
@@ -19,6 +20,7 @@ let formattedReadings = localStorage.getItem('readings')
  * @return unknown: in case there's nothing
  */
 function getStarSign(month, date) {
+
   // Define the date ranges for each star sign
   let starSigns = [
     { name: 'Aquarius', start: [1, 20], end: [2, 18] },
@@ -41,7 +43,7 @@ function getStarSign(month, date) {
   let dateNum = parseInt(date);
 
   // Find the corresponding star sign
-  for (var i = 0; i < starSigns.length; i++) {
+  for (let i = 0; i < starSigns.length; i++) {
     let sign = starSigns[i];
     let startMonth = sign.start[0];
     let startDate = sign.start[1];
@@ -57,6 +59,7 @@ function getStarSign(month, date) {
   }
   return 'Unknown';
 }
+
 /* 
  * function name: createEntries
  * create list entries(previous readings) and allows it to be selected
@@ -74,6 +77,7 @@ function createEntries(listItems) {
         for (let j = 0; j < listItems.length; j++) {
           listItems[j].classList.remove('selected');
         }
+
         // Add 'selected' class to the clicked item
         this.classList.add('selected');
         console.log('selected:'+ this.innerText);
@@ -81,6 +85,7 @@ function createEntries(listItems) {
     });
   }
 }
+
 /*
  * function name: createCloseButton
  * Function to create the close button for the expanded content
@@ -97,6 +102,7 @@ function createCloseButton() {
   });
   return closeButton;
 }
+
 /*
  * function name: openSelectedItem
  * Function to open the selected list item
@@ -113,19 +119,24 @@ function openSelectedItem() {
     // For example:
     console.log('Opening:', selectedItem.innerText);
     let text = selectedItem.innerText;
+
     // Get the expanded content element
     let expandedContent = document.getElementById('expanded-content');
+
     // Clear the content
     expandedContent.innerHTML = text;
+
     // Add the close button to the expanded content
     let closeButton = createCloseButton();
     expandedContent.appendChild(closeButton);
+
     // Add the expanded class to show the expanded content
     expandedContent.classList.add('expanded');
   } else {
     console.log('No item selected.');
   }
 }
+
 /*
  * function name: deleteSelectedItem
  * Function to delete the selected list item
@@ -135,12 +146,14 @@ function deleteSelectedItem() {
   if (selectedItem) {
     // Delete the selected item from the list
     selectedItem.remove();
+
     // Remove the corresponding entry from formattedReadings array
     let selectedText = selectedItem.innerText;
     let selectedDate = selectedText.split(' - ')[0];
     formattedReadings = formattedReadings.filter(function(reading) {
       return reading.date !== selectedDate;
     });
+
     // Update the formattedReadings in local storage
     localStorage.setItem('readings', JSON.stringify(formattedReadings));
     console.log('Deleted:', selectedText);
@@ -148,6 +161,7 @@ function deleteSelectedItem() {
     console.log('No item selected.');
   }
 }
+
 //runs when opened
 document.addEventListener('DOMContentLoaded', function() {
   //profile emotion -- retrieve emotions from local storage
@@ -159,8 +173,10 @@ document.addEventListener('DOMContentLoaded', function() {
   let finalemotion = document.getElementById('finalemotion');
   finalemotion.alt = overallEmotion;
   finalemotion.src = `assets/emotion_auras/${overallEmotion}.gif`;
+
   // profile text -- Retrieve the form data from local storage
   let formData = localStorage.getItem('formData');
+
   // Check if data exists in local storage
   if (formData) {
     // Parse the JSON string back into an object
@@ -171,6 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('No form data found.');
   }
   console.log(formData.name);
+
   //set up name, star-sign, and relationship
   let nameElement = document.getElementById('name');
   nameElement.textContent = formData.name;
@@ -178,10 +195,13 @@ document.addEventListener('DOMContentLoaded', function() {
   signElement.textContent = getStarSign(formData.month, formData.date);
   let loveElement = document.getElementById('relationship');
   loveElement.textContent = formData.status;
+
   // Get the <ul> element to populate
   let ulElement = document.getElementById('reading-list');
+
   // Create an array to store the dynamically created <li> elements
   let liElements = [];
+
   // Function to add a reading to the list
   function addReadingToList(reading) {
     let liElement = document.createElement('li');
@@ -190,10 +210,15 @@ document.addEventListener('DOMContentLoaded', function() {
     liElements.push(liElement);
   }
 
+  for (let reading of formattedReadings) {
+    addReadingToList(reading);
+    console.log(reading);
+  }
+
   createEntries(liElements); // Move the function call here
-  
   let openButton = document.getElementById('open-button');
   openButton.addEventListener('click', openSelectedItem);
+  
   //deletebutton
   let deleteButton = document.getElementById('delete');
   deleteButton.addEventListener('click', deleteSelectedItem);
