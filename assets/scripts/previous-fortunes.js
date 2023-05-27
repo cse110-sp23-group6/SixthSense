@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
   //profile emotion -- retrieve emotions from local storage
   let emotion1 = localStorage.getItem('emotion1');
   let emotion2 = localStorage.getItem('emotion2');
-  emotion1 = JSON.parse(emotion1);
+  emotion1 = JSON.parse(emotion1).emotion;
   emotion2 = JSON.parse(emotion2).emotion;
   let overallEmotion = EMOTIONS_TABLE[emotion1][emotion2];
   let finalemotion = document.getElementById('finalemotion');
