@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
     : [];*/
 
   // Get the <ul> element to populate
-  let ulElement = document.getElementById('readingList');
+  let ulElement = document.getElementById('reading-list');
 
   // Create an array to store the dynamically created <li> elements
   let liElements = [];
