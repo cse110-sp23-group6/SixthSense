@@ -14,7 +14,7 @@ on:
     # branches-ignore: [master, main]
     # Remove the line above to run when pushing to master
   pull_request:
-    branches: [main]
+    branches: [master, main]
 
 ###############
 # Set the Job #
@@ -42,7 +42,7 @@ jobs:
       # Checkout the code base #
       ##########################
       - name: Checkout Code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
         with:
           # Full git history is needed to get a proper
           # list of changed files within `super-linter`
@@ -54,8 +54,8 @@ jobs:
       - name: Lint Code Base
         uses: github/super-linter@v5
         env:
-          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_ALL_CODEBASE: true
           VALIDATE_JAVASCRIPT_ES: true
           VALIDATE_HTML: true
-          DEFAULT_BRANCH: master
+          DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
