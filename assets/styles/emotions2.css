@@ -1,25 +1,26 @@
 /* fonts */
-@font-face{
+@font-face {
   font-family: AnekDevanagari;
-  src: url(../font/AnekDevanagari-VariableFont_wdth\,wght.ttf);
-}
-*{
-  font-family: 'AnekDevanagari', sans-serif;
+  src: url("../font/AnekDevanagari-VariableFont_wdth\wght.ttf");
 }
 
-body{
+* {
+  font-family: AnekDevanagari, sans-serif;
+}
+
+body {
   /* background gradient */
   background-image: linear-gradient(
     to left,
-    rgb(176,148,255),
-    rgb(146,122,235) 47% ,
-    rgb(101,84,204)
+    rgb(176, 148, 255),
+    rgb(146, 122, 235) 47%,
+    rgb(101, 84, 204)
   );
-  color:white;
+  color: white;
   overflow: hidden;
 }
 
-h1{
+h1 {
   text-align: center;
   font-size: calc(2vh + 2vw);
   font-weight: 600;
@@ -31,7 +32,7 @@ h1{
 }
 
 .container {
-  animation: fadeInAnimation ease 5s;
+  animation: fade-in ease 5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   text-align: center;
@@ -43,16 +44,16 @@ h1{
 /* vectors for background */
 .rightvector {
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 0;
+  right: 0;
   max-width: 50%;
   max-height: 100%;
 }
 
 .leftvector {
   position: absolute;
-  bottom: 0px;
-  left: 0px;
+  bottom: 0;
+  left: 0;
   max-width: 50%;
   max-height: 100%;
 }
@@ -64,7 +65,6 @@ h1{
   flex-direction: column;
   align-items: center;
   margin-top: 10vh;
-
 }
 
 button {
@@ -72,10 +72,9 @@ button {
   border: none;
   border-radius: 2vh;
 
-  background-color: rgba(65,48,112,.7);
-  color:white;
-
-  padding: 2vh 2vh;
+  background-color: #413070b3;
+  color: white;
+  padding: 2vh;
   font-size: calc(0.9vh + 0.9vw);
   margin-bottom: 2vh;
   width: 55%; /* Adjust the width as needed */
@@ -93,8 +92,7 @@ button:hover {
   margin-right: 25%;
   position: relative;
   text-align: center;
-  margin-top: 1vh;
-  margin-bottom: 1vh;
+  margin: 1vh 0;
   height: 20vh;
   display: flex;
   flex-direction: row;
@@ -102,7 +100,7 @@ button:hover {
 }
 
 #back {
-  background-color: rgb(65,48,112);
+  background-color: #413070;
   align-self: center;
   width: 25%;
   height: 10vh;
@@ -112,19 +110,18 @@ button:hover {
 }
 
 #next {
-  background-color: rgb(65,48,112);
+  background-color: #413070;
   align-self: center;
   width: 25%;
   height: 10vh;
   line-height: 1em;
   font-weight: bold;
   font-size: calc(1vh + 1vw);
-
 }
 
 /* animate fade in */
 .images {
-  animation: fadeInAnimation ease 1.5s;
+  animation: fade-in ease 1.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   width: 100%;
@@ -132,17 +129,18 @@ button:hover {
   object-fit: cover;
 }
 
-@media (max-width: 860px) {
+@media (width <= 860px) {
   button {
     width: 80%; /* Adjust the width for smaller screens */
   }
 }
 
-@keyframes fadeInAnimation {
+@keyframes fade-in {
   0% {
-      opacity: 0;
+    opacity: 0;
   }
+
   100% {
-      opacity: 1;
+    opacity: 1;
   }
 }
