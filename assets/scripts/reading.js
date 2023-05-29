@@ -74,9 +74,7 @@ async function init () {
     readingBox.textContent = reading
 
     // Update localstorage
-    if (currentReadings == null) {
-      currentReadings = []
-    }
+    currentReadings.pop();
 
     currentReadings.push({
       date: (new Date()).toISOString(),
