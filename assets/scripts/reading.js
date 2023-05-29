@@ -58,6 +58,13 @@ async function init () {
   })
 
   localStorage.setItem('readings', JSON.stringify(currentReadings))
+
+  /**
+   * Event listener for back button click. Navigates back to emotions1.html
+   */
+  document.getElementById('home').addEventListener('click', function () {
+  window.location.href = 'index.html' + window.location.search
+  })
 }
 
-window.addEventListener('DOMContentLoaded', init)
+window.addEventListener('DOMContentLoaded', init);
