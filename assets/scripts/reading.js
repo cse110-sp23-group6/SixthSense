@@ -42,7 +42,7 @@ async function init () {
   const overallEmotion = EMOTIONS_TABLE[emotion1][emotion2]
 
   // Generate a random reading from readings list
-  const reading = randomArrayItem(READINGS[readingType][overallEmotion])
+  let reading = randomArrayItem(READINGS[readingType][overallEmotion])
   auraImage.src = `assets/emotion_auras/${overallEmotion}.gif`
   readingBox.textContent = reading
 
@@ -60,10 +60,30 @@ async function init () {
   localStorage.setItem('readings', JSON.stringify(currentReadings))
 
   /**
-   * Event listener for back button click. Navigates back to emotions1.html
+   * Event listener for home button click. Navigates back to index.html
    */
   document.getElementById('home').addEventListener('click', function () {
   window.location.href = 'index.html' + window.location.search
+  })
+
+  /**
+   * Event listener for new button click. gets you new fortune
+   */
+  document.getElementById('get-new-fortune').addEventListener('click', function () {
+    reading = randomArrayItem(READINGS[readingType][overallEmotion])
+    readingBox.textContent = reading
+
+    // Update localstorage
+    if (currentReadings == null) {
+      currentReadings = []
+    }
+
+    currentReadings.push({
+      date: (new Date()).toISOString(),
+      reading
+    })
+
+    localStorage.setItem('readings', JSON.stringify(currentReadings))
   })
 }
 
