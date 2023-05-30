@@ -8,6 +8,21 @@ const SECONDS_PER_DAY = 86400
  * and records it to localstorage.
  */
 async function init () {
+
+  //check if profile exists, and change the create profile button
+  const profilebutton = document.getElementById('create-profile')
+  const formData = localStorage.getItem('formData')
+  if (formData !== null) {
+    profilebutton.textContent = "Previous Readings";
+    profilebutton.addEventListener('click', function () {
+      window.location.href = 'previous-fortunes.html' + window.location.search
+    })
+  }
+  else{
+    profilebutton.addEventListener('click', function () {
+      window.location.href = 'newprofile.html' + window.location.search
+    })
+  }
   const urlParams = new URLSearchParams(window.location.search)
   const currentUnixTimestamp = Date.now() / 1000.0
 
