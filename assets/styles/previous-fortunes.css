@@ -14,15 +14,18 @@ body {
         #6554cc,
         #8f6fc4
     );
+    overflow: hidden;
 }
 
 h1 {
-    text-align: center;
-    font-size: calc(6vh + 2vw);
+    text-align: center; /*
+    font-size: calc(6vh + 2vw); */
+    font-size: 55px;
     font-weight: 600;
-    margin: 3% 20% 5%;
+    margin: 4% 20% 5%;
     position: relative;
     height: 8vh;
+    line-height: 1.2;
 }
 
 .leftvector {
@@ -34,20 +37,8 @@ h1 {
     z-index: -1; 
 }
 
-.profile, .list {
+.profile, ul {
     display: inline-block;
-}
-
-.profile {
-    text-align: center;
-    margin-left:5%;
-    margin-top: 2%;
-    width: 20%;
-    border-radius: 20px;
-    height: 65vh;
-    max-height: 800px;
-    background-color: #413070bf;
-    text-overflow: ellipsis;
 }
 
 #finalemotion {
@@ -58,60 +49,78 @@ h1 {
 }
 
 #name {
-    font-size: 4vmin;
+    font-size: 7vmin;
     font-weight: 600;
     margin: 1vh 2vw;
 }
 
 #star-sign,
 #status {
-    margin-top: 1vh;
-    font-size: 2.75vmin;
+    margin: 0.5vh;
+    font-size: 4vmin;
 }
 
 button{
     border: none;
     border-radius: 12px;
     background-color: #413070b3;
-    font-size: 15px;
+    font-size: 25px;
 }
 
 #open-button{
-  position: absolute;
-  top: 15%;
-  right: 5%;
-  font-size: 25px;
-  padding: 1%;
-  justify-content: center;
+    position: absolute;
+    top: 13%;
+    right: 5%;
+    font-size: 25px;
+    padding: 0.5% 2%;
+    justify-content: center;
+}
+
+.profile { 
+    position: absolute; 
+    text-align: center;
+    top: 23vh;
+    margin-left:5%; 
+    margin-top: 1%; 
+    width: 20%;
+    border-radius: 20px;
+    max-height: 800px;
+    background-color: #413070bf;
+    text-overflow: ellipsis; 
+    overflow: hidden;
 }
 
 ul {
     position: absolute;
-    top: 25%;
+    top: 21%;
     right: 5%;
-    height: 65vh;
+    height: 59vh;
     width: 67%;
     overflow: auto;
     float: right;
     border-radius: 15px;
     background-color: #413070bf;
     border-spacing: 20px;
-    padding-left: .5%;
-    padding-right: .5%;
+    padding-top: 0.5%;
+    padding-left: .2%;
+    padding-right: .2%;
 }
 
 li {
-    width: 98%;
-    height: 10vh;
+    width: 90%;
+    height: calc(6vh + 1vw);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     align-items: center;
-    border-radius: 15px;
+    border-radius: 30px;
     background-color: #afa4f1bf;
-    padding: 0.5%;
-    margin: 0.5% 0;
-    font-size: 30px;
+    padding-top: 0.5vh;
+    padding-left: 2%;
+    margin-top: 1.5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    font-size: calc(3vh + 1vw)
 }
 
 .selected{
@@ -138,10 +147,10 @@ li {
     display: none; /* Initially hide the expanded box */
   }
   
-  .expanded {
+.expanded {
     height: 65vh; /* Expand to the desired height */
     display: block; /* Show the expanded box when expanded class is added */
-  }
+}
   
 .close-button{
     background-color: #afa4f1bf;
@@ -153,16 +162,34 @@ li {
     float: right;
 }
 
-#traversal {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-top: 1vh;
+.nav-back {
+    position: absolute;
+    top: 87%;
+    left: 2vw;
+    z-index: 1;
+    text-align: center;
+    width: 20%;
+    height: 30%;
+    display: inline-block;
+    font-weight: bold;
 }
 
-#back, #delete{
-    padding: 2%;
-    font-size: 25px;
+.nav-delete {
+    position: absolute;
+    top: 87%;
+    right: 5vw;
+    z-index: 1;
+    text-align: center;
+    width: 200px;
+    height: 30%;
+    display: inline-block;
+    font-weight: bold;
+}
+
+#back {
+    padding: 2% 8%;
+}
+
+#delete {
+    padding: 2% 8%;
 }
