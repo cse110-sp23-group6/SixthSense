@@ -1,6 +1,6 @@
 @font-face {
     font-family: AnekDevanagari;
-    src: url("assets/font/AnekDevanagari-VariableFont_wdth,wght.ttf");
+    src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
 }
 
 * {
@@ -78,7 +78,7 @@ button{
 
 #open-button{
   position: absolute;
-  top: 20%;
+  top: 15%;
   right: 5%;
   font-size: 25px;
   padding: 1%;
