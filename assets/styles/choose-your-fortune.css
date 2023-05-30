@@ -1,5 +1,5 @@
 body {
-    background-image: url(../images/choose-fortune/todays-bg.png);
+    background-image: url("../images/choose-fortune/todays-bg.png");
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -9,18 +9,18 @@ body {
     font-weight: 700;
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
     0% {
         opacity: 0;
     }
     100% {
+
         opacity: 1;
     }
 }
 
 .fade-in-animation {
-    animation: fadeIn 3s ease-in;
-    animation-delay: 2s; /* delay this animation until after text animation */
+    animation: fade-in 3s ease-in;
 }
 
 .background-layer {
@@ -37,17 +37,16 @@ body {
 }
 
 .layer1 {
-    background-image: url(../images/choose-fortune/v1.png);
+    background-image: url("../images/choose-fortune/v1.png");
     opacity: 0;
-    animation-delay: 2.5s;
-    animation: fadeIn 0.5s ease-in forwards;
+    animation: fade-in 0.5s ease-in forwards;
 }
 
 .layer2 {
-    background-image: url(../images/choose-fortune/v2.png);
+    background-image: url("../images/choose-fortune/v2.png");
     opacity: 0;
     animation-delay: 3s;
-    animation: fadeIn 1s ease-in forwards;
+    animation: fade-in 1s ease-in forwards;
 }
 
 h1 {
@@ -69,11 +68,11 @@ h1 {
     height: 28vh;
     border-radius: 1vw;
     margin: 1vw;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 20%);
     padding: 0.1vw;
     transition: transform 0.25s ease;
     opacity: 0;
-    animation: fadeIn 1s ease-in forwards;
+    animation: fade-in 1s ease-in forwards;
     animation-delay: 2s; /* delay this animation until after text animation */
 }
 
@@ -86,7 +85,7 @@ h1 {
 
 .fortune-box p {
     font-size: 3vh;
-    color: #ffffff;
+    color: #fff;
 }
 
 .fortune-box:hover {
