@@ -5,17 +5,17 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   text-align: center;
-  font-family: "Anek Devanagari", sans-serif;
+  font-family: 'Anek Devanagari', sans-serif;
   font-weight: 700;
 }
 
 @keyframes fade-in {
   0% {
-    opacity: 0;
+      opacity: 0;
   }
-
+    
   100% {
-    opacity: 1;
+      opacity: 1;
   }
 }
 
@@ -52,10 +52,10 @@ body {
 }
 
 h1 {
-  font-family: "Anek Devanagari", sans-serif;
-  font-size: 48px;
+  font-family: 'Anek Devanagari', sans-serif;
+  font-size: 10vh;
   color: white;
-  margin-top: 200px;
+  margin-top: 12vh;
   font-weight: 750;
 }
 
@@ -66,28 +66,27 @@ h1 {
 
 .fortune-box {
   display: inline-block;
-  width: 200px;
-  height: 200px;
-  border-radius: 20px;
-  margin: 20px;
-  background-color: #fff3;
-  padding: 10px;
+  width: max(28vh, 20px);
+  height: 28vh;
+  border-radius: 1vw;
+  margin: 1vw;
+  background-color: rgb(255 255 255 / 20%);
+  padding: 0.1vw;
   transition: transform 0.25s ease;
   opacity: 0;
   animation: fade-in 1s ease-in forwards;
   animation-delay: 2s; /* delay this animation until after text animation */
-  cursor: pointer;
 }
 
 .fortune-box img {
-  width: 120px;
-  height: 120px;
-  margin-top: 20px;
+  width: 18vh;
+  height: 18vh;
+  margin-top: 2vh;
   transition: transform 0.25s ease;
 }
 
 .fortune-box p {
-  font-size: 24px;
+  font-size: 3vh;
   color: #fff;
 }
 
