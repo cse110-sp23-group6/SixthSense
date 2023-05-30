@@ -16,7 +16,6 @@ body {
 h1 {
     font-size: max(10vh, 10px);
     text-align: center;
-
     margin-block-start: 0.05rem;
     margin-block-end: 0.05rem;
 }
@@ -42,12 +41,10 @@ h2 {
     font-size: 5vh;
     font-weight: 600;
     padding: 1rem;
-
     height: 12vh;
     width: auto;
     top: 80vh;
     position: absolute;
-
     transition: all .2s ease-in-out;
 }
 
@@ -82,7 +79,6 @@ h2 {
     color: white;
     font-family: 'Anek Devanagari', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 45vw;
-    height: inherit;
     align-items: center;
     left: 46vw;
     position: absolute;
@@ -133,7 +129,7 @@ h2 {
     right: 10vw;
     height: 12vh;
     width: auto;
-    font-size: calc(2vh+2vw);
+    font-size: calc(2vh + 2vw);
 }
 
 #your-reading{
