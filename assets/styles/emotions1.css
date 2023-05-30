@@ -110,7 +110,7 @@ h1 {
 }
 
 .selected{
-  box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff, inset 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, inset 0 0 10px #00000080;
 }
 
 #button-right:disabled {

@@ -8,6 +8,21 @@ const SECONDS_PER_DAY = 86400
  * and records it to localstorage.
  */
 async function init () {
+
+  //check if profile exists, and change the create profile button
+  const profilebutton = document.getElementById('create-profile')
+  const formData = localStorage.getItem('formData')
+  if (formData !== null) {
+    profilebutton.textContent = "Previous Readings";
+    profilebutton.addEventListener('click', function () {
+      window.location.href = 'previous-fortunes.html' + window.location.search
+    })
+  }
+  else{
+    profilebutton.addEventListener('click', function () {
+      window.location.href = 'newprofile.html' + window.location.search
+    })
+  }
   const urlParams = new URLSearchParams(window.location.search)
   const currentUnixTimestamp = Date.now() / 1000.0
 
@@ -42,7 +57,7 @@ async function init () {
   const overallEmotion = EMOTIONS_TABLE[emotion1][emotion2]
 
   // Generate a random reading from readings list
-  const reading = randomArrayItem(READINGS[readingType][overallEmotion])
+  let reading = randomArrayItem(READINGS[readingType][overallEmotion])
   auraImage.src = `assets/emotion_auras/${overallEmotion}.gif`
   readingBox.textContent = reading
 
@@ -58,6 +73,31 @@ async function init () {
   })
 
   localStorage.setItem('readings', JSON.stringify(currentReadings))
+
+  /**
+   * Event listener for home button click. Navigates back to index.html
+   */
+  document.getElementById('home').addEventListener('click', function () {
+  window.location.href = 'index.html' + window.location.search
+  })
+
+  /**
+   * Event listener for new button click. gets you new fortune
+   */
+  document.getElementById('get-new-fortune').addEventListener('click', function () {
+    reading = randomArrayItem(READINGS[readingType][overallEmotion])
+    readingBox.textContent = reading
+
+    // Update localstorage
+    currentReadings.pop();
+
+    currentReadings.push({
+      date: (new Date()).toISOString(),
+      reading
+    })
+
+    localStorage.setItem('readings', JSON.stringify(currentReadings))
+  })
 }
 
-window.addEventListener('DOMContentLoaded', init)
+window.addEventListener('DOMContentLoaded', init);
