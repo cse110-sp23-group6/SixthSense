@@ -1,6 +1,6 @@
 @font-face {
     font-family: AnekDevanagari;
-    src: url(assets/font/AnekDevanagari-VariableFont_wdth,wght.ttf);
+    src: url("assets/font/AnekDevanagari-VariableFont_wdth,wght.ttf");
 }
 
 * {
@@ -160,7 +160,6 @@ li {
     margin-left: 25%;
     margin-right: 25%;
     margin-top: 1vh;
-    margin-bottom: 2%;
 }
 
 #back, #delete{
