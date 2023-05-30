@@ -2,10 +2,12 @@
     font-family: AnekDevanagari;
     src: url("assets/font/AnekDevanagari-VariableFont_wdth,wght.ttf");
 }
+
 * {
 	font-family: AnekDevanagari, sans-serif;
     color: white;
 }
+
 /* Set default styles for the body */
 body {
 	margin-right: 0;
@@ -21,6 +23,7 @@ body {
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
   }
+
 @keyframes fade-in-animation {
     0% {
         opacity: 0;
@@ -29,10 +32,12 @@ body {
         opacity: 1;
      }
 }
+
 header {
 	margin-bottom: 0;
 	text-align: right;
 }
+
 /* Style the main button */
 button {
 	background-color: #413070;
@@ -45,11 +50,13 @@ button {
 	font-weight: bold;
 	transition: transform 0.3s ease;
 }
+
 /* Style the main button on hover */
 button:hover {
 	background-color: rgba(65 48 112 / 70%);
 	transform: scale(1.1);
 }
+
 /* Style the main content */
 main {
 	display: flex;
@@ -60,6 +67,7 @@ main {
 	text-align: center;
 	margin: 0;
 }
+
 /* Style the main content title */
 h1 {
 	color: white;
@@ -67,6 +75,7 @@ h1 {
 	margin: 0;
 	margin-bottom: 0;
 }
+
 /* Style the main content buttons */
 .inner-button {
 	font-size: 24px;
@@ -79,15 +88,18 @@ h1 {
 	height: 40px; 
 	transition: transform 0.3s ease;
 }
+
 /* Style the main content buttons on hover */
 .inner-button:hover {
 	background-color: rgba(65 48 112 / 70%);
 	transform: scale(1.1);
 }
+
 /* Style the user button when disabled */
 #user:disabled {
 	visibility: hidden;
 }
+
 .vector {
 	position: absolute;
 	bottom: -82px;
