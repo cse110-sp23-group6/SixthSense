@@ -1,5 +1,5 @@
 body {
-    background-image: url(../images/choose-fortune/todays-bg.png);
+    background-image: url("../images/choose-fortune/todays-bg.png");
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -9,7 +9,7 @@ body {
     font-weight: 700;
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
     0% {
         opacity: 0;
     }
@@ -37,14 +37,14 @@ body {
 }
 
 .layer1 {
-    background-image: url(../images/choose-fortune/v1.png);
+    background-image: url("../images/choose-fortune/v1.png");
     opacity: 0;
     animation-delay: 2.5s;
     animation: fadeIn 0.5s ease-in forwards;
 }
 
 .layer2 {
-    background-image: url(../images/choose-fortune/v2.png);
+    background-image: url("../images/choose-fortune/v2.png");
     opacity: 0;
     animation-delay: 3s;
     animation: fadeIn 1s ease-in forwards;
@@ -53,7 +53,7 @@ body {
 h1 {
     font-family: 'Anek Devanagari', sans-serif;
     font-size: 10vh;
-    color: white;
+    color: #fff;
     margin-top: 12vh;
     font-weight: 750;
 }
@@ -69,7 +69,7 @@ h1 {
     height: 28vh;
     border-radius: 1vw;
     margin: 1vw;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 20%);
     padding: 0.1vw;
     transition: transform 0.25s ease;
     opacity: 0;
@@ -86,7 +86,7 @@ h1 {
 
 .fortune-box p {
     font-size: 3vh;
-    color: #ffffff;
+    color: #fff;
 }
 
 .fortune-box:hover {
