@@ -2,12 +2,10 @@
     font-family: AnekDevanagari;
     src: url("assets/font/AnekDevanagari-VariableFont_wdth,wght.ttf");
 }
-
 * {
-    font-family: AnekDevanagari, sans-serif;
+	font-family: AnekDevanagari, sans-serif;
     color: white;
 }
-
 /* Set default styles for the body */
 body {
 	margin-right: 0;
@@ -27,7 +25,6 @@ body {
     0% {
         opacity: 0;
     }
-	
     100% {
         opacity: 1;
      }
