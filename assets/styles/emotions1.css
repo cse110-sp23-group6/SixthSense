@@ -116,7 +116,7 @@ h1 {
 
 .fortune {
   box-sizing: border-box;
-  border-radius: 45% 45%;
+  border-radius: 45%;
 }
 
 #button-right:disabled {
