@@ -205,7 +205,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // Function to add a reading to the list
   function addReadingToList(reading) {
     let liElement = document.createElement('li');
-    liElement.innerText = reading.date + ' - ' + reading.reading;
+
+    // parse the date so that it is easier to read
+    let separatedDate = reading.date.split('T');    // separate date from time first
+    let withoutTime = separatedDate[0].split('-');
+    let readingDate = withoutTime[1] + '/'+ withoutTime[2] + '/' + withoutTime[0];
+    liElement.innerText = readingDate + ': ' + reading.reading;
+    // liElement.innerText = reading.date + ' - ' + reading.reading;
     ulElement.appendChild(liElement); // Append to the end
     liElements.push(liElement);
   }
