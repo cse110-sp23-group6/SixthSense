@@ -67,7 +67,7 @@ function handleSubmit () {
 
   // Store the form data in local storage
   localStorage.setItem('formData', JSON.stringify(formData))
-  location.href = 'welcome-1.html'
+  location.href = 'index.html'
 }
 
 // Attach event listener to the buttons
@@ -80,5 +80,5 @@ submitButton.addEventListener('click', handleSubmit)
 
 // Go back to welcome page if user clicks home
 homeButton.addEventListener('click', function () {
-  location.href = 'welcome-1.html'
+  location.href = 'index.html'
 })
