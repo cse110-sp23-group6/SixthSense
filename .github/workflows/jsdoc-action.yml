@@ -1,22 +1,27 @@
-name: JSDoc Action Patch
+name: Generate JSDocs Documentation
 
 on:
   push:
-    branches:
-      - main
-
+    
 jobs:
-  build:
-    name: Build and Document
+  deploy:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
     steps:
-      - name: Checkout repository
+      - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Generate JSDoc documentation
-        uses: zhennann/jsdoc-action@v1.2.1
+      - name: Build
+        uses: andstor/jsdoc-action@v1
         with:
-          source_dir: assets/scripts/helpers.js
-          recurse: true
-          output_dir: assets/scripts/documentation
+          source_dir: .assets/scripts
+          output_dir: .assets/scripts/documentation
+          template: minami
+          front_page: README.md
+          
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .docs
