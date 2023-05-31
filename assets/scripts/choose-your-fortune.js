@@ -70,7 +70,7 @@ function handleNavigation(type) {
   }
 }
 
-const backButton = document.getElementById('back_button')
+const backButton = document.getElementById('back-button')
 
 backButton.addEventListener('click', backButtonClick)
 
