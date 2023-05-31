@@ -112,7 +112,6 @@ h1 {
   height: 12vh;
   width: auto;
   top: 80vh;
-  position: absolute;
   transition: all .2s ease-in-out;
   opacity: 0;
   animation: fade-in 1s ease-in forwards;
