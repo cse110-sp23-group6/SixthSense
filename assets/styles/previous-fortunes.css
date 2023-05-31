@@ -42,22 +42,23 @@ h1 {
 }
 
 #finalemotion {
-    max-width: 80%;
+    max-width: 65%;
     width: 20vw;
     border-radius: 20px;
     margin: 3vh 1vw 0;
 }
 
 #name {
-    font-size: 7vmin;
+    font-size: 4vmin;
     font-weight: 600;
     margin: 1vh 2vw;
 }
 
-#star-sign,
-#status {
-    margin: 0.5vh;
-    font-size: 4vmin;
+#star-sign {
+    font-size: 3.5vmin;
+}
+#relationship {
+    font-size: 3vmin;
 }
 
 button{
@@ -80,6 +81,7 @@ button{
     position: absolute; 
     text-align: center;
     top: 23vh;
+    height: 50%;
     margin-left:5%; 
     margin-top: 1%; 
     width: 20%;
@@ -88,6 +90,7 @@ button{
     background-color: #413070bf;
     text-overflow: ellipsis; 
     overflow: hidden;
+    padding-bottom: 40px;
 }
 
 ul {
@@ -203,3 +206,8 @@ li:hover {
     transform: scale(1.03);
     background-color: #413070b3;
 }
+
+p {
+    margin-bottom: 0.2cm;
+    margin-top: 0cm;
+} 
