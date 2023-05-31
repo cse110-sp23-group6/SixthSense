@@ -17,26 +17,40 @@ submitButton.disabled = true
  * @param {event} e - the event that triggered the function call
  */
 function validateInput (event) {
-  const numbers = /^[0-9]/
+  const months = /^(0*([1-9]|1[0-2]))$/
+  const days = /^(([0]?[1-9])|([1-2][0-9])|(3[01]))$/
+  const years = /^[0-9]/
   const letters = /^[a-zA-Z\s]+$/
   const id = event.target.getAttribute('id')
   const input = event.target.value
 
-  // Check if Name input is not valid
-  if (id === 'name' && !input.match(letters)) {
-    submitButton.disabled = true
-  }
-
-  // Check if Birthday inputs are not valid
-  if (id !== 'name' && id !== 'status' && !input.match(numbers)) {
-    submitButton.disabled = true
-  }
-
-  const yearValid = yearBox.value.match(numbers)
-  const dateValid = dateBox.value.match(numbers)
-  const monthValid = monthBox.value.match(numbers)
+  // Checks validity of each input
+  const yearValid = yearBox.value.match(years)
+  const dateValid = dateBox.value.match(days)
+  const monthValid = monthBox.value.match(months)
   const nameValid = nameBox.value.match(letters)
+
   const statusValue = statusBox.value
+
+  // Check if Name input is not valid
+  if (id === 'name' && !nameValid) {
+    submitButton.disabled = true
+  }
+
+  // Check if Month input is not valid
+  if (id === 'month' && !monthValid) {
+    submitButton.disabled = true
+  }
+  
+  // Check if Date input is not valid
+  if (id === 'date' && !dateValid) {
+    submitButton.disabled = true
+  }
+
+  // Check if Year input is not valid
+  if (id === 'year' && !yearValid) {
+    submitButton.disabled = true
+  }
 
   // If everything is inputed correctly, allow for submitting
   if (yearValid && dateValid && monthValid && nameValid && statusValue !== '') {
