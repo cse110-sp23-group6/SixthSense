@@ -2,6 +2,7 @@ const SECONDS_PER_DAY = 86400
 
 document.addEventListener("DOMContentLoaded", function () {
   const headerText = document.getElementById('header-text');
+  const typingSound = document.getElementById('typing-sound');
   const text = headerText.textContent;
   let html = ''
 
@@ -15,13 +16,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   headerText.innerHTML = html;
 
+  typingSound.currentTime = 0; // Reset the sound to start
+  typingSound.playbackRate = 1.5;
+  typingSound.play(); // Play the typing sound
+  
   let delay = 100 // time in milliseconds between each character
   document.querySelectorAll('.header-hidden').forEach(function (elem) {
     setTimeout(function () {
       elem.style.opacity = 1;
     }, delay);
-    delay += 100;
+    delay += 70;
   });
+  typingSound.currentTime = 0;
 });
 
 const loveDiv = document.getElementById('love-div')
@@ -62,4 +68,13 @@ function handleNavigation(type) {
   } else {
     window.location.assign('reading.html?reading=' + type)
   }
+}
+
+const backButton = document.getElementById('back-button')
+
+backButton.addEventListener('click', backButtonClick)
+
+// back botton navigation
+function backButtonClick () {
+  window.location.href = 'index.html'
 }
