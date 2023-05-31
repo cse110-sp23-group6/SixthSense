@@ -193,3 +193,13 @@ li {
 #delete {
     padding: 2% 8%;
 }
+
+button:hover {
+    transform: scale(1.1);
+    background-color: #413070;
+}
+
+li:hover {
+    transform: scale(1.03);
+    background-color: #413070b3;
+}
