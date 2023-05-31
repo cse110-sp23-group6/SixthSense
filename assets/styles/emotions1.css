@@ -116,10 +116,7 @@ h1 {
 
 .fortune {
   box-sizing: border-box;
-  border-bottom-left-radius: 75% 55%;
-  border-bottom-right-radius: 75% 55%;
-  border-top-left-radius:75% 55%;
-  border-top-right-radius: 75% 55%;
+  border-radius: 45% 45%;
 }
 
 #button-right:disabled {
