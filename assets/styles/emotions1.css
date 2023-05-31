@@ -44,6 +44,7 @@ h1 {
   border: none;
   margin-left: -2%;
   cursor: pointer;
+  
 }
 
 .round-button:hover {
@@ -109,8 +110,16 @@ h1 {
   height: 30%;
 }
 
-.selected{
-  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, inset 0 0 10px #00000080;
+.selected {
+  box-shadow: 0 0 5px #fff, 0 0 50px #fff, 0 0 20px #fff, inset 0 0 10px #00000080;
+}
+
+.fortune {
+  box-sizing: border-box;
+  border-bottom-left-radius: 75% 55%;
+  border-bottom-right-radius: 75% 55%;
+  border-top-left-radius:75% 55%;
+  border-top-right-radius: 75% 55%;
 }
 
 #button-right:disabled {
