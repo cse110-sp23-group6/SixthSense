@@ -57,6 +57,7 @@ h1 {
 #star-sign {
     font-size: 3.5vmin;
 }
+
 #relationship {
     font-size: 3vmin;
 }
@@ -209,5 +210,5 @@ li:hover {
 
 p {
     margin-bottom: 0.2cm;
-    margin-top: 0cm;
+    margin-top: 0;
 } 
