@@ -1,3 +1,4 @@
+/* TODO: Need to fix resizing with the browser! */
 @font-face {
     font-family: AnekDevanagari;
     src: url("assets/font/AnekDevanagari-VariableFont_wdth,wght.ttf");
@@ -8,16 +9,38 @@
     color: white;
 }
 
+/* Background Gradient*/
 body {
     background: linear-gradient(28.76deg, #6554CC 18.11%, #413070 78.69%) fixed;
     background-repeat: no-repeat;
 }
 
-h1 {
-    font-size: max(10vh, 10px);
-    text-align: center;
-    margin-block-start: 0.05rem;
-    margin-block-end: 0.05rem;
+/* Background Vectors */
+.topleft-vector{
+    position: absolute;
+    top: -10px;
+    left: 0;
+    z-index: -1;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+.bottom-vector {
+    position: absolute;
+    bottom: 0; 
+    right: 0;
+    z-index: -1;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.bottom-right-vector {
+    position: absolute;
+    bottom: 0; 
+    right: 0px;
+    z-index: -1;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 h2 {
@@ -30,77 +53,95 @@ h2 {
     color: #FFF;
     display: grid;
     grid-template-columns: 45vw 45vw;
-    grid-template-rows: max-content;
+    grid-template-rows: max-content; 
 }
 
 .button {
-    background: #41307080;
+    background: #3b2b66ce;
     border-radius: 1.25rem;
     border: none;
     color: #fff;
-    font-size: 5vh;
     font-weight: 600;
     padding: 1rem;
-    height: 12vh;
+    height: 10vh;
     width: auto;
     top: 80vh;
-    position: absolute;
+    left: 90vh;
     transition: all .2s ease-in-out;
+    font-size: 2vw;
+
 }
 
 .button:hover {
-    box-shadow: 0 12px 16px 0 #0000003d, 0 17px 50px 0 #00000030;
+    box-shadow: 0 12px 16px 0 #ffffff3d, 0 17px 50px 0 #00000030;
     transform: scale(1.02);
 }
 
-#nav-buttons {
+#top-nav-buttons {
+
+    position: absolute;
+    left: 85vw;
+    right: auto;
+    top: 2vw;
+    bottom: auto;
+
+}
+
+.button2 {
+    background: transparent;
+    border-color: transparent;
+    border-radius: 20px;
+    width: 5rem;
+    height: 5rem;
+    padding: 1.5vw;
+}
+
+ #nav-buttons {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    padding: 1vh;
+    margin-top: 80vh;
+    margin-right: 10vh;
+    column-gap: 35vh;
     height: 5vh;
-}
-
-#nav-buttons button {
-    background: #413070;
-    border-radius: 0.5rem;
-    margin-left: 2rem;
-    width: 5rem;
-    height: 10vh;
-    font-size: 4vh;
 }
 
 #reading{
     border-style: solid;
-    border-color: #6832a8;
-    background-color: #413070;
-    padding:2px;
+    border-color: transparent;
+    border-radius: 30px;
+    background-color: #413070c9;
+    padding: 50px;
     color: white;
-    font-family: 'Anek Devanagari', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    position: absolute;
     width: 45vw;
     align-items: center;
-    left: 46vw;
-    position: absolute;
-    top: 31vh;
-    font-size: 1.35rem;
-    height: 40vh;
-
+    left: 43vw;
+    
+    top: 24vh;
+    height: 35vh;
+    
+    font-style: normal;
+    font-weight: 200;
+    font-size: calc(0.9vh + 0.9vw);
+    
 }
 
 #aura-image {
-    height: max(40vh, 10vw);
+    height: max(10vh, 32vw);
     width: auto;
+    border-radius: 20px;
 }
 
 #aura-image-container {
     grid-row: 3;
     grid-column: 1;
     position: absolute;
-    left: 12vw;
-    height: 20vh;
-    top:32vh;
-    width: auto;
+    left: 8vw;
+    top: 25vh;
+    width: auto; 
 }
 
 #response-answers {
@@ -108,70 +149,30 @@ h2 {
     grid-column: 1; 
 }
 
-#your-reading-container {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    justify-content: center;   
-}
-
-#get-new-fortune {
-    grid-row: 4;
-    grid-column: 1;    
-    margin-top: 1.5rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-#create-profile {
-    position: absolute;
-    right: 10vw;
-    height: 12vh;
-    width: auto;
-    font-size: calc(2vh + 2vw);
-}
-
 #your-reading{
-    font-family: 'Anek Devanagari', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size:  max(7vh, 7px);    
     position: absolute;
     left: 50vw;
-    top: 20vh;    
+    top: 15vh;    
     height: max(40vh, 10vw);
     text-align: center;
-
+    font-size: 2.5vw;
 }
 
 #today-you-are-feeling {
+    position: absolute;
     text-align: center;
-    grid-row: 2;
-    grid-column: 1;
+    left: 11vw;
+    top: 15vh;    
+    height: max(40vh, 10vw);
+    font-size: 2.5vw;
+    font-weight: bold;
 }
 
-#create-profile-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+/* resizable images */
+img {
+    max-width: 100%;
+    height: auto;
 }
+    
 
 
-.top-left-vector{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1; 
-    max-width: 80%;
-    max-height: 100%;
-    opacity: .8;
-  }
-
-  .bottom-vector {
-    position: absolute;
-    top: 1;
-    right: 0;
-    bottom: 0;
-    z-index: -1; 
-    max-width: 70%;
-    max-height: 100%;
-  }
