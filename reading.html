@@ -14,41 +14,35 @@
 </head>
 
 <body>
-  <header>
-
-  </header>
   <main>
-    <div class="images">
-      <img src="assets/images/general-reading/topleft-vector.png" class="topleft-vector"  width="100%">
-      <img src="assets/images/general-reading/bottomright-vector.png" class="bottom-right-vector" >
-      <img src="assets/images/general-reading/bottom-vector.png" class="bottom-vector" width="100%">
-    </div>
+    <!-- Background Vectors -->
+    <img src="assets/images/general-reading/topleft-vector.png" class="topleft-vector"  width="100%">
+    <img src="assets/images/general-reading/bottomright-vector.png" class="bottom-right-vector" >
+    <img src="assets/images/general-reading/bottom-vector.png" class="bottom-vector" width="100%">
 
-    <div class="container">
-        <h2 id="today-you-are-feeling">You Are Feeling:</h2>
-        <div id="aura-image-container">
-          <img src="assets/images" alt="" id="aura-image">
-        </div>
-        <div id="top-nav-buttons">
-          <button type="button" class="button2" id="share">
-            <img src="assets/images/general-reading/share-icon.png">
-          </button>
-          <button type="button" class="button2" id="home">
-            <img src="assets/images/general-reading/home-icon.png">
-          </button>
-        </div>
-      </div> 
+    <!-- Page's Left Half -->
+    <h2 id="you-are-feeling">You Are Feeling:</h2>
+    <div id="aura-image-container">
+      <img src="assets/images" alt="" id="aura-image">
     </div>
-   
-    <div id="nav-buttons">
+    
+    <!-- Page's Right Half -->
+    <div id="right-container">
       <h2 id="your-reading">Today's Reading:</h2>
-        <h2 id="reading">
-          Hmm ... hang tight, we're generating your reading. 
-        </h2>
-      <button type="button" class="button">Get New Fortune</button>
+      <h2 id="reading">
+        Hmm ... hang tight, we're generating your reading. 
+      </h2>
+      <button type="button" class="button" id="new-fortune">Get New Fortune</button>
       <button type="button" class="button" id="create-profile">Create Profile</button>
-    </div>
 
+      <!-- Top Navigation Buttons -->
+      <button type="button" class="button2">
+        <img id="share" src="assets/images/general-reading/share-icon.png">
+      </button>
+      <button type="button" class="button2" >
+        <img id="home" src="assets/images/general-reading/home-icon.png">
+      </button>
+    </div>
   </main>
 </body>
 
