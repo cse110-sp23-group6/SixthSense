@@ -94,6 +94,16 @@ button{
     padding-bottom: 40px;
 }
 
+.hover {
+    background-color: rgb(65 48 112);
+    transition: transform 0.3s ease;
+}
+
+.hover:hover {
+    background-color: rgba(65 48 112 / 70%);
+	transform: scale(1.1);
+}
+
 ul {
     position: absolute;
     top: 21%;

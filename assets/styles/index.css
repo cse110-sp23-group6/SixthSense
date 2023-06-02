@@ -1,7 +1,7 @@
 @font-face {
-    font-family: AnekDevanagari;
-    src: url("assets/font/AnekDevanagari-VariableFont_wdth,wght.ttf");
-}
+	font-family: AnekDevanagari;
+	src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
+  }
 
 * {
 	font-family: AnekDevanagari, sans-serif;
@@ -40,17 +40,21 @@ header {
 	text-align: right;
 }
 
+
 /* Style the main button */
 button {
-	background-color: #413070;
+	border: none;
+	background-color: rgb(65 48 112);
 	color: white;
-	padding: 15px;
-	border-radius: 12px;
-	font-size: max(calc(1.3vh + 1.3vw), 10px);
+	padding: 2vh;
+	border-radius: 2vh;
+	font-size: calc(0.9vh + 0.9vw);
 	margin-right: 3vw;
 	margin-top: 2vh;
+	margin-bottom: 2vh;
 	font-weight: bold;
 	transition: transform 0.3s ease;
+	cursor: pointer;
 }
 
 /* Style the main button on hover */
