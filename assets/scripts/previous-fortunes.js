@@ -151,7 +151,8 @@ function deleteSelectedItem() {
     let selectedText = selectedItem.innerText;
     let selectedDate = selectedText.split(' - ')[0];
     formattedReadings = formattedReadings.filter(function(reading) {
-      return reading.date !== selectedDate;
+      let readingText = reading.date + ' - ' + reading.text;
+      return readingText !== selectedText;
     });
 
     // Update the formattedReadings in local storage
