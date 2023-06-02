@@ -67,8 +67,13 @@ async function init () {
     currentReadings = []
   }
 
+  let ogdate = (new Date()).toISOString();
+  let separatedDate = ogdate.split('T');    // separate date from time first
+  let withoutTime = separatedDate[0].split('-');
+  let date = withoutTime[1] + '/'+ withoutTime[2] + '/' + withoutTime[0];
+
   currentReadings.push({
-    date: (new Date()).toISOString(),
+    date: date,
     reading
   })
 
@@ -84,7 +89,7 @@ async function init () {
   /**
    * Event listener for new button click. gets you new fortune
    */
-  document.getElementById('get-new-fortune').addEventListener('click', function () {
+  document.getElementById('new-fortune').addEventListener('click', function () {
     reading = randomArrayItem(READINGS[readingType][overallEmotion])
     readingBox.textContent = reading
 

@@ -149,10 +149,23 @@ function deleteSelectedItem() {
 
     // Remove the corresponding entry from formattedReadings array
     let selectedText = selectedItem.innerText;
-    let selectedDate = selectedText.split(' - ')[0];
-    formattedReadings = formattedReadings.filter(function(reading) {
-      return reading.date !== selectedDate;
-    });
+    let selectedDate = selectedText.split(': ')[0];
+    console.log('date = ' + selectedDate);
+    let selectedReading = selectedText.split(': ')[1];
+    console.log('reading = ' + selectedReading);
+
+    /*formattedReadings = formattedReadings.filter(function (reading) {
+      return reading.date !== selectedDate || reading.reading !== selectedReading;
+    });*/
+    
+    for (let i = 0; i < formattedReadings.length; i++) {
+      let reading = formattedReadings[i];
+      console.log('iteration reading = ' + reading.date + reading.reading);
+      if (reading.date === selectedDate && reading.reading === selectedReading) {
+        formattedReadings.splice(i, 1);
+        break;
+      }
+    }
 
     // Update the formattedReadings in local storage
     localStorage.setItem('readings', JSON.stringify(formattedReadings));
@@ -207,10 +220,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let liElement = document.createElement('li');
 
     // parse the date so that it is easier to read
-    let separatedDate = reading.date.split('T');    // separate date from time first
+    //moved to general reading
+    /*let separatedDate = reading.date.split('T');    // separate date from time first
     let withoutTime = separatedDate[0].split('-');
-    let readingDate = withoutTime[1] + '/'+ withoutTime[2] + '/' + withoutTime[0];
-    liElement.innerText = readingDate + ': ' + reading.reading;
+    let readingDate = withoutTime[1] + '/'+ withoutTime[2] + '/' + withoutTime[0];*/
+    liElement.innerText = reading.date + ': ' + reading.reading;
     // liElement.innerText = reading.date + ' - ' + reading.reading;
     ulElement.appendChild(liElement); // Append to the end
     liElements.push(liElement);
@@ -228,4 +242,10 @@ document.addEventListener('DOMContentLoaded', function() {
   //deletebutton
   let deleteButton = document.getElementById('delete');
   deleteButton.addEventListener('click', deleteSelectedItem);
+
+  // Go back to welcome page if user clicks home
+  let homeButton = document.getElementById('home');
+  homeButton.addEventListener('click', function () {
+  location.href = 'index.html'
+  });
 });

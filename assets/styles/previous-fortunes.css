@@ -94,6 +94,16 @@ button{
     padding-bottom: 40px;
 }
 
+.hover {
+    background-color: rgb(65 48 112);
+    transition: transform 0.3s ease;
+}
+
+.hover:hover {
+    background-color: rgba(65 48 112 / 70%);
+	transform: scale(1.1);
+}
+
 ul {
     position: absolute;
     top: 21%;
@@ -166,7 +176,7 @@ li {
     float: right;
 }
 
-.nav-back {
+.nav-home {
     position: absolute;
     top: 87%;
     left: 2vw;
@@ -190,7 +200,7 @@ li {
     font-weight: bold;
 }
 
-#back {
+#home {
     padding: 2% 8%;
 }
 

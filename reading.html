@@ -14,39 +14,37 @@
 </head>
 
 <body>
-  <header>
-
-  </header>
   <main>
-    <div class="container">
-        <h1 id="general-reading">General Reading</h1>
-        <h2 id="today-you-are-feeling">Today You Are Feeling:</h2>
-        <div id="aura-image-container">
-          <img src="assets/images/despair.png" alt="" id="aura-image">
-        </div>
-        <div id="get-new-fortune">
-          <button type="button" class="button">Get New Fortune</button>
-        </div>
-        <div id="nav-buttons">
-          <button type="button" class="button2" id="share">Share</button>
-          <button type="button" class="button2" id="home">Home</button>
-        </div>
-        <h2 id="your-reading">Today's Reading:</h2>
-        <h2 id="reading">
-          It's important to remember that you are deserving of love 
-          and happiness and that your current situation does not define your worth. 
-          Trust that the universe has a plan for you and that things will get better 
-          with time. Stay open to new possibilities and experiences, and know that 
-          you have the strength and resilience to overcome this challenging time in 
-          your relationship.
-        </h2>
-        <div id="create-profile-container">
-          <button type="button" class="button" id="create-profile">Create Profile</button>
-        </div>
-        <div class="images">
-          <img src="assets/images/topleft2.png" alt="" class="top-left-vector">
-          <img src="assets/images/welcome-vector3.png" alt=""  class="bottom-vector">
-        </div>
+    <!-- Background Vectors -->
+    <img src="assets/images/general-reading/topleft-vector.png" class="topleft-vector"  alt="top-left-vector" width="100%">
+    <img src="assets/images/general-reading/bottomright-vector.png" class="bottom-right-vector" alt="bottom-right-vector" >
+    <img src="assets/images/general-reading/bottom-vector.png" class="bottom-vector" alt="bottom-vector" width="100%">
+
+    <!-- Page's Left Half -->
+    <h2 id="you-are-feeling">You Are Feeling:</h2>
+    <div id="aura-image-container">
+      <img src="assets/images" alt="" id="aura-image">
+    </div>
+    
+    <!-- Page's Right Half -->
+    <div id="right-container">
+      <h2 id="your-reading">Today's Reading:</h2>
+  
+
+      <h2 id="reading">
+        <span class="typing-text"> Hmm ... hang tight, we're generating your reading. </span>
+      </h2>
+      <button type="button" class="button" id="new-fortune">Get New Fortune</button>
+      <button type="button" class="button" id="create-profile">Create Profile</button>
+  
+     
+      <!-- Top Navigation Buttons -->
+      <button type="button" class="button2">
+        <img id="share" src="assets/images/general-reading/share-icon.png">
+      </button>
+      <button type="button" class="button2" >
+        <img id="home" src="assets/images/general-reading/home-icon.png">
+      </button>
     </div>
   </main>
 </body>
