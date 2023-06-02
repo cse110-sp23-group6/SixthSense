@@ -154,9 +154,19 @@ function deleteSelectedItem() {
     let selectedReading = selectedText.split(': ')[1];
     console.log('reading = ' + selectedReading);
 
-    formattedReadings = formattedReadings.filter(function(reading) {
-      return reading.date !== selectedDate || reading.text !== selectedReading;
-    });
+    /*formattedReadings = formattedReadings.filter(function (reading) {
+      return reading.date !== selectedDate || reading.reading !== selectedReading;
+    });*/
+    
+    for (let i = 0; i < formattedReadings.length; i++) {
+      let reading = formattedReadings[i];
+      console.log('iteration reading = ' + reading.date + reading.reading);
+      if (reading.date === selectedDate && reading.reading === selectedReading) {
+        formattedReadings.splice(i, 1);
+        break;
+      }
+    }
+
     // Update the formattedReadings in local storage
     localStorage.setItem('readings', JSON.stringify(formattedReadings));
     console.log('Deleted:', selectedText);
@@ -210,10 +220,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let liElement = document.createElement('li');
 
     // parse the date so that it is easier to read
-    let separatedDate = reading.date.split('T');    // separate date from time first
+    //moved to general reading
+    /*let separatedDate = reading.date.split('T');    // separate date from time first
     let withoutTime = separatedDate[0].split('-');
-    let readingDate = withoutTime[1] + '/'+ withoutTime[2] + '/' + withoutTime[0];
-    liElement.innerText = readingDate + ': ' + reading.reading;
+    let readingDate = withoutTime[1] + '/'+ withoutTime[2] + '/' + withoutTime[0];*/
+    liElement.innerText = reading.date + ': ' + reading.reading;
     // liElement.innerText = reading.date + ' - ' + reading.reading;
     ulElement.appendChild(liElement); // Append to the end
     liElements.push(liElement);
