@@ -149,12 +149,14 @@ function deleteSelectedItem() {
 
     // Remove the corresponding entry from formattedReadings array
     let selectedText = selectedItem.innerText;
-    let selectedDate = selectedText.split(' - ')[0];
-    formattedReadings = formattedReadings.filter(function(reading) {
-      let readingText = reading.date + ' - ' + reading.text;
-      return readingText !== selectedText;
-    });
+    let selectedDate = selectedText.split(': ')[0];
+    console.log('date = ' + selectedDate);
+    let selectedReading = selectedText.split(': ')[1];
+    console.log('reading = ' + selectedReading);
 
+    formattedReadings = formattedReadings.filter(function(reading) {
+      return reading.date !== selectedDate || reading.text !== selectedReading;
+    });
     // Update the formattedReadings in local storage
     localStorage.setItem('readings', JSON.stringify(formattedReadings));
     console.log('Deleted:', selectedText);
