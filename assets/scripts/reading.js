@@ -89,7 +89,7 @@ async function init () {
   /**
    * Event listener for new button click. gets you new fortune
    */
-  document.getElementById('get-new-fortune').addEventListener('click', function () {
+  document.getElementById('new-fortune').addEventListener('click', function () {
     reading = randomArrayItem(READINGS[readingType][overallEmotion])
     readingBox.textContent = reading
 
