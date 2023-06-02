@@ -166,7 +166,7 @@ li {
     float: right;
 }
 
-.nav-back {
+.nav-home {
     position: absolute;
     top: 87%;
     left: 2vw;
@@ -190,7 +190,7 @@ li {
     font-weight: bold;
 }
 
-#back {
+#home {
     padding: 2% 8%;
 }
 

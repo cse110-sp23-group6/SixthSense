@@ -228,4 +228,10 @@ document.addEventListener('DOMContentLoaded', function() {
   //deletebutton
   let deleteButton = document.getElementById('delete');
   deleteButton.addEventListener('click', deleteSelectedItem);
+
+  // Go back to welcome page if user clicks home
+  let homeButton = document.getElementById('home');
+  homeButton.addEventListener('click', function () {
+  location.href = 'index.html'
+  });
 });
