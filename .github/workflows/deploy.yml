@@ -45,11 +45,15 @@ jobs:
       - name: Minify CSS using cleancss
         run: |
           find ./ -name "*.css" -exec npx --yes cleancss -o {} {} \;
+      - name: Delete gh-pages branch (to update it)
+        run: |
+          git branch -D gh-pages
       - name: Push to gh-pages
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           branch: gh-pages
           commit_message: Automated minification
+          push_options: '--force'
   deploy:
     needs: [minify]
     environment:
