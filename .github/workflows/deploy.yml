@@ -11,11 +11,12 @@ jobs:
     steps:
       # wait-on-check-action is a bit buggy with PRs vs. not
       # so run different actions depending on whether it is a PR
+      # see: https://github.com/lewagon/wait-on-check-action/issues/25#issuecomment-1203747335
       - name: Wait for docs to be committed
         uses: lewagon/wait-on-check-action@v1.3.1
         if: github.event_name != 'pull_request'
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ github.sha }}
           check-name: 'Commit Docs'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10
@@ -23,7 +24,7 @@ jobs:
         uses: lewagon/wait-on-check-action@v1.3.1
         if: github.event_name == 'pull_request'
         with:
-          ref: ${{ github.sha }}
+          ref: ${{ github.event.pull_request.head.sha }}
           check-name: 'Commit Docs'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10  
@@ -31,7 +32,7 @@ jobs:
         uses: lewagon/wait-on-check-action@v1.3.1
         if: github.event_name != 'pull_request'
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ github.sha }}
           check-name: 'Run tests'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10
@@ -39,7 +40,7 @@ jobs:
         uses: lewagon/wait-on-check-action@v1.3.1
         if: github.event_name == 'pull_request'
         with:
-          ref: ${{ github.sha }}
+          ref: ${{ github.event.pull_request.head.sha }}
           check-name: 'Run tests'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10  
