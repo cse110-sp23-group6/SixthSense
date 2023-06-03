@@ -223,7 +223,7 @@ describe('End to end testing', () => {
   //----------------------------Friends/Family---------------------------
 
   it('choose your fortune to emotions1 (friends_and_family) navigation test', async () => {
-    let but1 = await page.$('#health-div');
+    let but1 = await page.$('#friends-and-family-div-div');
     await but1.click();
     await page.waitForNavigation();
     let newUrl = await page.url();
