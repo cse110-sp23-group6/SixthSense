@@ -29,6 +29,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Pull latest changes
+        run: |
+          git pull
       - name: Remove extraneous files from deployment
         run: |
           rm .babelrc .eslintrc.json jest.config.js package-lock.json package.json
@@ -37,7 +40,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Minify JS using Uglify
+      - name: Install UglifyJS and CleanCSS
+        run: |
+          npm i uglifyjs cleancss -g 
+      - name: Minify JS using UglifyJS
         # Finds each js file then runs uglifyjs on it
         # Based on: https://stackoverflow.com/a/10523492
         run: |
