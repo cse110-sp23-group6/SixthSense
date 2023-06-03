@@ -40,17 +40,17 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Install UglifyJS and CleanCSS
+      - name: Install UglifyJS and Minify
         run: |
-          npm i uglifyjs cleancss -g 
+          npm i uglifyjs minify -g 
       - name: Minify JS using UglifyJS
         # Finds each js file then runs uglifyjs on it
         # Based on: https://stackoverflow.com/a/10523492
         run: |
           find ./ -name "*.js" -exec npx --yes uglifyjs {} --compress --mangle --module --output {} \;
-      - name: Minify CSS using cleancss
+      - name: Minify CSS using minify
         run: |
-          find ./ -name "*.css" -exec npx --yes cleancss -o {} {} \;
+          find ./ -name "*.css" -exec npx --yes minify {} > {} \;
       - name: Delete gh-pages branch (to update it)
         run: |
           git branch -D gh-pages
