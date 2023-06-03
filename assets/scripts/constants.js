@@ -709,3 +709,6 @@ export const STAR_SIGNS = [
     }
   }
 ];
+
+// 3 hours in seconds
+export const RE_ASK_INTERVAL_SECONDS = 2 * 60 * 60;
