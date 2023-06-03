@@ -41,10 +41,10 @@ jobs:
         # Finds each js file then runs uglifyjs on it
         # Based on: https://stackoverflow.com/a/10523492
         run: |
-          find ./ -name "*.js" npx --yes uglifyjs {} --compress --mangle --module --output {}  
+          find ./ -name "*.js" -exec npx --yes uglifyjs {} --compress --mangle --module --output {}  
       - name: Minify CSS using cleancss
         run: |
-          find ./ -name "*.css" npx --yes cleancss -o {} {}  
+          find ./ -name "*.css" -exec npx --yes cleancss -o {} {}  
       - name: Push to gh-pages
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
