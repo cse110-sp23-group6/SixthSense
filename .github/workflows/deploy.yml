@@ -11,18 +11,36 @@ jobs:
     steps:
       - name: Wait for docs to be committed
         uses: lewagon/wait-on-check-action@v1.3.1
+        if: github.event_name != 'pull_request'
+        with:
+          ref: ${{ github.sha }}
+          check-name: 'Commit Docs'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+      - name: Wait for docs to be committed
+        uses: lewagon/wait-on-check-action@v1.3.1
+        if: github.event_name == 'pull_request'
         with:
           ref: ${{ github.ref }}
           check-name: 'Commit Docs'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 10
-      - name: Wait for tests to be finished
+          wait-interval: 10  
+      - name: Wait for tests to run
         uses: lewagon/wait-on-check-action@v1.3.1
+        if: github.event_name != 'pull_request'
+        with:
+          ref: ${{ github.sha }}
+          check-name: 'Run tests'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+      - name: Wait for tests to run
+        uses: lewagon/wait-on-check-action@v1.3.1
+        if: github.event_name == 'pull_request'
         with:
           ref: ${{ github.ref }}
           check-name: 'Run tests'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 10
+          wait-interval: 10  
   minify:
     needs: [other-jobs]
     runs-on: ubuntu-latest
