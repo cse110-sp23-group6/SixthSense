@@ -7,7 +7,7 @@ const SECONDS_PER_DAY = 86400;
  * Runs on page initialization. Generates a reading based on emotion1 and emotion2
  * and records it to localstorage.
  */
-async function init () {
+async function init() {
   // check if profile exists, and change the create profile button
   const profilebutton = document.getElementById('create-profile');
   const formData = window.localStorage.getItem('formData');

@@ -10,12 +10,7 @@
 
 body {
   /* background gradient */
-  background-image: linear-gradient(
-    to left,
-    #b094ff,
-    #927aeb 47%,
-    #6554cc
-  );
+  background-image: linear-gradient(to left, #b094ff, #927aeb 47%, #6554cc);
   color: white;
   overflow: hidden;
 }
@@ -92,7 +87,7 @@ button {
 }
 
 #back {
-	background-color: rgb(65 48 112);
+  background-color: rgb(65 48 112);
   align-self: center;
   width: 25%;
   height: 8vh;
@@ -102,7 +97,7 @@ button {
 }
 
 #next {
-	background-color: rgb(65 48 112);
+  background-color: rgb(65 48 112);
   align-self: center;
   width: 25%;
   height: 8vh;
@@ -111,8 +106,9 @@ button {
   font-size: calc(1vh + 1vw);
 }
 
-.selected{
-  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, inset 0 0 10px #00000080;
+.selected {
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff,
+    inset 0 0 10px #00000080;
 }
 
 /* animate fade in */
@@ -127,7 +123,7 @@ button {
 
 #next:disabled {
   background-color: gray;
-  color:lightgray;
+  color: lightgray;
 }
 
 button:hover:enabled {
@@ -135,11 +131,11 @@ button:hover:enabled {
 }
 
 #next:hover:enabled {
-	background-color: rgba(65 48 112 / 70%);
+  background-color: rgba(65 48 112 / 70%);
 }
 
 #back:hover:enabled {
-	background-color: rgba(65 48 112 / 70%);
+  background-color: rgba(65 48 112 / 70%);
 }
 
 @media (width <= 860px) {
