@@ -20,6 +20,6 @@ describe('End to end testing', () => {
         await but1.click();
         await page.waitForNavigation();
         let newUrl = await page.url();
-        expect(newUrl).toBe('http://127.0.0.1:5500/emotions1.html?reading=love');
+        expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=love');
     });
   });
