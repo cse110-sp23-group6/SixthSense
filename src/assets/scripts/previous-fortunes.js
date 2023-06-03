@@ -14,7 +14,7 @@ const formattedReadings = window.localStorage.getItem('readings')
  * @param {string} date: date of the birthday
  * @return {string} name of the star sign and null if none match
  */
-function getStarSign (month, date) {
+export function getStarSign (month, date) {
   // Convert the month and date strings to numbers
   const monthNum = parseInt(month);
   const dateNum = parseInt(date);
@@ -61,7 +61,7 @@ function createEntries (listItems) {
  * function name: createCloseButton
  * Function to create the close button for the expanded content
  *
- * @return closeButton: the button at the end of the reading that closes the expanded content when clicked
+ * @return the button at the end of the reading that closes the expanded content when clicked
  */
 function createCloseButton () {
   const closeButton = document.createElement('button');
@@ -77,11 +77,6 @@ function createCloseButton () {
 /**
  * function name: openSelectedItem
  * Function to open the selected list item
- *
- * @param text: innertext of the reading
- * @param expanded-content: the expanded box itself
- * @param closeButton: creates the cloesbutton by calling createclosebutton everytime a content is expanded
- * @return closeButton: the button at the end of the reading that closes the expanded content when clicked
  */
 function openSelectedItem () {
   const selectedItem = document.querySelector('.selected');
@@ -220,6 +215,3 @@ function init () {
 
 document.addEventListener('DOMContentLoaded', init);
 
-module.exports = {
-  getStarSign
-};

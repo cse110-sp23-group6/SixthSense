@@ -4,7 +4,7 @@
  * @param {Array} originalArray - array to shuffle
  * @returns {Array} shuffled array
  */
-function shuffleArray (originalArray) {
+export function shuffleArray (originalArray) {
   // Copy array
   const array = originalArray.slice(0);
 
@@ -25,7 +25,7 @@ function shuffleArray (originalArray) {
  * @param {number} maximum largest value of range (inclusive)
  * @returns {number} integer value inside of array.
  */
-function randomInt (minimum, maximum) {
+export function randomInt (minimum, maximum) {
   return Math.floor(Math.floor(Math.random() * (maximum - minimum + 1)) + minimum);
 }
 
@@ -34,12 +34,6 @@ function randomInt (minimum, maximum) {
  * @param {Array} array array to select from
  * @returns item inside of array
  */
-function randomArrayItem (array) {
+export function randomArrayItem (array) {
   return array[randomInt(0, array.length - 1)];
 }
-
-module.exports = {
-  shuffleArray,
-  randomInt,
-  randomArrayItem
-};

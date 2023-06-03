@@ -1,6 +1,6 @@
 // Array of emotions
 
-const RAW_EMOTIONS = [
+export const RAW_EMOTIONS = [
   'joy',
   'sadness',
   'disgust',
@@ -8,14 +8,14 @@ const RAW_EMOTIONS = [
   'anger'
 ];
 
-const READING_TYPES = [
+export const READING_TYPES = [
   'career',
   'health',
   'love',
   'friends_and_family'
 ];
 
-const EMOTIONS = [
+export const EMOTIONS = [
   'ecstasy',
   'melancholy',
   'intrigue',
@@ -34,7 +34,7 @@ const EMOTIONS = [
 ];
 
 // Object with quotes for each emotion
-const QUOTES = {
+export const QUOTES = {
   joy: [
     "I can't change the direction of the wind, but I can adjust my sails to always reach my destination.",
     'The future belongs to those who believe in the beauty of their dreams.',
@@ -66,7 +66,7 @@ const QUOTES = {
  * The READINGS object is an object that stores the readings, with the primary key being the reading type (career, health, etc.)
  * Each reading type has an emotion, with an array of possible readings for those type and emotion.
  */
-const READINGS = {
+export const READINGS = {
   career: {
     ecstasy: [
       'As I tune into the energy surrounding your career path, I sense a vibrant and promising future ahead of you. Your enthusiasm and passion for the profession will be a driving force in your success. Trust your instincts and embrace the joy that comes from following your true calling.',
@@ -433,7 +433,7 @@ const READINGS = {
 /**
  * The EMOTIONS_TABLE object is an object that maps combinations of emotion1 and emotion2 to corresponding emotion value
  */
-const EMOTIONS_TABLE = {
+export const EMOTIONS_TABLE = {
   joy: {
     joy: 'ecstasy',
     sadness: 'melancholy',
@@ -472,7 +472,7 @@ const EMOTIONS_TABLE = {
 };
 
 // Define the date ranges for each star sign
-const STAR_SIGNS = [
+export const STAR_SIGNS = [
   {
     name: 'Aquarius',
     start: {
@@ -617,13 +617,3 @@ const STAR_SIGNS = [
     }
   }
 ];
-
-module.exports = {
-  RAW_EMOTIONS,
-  READING_TYPES,
-  EMOTIONS,
-  QUOTES,
-  READINGS,
-  EMOTIONS_TABLE,
-  STAR_SIGNS
-};

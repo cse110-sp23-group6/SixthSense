@@ -1,5 +1,5 @@
 import { expect, test, describe } from '@jest/globals';
-import { shuffleArray, randomInt } from '../../assets/scripts/helpers';
+import { shuffleArray, randomInt } from '../../src/assets/scripts/helpers';
 import { countItemsInsideArray } from './jest_helpers';
 
 describe('Testing Helpers', function () {

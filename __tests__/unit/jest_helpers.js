@@ -7,7 +7,7 @@ import { expect } from '@jest/globals';
  * @param {number} low
  * @param {number} high
  */
-function toBeWithinRangeInclusive (value, low, high) {
+export function toBeWithinRangeInclusive (value, low, high) {
   if (typeof value !== 'number') {
     throw new Error('Value must be of type number!');
   } else if (typeof low !== 'number') {
@@ -47,7 +47,7 @@ function toBeWithinRangeInclusive (value, low, high) {
  * @param {Array} array array to count items in
  * @returns {Object} object of counts
  */
-function countItemsInsideArray (array) {
+export function countItemsInsideArray (array) {
   const arrayCounts = {};
 
   for (const item of array) {
@@ -64,7 +64,3 @@ function countItemsInsideArray (array) {
 expect.extend({
   toBeWithinRangeInclusive
 });
-
-module.exports = {
-  countItemsInsideArray
-};
