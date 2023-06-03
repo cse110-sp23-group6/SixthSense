@@ -19,7 +19,7 @@ body {
 		linear-gradient(258.13deg, #7751b3 51.11%, #332845 95.05%);
 	background-size: cover;
 	background-attachment: fixed;
-	animation: fadeInAnimation ease 3s;
+	animation: fade-in-animation ease 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 	overflow: hidden;
