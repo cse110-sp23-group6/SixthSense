@@ -116,8 +116,8 @@ body {
   grid-row: 9;
   grid-column: span 2;
   font-style: normal;
-  font-weight: 200;
-  font-size: calc(0.8vh + 0.8vw);
+  font-weight: 350;
+  font-size: calc(0.85vh + 0.85vw);
   place-content: center;
   height: fit-content;
 }
