@@ -81,7 +81,7 @@ describe('End to end testing', () => {
     await page.waitForNavigation();
     let newUrl = await page.url();
     expect(newUrl).toBe('http://127.0.0.1:8080/choose-your-fortune.html');
-    localStorage.clear();
+    await page.evaluate(() => localStorage.clear());
   });
 
   /*it('CYF to emotions2 (love)', async () => {
@@ -156,7 +156,7 @@ describe('End to end testing', () => {
     await page.waitForNavigation();
     let newUrl = await page.url();
     expect(newUrl).toBe('http://127.0.0.1:8080/choose-your-fortune.html');
-    localStorage.clear();
+    await page.evaluate(() => localStorage.clear());
   });
 
 
@@ -217,7 +217,7 @@ describe('End to end testing', () => {
     await page.waitForNavigation();
     let newUrl = await page.url();
     expect(newUrl).toBe('http://127.0.0.1:8080/choose-your-fortune.html');
-    localStorage.clear();
+    await page.evaluate(() => localStorage.clear());
   });
 
   //----------------------------Friends/Family---------------------------
@@ -276,7 +276,7 @@ describe('End to end testing', () => {
     await page.waitForNavigation();
     let newUrl = await page.url();
     expect(newUrl).toBe('http://127.0.0.1:8080/choose-your-fortune.html');
-    localStorage.clear();
+    await page.evaluate(() => localStorage.clear());
   });
 });
 
