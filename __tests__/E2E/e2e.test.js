@@ -102,12 +102,12 @@ describe('End to end testing', () => {
 
   //----------------------------Career----------------------------
 
-  it('choose your fortune to emotions2 (career) navigation test', async () => {
+  it('choose your fortune to emotions1 (career) navigation test', async () => {
     let but1 = await page.$('#career-div');
     await but1.click();
     await page.waitForNavigation();
     let newUrl = await page.url();
-    expect(newUrl).toBe('http://127.0.0.1:8080/emotions2.html?reading=career');
+    expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=career');
   });
 
   it('emotions1 (career) select nothing test', async () => {
@@ -223,7 +223,7 @@ describe('End to end testing', () => {
   //----------------------------Friends/Family---------------------------
 
   it('choose your fortune to emotions1 (friends_and_family) navigation test', async () => {
-    let but1 = await page.$('#friends-and-family-div-div');
+    let but1 = await page.$('#friends-and-family-div');
     await but1.click();
     await page.waitForNavigation();
     let newUrl = await page.url();
