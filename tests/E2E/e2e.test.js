@@ -4,8 +4,24 @@ describe('End to end testing', () => {
       await page.goto('http://127.0.0.1:5500/index.html');
     });
   
-    it('Home page should load', async () => {
-        let x = 2 + 1;
-      expect(x).toBe(3);
+    it('Home page to choose your fortune navigation test', async () => {
+        console.log("attempting to go from home to get fortunes");
+        let but1 = await page.$('#b1');
+        //let text = await page.evaluate(but => but.textContent, but1);
+        //console.log(text);
+        await but1.click();
+        await page.waitForNavigation();
+        let newUrl = await page.url();
+        expect(newUrl).toBe('http://127.0.0.1:5500/choose-your-fortune.html');
     });
+
+    /*it('choose your fortune to choose a picture (love) navigation test', async () => {
+        let but1 = await page.$('#b1');
+        //let text = await page.evaluate(but => but.textContent, but1);
+        //console.log(text);
+        await but1.click();
+        await page.waitForNavigation();
+        let newUrl = await page.url();
+        expect(newUrl).toBe('http://127.0.0.1:5500/choose-your-fortune.html');
+    });*/
   });
