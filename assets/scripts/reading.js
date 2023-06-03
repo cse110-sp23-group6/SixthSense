@@ -103,6 +103,30 @@ async function init () {
 
     localStorage.setItem('readings', JSON.stringify(currentReadings))
   })
+
+  // Attach click event listener to the screenshot button
+  var screenshotBtn = document.getElementById("share");
+  screenshotBtn.addEventListener("click", captureScreenshot);
+   // Function to capture screenshot and save it as a download
+function captureScreenshot() {
+  const screenshotTarget = document.body;
+  // Capture the current page as an image using html2canvas library
+  html2canvas(screenshotTarget).then(function(canvas) {
+    // Convert the canvas to a base64-encoded image
+    var image = canvas.toDataURL("image/png");
+
+    // Create a link element and set its attributes
+    var link = document.createElement("a");
+    link.href = image;
+    link.download = "screenshot.png";
+
+    // Trigger a click event on the link element to initiate the download
+    link.click();
+  });
+}
+
+    
+
 }
 
 window.addEventListener('DOMContentLoaded', init);
