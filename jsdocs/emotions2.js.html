@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>emotions2.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#allButtons">allButtons</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createCloseButton">createCloseButton</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#createEntries">createEntries</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#EMOTIONS_TABLE">EMOTIONS_TABLE</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getStarSign">getStarSign</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#handleBackButtonClick">handleBackButtonClick</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#handleNextButtonClick">handleNextButtonClick</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#handleSubmit">handleSubmit</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#openSelectedItem">openSelectedItem</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#randomArrayItem">randomArrayItem</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#randomInt">randomInt</a></span></li><li class="nav-item"><span class="nav-item-type type-member">M</span><span class="nav-item-name"><a href="global.html#READINGS">READINGS</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#shuffleArray">shuffleArray</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#validateInput">validateInput</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">emotions2.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * File Name: emotions2.js
+ * Purpose: randomly show quotes and save results to local storage in "emotions2"
+ */
+
+import { RAW_EMOTIONS, QUOTES, READING_TYPES } from './constants.js';
+import { shuffleArray, randomArrayItem } from './helpers.js';
+
+/**
+ * Runs on window initialization
+ */
+const allButtons = [];
+let next;
+let emotion2;
+
+function init () {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  next = document.getElementById('next');
+  next.disabled = true;
+  const readingType = urlParams.get('reading');
+  if (readingType == null || !READING_TYPES.includes(readingType)) {
+    window.location.href = 'choose-your-fortune.html';
+  }
+
+  // Randomly shuffle the array
+  const emotions = shuffleArray(RAW_EMOTIONS);
+
+  // Create buttons and append them to the container
+  const buttonContainer = document.getElementById('button-container');
+  emotions.forEach(emotion => {
+    // choose random quote from each category
+    const randomQuote = randomArrayItem(QUOTES[emotion]);
+
+    // create button
+    const button = document.createElement('button');
+    button.classList.add('button');
+    button.textContent = randomQuote;
+    allButtons.push(button);
+    // Write emotion (and timestamp) to local storage on click
+    button.addEventListener('click', function () {
+      if (this.classList.contains('selected')) {
+        next.disabled = true;
+        this.classList.remove('selected');
+      } else {
+        next.disabled = false;
+        allButtons.forEach(button => {
+          button.classList.remove('selected');
+        });
+        this.classList.add('selected');
+      }
+      emotion2 = {
+        emotion,
+        timestamp: Date.now() / 1000.0
+      };
+    });
+
+    // add it to the page
+    buttonContainer.appendChild(button);
+  });
+
+  /**
+   * Event listener for back button click. Navigates back to emotions1.html
+   */
+  document.getElementById('back').addEventListener('click', function () {
+    window.location.href = 'emotions1.html' + window.location.search;
+  });
+
+  /**
+   * Event listener for next button click. Navigates to readings.html
+   */
+  next.addEventListener('click', function () {
+    window.localStorage.setItem('emotion2', JSON.stringify(emotion2));
+    window.location.href = 'reading.html' + window.location.search;
+  });
+};
+
+window.addEventListener('DOMContentLoaded', init);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sat Jun 03 2023 21:24:33 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
