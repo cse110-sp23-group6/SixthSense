@@ -1,7 +1,7 @@
 
 describe('End to end testing', () => {
     beforeAll(async () => {
-      await page.goto('http://127.0.0.1:5500/src/index.html');
+      await page.goto('http://127.0.0.1:5500/index.html');
     });
   
     it('Home page to choose your fortune navigation test', async () => {
@@ -12,7 +12,7 @@ describe('End to end testing', () => {
         await but1.click();
         await page.waitForNavigation();
         let newUrl = await page.url();
-        expect(newUrl).toBe('http://127.0.0.1:5500/src/choose-your-fortune.html');
+        expect(newUrl).toBe('http://127.0.0.1:5500/choose-your-fortune.html');
     });
 
     /*it('choose your fortune to choose a picture (love) navigation test', async () => {
