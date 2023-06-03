@@ -1,6 +1,7 @@
 {
   "name": "sixthsense",
   "scripts": {
+    "start": "http-server",
     "test": "jest"
   },
   "devDependencies": {
@@ -17,5 +18,8 @@
     "jest-puppeteer": "^9.0.0",
     "jsdom": "^22.1.0",
     "puppeteer": "^20.5.0"
+  },
+  "dependencies": {
+    "http-server": "^14.1.1"
   }
 }
