@@ -9,37 +9,60 @@ jobs:
   other-jobs:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for docs to be committed
+      - name: Wait for linting / testing to succeed
         uses: lewagon/wait-on-check-action@v1.3.1
         with:
           ref: ${{ github.ref }}
-          check-name: 'Commit Docs'
+          running-workflow-name: 'Lint and Test'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10
-      - name: Wait for tests to be finished
+      - name: Wait for jsdocs creation to succeed
         uses: lewagon/wait-on-check-action@v1.3.1
         with:
           ref: ${{ github.ref }}
-          check-name: 'Run tests'
+          running-workflow-name: 'Generate JSDocs Documentation'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10
   minify:
     needs: [other-jobs]
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Remove extraneous files from deployment
-      run: |
-        rm .babelrc .eslintrc.json jest.config.js package-lock.json package.json
-        rm -rf __tests__
-    - name: Minify files
-      uses: nizarmah/auto-minify@v2.1
-    - name: Push to gh-pages
-      uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-        branch: gh-pages
-        commit_message: Automated minification
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up git credentials
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+      - name: Pull latest changes
+        run: |
+          git pull
+      - name: Remove extraneous files from deployment
+        run: |
+          rm .babelrc .eslintrc.json jest.config.js package-lock.json package.json
+          rm -rf __tests__
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install UglifyJS and Minify
+        run: |
+          npm i uglify-js minify -g 
+      - name: Minify JS using UglifyJS
+        # Finds each js file then runs uglifyjs on it
+        # Based on: https://stackoverflow.com/a/10523492
+        run: |
+          find ./ -name "*.js" -exec uglifyjs {} --compress --mangle --module --output {} \;
+      - name: Minify CSS using minify
+        run: |
+          find ./ -name "*.css" -exec minify {} > {} \;
+      - name: Push to gh-pages branch
+        run: |
+          git branch -D gh-pages || true
+          git branch gh-pages
+          git checkout gh-pages
+          git add .
+          git commit -m "Automated minification"
+          git push --force origin gh-pages  
   deploy:
     needs: [minify]
     environment:
@@ -47,16 +70,16 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      with: 
-        ref: gh-pages
-    - name: Setup Pages
-      uses: actions/configure-pages@v3
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v1
-      with:
-        path: '.'
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v2
+      - name: Checkout
+        uses: actions/checkout@v3
+        with: 
+          ref: gh-pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
