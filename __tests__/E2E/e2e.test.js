@@ -68,7 +68,7 @@ describe('End to end testing', () => {
     await but1.click();
     await page.waitForNavigation();
     let newUrl = await page.url();
-    expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=friends-and-family');
+    expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=friends_and_family');
   });
 
   it('emotions1 (friends and family) back to choose your fortune', async () => {
