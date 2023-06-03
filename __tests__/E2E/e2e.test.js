@@ -44,6 +44,17 @@ describe('End to end testing', () => {
     expect(newUrl).toBe('http://127.0.0.1:8080/emotions2.html?reading=love');
   })
 
+  it('emotions2 (love) select nothing test', async () => {
+    let but1 = await page.$('#next');
+    await but1.click();
+    await page.waitForTimeout(1000);
+    let newUrl = await page.url();
+    expect(newUrl).toBe('http://127.0.0.1:8080/emotions2.html?reading=love');
+
+    let buttons = await page.$$('.button');
+    expect(buttons.length).toBe(5);
+  })
+
   it('emotions2 to emotions1 (love)', async () => {
     let but1 = await page.$('#back');
     await but1.click();
