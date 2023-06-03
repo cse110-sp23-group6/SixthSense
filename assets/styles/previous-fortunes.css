@@ -1,221 +1,223 @@
 @font-face {
-    font-family: AnekDevanagari;
-    src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
+  font-family: AnekDevanagari;
+  src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
 }
 
 * {
-    font-family: AnekDevanagari, sans-serif;
-    color: white;
+  font-family: AnekDevanagari, sans-serif;
+  color: white;
 }
-  
+
 body {
-    background-image: linear-gradient(
-        to right,
-        #6554cc,
-        #8f6fc4
-    );
-    overflow: hidden;
+  background-image: linear-gradient(to right, #6554cc, #8f6fc4);
+  overflow: hidden;
 }
 
 h1 {
-    text-align: center; /*
+  text-align: center; /*
     font-size: calc(6vh + 2vw); */
-    font-size: 55px;
-    font-weight: 600;
-    margin: 4% 20% 5%;
-    position: relative;
-    height: 8vh;
-    line-height: 1.2;
+  font-size: 55px;
+  font-weight: 600;
+  margin: 4% 20% 5%;
+  position: relative;
+  height: 8vh;
+  line-height: 1.2;
 }
 
 .leftvector {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    max-width: 75%;
-    max-height: 100%;
-    z-index: -1; 
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-width: 75%;
+  max-height: 100%;
+  z-index: -1;
 }
 
-.profile, ul {
-    display: inline-block;
+.profile,
+ul {
+  display: inline-block;
 }
 
 #finalemotion {
-    max-width: 65%;
-    width: 20vw;
-    border-radius: 20px;
-    margin: 3vh 1vw 0;
+  max-width: 65%;
+  width: 20vw;
+  border-radius: 20px;
+  margin: 3vh 1vw 0;
 }
 
 #name {
-    font-size: 4vmin;
-    font-weight: 600;
-    margin: 1vh 2vw;
+  font-size: 4vmin;
+  font-weight: 600;
+  margin: 1vh 2vw;
 }
 
 #star-sign {
-    font-size: 3.5vmin;
+  font-size: 3.5vmin;
 }
 
 #relationship {
-    font-size: 3vmin;
+  font-size: 3vmin;
 }
 
-button{
-    border: none;
-    border-radius: 12px;
-    background-color: #413070b3;
-    font-size: 25px;
+button {
+  border: none;
+  border-radius: 12px;
+  background-color: #413070b3;
+  font-size: 25px;
 }
 
-#open-button{
-    position: absolute;
-    top: 13%;
-    right: 5%;
-    font-size: 25px;
-    padding: 0.5% 2%;
-    justify-content: center;
+#open-button {
+  position: absolute;
+  top: 13%;
+  right: 5%;
+  font-size: 25px;
+  padding: 0.5% 2%;
+  justify-content: center;
 }
 
-.profile { 
-    position: absolute; 
-    text-align: center;
-    top: 23vh;
-    height: 50%;
-    margin-left:5%; 
-    margin-top: 1%; 
-    width: 20%;
-    border-radius: 20px;
-    max-height: 800px;
-    background-color: #413070bf;
-    text-overflow: ellipsis; 
-    overflow: hidden;
-    padding-bottom: 40px;
+.profile {
+  position: absolute;
+  text-align: center;
+  top: 23vh;
+  height: 50%;
+  margin-left: 5%;
+  margin-top: 1%;
+  width: 20%;
+  border-radius: 20px;
+  max-height: 800px;
+  background-color: #413070bf;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-bottom: 40px;
 }
 
 .hover {
-    background-color: rgb(65 48 112);
-    transition: transform 0.3s ease;
+  background-color: rgb(65 48 112);
+  transition: transform 0.3s ease;
 }
 
 .hover:hover {
-    background-color: rgba(65 48 112 / 70%);
-	transform: scale(1.1);
-    box-shadow: 0 12px 16px 0 #ffffff3d, 0 17px 50px 0 #00000030;
+  background-color: rgba(65 48 112 / 70%);
+  transform: scale(1.1);
+  box-shadow: 0 12px 16px 0 #ffffff3d, 0 17px 50px 0 #00000030;
 }
 
 ul {
-    position: absolute;
-    top: 21%;
-    right: 5%;
-    height: 59vh;
-    width: 67%;
-    overflow: auto;
-    float: right;
-    border-radius: 15px;
-    background-color: #413070bf;
-    border-spacing: 20px;
-    padding-top: 0.5%;
-    padding-left: .2%;
-    padding-right: .2%;
+  position: absolute;
+  top: 21%;
+  right: 5%;
+  height: 59vh;
+  width: 67%;
+  overflow: auto;
+  float: right;
+  border-radius: 15px;
+  background-color: #413070bf;
+  border-spacing: 20px;
+  padding-top: 0.5%;
+  padding-left: 0.2%;
+  padding-right: 0.2%;
 }
 
 li {
-    width: 90%;
-    height: calc(6vh + 1vw);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    align-items: center;
-    border-radius: 12px;
-    background-color: #afa4f1bf;
-    padding-top: 0.5vh;
-    padding-left: 2%;
-    margin-top: 1.5%;
-    margin-left: 2%;
-    margin-right: 2%;
-    font-size: calc(3vh + 1vw)
+  width: 90%;
+  height: calc(6vh + 1vw);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-items: center;
+  border-radius: 12px;
+  background-color: #afa4f1bf;
+  padding-top: 0.5vh;
+  padding-left: 2%;
+  margin-top: 1.5%;
+  margin-left: 2%;
+  margin-right: 2%;
+  font-size: calc(3vh + 1vw);
 }
 
-.selected{
-    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, inset 0 0 10px #00000080;
+.selected {
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff,
+    inset 0 0 10px #00000080;
 }
 
 #expanded-content {
-    background-color: #413070f2;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-30%, -40%);
-    font-size: 30px;
-    padding: 20px;
-    border: none;
-    border-radius: 10px;
-    width: 68%; /* Adjust the width to match the list box */
-    z-index: 1; /* Set a higher z-index to position it in front */
-    overflow: hidden; /* Hide content that exceeds the height */
-    transition: height 0.3s ease-in-out; /* Add a transition effect */
+  background-color: #413070f2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-30%, -40%);
+  font-size: 30px;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  width: 68%; /* Adjust the width to match the list box */
+  z-index: 1; /* Set a higher z-index to position it in front */
+  overflow: hidden; /* Hide content that exceeds the height */
+  transition: height 0.3s ease-in-out; /* Add a transition effect */
 }
 
 .expanded-box {
-    display: none; /* Initially hide the expanded box */
-  }
-  
-.expanded {
-    height: 65vh; /* Expand to the desired height */
-    display: block; /* Show the expanded box when expanded class is added */
+  display: none; /* Initially hide the expanded box */
 }
-  
-.close-button{
-    background-color: #afa4f1bf;
-    border: none;
-    border-radius: 10px;
-    font-size: 30px;
-    text-align: center;
-    justify-content: center;
-    float: right;
+
+.expanded {
+  height: 65vh; /* Expand to the desired height */
+  display: block; /* Show the expanded box when expanded class is added */
+}
+
+.close-button {
+  background-color: #afa4f1bf;
+  border: none;
+  border-radius: 10px;
+  font-size: 30px;
+  text-align: center;
+  justify-content: center;
+  float: right;
 }
 
 .nav-home {
-    position: absolute;
-    top: 87%;
-    left: 2vw;
-    z-index: 1;
-    text-align: center;
-    width: 20%;
-    height: 30%;
-    display: inline-block;
-    font-weight: bold;
+  position: absolute;
+  top: 87%;
+  left: 2vw;
+  z-index: 1;
+  text-align: center;
+  width: 20%;
+  height: 30%;
+  display: inline-block;
+  font-weight: bold;
 }
 
 .nav-delete {
-    position: absolute;
-    top: 87%;
-    right: 5vw;
-    z-index: 1;
-    text-align: center;
-    width: 200px;
-    height: 30%;
-    display: inline-block;
-    font-weight: bold;
+  position: absolute;
+  top: 87%;
+  right: 5vw;
+  z-index: 1;
+  text-align: center;
+  width: 200px;
+  height: 30%;
+  display: inline-block;
+  font-weight: bold;
 }
 
 #home {
-    padding: 2% 8%;
+  padding: 2% 8%;
 }
 
 #delete {
-    padding: 2% 8%;
+  padding: 2% 8%;
 }
 
 li:hover {
-    box-shadow: 0 12px 16px 0 #ffffff3d, 0 17px 50px 0 #00000030;
-    background-color: rgba(65 48 112 / 70%);
-    transform: scale(1.02);
+  box-shadow: 0 12px 16px 0 #ffffff3d, 0 17px 50px 0 #00000030;
+  background-color: rgba(65 48 112 / 70%);
+  transform: scale(1.02);
+  /*
+    transform: scale(1.03);
+    background-color: #413070b3;
+    */
 }
 
 p {
-    margin-bottom: 0.2cm;
-    margin-top: 0;
-} 
+  margin-bottom: 0.2cm;
+  margin-top: 0;
+}

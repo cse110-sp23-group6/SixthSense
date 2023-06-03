@@ -1,11 +1,11 @@
 @font-face {
-	font-family: AnekDevanagari;
-	src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
-  }
+  font-family: AnekDevanagari;
+  src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
+}
 
 * {
-	font-family: AnekDevanagari, sans-serif;
-    color: white;
+  font-family: AnekDevanagari, sans-serif;
+  color: white;
 }
 
 body {
@@ -15,17 +15,17 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   text-align: center;
-  font-family: 'Anek Devanagari', sans-serif;
+  font-family: "Anek Devanagari", sans-serif;
   font-weight: 700;
 }
 
 @keyframes fade-in {
   0% {
-      opacity: 0;
+    opacity: 0;
   }
-    
+
   100% {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
@@ -124,7 +124,7 @@ h1 {
   color: #fff;
   padding: 1rem;
   top: 80vh;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   opacity: 0;
   animation: fade-in 1s ease-in forwards;
   animation-delay: 2s;
