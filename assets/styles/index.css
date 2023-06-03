@@ -1,152 +1,149 @@
 @font-face {
-	font-family: AnekDevanagari;
-	src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
-  }
+  font-family: AnekDevanagari;
+  src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
+}
 
 * {
-	font-family: AnekDevanagari, sans-serif;
-    color: white;
+  font-family: AnekDevanagari, sans-serif;
+  color: white;
 }
 
 /* Set default styles for the body */
 body {
-	margin-right: 0;
-	padding: 0;
-	position: relative;
-	background-image: 
-		linear-gradient(281.58deg, #aba4d856.06%, #8119e242 89.61%),
-		linear-gradient(134.31deg, #6554CC 61.9%, #9b60e7 95.78%),
-		linear-gradient(258.13deg, #7751b3 51.11%, #332845 95.05%);
-	background-size: cover;
-	background-attachment: fixed;
-	animation: fade-in-animation ease 3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-	overflow: hidden;
-  }
+  margin-right: 0;
+  padding: 0;
+  position: relative;
+  background-image: linear-gradient(281.58deg, #aba4d856.06%, #8119e242 89.61%),
+    linear-gradient(134.31deg, #6554cc 61.9%, #9b60e7 95.78%),
+    linear-gradient(258.13deg, #7751b3 51.11%, #332845 95.05%);
+  background-size: cover;
+  background-attachment: fixed;
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  overflow: hidden;
+}
 
 @keyframes fade-in-animation {
-    0% {
-        opacity: 0;
-    }
-	
-    100% {
-        opacity: 1;
-     }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 header {
-	margin-bottom: 0;
-	text-align: right;
+  margin-bottom: 0;
+  text-align: right;
 }
-
 
 /* Style the main button */
 button {
-	border: none;
-	background: #3b2b66ce;
-	color: white;
-	padding: 2vh;
-	border-radius: 20px;
-	font-size: calc(0.9vh + 0.9vw);
-	margin-right: 3vw;
-	margin-top: 2vh;
-	margin-bottom: 2vh;
-	font-weight: normal;
-	transition: transform 0.3s ease;
-	cursor: pointer;
+  border: none;
+  background: #3b2b66ce;
+  color: white;
+  padding: 2vh;
+  border-radius: 20px;
+  font-size: calc(0.9vh + 0.9vw);
+  margin-right: 3vw;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  font-weight: normal;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 /* Style the main button on hover */
 button:hover {
-	background-color: rgba(65 48 112 / 70%);
-	transform: scale(1.1);
+  background-color: rgba(65 48 112 / 70%);
+  transform: scale(1.1);
 }
 
 /* Style the main content */
 main {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 100vh;
-	text-align: center;
-	margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  margin-top: 2vh;
 }
 
 /* Style the main content title */
 h1 {
-	color: white;
-	font-size: calc(5vh + 5vw);
-	margin: 1vh;
-	position: absolute;
-
+  color: white;
+  font-size: calc(5vh + 5vw);
+  margin: 1vh;
+  position: absolute;
 }
 
 #top-line {
-	top: 15vh;
+  top: 15vh;
 }
 
-#bottom-line{
-	top: 30vh;
+#bottom-line {
+  top: 30vh;
 }
 
 /* Style the main content buttons */
 .inner-button {
-	font-size: 6vh;
-	padding: 2vh;
-	background-color: rgb(65 48 112);
-	color: white;
-	border-radius: 20px;
-	width: 50vw;
-	height: 10vh; 
-	transition: transform 0.3s ease;
-	position: absolute;
+  font-size: 6vh;
+  padding: 2vh;
+  background-color: rgb(65 48 112);
+  color: white;
+  border-radius: 20px;
+  width: 50vw;
+  height: 10vh;
+  transition: transform 0.3s ease;
+  position: absolute;
 }
 
-#b1{
-	top:55vh;
+#b1 {
+  top: 55vh;
 }
 
-#b2{
-	top:73vh;
+#b2 {
+  top: 73vh;
 }
 
 /* Style the main content buttons on hover */
 .inner-button:hover {
-	background-color: rgba(65 48 112 / 70%);
-	transform: scale(1.1);
+  background-color: rgba(65 48 112 / 70%);
+  transform: scale(1.1);
 }
 
 /* Style the user button when disabled */
 #user:disabled {
-	visibility: hidden;
+  visibility: hidden;
 }
 
-.vector1{
-    position: absolute;
-    top: 10vh;
-    left: -5vw;
-    width: 110vw;
-    height: 100vh;
-    z-index: -1;
+.vector1 {
+  position: absolute;
+  top: 10vh;
+  left: -5vw;
+  width: 110vw;
+  height: 100vh;
+  z-index: -1;
 }
 
 .vector2 {
-    position: absolute;
-    bottom: 15vh;
-    left: -5vw;
-	right: 0;
-    width: 110vw;
-    height: 55vh;
-    z-index: -1;
+  position: absolute;
+  bottom: 15vh;
+  left: -5vw;
+  right: 0;
+  width: 110vw;
+  height: 55vh;
+  z-index: -1;
 }
 
 .vector3 {
-    position: absolute;
-	right: 0;
-    bottom: 10vh;
-    width: 100vw;
-    height: 30vh;
-    z-index: -1;
+  position: absolute;
+  right: 0;
+  bottom: 10vh;
+  width: 100vw;
+  height: 30vh;
+  z-index: -1;
 }

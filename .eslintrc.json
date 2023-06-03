@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "jest": true
     },
     "extends": "standard",
     "parserOptions": {
@@ -9,6 +10,17 @@
         "sourceType": "module"
     },
     "rules": {
-        "semi": [2, "always"]
+        "semi": [
+            2,
+            "always"
+        ]
+    },
+    "ignorePatterns": [
+        "jsdocs/*"
+    ],
+    // Puppeteer globals
+    "globals": {
+        "page": true,
+        "browser": true
     }
 }
