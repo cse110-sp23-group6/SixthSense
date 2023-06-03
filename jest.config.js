@@ -3,7 +3,7 @@ module.exports = {
     verbose: true,
     preset: "jest-puppeteer",
 
-  testPathIgnorePatterns: [
-    '__tests__/unit/jest_helpers.js'
-  ]
+    testPathIgnorePatterns: [
+        '__tests__/unit/jest_helpers.js'
+    ]
 };

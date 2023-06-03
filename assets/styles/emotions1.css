@@ -9,7 +9,6 @@
 }
 
 body {
-  /* background gradient */
   background-image: linear-gradient(to right, #a994f0, #8474e7 47%, #704ed4);
   color: aliceblue;
   overflow: hidden;
@@ -120,6 +119,12 @@ h1 {
   background-color: rgba(65 48 112 / 70%);
 }
 
+#button-right:disabled {
+  background-color: gray;
+  color:lightgray;
+  cursor: default;
+}
+
 #button-right:hover:enabled {
   background-color: rgba(65 48 112 / 70%);
 }
@@ -132,12 +137,6 @@ h1 {
 .fortune {
   box-sizing: border-box;
   border-radius: 45%;
-}
-
-#button-right:disabled {
-  background-color: gray;
-  color:lightgray;
-  cursor: default;
 }
 
 button:hover:enabled {

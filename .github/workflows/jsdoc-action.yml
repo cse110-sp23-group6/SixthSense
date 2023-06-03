@@ -2,26 +2,25 @@ name: Generate JSDocs Documentation
 
 on:
   push:
-    
 jobs:
-  deploy:
+  jsdocs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-
       - name: Build
         uses: andstor/jsdoc-action@v1
         with:
-          source_dir: assets/scripts
-          output_dir: assets/scripts/documentation
+          source_dir: ./assets/scripts
+          output_dir: ./jsdocs
           template: minami
           front_page: README.md
-          
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Commit Docs
+        uses: EndBug/add-and-commit@v9
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: assets/scripts/documentation
+          author_name: GitHub Actions
+          author_email: noreply@github.com
+          message: 'Generated JSDocs'
+          add: 'jsdocs/*'

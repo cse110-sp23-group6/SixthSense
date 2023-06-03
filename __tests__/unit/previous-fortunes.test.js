@@ -7,7 +7,7 @@
 
 import { expect, test, describe } from '@jest/globals';
 
-import { getStarSign } from '../../src/assets/scripts/previous-fortunes.js';
+import { getStarSign } from '../../assets/scripts/previous-fortunes.js';
 
 describe('Testing getStarSign', () => {
   test('Testing 4/22 gives Taurus', function () {

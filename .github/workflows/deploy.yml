@@ -1,0 +1,62 @@
+name: Deploy
+on: 
+  push:
+    branches:
+    - main
+  workflow_dispatch:
+permissions: write-all
+jobs:
+  other-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for docs to be committed
+        uses: lewagon/wait-on-check-action@v1.3.1
+        with:
+          ref: ${{ github.ref }}
+          check-name: 'Commit Docs'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+      - name: Wait for tests to be finished
+        uses: lewagon/wait-on-check-action@v1.3.1
+        with:
+          ref: ${{ github.ref }}
+          check-name: 'Run unit test'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+  minify:
+    needs: [other-jobs]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Remove extraneous files from deployment
+      run: |
+        rm .babelrc .eslintrc.json jest.config.js package-lock.json package.json
+        rm -rf __tests__
+    - name: Minify files
+      uses: nizarmah/auto-minify@v2.1
+    - name: Push to gh-pages
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        branch: gh-pages
+        commit_message: Automated minification
+  deploy:
+    needs: [minify]
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with: 
+        ref: gh-pages
+    - name: Setup Pages
+      uses: actions/configure-pages@v3
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: '.'
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
