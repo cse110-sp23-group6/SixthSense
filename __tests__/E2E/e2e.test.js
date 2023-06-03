@@ -44,7 +44,7 @@ describe('End to end testing', () => {
 
     let buttons = await page.$$('.round-button');
     expect(buttons.length).toBe(5);
-  })
+  });
 
   it('emotions1 (love) select something test', async () => {
     let but1 = await page.$('#two');
@@ -54,7 +54,7 @@ describe('End to end testing', () => {
     await page.waitForNavigation();
     let newUrl = await page.url();
     expect(newUrl).toBe('http://127.0.0.1:8080/emotions2.html?reading=love');
-  })
+  });
 
   it('emotions2 (love) select nothing test', async () => {
     let but1 = await page.$('#next');
@@ -65,7 +65,7 @@ describe('End to end testing', () => {
 
     let buttons = await page.$$('.button');
     expect(buttons.length).toBe(5);
-  })
+  });
 
   it('emotions2 to emotions1 (love)', async () => {
     let but1 = await page.$('#back');
@@ -119,7 +119,7 @@ describe('End to end testing', () => {
 
     let buttons = await page.$$('.round-button');
     expect(buttons.length).toBe(5);
-  })
+  });
 
   it('emotions1 (career) select something test', async () => {
     let but1 = await page.$('#two');
@@ -129,7 +129,7 @@ describe('End to end testing', () => {
     await page.waitForNavigation();
     let newUrl = await page.url();
     expect(newUrl).toBe('http://127.0.0.1:8080/emotions2.html?reading=career');
-  })
+  });
 
   it('emotions2 (career) select nothing test', async () => {
     let but1 = await page.$('#next');
@@ -140,7 +140,7 @@ describe('End to end testing', () => {
 
     let buttons = await page.$$('.button');
     expect(buttons.length).toBe(5);
-  })
+  });
 
   it('emotions2 to emotions1 (career)', async () => {
     let but1 = await page.$('#back');
@@ -180,7 +180,7 @@ describe('End to end testing', () => {
 
     let buttons = await page.$$('.round-button');
     expect(buttons.length).toBe(5);
-  })
+  });
 
   it('emotions1 (health) select something test', async () => {
     let but1 = await page.$('#two');
@@ -190,7 +190,7 @@ describe('End to end testing', () => {
     await page.waitForNavigation();
     let newUrl = await page.url();
     expect(newUrl).toBe('http://127.0.0.1:8080/emotions2.html?reading=health');
-  })
+  });
 
   it('emotions2 (health) select nothing test', async () => {
     let but1 = await page.$('#next');
@@ -201,7 +201,7 @@ describe('End to end testing', () => {
 
     let buttons = await page.$$('.button');
     expect(buttons.length).toBe(5);
-  })
+  });
 
   it('emotions2 to emotions1 (health)', async () => {
     let but1 = await page.$('#back');
@@ -239,7 +239,7 @@ describe('End to end testing', () => {
 
     let buttons = await page.$$('.round-button');
     expect(buttons.length).toBe(5);
-  })
+  });
 
   it('emotions1 (friends_and_family) select something test', async () => {
     let but1 = await page.$('#two');
@@ -249,7 +249,7 @@ describe('End to end testing', () => {
     await page.waitForNavigation();
     let newUrl = await page.url();
     expect(newUrl).toBe('http://127.0.0.1:8080/emotions2.html?reading=friends_and_family');
-  })
+  });
 
   it('emotions2 (friends_and_family) select nothing test', async () => {
     let but1 = await page.$('#next');
@@ -260,7 +260,7 @@ describe('End to end testing', () => {
 
     let buttons = await page.$$('.button');
     expect(buttons.length).toBe(5);
-  })
+  });
 
   it('emotions2 to emotions1 (friends_and_family)', async () => {
     let but1 = await page.$('#back');
