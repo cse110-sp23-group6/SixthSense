@@ -1,10 +1,10 @@
-const SECONDS_PER_DAY = 86400
+import { RE_ASK_INTERVAL_SECONDS } from "./constants.js";
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
   const headerText = document.getElementById('header-text');
   const typingSound = document.getElementById('typing-sound');
   const text = headerText.textContent;
-  let html = ''
+  let html = '';
 
   for (let i = 0; i < text.length; i++) {
     if (text[i] === ' ') {
@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
   typingSound.currentTime = 0; // Reset the sound to start
   typingSound.playbackRate = 1.5;
   typingSound.play(); // Play the typing sound
-  
-  let delay = 100 // time in milliseconds between each character
+
+  let delay = 100; // time in milliseconds between each character
   document.querySelectorAll('.header-hidden').forEach(function (elem) {
     setTimeout(function () {
       elem.style.opacity = 1;
@@ -30,51 +30,51 @@ document.addEventListener("DOMContentLoaded", function () {
   typingSound.currentTime = 0;
 });
 
-const loveDiv = document.getElementById('love-div')
+const loveDiv = document.getElementById('love-div');
 loveDiv.addEventListener('click', function () {
-  handleNavigation('love')
-})
+  handleNavigation('love');
+});
 
-const careerDiv = document.getElementById('career-div')
+const careerDiv = document.getElementById('career-div');
 careerDiv.addEventListener('click', function () {
-  handleNavigation('career')
-})
+  handleNavigation('career');
+});
 
-const healthDiv = document.getElementById('health-div')
+const healthDiv = document.getElementById('health-div');
 healthDiv.addEventListener('click', function () {
-  handleNavigation('health')
-})
+  handleNavigation('health');
+});
 
-const friendsAndFamilyDiv = document.getElementById('friends-and-family-div')
+const friendsAndFamilyDiv = document.getElementById('friends-and-family-div');
 friendsAndFamilyDiv.addEventListener('click', function () {
-  handleNavigation('friends_and_family')
-})
+  handleNavigation('friends_and_family');
+});
 
-function handleNavigation(type) {
-  const emotion1Obj = JSON.parse(localStorage.getItem('emotion1'))
-  const emotion2Obj = JSON.parse(localStorage.getItem('emotion2'))
-  const currentUnixTimestamp = Date.now() / 1000.0
+function handleNavigation (type) {
+  const emotion1Obj = JSON.parse(window.localStorage.getItem('emotion1'));
+  const emotion2Obj = JSON.parse(window.localStorage.getItem('emotion2'));
+  const currentUnixTimestamp = Date.now() / 1000.0;
 
   // If no emotion1 is set or emotion1 was set > 12 hours ago, redirect to emotion1
   if (emotion1Obj == null ||
     emotion1Obj.emotion == null ||
-    currentUnixTimestamp - emotion1Obj.timestamp > SECONDS_PER_DAY / 2) {
-    window.location.assign('emotions1.html?reading=' + type)
+    currentUnixTimestamp - emotion1Obj.timestamp > RE_ASK_INTERVAL_SECONDS) {
+    window.location.assign('emotions1.html?reading=' + type);
     // If no emotion2 is set or emotion2 was set > 12 hours ago, redirect to emotion1
   } else if (emotion2Obj == null ||
     emotion2Obj.emotion == null ||
-    currentUnixTimestamp - emotion1Obj.timestamp > SECONDS_PER_DAY / 2) {
-    window.location.assign('emotions2.html?reading=' + type)
+    currentUnixTimestamp - emotion1Obj.timestamp > RE_ASK_INTERVAL_SECONDS) {
+    window.location.assign('emotions2.html?reading=' + type);
   } else {
-    window.location.assign('reading.html?reading=' + type)
+    window.location.assign('reading.html?reading=' + type);
   }
 }
 
-const backButton = document.getElementById('back-button')
+const backButton = document.getElementById('back-button');
 
-backButton.addEventListener('click', backButtonClick)
+backButton.addEventListener('click', backButtonClick);
 
 // back botton navigation
 function backButtonClick () {
-  window.location.href = 'index.html'
+  window.location.href = 'index.html';
 }

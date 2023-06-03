@@ -124,6 +124,7 @@ button {
   padding: 2vh;
   line-height: 1em;
   font-weight: bold;
+  transition: transform 0.3s ease;
   font-size: calc(1vh + 1vw);
 }
 
@@ -133,6 +134,7 @@ button:disabled {
 }
 
 button:hover:enabled {
+  background-color: rgba(65 48 112 / 70%);
   transform: scale(1.1);
 }
 

@@ -1,10 +1,23 @@
 {
   "name": "sixthsense",
   "scripts": {
+    "start": "http-server",
     "test": "jest"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.1",
     "@babel/plugin-transform-modules-commonjs": "^7.21.5",
-    "jest": "^29.5.0"
+    "babel-jest": "^29.5.0",
+    "eslint": "^8.42.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^16.0.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "http-server": "^14.1.1",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "jest-puppeteer": "^9.0.0",
+    "jsdom": "^22.1.0",
+    "puppeteer": "^20.5.0"
   }
 }

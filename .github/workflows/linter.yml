@@ -30,9 +30,10 @@ jobs:
           VALIDATE_CSS: true
           VALIDATE_HTML: true
           DEFAULT_BRANCH: main
+          FILTER_REGEX_EXCLUDE: .*jsdocs/*
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   unit-test:
-    name: Run unit test
+    name: Run tests
     runs-on: ubuntu-latest
     permissions:
       contents: read

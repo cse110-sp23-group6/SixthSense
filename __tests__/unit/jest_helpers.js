@@ -3,11 +3,11 @@ import { expect } from '@jest/globals';
 /**
  * Jest extension to allow us to test whether number
  * is within range [low, high] (both inclusive).
- * @param {number} value 
- * @param {number} low 
- * @param {number} high 
+ * @param {number} value
+ * @param {number} low
+ * @param {number} high
  */
-function toBeWithinRangeInclusive(value, low, high) {
+export function toBeWithinRangeInclusive (value, low, high) {
   if (typeof value !== 'number') {
     throw new Error('Value must be of type number!');
   } else if (typeof low !== 'number') {
@@ -20,24 +20,24 @@ function toBeWithinRangeInclusive(value, low, high) {
   if (pass) {
     return {
       // Note: This message is display if
-      // -not- option is given in Jest 
+      // -not- option is given in Jest
       message: () =>
         `expected ${this.utils.printReceived(
-          actual,
+          value
         )} not to be within range ${this.utils.printExpected(
-          `${floor} - ${ceiling}`,
+          `${low} - ${high}`
         )}`,
-      pass: true,
+      pass: true
     };
   } else {
     return {
       message: () =>
         `expected ${this.utils.printReceived(
-          actual,
+          value
         )} to be within range ${this.utils.printExpected(
-          `${floor} - ${ceiling}`,
+          `${low} - ${high}`
         )}`,
-      pass: false,
+      pass: false
     };
   }
 }
@@ -47,10 +47,10 @@ function toBeWithinRangeInclusive(value, low, high) {
  * @param {Array} array array to count items in
  * @returns {Object} object of counts
  */
-export function countItemsInsideArray(array) {
-  let arrayCounts = {};
+export function countItemsInsideArray (array) {
+  const arrayCounts = {};
 
-  for (let item of array) {
+  for (const item of array) {
     if (arrayCounts[item]) {
       arrayCounts[item]++;
     } else {
@@ -62,5 +62,5 @@ export function countItemsInsideArray(array) {
 }
 
 expect.extend({
-  toBeWithinRangeInclusive,
+  toBeWithinRangeInclusive
 });

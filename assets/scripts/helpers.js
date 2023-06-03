@@ -1,22 +1,22 @@
 /**
- * Returns a random shuffle of an array using Fisher-Yates. 
+ * Returns a random shuffle of an array using Fisher-Yates.
  * Does not modify array in-place.
  * @param {Array} originalArray - array to shuffle
  * @returns {Array} shuffled array
  */
 export function shuffleArray (originalArray) {
   // Copy array
-  const array = originalArray.slice(0)
+  const array = originalArray.slice(0);
 
   // Shuffle array
   for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    const temp = array[i]
-    array[i] = array[j]
-    array[j] = temp
+    const j = Math.floor(Math.random() * (i + 1));
+    const temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
   }
 
-  return array
+  return array;
 }
 
 /**

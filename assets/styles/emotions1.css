@@ -9,7 +9,6 @@
 }
 
 body {
-  /* background gradient */
   background-image: linear-gradient(to right, #a994f0, #8474e7 47%, #704ed4);
   color: aliceblue;
   overflow: hidden;
@@ -17,6 +16,7 @@ body {
 
 h1 {
   text-align: center;
+  line-height: vh;
   margin-top: 5%;
   font-size: min(8vh, calc((4vw + 4ch) / 2));
 }
@@ -44,11 +44,11 @@ h1 {
   border: none;
   margin-left: -2%;
   cursor: pointer;
-  
 }
 
 .round-button:hover {
-  transform: scale(1.1);
+  transition: transform 0.3s ease;
+  transform: scale(1.15);
 }
 
 /* background vectors */
@@ -98,31 +98,43 @@ h1 {
 
 #button-left,
 #button-right {
+  background-color: rgb(65 48 112);
+  align-self: center;
+  width: 50%;
+  height: 8vh;
+  line-height: 1em;
+  font-weight: bold;
+  font-size: calc(1vh + 1vw);
+  transition: transform 0.3s ease;
   align-content: center;
   align-items: center;
   border: none;
   border-radius: 12px;
-  background-color: #704ed4;
   color: white;
-  font-size: 100%;
   cursor: pointer;
-  width: 50%;
-  height: 30%;
+}
+
+#button-left:hover:enabled {
+  background-color: rgba(65 48 112 / 70%);
+}
+
+#button-right:disabled {
+  background-color: gray;
+  color: lightgray;
+  cursor: default;
+}
+
+#button-right:hover:enabled {
+  background-color: rgba(65 48 112 / 70%);
 }
 
 .selected {
-  box-shadow: 0 0 5px #fff, 0 0 50px #fff, 0 0 20px #fff, inset 0 0 10px #00000080;
+  box-shadow: 0 0 5px #fff, 0 0 50px #fff, 0 0 20px #fff;
 }
 
 .fortune {
   box-sizing: border-box;
   border-radius: 45%;
-}
-
-#button-right:disabled {
-  background-color: gray;
-  color:lightgray;
-  cursor: default;
 }
 
 button:hover:enabled {

@@ -1,7 +1,7 @@
 /* fonts */
 @font-face {
   font-family: AnekDevanagari;
-  src: url("../font/AnekDevanagari-VariableFont_wdth\wght.ttf");
+  src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
 }
 
 * {
@@ -10,12 +10,7 @@
 
 body {
   /* background gradient */
-  background-image: linear-gradient(
-    to left,
-    #b094ff,
-    #927aeb 47%,
-    #6554cc
-  );
+  background-image: linear-gradient(to left, #b094ff, #927aeb 47%, #6554cc);
   color: white;
   overflow: hidden;
 }
@@ -76,6 +71,7 @@ button {
   margin-bottom: 2vh;
   width: 55%; /* Adjust the width as needed */
   height: 10vh;
+  transition: transform 0.3s ease;
   cursor: pointer;
 }
 
@@ -91,27 +87,28 @@ button {
 }
 
 #back {
-  background-color: #413070;
+  background-color: rgb(65 48 112);
   align-self: center;
   width: 25%;
-  height: 10vh;
+  height: 8vh;
   line-height: 1em;
   font-weight: bold;
   font-size: calc(1vh + 1vw);
 }
 
 #next {
-  background-color: #413070;
+  background-color: rgb(65 48 112);
   align-self: center;
   width: 25%;
-  height: 10vh;
+  height: 8vh;
   line-height: 1em;
   font-weight: bold;
   font-size: calc(1vh + 1vw);
 }
 
-.selected{
-  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff, inset 0 0 10px #00000080;
+.selected {
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff,
+    inset 0 0 10px #00000080;
 }
 
 /* animate fade in */
@@ -126,11 +123,19 @@ button {
 
 #next:disabled {
   background-color: gray;
-  color:lightgray;
+  color: lightgray;
 }
 
 button:hover:enabled {
   transform: scale(1.1);
+}
+
+#next:hover:enabled {
+  background-color: rgba(65 48 112 / 70%);
+}
+
+#back:hover:enabled {
+  background-color: rgba(65 48 112 / 70%);
 }
 
 @media (width <= 860px) {
