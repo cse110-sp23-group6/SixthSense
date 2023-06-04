@@ -15,7 +15,7 @@ describe('Testing getStarSign', () => {
   });
 
   test('Testing 2/5 gives Aquarius', function () {
-    expect(getStarSign('2', '5')).toEqual('Aquarius ♒');
+    expect(getStarSign('2', '5')).toEqual('Aquarius	♒');
   });
 
   test('Testing 13/39 gives null', function () {
