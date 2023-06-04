@@ -566,7 +566,7 @@ export const EMOTIONS_TABLE = {
 // Define the date ranges for each star sign
 export const STAR_SIGNS = [
   {
-    name: 'Aquarius',
+    name: 'Aquarius	♒',
     start: {
       month: 1,
       day: 20
@@ -577,7 +577,7 @@ export const STAR_SIGNS = [
     }
   },
   {
-    name: 'Pisces',
+    name: 'Pisces ♓',
     start: {
       month: 2,
       day: 19
@@ -588,7 +588,7 @@ export const STAR_SIGNS = [
     }
   },
   {
-    name: 'Aries',
+    name: 'Aries ♈',
     start: {
       month: 3,
       day: 21
@@ -599,7 +599,7 @@ export const STAR_SIGNS = [
     }
   },
   {
-    name: 'Taurus',
+    name: 'Taurus ♉',
     start: {
       month: 4,
       day: 20
@@ -610,7 +610,7 @@ export const STAR_SIGNS = [
     }
   },
   {
-    name: 'Gemini',
+    name: 'Gemini ♊',
     start: {
       month: 5,
       day: 21
@@ -621,7 +621,7 @@ export const STAR_SIGNS = [
     }
   },
   {
-    name: 'Cancer',
+    name: 'Cancer ♋',
     start: {
       month: 6,
       day: 21
@@ -632,7 +632,7 @@ export const STAR_SIGNS = [
     }
   },
   {
-    name: 'Leo',
+    name: 'Leo ♌',
     start: {
       month: 7,
       day: 23
@@ -643,7 +643,7 @@ export const STAR_SIGNS = [
     }
   },
   {
-    name: 'Virgo',
+    name: 'Virgo ♍',
     start: {
       month: 8,
       day: 23
@@ -654,7 +654,7 @@ export const STAR_SIGNS = [
     }
   },
   {
-    name: 'Libra',
+    name: 'Libra ♎',
     start: {
       month: 9,
       day: 23
@@ -665,7 +665,7 @@ export const STAR_SIGNS = [
     }
   },
   {
-    name: 'Scorpio',
+    name: 'Scorpio ♏',
     start: {
       month: 10,
       day: 23
@@ -676,7 +676,7 @@ export const STAR_SIGNS = [
     }
   },
   {
-    name: 'Sagittarius',
+    name: 'Sagittarius ♐',
     start: {
       month: 11,
       day: 22
@@ -687,7 +687,7 @@ export const STAR_SIGNS = [
     }
   },
   {
-    name: 'Capricorn',
+    name: 'Capricorn ♑',
     start: {
       month: 12,
       day: 22
@@ -698,7 +698,7 @@ export const STAR_SIGNS = [
     }
   },
   {
-    name: 'Capricorn',
+    name: 'Capricorn ♑',
     start: {
       month: 1,
       day: 1
