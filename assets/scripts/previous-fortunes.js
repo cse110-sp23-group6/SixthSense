@@ -38,7 +38,7 @@ export function getStarSign (month, date) {
  * @input listItems: the list of readings to be added into the list
  */
 function createEntries (listItems) {
-  for (let i = 0; i < listItems.length; i++) {
+  for (let i = listItems.length - 1; i >= 0; i++) {
     listItems[i].addEventListener('click', function () {
       if (this.classList.contains('selected')) {
         // If the item is already selected, remove the 'selected' class
