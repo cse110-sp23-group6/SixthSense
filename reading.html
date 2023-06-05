@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Setup Page -->
 <head>
-
   <title>General Reading</title>
-
-  <!-- Main Stylesheet & Scripts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anek+Devanagari">
   <link rel="stylesheet" href="assets/styles/reading.css">
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-
 </head>
 
 <body>
   <main>
-    <!-- Background Vectors -->
+    <!-- Decorative Images -->
     <img src="assets/images/general-reading/topleft-vector.png" class="topleft-vector"  alt="top-left-vector" width="100%">
     <img src="assets/images/general-reading/bottomright-vector.png" class="bottom-right-vector" alt="bottom-right-vector" >
     <img src="assets/images/general-reading/bottom-vector.png" class="bottom-vector" alt="bottom-vector" width="100%">
@@ -27,17 +24,16 @@
     
     <!-- Page's Right Half -->
     <div id="right-container">
-      <h2 id="your-reading">Today's Reading:</h2>
-  
 
+      <!-- Display General Reading -->
+      <h2 id="your-reading">Today's Reading:</h2>
       <h2 id="reading">
         <span class="typing-text"> Hmm ... hang tight, we're generating your reading. </span>
       </h2>
+    
+      <!-- Navigation Buttons -->
       <button type="button" class="button" id="new-fortune">Get New Fortune</button>
       <button type="button" class="button" id="create-profile">Create Profile</button>
-  
-     
-      <!-- Top Navigation Buttons -->
       <button type="button" class="button2">
         <img id="share" src="assets/images/general-reading/share-icon.png" alt="share icon">
       </button>
@@ -47,6 +43,7 @@
     </div>
   </main>
 
+  <!-- Linked Images to Display-->
   <script src="./assets/scripts/constants.js" type="module"></script>
   <script src="./assets/scripts/helpers.js" type="module"></script>
   <script src="./assets/scripts/reading.js" type="module"></script>

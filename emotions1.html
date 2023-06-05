@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- Setup Page -->
 <head>
   <title>Emotions1 Page</title>
   <link rel="stylesheet" type="text/css" href="assets/styles/emotions1.css">
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-  <!-- Link the image storage -->
   <script src="assets/scripts/constants.js" type="module"></script>
   <script src="assets/scripts/emotions1.js" type="module"></script>
 </head>
@@ -13,34 +14,31 @@
 
     <h1 id="prompt">Which picture do you resonate most with?</h1>
     
-    <!-- Display Images -->
+    <!-- Selectable Emotion Images -->
     <div class="buttons">
-
         <!-- Ids are currently set to generic ones, will be renamed in emotions.js -->
         <button class="round-button" style="background-color: transparent;"> <img class="fortune" id="one" alt="First round button"> </button>
         <button class="round-button" style="background-color: transparent;"> <img class="fortune" id="two" alt="Second round button"></button>
         <button class="round-button" style="background-color: transparent;"> <img class="fortune" id="three" alt="Third round button"></button>
         <button class="round-button" style="background-color: transparent;"> <img class="fortune" id="four" alt="Fourth round button"></button>
         <button class="round-button" style="background-color: transparent;"> <img class="fortune" id="five" alt="Fifth round button"> </button>
-
     </div>
     
+    <!-- Decorative Images -->
     <div class="images">
-      
-      <!-- Empty alt tag for decorative images https://www.w3.org/WAI/tutorials/images/decorative/ -->
       <img src="assets/images/topleft2.png" class="leftvector" alt="">
       <img src="assets/images/topleft1.png" class="leftvector" alt="">
       <img src="assets/images/bottomright.png" class="rightvector" alt="">
-
     </div>
 
-     <!-- Navigation buttons -->
+     <!-- Navigation Buttons -->
     <div class="navigation-left">
       <button id="button-left">Back</button>
     </div>
     <div class="navigation-right">
       <button id="button-right">Next</button>
     </div>
+
   </div>
 </body>
 </html>
