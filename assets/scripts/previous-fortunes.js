@@ -143,9 +143,10 @@ function deleteSelectedItem () {
 
 function init () {
   // profile emotion -- retrieve emotions from local storage
-  const emotion1 = !window.localStorage.getItem('emotion1') ? '' : JSON.parse(window.localStorage.getItem('emotion1')).emotion;
+  /*const emotion1 = !window.localStorage.getItem('emotion1') ? '' : JSON.parse(window.localStorage.getItem('emotion1')).emotion;
   const emotion2 = !window.localStorage.getItem('emotion2') ? '' : JSON.parse(window.localStorage.getItem('emotion1')).emotion;
-  const overallEmotion = (emotion1 === '' || emotion2 === '') ? '' : EMOTIONS_TABLE[emotion1][emotion2];
+  const overallEmotion = (emotion1 === '' || emotion2 === '') ? '' : EMOTIONS_TABLE[emotion1][emotion2];*/
+  const overallEmotion = JSON.parse(window.localStorage.getItem('overallEmotion'));
   const finalemotion = document.getElementById('finalemotion');
   finalemotion.alt = overallEmotion;
   finalemotion.src = overallEmotion !== '' ? `assets/emotion_auras/${overallEmotion}.gif` : '';

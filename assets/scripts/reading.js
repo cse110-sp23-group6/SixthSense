@@ -53,6 +53,8 @@ async function init() {
   const emotion1 = emotion1Obj.emotion;
   const emotion2 = emotion2Obj.emotion;
   const overallEmotion = EMOTIONS_TABLE[emotion1][emotion2];
+  // Upload overall emotions to local storage
+  window.localStorage.setItem('overallEmotion', JSON.stringify(overallEmotion));
 
   // Generate a random reading from readings list
   let reading = randomArrayItem(READINGS[readingType][overallEmotion]);
