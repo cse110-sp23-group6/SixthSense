@@ -63,6 +63,7 @@ function init () {
    * Event listener for back button click. Navigates back to emotions1.html
    */
   document.getElementById('back').addEventListener('click', function () {
+    window.localStorage.removeItem('emotions2');
     window.location.href = 'emotions1.html' + window.location.search;
   });
 

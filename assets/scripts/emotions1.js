@@ -57,6 +57,7 @@ function handleNextButtonClick () {
  * Moves to next page in flow (emotions2), resets desired fortune type
  */
 function handleBackButtonClick () {
+  window.localStorage.removeItem('emotion1');
   window.location.href = 'choose-your-fortune.html';
 }
 
