@@ -97,7 +97,7 @@ async function init() {
     currentReadings.pop();
 
     currentReadings.push({
-      date: (new Date()).toISOString(),
+      date,
       reading
     });
 
