@@ -14,8 +14,7 @@ body {
 }
 
 h1 {
-  text-align: center; /*
-    font-size: calc(6vh + 2vw); */
+  text-align: center;
   font-size: 55px;
   font-weight: 600;
   margin: 4% 20% 5%;
@@ -52,7 +51,7 @@ ul {
 }
 
 #star-sign {
-  font-size: 3.5vmin;
+  font-size: 3.2vmin;
 }
 
 #relationship {
@@ -78,7 +77,7 @@ button {
 .profile {
   position: absolute;
   text-align: center;
-  top: 23vh;
+  top: 25vh;
   height: 50%;
   margin-left: 5%;
   margin-top: 1%;
@@ -107,7 +106,7 @@ ul {
   top: 21%;
   right: 5%;
   height: 59vh;
-  width: 67%;
+  width: 66%;
   overflow: auto;
   float: right;
   border-radius: 15px;
@@ -116,10 +115,11 @@ ul {
   padding-top: 0.5%;
   padding-left: 0.2%;
   padding-right: 0.2%;
+  padding-bottom: 1%;
 }
 
 li {
-  width: 90%;
+  width: 93%;
   height: calc(6vh + 1vw);
   white-space: nowrap;
   overflow: hidden;
@@ -136,24 +136,25 @@ li {
 }
 
 .selected {
-  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff,
+  box-shadow: 0 0 5px #ffffffdd, 0 0 10px #ffffffdd, 0 0 10px #ffffffdd,
     inset 0 0 10px #00000080;
 }
 
 #expanded-content {
-  background-color: #413070f2;
+  background-color: #55428c;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 45%;
+  left: 35%;
   transform: translate(-30%, -40%);
-  font-size: 30px;
+  font-size: 3.5vmin;
   padding: 20px;
   border: none;
   border-radius: 10px;
   width: 68%; /* Adjust the width to match the list box */
   z-index: 1; /* Set a higher z-index to position it in front */
-  overflow: hidden; /* Hide content that exceeds the height */
+  overflow: auto; /* Hide content that exceeds the height */
   transition: height 0.3s ease-in-out; /* Add a transition effect */
+  line-height: 1.5;
 }
 
 .expanded-box {
@@ -161,8 +162,11 @@ li {
 }
 
 .expanded {
-  height: 65vh; /* Expand to the desired height */
+  min-height: 20vh; /* Expand to the desired height */
+  max-height: 60vh;
   display: block; /* Show the expanded box when expanded class is added */
+  box-shadow: 0 0 100px #fff,
+    inset 0 0 10px #00000080;
 }
 
 .close-button {
@@ -216,4 +220,10 @@ li:hover {
 p {
   margin-bottom: 0.2cm;
   margin-top: 0;
+}
+
+.close-button:hover {
+  box-shadow: 0 12px 16px 0 #ffffff3d, 0 17px 50px 0 #00000030;
+  background-color: rgba(65 48 112 / 70%);
+  transform: scale(1.02);
 }

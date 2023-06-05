@@ -19,9 +19,10 @@ h1 {
   text-align: center;
   font-size: calc(2vh + 2vw);
   font-weight: 600;
-  margin: 0 20% 2vh;
+  margin: 4% 20% 2%;
   position: relative;
   height: 8vh;
+  line-height: 1.2;
 }
 
 .container {
@@ -66,44 +67,47 @@ button {
   border-radius: 2vh;
   background-color: #413070b3;
   color: white;
-  padding: 2vh;
-  font-size: calc(0.9vh + 0.9vw);
+  padding: 1.7vh 2vw;
+  font-size: 2.6vmin;
   margin-bottom: 2vh;
   width: 55%; /* Adjust the width as needed */
-  height: 10vh;
   transition: transform 0.3s ease;
   cursor: pointer;
+  align-items: center;
+  min-height: 10vh;
+  line-height: 1.2;
 }
 
-/* navigation buttons */
-#traversal {
-  position: relative;
+.nav-back {
+  position: absolute;
+  top: 85%;
+  left: 2vw;
+  z-index: 1;
   text-align: center;
-  margin: 1vh 25%;
-  height: 20vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  width: 20%;
+  height: 30%;
+  display: inline-block;
+  font-weight: bold;
+}
+
+.nav-next {
+  position: absolute;
+  top: 85%;
+  right: 5vw;
+  z-index: 1;
+  text-align: center;
+  width: 20%;
+  height: 30%;
+  display: inline-block;
+  font-weight: bold;
 }
 
 #back {
-  background-color: rgb(65 48 112);
-  align-self: center;
-  width: 25%;
-  height: 8vh;
-  line-height: 1em;
-  font-weight: bold;
-  font-size: calc(1vh + 1vw);
+  padding: 2% 8%;
 }
 
 #next {
-  background-color: rgb(65 48 112);
-  align-self: center;
-  width: 25%;
-  height: 8vh;
-  line-height: 1em;
-  font-weight: bold;
-  font-size: calc(1vh + 1vw);
+  padding: 2% 8%;
 }
 
 .selected {
@@ -128,14 +132,20 @@ button {
 
 button:hover:enabled {
   transform: scale(1.1);
+  box-shadow: 0 17px 50px 0 #00000030;
+  background-color: rgba(65 48 112 / 90%);
 }
 
 #next:hover:enabled {
-  background-color: rgba(65 48 112 / 70%);
+  transform: scale(1.1);
+  box-shadow: 0 17px 50px 0 #00000030;
+  background-color: rgba(65 48 112 / 90%);
 }
 
 #back:hover:enabled {
-  background-color: rgba(65 48 112 / 70%);
+  transform: scale(1.1);
+  box-shadow: 0 17px 50px 0 #00000030;
+  background-color: rgba(65 48 112 / 90%);
 }
 
 @media (width <= 860px) {
