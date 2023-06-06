@@ -1,3 +1,12 @@
+/*
+ * document name: index.js
+ * purpose: main page users access the website to.
+ * they can either go to new fortunes, create new users, or previous fortunes
+ * if they already have a profile, the new user button will not be availabel for them.
+ * Previous fortunes will tell them that they have to have at least 1 fortune or a profile
+ */
+
+
 // Document Selectors
 const userButton = document.getElementById('user');
 const mainButtons = document.getElementsByClassName('inner-button');
