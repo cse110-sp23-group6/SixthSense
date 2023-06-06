@@ -1,4 +1,4 @@
-/*
+/**
  * document name: index.js
  * purpose: main page users access the website to.
  * they can either go to new fortunes, create new users, or previous fortunes
@@ -18,21 +18,21 @@ if (formData !== null) {
   userButton.disabled = true;
 }
 
-/*
+/**
  * purpose: event listener for new user button
  * traverses to newprofile.html when clicked
  */
 userButton.addEventListener('click', function () {
   location.href = 'newprofile.html';
 });
-/*
+/**
  * purpose: event listener for today's fortune button
  * traverses to choose-your-fortune.html when clicked
  */
 todayButton.addEventListener('click', function () {
   location.href = 'choose-your-fortune.html';
 });
-/*
+/**
  * purpose: event listener for previous fortunes button
  * when clicked but doesn't have a profile, it tells you to create a profile
  * if you don't have a single fortune, it says you need at least 1 previously generated forutne
