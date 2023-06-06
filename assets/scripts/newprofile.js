@@ -1,3 +1,16 @@
+/**
+ * file name: newprofile.js
+ * purpose: newprofile page to get input and send it to local storage as new user info
+ * 
+ * @const yearBox: input box for year
+ * @const dateBox: input box for date
+ * @const monthBox: input box for month
+ * @const nameBox: input box for name
+ * @const statusBox: input box for relationship status
+ * @const submitButton: button to submit info, disabled until info is complete and validated
+ * @const homeButton: home button 
+ */
+
 // Document Selectors
 const yearBox = document.getElementById('year');
 const dateBox = document.getElementById('date');
@@ -10,10 +23,21 @@ const homeButton = document.getElementById('home');
 submitButton.disabled = true;
 
 /**
- * Function that checks if the user correctly typed the right input. If not the
+ * function name: validateInput
+ * purpose: Function that checks if the user correctly typed the right input. If not the
  * submit button will remain disabled. When all 5 input types are satisfied,
  * the submit button gets enabled.
  *
+ * @const months: month values for validation
+ * @const days: day values for validation
+ * @const years: year value for validation
+ * @const letters: letter values for validation
+ * @const id: id attribute
+ * @const yearValid: check validity of year
+ * @const dateValid: check validity of date
+ * @const monthValid: check validity of month
+ * @const namevalid: check validity of name
+ * @const statusValue: value of the statusBox
  * @param {event} e - the event that triggered the function call
  */
 function validateInput (event) {
@@ -58,8 +82,16 @@ function validateInput (event) {
 }
 
 /**
- * Function that stores the create profile information into JSON format to save.
+ * function name: handleSubmit
+ * purpose: Function that stores the create profile information into JSON format to save.
  * Also redirects the user to the welcome page.
+ * 
+ * @const name: input value in name box
+ * @const year: input value in year box
+ * @const date: input value in date box
+ * @const month: input value in month box
+ * @const status: input value in status box (selection dropdown)
+ * @const formData: all of the input data combined to be updated on localstorage
  */
 function handleSubmit () {
   // Get input values
