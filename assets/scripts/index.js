@@ -6,7 +6,6 @@
  * Previous fortunes will tell them that they have to have at least 1 fortune or a profile
  */
 
-
 // Document Selectors
 const userButton = document.getElementById('user');
 const mainButtons = document.getElementsByClassName('inner-button');
@@ -19,15 +18,37 @@ if (formData !== null) {
   userButton.disabled = true;
 }
 
-// event listeners for buttons to traverse pages
+/*
+ * purpose: event listener for new user button
+ * traverses to newprofile.html when clicked
+ */
 userButton.addEventListener('click', function () {
   location.href = 'newprofile.html';
 });
-
+/*
+ * purpose: event listener for today's fortune button
+ * traverses to choose-your-fortune.html when clicked
+ */
 todayButton.addEventListener('click', function () {
   location.href = 'choose-your-fortune.html';
 });
-
+/*
+ * purpose: event listener for previous fortunes button
+ * when clicked but doesn't have a profile, it tells you to create a profile
+ * if you don't have a single fortune, it says you need at least 1 previously generated forutne
+ * if user qualifies for both, it takes the user to previous-fortunes.html
+ */
 previousButton.addEventListener('click', function () {
-  location.href = 'previous-fortunes.html';
+  const readings = window.localStorage.getItem('readings');
+  if(formData === null){
+    alert("please create a profile to access previous fortunes")
+    return
+  }
+  if(readings === null){
+    alert("you need at least 1 previously generated fortune to access previous fortunes")
+    return
+  }
+  else{
+    location.href = 'previous-fortunes.html';
+  }
 });
