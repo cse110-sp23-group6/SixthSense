@@ -89,8 +89,6 @@ button {
   left: 2vw;
   z-index: 1;
   text-align: center;
-  width: 20%;
-  height: 30%;
   display: inline-block;
   font-weight: bold;
   border-radius: 1.25rem;
@@ -106,8 +104,6 @@ button {
   right: 5vw;
   z-index: 1;
   text-align: center;
-  width: 20%;
-  height: 30%;
   display: inline-block;
   font-weight: bold;
 }

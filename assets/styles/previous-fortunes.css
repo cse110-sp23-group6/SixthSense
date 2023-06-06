@@ -98,10 +98,7 @@ ul {
   border-radius: 15px;
   background-color: #413070bf;
   border-spacing: 20px;
-  padding-top: 0.5%;
-  padding-left: 0.2%;
-  padding-right: 0.2%;
-  padding-bottom: 1%;
+  padding: 0.5% 0.2% 1%;
 }
 
 /* Style List of Previous Fortunes */
@@ -131,7 +128,7 @@ li:hover {
 
 /* Selected Fortune Animation */
 .selected {
-  box-shadow: 0 0 5px #ffffffdd, 0 0 10px #ffffffdd, 0 0 10px #ffffffdd,
+  box-shadow: 0 0 5px #fffd, 0 0 10px #fffd, 0 0 10px #fffd,
     inset 0 0 10px #00000080;
 }
 
