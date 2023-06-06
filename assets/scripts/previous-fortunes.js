@@ -1,5 +1,6 @@
-/*
+/**
  * File Name: previous-fortunes.js
+ * purpose: populate profile and previous fortunes, where user can view, close, delete fortunes
  */
 import { EMOTIONS_TABLE, STAR_SIGNS } from './constants.js';
 // create variable formattedReadings which pulls from local storage. used throughout the page
@@ -8,7 +9,8 @@ const formattedReadings = window.localStorage.getItem('readings')
   : [];
 
 /**
- * Takes in month and date and return the starsign
+ * function name: getStarSign
+ * purpose: Takes in month and date and return the starsign
  *
  * @param {string} month: month of the birthday
  * @param {string} date: date of the birthday
@@ -33,8 +35,10 @@ export function getStarSign (month, date) {
 }
 
 /**
- * create list entries(previous readings) and allows it to be selected
+ * function name: createEntries
+ * purpose: create list entries(previous readings) and allows it to be selected
  *
+ * @param deleteButton: the delete button
  * @input listItems: the list of readings to be added into the list
  */
 function createEntries (listItems) {
@@ -62,8 +66,10 @@ function createEntries (listItems) {
 
 /**
  * function name: createCloseButton
- * Function to create the close button for the expanded content
+ * purpose: Function to create the close button for the expanded content
  *
+ * @param closeButton: close button
+ * @param expandedContent: expanded fortune
  * @return the button at the end of the reading that closes the expanded content when clicked
  */
 function createCloseButton () {
@@ -79,7 +85,12 @@ function createCloseButton () {
 
 /**
  * function name: openSelectedItem
- * Function to open the selected list item
+ * purpose: Function to open the selected list item
+ * 
+ * @param selectedItem: item that has been selected (is selected class)
+ * @param text: inner text of the selected item
+ * @param expandedContent: expanded fortune
+ * @param closeButton: close button created at the end of the reading
  */
 function openSelectedItem () {
   const selectedItem = document.querySelector('.selected');
@@ -106,9 +117,15 @@ function openSelectedItem () {
   }
 }
 
-/*
+/**
  * function name: deleteSelectedItem
- * Function to delete the selected list item
+ * purpose: Function to delete the selected list item
+ * 
+ * @param selectedItem: selected item that has the selected class
+ * @param selectedText: inner text of selected item
+ * @param selectedDate: date of selected reading
+ * @param selectedReading: actual reading of selected reading
+ * @param reading: looping through formatted reading to find the selected fortune
  */
 function deleteSelectedItem () {
   const selectedItem = document.querySelector('.selected');
@@ -122,10 +139,6 @@ function deleteSelectedItem () {
     console.log('date = ' + selectedDate);
     const selectedReading = selectedText.split(': ')[1];
     console.log('reading = ' + selectedReading);
-
-    /* formattedReadings = formattedReadings.filter(function (reading) {
-      return reading.date !== selectedDate || reading.reading !== selectedReading;
-    }); */
 
     for (let i = 0; i < formattedReadings.length; i++) {
       const reading = formattedReadings[i];
@@ -145,7 +158,10 @@ function deleteSelectedItem () {
 }
 
 /**
- * When no fortune is selected, deletes all of the stored fortunes
+ * function name: deleteAllItems
+ * purpose: When no fortune is selected, deletes all of the stored fortunes
+ * 
+ * @param UL: the whole reading list
  */
 function deleteAllItems () {
   // if there are no readings, nothing happens
@@ -161,12 +177,26 @@ function deleteAllItems () {
     //window.localStorage.removeItem('readings');
   }
 }
-
+/**
+ * function name: init
+ * purpose: runs when page is loaded, populate profile and reading as well as buttons
+ * 
+ * @param overallEmotion: emotion retreived from local storage
+ * @param finalemotion: finalemotion image
+ * @param formData: profile data in local storage from newprofile.js
+ * @param nameElement: name in profile
+ * @param signElement: sign in profile (use getStarSign function)
+ * @param loveElement: relationship status in profile
+ * @param ulElement: list element of readings
+ * @param liEleemnts: list element array to store readings
+ * @param reading: going through formattedReadings to ad them to list
+ * @param openButton: open btuton
+ * @param deleteButton: delete button
+ * @param buttonText: text inside delete button that says delete fortune
+ * @param homeButton: home button
+ */
 function init () {
-  // profile emotion -- retrieve emotions from local storage
-  /*const emotion1 = !window.localStorage.getItem('emotion1') ? '' : JSON.parse(window.localStorage.getItem('emotion1')).emotion;
-  const emotion2 = !window.localStorage.getItem('emotion2') ? '' : JSON.parse(window.localStorage.getItem('emotion1')).emotion;
-  const overallEmotion = (emotion1 === '' || emotion2 === '') ? '' : EMOTIONS_TABLE[emotion1][emotion2];*/
+  // profile emotion -- finalemotion from local storage
   const overallEmotion = JSON.parse(window.localStorage.getItem('overallEmotion'));
   const finalemotion = document.getElementById('finalemotion');
   finalemotion.alt = overallEmotion;
@@ -200,28 +230,31 @@ function init () {
   // Create an array to store the dynamically created <li> elements
   const liElements = [];
 
-  // Function to add a reading to the list
+  /**
+   * purpose: Function to add a reading to the list
+   * 
+   * @input reading: the individual reading to be added to the list
+   * @param liElement: list element created to be added to the ul
+   */
   function addReadingToList (reading) {
     const liElement = document.createElement('li');
 
-    // parse the date so that it is easier to read
-    // moved to general reading
-    /* let separatedDate = reading.date.split('T');    // separate date from time first
-    let withoutTime = separatedDate[0].split('-');
-    let readingDate = withoutTime[1] + '/'+ withoutTime[2] + '/' + withoutTime[0]; */
+    //add reading and date to the reading list in the correct format
     liElement.innerText = reading.date + ': ' + reading.reading;
-    // liElement.innerText = reading.date + ' - ' + reading.reading;
     ulElement.appendChild(liElement); // Append to the end
     liElements.push(liElement);
   }
 
+  //go through formattedReadings to add each entry
   for (let i = formattedReadings.length - 1; i >= 0; i--) {
     const reading = formattedReadings[i];
     addReadingToList(reading);
     console.log(reading);
   }
 
-  createEntries(liElements); // Move the function call here
+  createEntries(liElements); 
+
+  //open button
   const openButton = document.getElementById('open-button');
   openButton.addEventListener('click', openSelectedItem);
 
@@ -229,9 +262,12 @@ function init () {
   const deleteButton = document.getElementById('delete');
   deleteButton.addEventListener('click', function () {
     const buttonText = deleteButton.innerHTML;
+    //if something is selected, it says delete fortune and delete selected
     if (buttonText == 'Delete Fortune') {
       deleteSelectedItem();
-    } else {
+    } 
+    //if nothing is selected, it says delete all items and it deletes all fortunes
+    else {
       deleteAllItems();
     }
   })
