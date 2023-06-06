@@ -1,4 +1,4 @@
-/* style for all texts */
+/* Add Custom Font */
 @font-face {
   font-family: AnekDevanagari;
   src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
@@ -8,7 +8,7 @@
   font-family: AnekDevanagari, sans-serif;
 }
 
-/* background */
+/* Default Background Style */
 html,
 body {
   height: 100%;
@@ -23,7 +23,7 @@ body {
   overflow: hidden;
 }
 
-/* header 1 */
+/* Style 'Create Profile' Header */
 h1 {
   text-align: center;
   font-size: calc(6vh + 2vw);
@@ -35,34 +35,14 @@ h1 {
   margin-bottom: 2vh;
 }
 
-/* vectors for background */
-.rightvector {
-  position: absolute;
-  top: 0;
-  right: 0;
-  max-width: 50%;
-  max-height: 100%;
-}
-
-.leftvector {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  max-width: 50%;
-  max-height: 100%;
-}
-
-/* container (form) */
+/* Style Elements in the Form */
 .container {
-  animation: fadeInAnimation ease 5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
   margin-left: calc(25% - 8px);
   margin-top: 20vh;
   font-size: calc(4vh + 0.9vw);
 }
 
-/* input boxes */
+/* Style Input Boxes */
 input {
   border: none;
   border-radius: 0.8vh;
@@ -72,7 +52,7 @@ input {
   font-size: calc(3vh);
 }
 
-/* alignments */
+/* Align Inidividual Boxes */
 #name {
   margin-right: 35%;
 }
@@ -92,7 +72,7 @@ input {
   margin-right: 35%;
 }
 
-/* select box to match input boxes */
+/* Box Matching Input */
 select {
   font-size: 3vh;
   padding: 0.8vh;
@@ -103,6 +83,7 @@ select {
   color: black;
 }
 
+/* Hide Disabled Elements */
 option {
   color: black;
 }
@@ -112,7 +93,7 @@ select option[value=""] {
   color: gray;
 }
 
-/* navigation elements */
+/* Style Navigation Buttons */
 button {
   border: none;
   border-radius: 2vh;
@@ -128,11 +109,13 @@ button {
   font-size: calc(1vh + 1vw);
 }
 
+/* Style Disabled Submit */
 button:disabled {
   background-color: gray;
   color: lightgray;
 }
 
+/* Add Animation */
 button:hover:enabled {
   background-color: rgba(65 48 112 / 70%);
   transform: scale(1.1);
@@ -146,4 +129,21 @@ button:hover:enabled {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+/* Position Decorative Images */
+.rightvector {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 50%;
+  max-height: 100%;
+}
+
+.leftvector {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-width: 50%;
+  max-height: 100%;
 }

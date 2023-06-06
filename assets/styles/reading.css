@@ -1,3 +1,4 @@
+/* Add Custom Font */
 @font-face {
   font-family: AnekDevanagari;
   src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
@@ -10,14 +11,11 @@
 
 /* Background Gradient */
 body {
-  /* background: linear-gradient(28.76deg, #6554cc 18.11%, #413070 78.69%) fixed;
-  background-repeat: no-repeat; */
-  background-image: url("../images/general-reading/reading-background.png");
-  background-size: cover;
+  background: linear-gradient(28.76deg, #6554cc 18.11%, #413070 78.69%) fixed;
   background-repeat: no-repeat;
 }
 
-/* Background Vectors */
+/* Position Decorative Images */
 .topleft-vector {
   position: absolute;
   top: -10px;
@@ -45,7 +43,7 @@ body {
   max-height: 100%;
 }
 
-/* Left Half of Page */
+/* Style Left Half of Page */
 #aura-image {
   border-radius: 20px;
   height: min(30vw, 60vh);
@@ -69,7 +67,7 @@ body {
   font-weight: bold;
 }
 
-/* Right Container */
+/* Style Right Half of Page */
 #right-container {
   display: grid;
   grid-template-columns: (1fr, 1fr);
@@ -79,7 +77,7 @@ body {
   width: 50%;
 }
 
-/* Button Style */
+/* Style Left Side Buttons */
 .button {
   background: #3b2b66ce;
   border: none;
@@ -109,6 +107,7 @@ body {
   grid-row: 10;
 }
 
+/* Style Left Side Reading */
 #reading {
   border-style: solid;
   border-color: transparent;
@@ -125,16 +124,6 @@ body {
   height: fit-content;
 }
 
-@keyframes typing {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 100%;
-  }
-}
-
 #your-reading {
   text-align: center;
   font-size: 2.5vw;
@@ -143,6 +132,7 @@ body {
   grid-column: span 2;
 }
 
+/* Style Top Navigation Buttons */
 .button2 {
   background: transparent;
   border-color: transparent;

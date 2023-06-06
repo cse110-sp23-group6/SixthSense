@@ -1,4 +1,4 @@
-/* fonts */
+/* Add Custom Font */
 @font-face {
   font-family: AnekDevanagari;
   src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
@@ -8,12 +8,14 @@
   font-family: AnekDevanagari, sans-serif;
 }
 
+/* Default Background Style */
 body {
   background-image: linear-gradient(to right, #a994f0, #8474e7 47%, #704ed4);
   color: aliceblue;
   overflow: hidden;
 }
 
+/* Style Header Text */
 h1 {
   text-align: center;
   line-height: vh;
@@ -21,6 +23,7 @@ h1 {
   font-size: min(8vh, calc((4vw + 4ch) / 2));
 }
 
+/* Align Row of Images */
 .container {
   text-align: center;
   align-items: center;
@@ -30,7 +33,7 @@ h1 {
   height: 100%;
 }
 
-/* buttons */
+/* Display Images w/Grid */
 .buttons {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -39,6 +42,7 @@ h1 {
   margin-top: 5%;
 }
 
+/* Style Image Buttons */
 .round-button {
   align-items: center;
   border: none;
@@ -51,7 +55,7 @@ h1 {
   transform: scale(1.15);
 }
 
-/* background vectors */
+/* Position Decorative Images */
 .leftvector {
   position: absolute;
   top: 0;
@@ -70,7 +74,7 @@ h1 {
   max-height: 100%;
 }
 
-/* Navigation buttons */
+/* Style Navigation Buttons */
 .navigation-left {
   position: absolute;
   top: 80%;
@@ -114,6 +118,7 @@ h1 {
   cursor: pointer;
 }
 
+/* Add Nav Button Animations */
 #button-left:hover:enabled {
   background-color: rgba(65 48 112 / 70%);
 }
@@ -141,7 +146,7 @@ button:hover:enabled {
   transform: scale(1.1);
 }
 
-/* resizable images */
+/* Make Images Resizable */
 img {
   max-width: 100%;
   height: auto;

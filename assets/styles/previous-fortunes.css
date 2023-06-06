@@ -1,3 +1,4 @@
+/* Add Custom Font */
 @font-face {
   font-family: AnekDevanagari;
   src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
@@ -8,11 +9,23 @@
   color: white;
 }
 
+/* Background Gradient */
 body {
   background-image: linear-gradient(to right, #6554cc, #8f6fc4);
   overflow: hidden;
 }
 
+/* Position Decorative Images */
+.leftvector {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-width: 75%;
+  max-height: 100%;
+  z-index: -1;
+}
+
+/* Style Header Text */
 h1 {
   text-align: center;
   font-size: 55px;
@@ -23,20 +36,13 @@ h1 {
   line-height: 1.2;
 }
 
-.leftvector {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  max-width: 75%;
-  max-height: 100%;
-  z-index: -1;
-}
 
 .profile,
 ul {
   display: inline-block;
 }
 
+/* Style Left Half of the Page */
 #finalemotion {
   max-width: 65%;
   width: 20vw;
@@ -58,22 +64,6 @@ ul {
   font-size: 3vmin;
 }
 
-button {
-  border: none;
-  border-radius: 12px;
-  background-color: #413070b3;
-  font-size: 25px;
-}
-
-#open-button {
-  position: absolute;
-  top: 13%;
-  right: 5%;
-  font-size: 25px;
-  padding: 0.5% 2%;
-  justify-content: center;
-}
-
 .profile {
   position: absolute;
   text-align: center;
@@ -90,17 +80,13 @@ button {
   padding-bottom: 40px;
 }
 
-.hover {
-  background-color: rgb(65 48 112);
-  transition: transform 0.3s ease;
+p {
+  margin-bottom: 0.2cm;
+  margin-top: 0;
 }
 
-.hover:hover {
-  background-color: rgba(65 48 112 / 70%);
-  transform: scale(1.1);
-  box-shadow: 0 12px 16px 0 #ffffff3d, 0 17px 50px 0 #00000030;
-}
 
+/* Style Right Half of the Page */
 ul {
   position: absolute;
   top: 21%;
@@ -118,6 +104,7 @@ ul {
   padding-bottom: 1%;
 }
 
+/* Style List of Previous Fortunes */
 li {
   width: 93%;
   height: calc(6vh + 1vw);
@@ -135,11 +122,20 @@ li {
   font-size: calc(3vh + 1vw);
 }
 
+/* Add Hover Animations to Fortune */
+li:hover {
+  box-shadow: 0 12px 16px 0 #ffffff3d, 0 17px 50px 0 #00000030;
+  background-color: rgba(65 48 112 / 70%);
+  transform: scale(1.02);
+}
+
+/* Selected Fortune Animation */
 .selected {
   box-shadow: 0 0 5px #ffffffdd, 0 0 10px #ffffffdd, 0 0 10px #ffffffdd,
     inset 0 0 10px #00000080;
 }
 
+/* Style Expanded Fortune */
 #expanded-content {
   background-color: #55428c;
   position: absolute;
@@ -169,6 +165,7 @@ li {
     inset 0 0 10px #00000080;
 }
 
+/* Style Button for Expanded View */
 .close-button {
   background-color: #afa4f1bf;
   border: none;
@@ -177,6 +174,41 @@ li {
   text-align: center;
   justify-content: center;
   float: right;
+}
+
+.close-button:hover {
+  box-shadow: 0 12px 16px 0 #ffffff3d, 0 17px 50px 0 #00000030;
+  background-color: rgba(65 48 112 / 70%);
+  transform: scale(1.02);
+}
+
+/* Style Navigation Buttons */
+button {
+  border: none;
+  border-radius: 12px;
+  background-color: #413070b3;
+  font-size: 25px;
+}
+
+#open-button {
+  position: absolute;
+  top: 13%;
+  right: 5%;
+  font-size: 25px;
+  padding: 0.5% 2%;
+  justify-content: center;
+}
+
+/* Add Hover Animation */
+.hover {
+  background-color: rgb(65 48 112);
+  transition: transform 0.3s ease;
+}
+
+.hover:hover {
+  background-color: rgba(65 48 112 / 70%);
+  transform: scale(1.1);
+  box-shadow: 0 12px 16px 0 #ffffff3d, 0 17px 50px 0 #00000030;
 }
 
 .nav-home {
@@ -209,21 +241,4 @@ li {
 
 #delete {
   padding: 2% 8%;
-}
-
-li:hover {
-  box-shadow: 0 12px 16px 0 #ffffff3d, 0 17px 50px 0 #00000030;
-  background-color: rgba(65 48 112 / 70%);
-  transform: scale(1.02);
-}
-
-p {
-  margin-bottom: 0.2cm;
-  margin-top: 0;
-}
-
-.close-button:hover {
-  box-shadow: 0 12px 16px 0 #ffffff3d, 0 17px 50px 0 #00000030;
-  background-color: rgba(65 48 112 / 70%);
-  transform: scale(1.02);
 }

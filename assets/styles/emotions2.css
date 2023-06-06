@@ -1,4 +1,4 @@
-/* fonts */
+/* Add Custom Font */
 @font-face {
   font-family: AnekDevanagari;
   src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
@@ -8,13 +8,14 @@
   font-family: AnekDevanagari, sans-serif;
 }
 
+/* Default Background Style */
 body {
-  /* background gradient */
   background-image: linear-gradient(to left, #b094ff, #927aeb 47%, #6554cc);
   color: white;
   overflow: hidden;
 }
 
+/* Style Header Text */
 h1 {
   text-align: center;
   font-size: calc(2vh + 2vw);
@@ -25,6 +26,7 @@ h1 {
   line-height: 1.2;
 }
 
+/* Animate Quote Boxes */
 .container {
   animation: fade-in ease 5s;
   animation-iteration-count: 1;
@@ -35,7 +37,7 @@ h1 {
   width: 100%;
 }
 
-/* vectors for background */
+/* Position Decorative Images */
 .rightvector {
   position: absolute;
   top: 0;
@@ -52,7 +54,7 @@ h1 {
   max-height: 100%;
 }
 
-/* buttons */
+/* Display Quotes w/Flex */
 .buttons {
   position: relative;
   display: flex;
@@ -61,8 +63,8 @@ h1 {
   margin-top: 10vh;
 }
 
+/* Style Quote Buttons */
 button {
-  /* rounded borders */
   border: none;
   border-radius: 2vh;
   background-color: #413070b3;
@@ -70,7 +72,7 @@ button {
   padding: 1.7vh 2vw;
   font-size: 2.6vmin;
   margin-bottom: 2vh;
-  width: 55%; /* Adjust the width as needed */
+  width: 55%; 
   transition: transform 0.3s ease;
   cursor: pointer;
   align-items: center;
@@ -78,8 +80,11 @@ button {
   line-height: 1.2;
 }
 
+/* Style Navigation Buttons */
 .nav-back {
   position: absolute;
+  width: 10%;
+  height: 8vh;
   top: 85%;
   left: 2vw;
   z-index: 1;
@@ -88,9 +93,14 @@ button {
   height: 30%;
   display: inline-block;
   font-weight: bold;
+  border-radius: 1.25rem;
 }
 
 .nav-next {
+  align-items: center;
+  width: 10%;
+  height: 8vh;
+  border-radius: 1.25rem;
   position: absolute;
   top: 85%;
   right: 5vw;
@@ -110,12 +120,13 @@ button {
   padding: 2% 8%;
 }
 
+/* Shadow when Button Selected */
 .selected {
   box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff,
     inset 0 0 10px #00000080;
 }
 
-/* animate fade in */
+/* Add Fade in Animation */
 .images {
   animation: fade-in ease 1.5s;
   animation-iteration-count: 1;
@@ -125,11 +136,13 @@ button {
   object-fit: cover;
 }
 
+/* Style Disabled Next */
 #next:disabled {
   background-color: gray;
   color: lightgray;
 }
 
+/* Add Hover Animations */
 button:hover:enabled {
   transform: scale(1.1);
   box-shadow: 0 17px 50px 0 #00000030;
@@ -148,9 +161,9 @@ button:hover:enabled {
   background-color: rgba(65 48 112 / 90%);
 }
 
-@media (width <= 860px) {
+@media (max-width: 860px) {
   button {
-    width: 80%; /* Adjust the width for smaller screens */
+    width: 80%;
   }
 }
 
