@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>newprofile.js - Documentation</title>
+    <title>index.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">newprofile.js</h1>
+    <h1 class="page-title">index.js</h1>
     
 
     
@@ -39,102 +39,67 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// Document Selectors
-const yearBox = document.getElementById('year');
-const dateBox = document.getElementById('date');
-const monthBox = document.getElementById('month');
-const nameBox = document.getElementById('name');
-const statusBox = document.getElementById('status');
-const submitButton = document.getElementById('submit');
-const homeButton = document.getElementById('home');
-// Start off disabled to not allow empty input
-submitButton.disabled = true;
-
-/**
- * Function that checks if the user correctly typed the right input. If not the
- * submit button will remain disabled. When all 5 input types are satisfied,
- * the submit button gets enabled.
- *
- * @param {event} e - the event that triggered the function call
+            <pre class="prettyprint source linenums"><code>/**
+ * document name: index.js
+ * purpose: main page users access the website to.
+ * they can either go to new fortunes, create new users, or previous fortunes
+ * if they already have a profile, the new user button will not be availabel for them.
+ * Previous fortunes will tell them that they have to have at least 1 fortune or a profile
+ * 
+ * @const userButton: user button
+ * @const mainButtons: inner buttons including today and previous
+ * @const todayButton: today's fortune button
+ * @const previousButton: previous forutnes button
+ * @const formData: profile data from newprofile.html
  */
-function validateInput (event) {
-  const months = /^(0*([1-9]|1[0-2]))$/;
-  const days = /^(([0]?[1-9])|([1-2][0-9])|(3[01]))$/;
-  const years = /^[0-9]/;
-  const letters = /^[a-zA-Z\s]+$/;
-  const id = event.target.getAttribute('id');
 
-  // Checks validity of each input
-  const yearValid = yearBox.value.match(years);
-  const dateValid = dateBox.value.match(days);
-  const monthValid = monthBox.value.match(months);
-  const nameValid = nameBox.value.match(letters);
+// Document Selectors
+const userButton = document.getElementById('user');
+const mainButtons = document.getElementsByClassName('inner-button');
+const todayButton = mainButtons[0];
+const previousButton = mainButtons[1];
 
-  const statusValue = statusBox.value;
-
-  // Check if Name input is not valid
-  if (id === 'name' &amp;&amp; !nameValid) {
-    submitButton.disabled = true;
-  }
-
-  // Check if Month input is not valid
-  if (id === 'month' &amp;&amp; !monthValid) {
-    submitButton.disabled = true;
-  }
-
-  // Check if Date input is not valid
-  if (id === 'date' &amp;&amp; !dateValid) {
-    submitButton.disabled = true;
-  }
-
-  // Check if Year input is not valid
-  if (id === 'year' &amp;&amp; !yearValid) {
-    submitButton.disabled = true;
-  }
-
-  // If everything is inputed correctly, allow for submitting
-  if (yearValid &amp;&amp; dateValid &amp;&amp; monthValid &amp;&amp; nameValid &amp;&amp; statusValue !== '') {
-    submitButton.disabled = false;
-  }
+// Checks if the user has created a profile. If they have disable the button
+const formData = window.localStorage.getItem('formData');
+if (formData !== null) {
+  userButton.disabled = true;
 }
 
 /**
- * Function that stores the create profile information into JSON format to save.
- * Also redirects the user to the welcome page.
+ * purpose: event listener for new user button
+ * traverses to newprofile.html when clicked
  */
-function handleSubmit () {
-  // Get input values
-  const name = nameBox.value;
-  const year = yearBox.value;
-  const date = dateBox.value;
-  const month = monthBox.value;
-  const status = statusBox.options[statusBox.selectedIndex].text;
-
-  // Create an object to store the form data
-  const formData = {
-    name,
-    year,
-    date,
-    month,
-    status
-  };
-
-  // Store the form data in local storage
-  window.localStorage.setItem('formData', JSON.stringify(formData));
-  location.href = 'index.html';
-}
-
-// Attach event listener to the buttons
-yearBox.addEventListener('change', validateInput);
-dateBox.addEventListener('change', validateInput);
-monthBox.addEventListener('change', validateInput);
-nameBox.addEventListener('change', validateInput);
-statusBox.addEventListener('change', validateInput);
-submitButton.addEventListener('click', handleSubmit);
-
-// Go back to welcome page if user clicks home
-homeButton.addEventListener('click', function () {
-  location.href = 'index.html';
+userButton.addEventListener('click', function () {
+  location.href = 'newprofile.html';
+});
+/**
+ * purpose: event listener for today's fortune button
+ * traverses to choose-your-fortune.html when clicked
+ */
+todayButton.addEventListener('click', function () {
+  location.href = 'choose-your-fortune.html';
+});
+/**
+ * purpose: event listener for previous fortunes button
+ * when clicked but doesn't have a profile, it tells you to create a profile
+ * if you don't have a single fortune, it says you need at least 1 previously generated forutne
+ * if user qualifies for both, it takes the user to previous-fortunes.html
+ * 
+ * @const readings: readings from local storage
+ */
+previousButton.addEventListener('click', function () {
+  const readings = window.localStorage.getItem('readings');
+  if(formData === null){
+    alert("please create a profile to access previous fortunes")
+    return
+  }
+  if(readings === null){
+    alert("you need at least 1 previously generated fortune to access previous fortunes")
+    return
+  }
+  else{
+    location.href = 'previous-fortunes.html';
+  }
 });
 </code></pre>
         </article>
