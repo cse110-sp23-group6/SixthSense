@@ -13,25 +13,25 @@ const SECONDS_PER_DAY = 86400;
  * purpose: Runs on page initialization. 
  * Generates a reading based on emotion1 and emotion2 and records it to localstorage.
  * 
- * @param profilebutton: button that says create-profile
- * @param formData: profile data sent to local storage from newprofile page
- * @param urlParams: new urlParam for category
- * @param currentUnixTimestamp: current time
- * @param readingType: category they picked
- * @param auraImage: image space to show aura
- * @param readingbox: box to diplay reading
- * @param emotion10bj: local storage from emotion1
- * @param emotion20bj: local storage from emotion2
- * @param emotion1: emotion1
- * @param emotion2: emotion2
- * @param overallEmotion: the final emotion based on emotiosn 1 and 2
- * @param reading: reading to be displayed (randmoly picked from the readings for that category and emoton)
- * @param currentReadings: all of the readings already in localstorage
- * @param ogdate: date we get from new Date()
- * @param separatedDate: parsed date split 
- * @param withoutTime: date without time signiture
- * @param date: date to be updated in the right format
- * @param screenshotBtn: share button
+ * @const profilebutton: button that says create-profile
+ * @const formData: profile data sent to local storage from newprofile page
+ * @const urlParams: new urlParam for category
+ * @const currentUnixTimestamp: current time
+ * @const readingType: category they picked
+ * @const auraImage: image space to show aura
+ * @const readingbox: box to diplay reading
+ * @const emotion10bj: local storage from emotion1
+ * @const emotion20bj: local storage from emotion2
+ * @const emotion1: emotion1
+ * @const emotion2: emotion2
+ * @const overallEmotion: the final emotion based on emotiosn 1 and 2
+ * @type {String} reading: reading to be displayed (randmoly picked from the readings for that category and emoton)
+ * @type {Array} currentReadings: all of the readings already in localstorage
+ * @const ogdate: date we get from new Date()
+ * @const separatedDate: parsed date split 
+ * @const withoutTime: date without time signiture
+ * @const date: date to be updated in the right format
+ * @const screenshotBtn: share button
  */
 async function init() {
   const profilebutton = document.getElementById('create-profile');
@@ -143,9 +143,9 @@ async function init() {
   /**
    * purpose: Function to capture screenshot and save it as a download
    * 
-   * @param screenshotTarget: to be screenshotted (the whole body of the document)
-   * @param image: canvas converted into an image
-   * @param link: link element made to be shared
+   * @const screenshotTarget: to be screenshotted (the whole body of the document)
+   * @const image: canvas converted into an image
+   * @const link: link element made to be shared
    */
   function captureScreenshot() {
     const screenshotTarget = document.body;

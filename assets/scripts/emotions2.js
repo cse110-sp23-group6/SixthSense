@@ -1,27 +1,30 @@
 /**
  * File Name: emotions2.js
  * Purpose: randomly show quotes and save results to local storage in "emotions2"
+ * 
+ * @const allButtons: array of all buttons
  */
 
 import { RAW_EMOTIONS, QUOTES, READING_TYPES } from './constants.js';
 import { shuffleArray, randomArrayItem } from './helpers.js';
+
+
+const allButtons = [];
+let next;
+let emotion2;
 
 /**
  * function name: init
  * Runs on window initialization
  * shuffles array, create buttons by randomizing, user cannot click next until a button is selected
  * 
- * @param urlParams: urlSearchParam
- * @param readingType: get reading from urlParams for category
- * @param emotions: randomly shuffled array of emotions for button location
- * @param buttonContainer: container of buttons (where buttons will be added)
- * @param randomQuote: quote randomly chosen from the list of quotes per emotion
- * @param button: each button created
+ * @const urlParams: urlSearchParam
+ * @const readingType: get reading from urlParams for category
+ * @const emotions: randomly shuffled array of emotions for button location
+ * @const buttonContainer: container of buttons (where buttons will be added)
+ * @const randomQuote: quote randomly chosen from the list of quotes per emotion
+ * @const button: each button created
  */
-const allButtons = [];
-let next;
-let emotion2;
-
 function init () {
   const urlParams = new URLSearchParams(window.location.search);
 

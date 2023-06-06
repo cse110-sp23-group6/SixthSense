@@ -1,6 +1,9 @@
 /**
- * Returns a random shuffle of an array using Fisher-Yates.
+ * function name: shuffleArray
+ * purpose: Returns a random shuffle of an array using Fisher-Yates.
  * Does not modify array in-place.
+ * 
+ * @const array: original Array sliced
  * @param {Array} originalArray - array to shuffle
  * @returns {Array} shuffled array
  */
@@ -20,7 +23,9 @@ export function shuffleArray (originalArray) {
 }
 
 /**
- * Randomly generate a integer number between minimum and maximum (inclusive).
+ * function name: randomInt
+ * purpose: Randomly generate a integer number between minimum and maximum (inclusive).
+ * 
  * @param {number} minimum smallest value of range (inclusive)
  * @param {number} maximum largest value of range (inclusive)
  * @returns {number} integer value inside of array.
@@ -30,7 +35,9 @@ export function randomInt (minimum, maximum) {
 }
 
 /**
- * Randomly select an item from an array
+ * function name: randomArrayItem
+ * purpose: Randomly select an item from an array
+ * 
  * @param {Array} array array to select from
  * @returns item inside of array
  */

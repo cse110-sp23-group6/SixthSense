@@ -4,6 +4,12 @@
  * they can either go to new fortunes, create new users, or previous fortunes
  * if they already have a profile, the new user button will not be availabel for them.
  * Previous fortunes will tell them that they have to have at least 1 fortune or a profile
+ * 
+ * @const userButton: user button
+ * @const mainButtons: inner buttons including today and previous
+ * @const todayButton: today's fortune button
+ * @const previousButton: previous forutnes button
+ * @const formData: profile data from newprofile.html
  */
 
 // Document Selectors
@@ -37,6 +43,8 @@ todayButton.addEventListener('click', function () {
  * when clicked but doesn't have a profile, it tells you to create a profile
  * if you don't have a single fortune, it says you need at least 1 previously generated forutne
  * if user qualifies for both, it takes the user to previous-fortunes.html
+ * 
+ * @const readings: readings from local storage
  */
 previousButton.addEventListener('click', function () {
   const readings = window.localStorage.getItem('readings');

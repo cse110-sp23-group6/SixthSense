@@ -38,8 +38,8 @@ export function getStarSign (month, date) {
  * function name: createEntries
  * purpose: create list entries(previous readings) and allows it to be selected
  *
- * @param deleteButton: the delete button
- * @input listItems: the list of readings to be added into the list
+ * @type {Element} deleteButton: the delete button
+ * @param listItems: the list of readings to be added into the list
  */
 function createEntries (listItems) {
   let deleteButton = document.getElementById('delete');
@@ -68,8 +68,8 @@ function createEntries (listItems) {
  * function name: createCloseButton
  * purpose: Function to create the close button for the expanded content
  *
- * @param closeButton: close button
- * @param expandedContent: expanded fortune
+ * @const closeButton: close button
+ * @const expandedContent: expanded fortune
  * @return the button at the end of the reading that closes the expanded content when clicked
  */
 function createCloseButton () {
@@ -87,10 +87,10 @@ function createCloseButton () {
  * function name: openSelectedItem
  * purpose: Function to open the selected list item
  * 
- * @param selectedItem: item that has been selected (is selected class)
- * @param text: inner text of the selected item
- * @param expandedContent: expanded fortune
- * @param closeButton: close button created at the end of the reading
+ * @const selectedItem: item that has been selected (is selected class)
+ * @const text: inner text of the selected item
+ * @const expandedContent: expanded fortune
+ * @const closeButton: close button created at the end of the reading
  */
 function openSelectedItem () {
   const selectedItem = document.querySelector('.selected');
@@ -121,11 +121,11 @@ function openSelectedItem () {
  * function name: deleteSelectedItem
  * purpose: Function to delete the selected list item
  * 
- * @param selectedItem: selected item that has the selected class
- * @param selectedText: inner text of selected item
- * @param selectedDate: date of selected reading
- * @param selectedReading: actual reading of selected reading
- * @param reading: looping through formatted reading to find the selected fortune
+ * @const selectedItem: selected item that has the selected class
+ * @const selectedText: inner text of selected item
+ * @const selectedDate: date of selected reading
+ * @const selectedReading: actual reading of selected reading
+ * @const reading: looping through formatted reading to find the selected fortune
  */
 function deleteSelectedItem () {
   const selectedItem = document.querySelector('.selected');
@@ -161,7 +161,7 @@ function deleteSelectedItem () {
  * function name: deleteAllItems
  * purpose: When no fortune is selected, deletes all of the stored fortunes
  * 
- * @param UL: the whole reading list
+ * @const UL: the whole reading list
  */
 function deleteAllItems () {
   // if there are no readings, nothing happens
@@ -181,19 +181,19 @@ function deleteAllItems () {
  * function name: init
  * purpose: runs when page is loaded, populate profile and reading as well as buttons
  * 
- * @param overallEmotion: emotion retreived from local storage
- * @param finalemotion: finalemotion image
- * @param formData: profile data in local storage from newprofile.js
- * @param nameElement: name in profile
- * @param signElement: sign in profile (use getStarSign function)
- * @param loveElement: relationship status in profile
- * @param ulElement: list element of readings
- * @param liEleemnts: list element array to store readings
- * @param reading: going through formattedReadings to ad them to list
- * @param openButton: open btuton
- * @param deleteButton: delete button
- * @param buttonText: text inside delete button that says delete fortune
- * @param homeButton: home button
+ * @const overallEmotion: emotion retreived from local storage
+ * @const finalemotion: finalemotion image
+ * @type {String} formData: profile data in local storage from newprofile.js
+ * @const nameElement: name in profile
+ * @const signElement: sign in profile (use getStarSign function)
+ * @const loveElement: relationship status in profile
+ * @const ulElement: list element of readings
+ * @const liEleemnts: list element array to store readings
+ * @const reading: going through formattedReadings to ad them to list
+ * @const openButton: open btuton
+ * @const deleteButton: delete button
+ * @const buttonText: text inside delete button that says delete fortune
+ * @const homeButton: home button
  */
 function init () {
   // profile emotion -- finalemotion from local storage
@@ -233,8 +233,8 @@ function init () {
   /**
    * purpose: Function to add a reading to the list
    * 
-   * @input reading: the individual reading to be added to the list
-   * @param liElement: list element created to be added to the ul
+   * @param reading: the individual reading to be added to the list
+   * @const liElement: list element created to be added to the ul
    */
   function addReadingToList (reading) {
     const liElement = document.createElement('li');

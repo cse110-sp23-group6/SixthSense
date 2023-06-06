@@ -9,14 +9,15 @@ import { RE_ASK_INTERVAL_SECONDS } from "./constants.js";
  * purpose: runs when page is loaded
  * mostly handles sounds and each button that is populated (each category)
  * 
- * @param headerText: header text
- * @param typingSound: typing-sound when you click something
- * @param backgroundsound: background Sound
- * @param text: textcontent of the header text
- * @param delay: 100 milisecond delay to use for header animation
- * @param volumeSlider: volume slider
- * @param volumeIcon: icon for volume
- * @param lastVolume: for storing the volume in local storage for remembering
+ * @const headerText: header text
+ * @const typingSound: typing-sound when you click something
+ * @const backgroundsound: background Sound
+ * @const text: textcontent of the header text
+ * @type {String} html: html used for the categories
+ * @type {number} delay: 100 milisecond delay to use for header animation
+ * @const volumeSlider: volume slider
+ * @const volumeIcon: icon for volume
+ * @const lastVolume: for storing the volume in local storage for remembering
  */
 document.addEventListener("DOMContentLoaded", function () {
   const headerText = document.getElementById('header-text');
@@ -56,11 +57,11 @@ document.addEventListener("DOMContentLoaded", function () {
   /**
    * purpose: create the four buttons and add sound if hovered on
    * 
-   * @param buttonHoverSound: sound that plays when you hover on a button
-   * @param loveDiv: button for love category
-   * @param careerDiv: button for career category
-   * @param healthDiv: button for health category
-   * @param friendsAndFamilyDiv: button for friends and family
+   * @const buttonHoverSound: sound that plays when you hover on a button
+   * @const loveDiv: button for love category
+   * @const careerDiv: button for career category
+   * @const healthDiv: button for health category
+   * @const friendsAndFamilyDiv: button for friends and family
    */
   setTimeout(function () {
 
@@ -113,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
      * function name: playButtonHoverSound
      * purpose: Function to play the button hover sound
      * 
-     * @param buttonHoverSound: new audio with soundSrc
+     * @const buttonHoverSound: new audio with soundSrc
      */
     function playButtonHoverSound(soundSrc) {
       const buttonHoverSound = new Audio(soundSrc);
@@ -157,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
      * function name: updateVolume
      * purpose: update the volume of sound effects
      * 
-     * @param volumelevel: level of volume ranges from 0 to 3
+     * @const volumelevel: level of volume ranges from 0 to 3
      */
     function updateVolume() {
       console.log(volumeSlider.value); 
@@ -185,10 +186,10 @@ document.addEventListener("DOMContentLoaded", function () {
  * checks if emotion1 or 2 was set more than 12 hours ago, if not, redirect to emotions1
  * if so, redirect to general reading with the emotion and reading type already in hand
  * 
- * @param emotion10bj: emotion1
- * @param emotion20bj: emotion2
- * @param currentUnixTimestamp: current date
- * @input type = the category of reading that the user picked
+ * @const emotion10bj: emotion1
+ * @const emotion20bj: emotion2
+ * @const currentUnixTimestamp: current date
+ * @param type = the category of reading that the user picked
  */
 
 function handleNavigation (type) {
