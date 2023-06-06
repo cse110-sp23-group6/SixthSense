@@ -1,26 +1,56 @@
+/**
+ * file name: reading.js
+ * purpose: show emotion and reading based off of the category and emotions they chose
+ */
+
 import { READINGS, EMOTIONS_TABLE, READING_TYPES } from './constants.js';
 import { randomArrayItem } from './helpers.js';
 
 const SECONDS_PER_DAY = 86400;
 
 /**
- * Runs on page initialization. Generates a reading based on emotion1 and emotion2
- * and records it to localstorage.
+ * function name: init
+ * purpose: Runs on page initialization. 
+ * Generates a reading based on emotion1 and emotion2 and records it to localstorage.
+ * 
+ * @param profilebutton: button that says create-profile
+ * @param formData: profile data sent to local storage from newprofile page
+ * @param urlParams: new urlParam for category
+ * @param currentUnixTimestamp: current time
+ * @param readingType: category they picked
+ * @param auraImage: image space to show aura
+ * @param readingbox: box to diplay reading
+ * @param emotion10bj: local storage from emotion1
+ * @param emotion20bj: local storage from emotion2
+ * @param emotion1: emotion1
+ * @param emotion2: emotion2
+ * @param overallEmotion: the final emotion based on emotiosn 1 and 2
+ * @param reading: reading to be displayed (randmoly picked from the readings for that category and emoton)
+ * @param currentReadings: all of the readings already in localstorage
+ * @param ogdate: date we get from new Date()
+ * @param separatedDate: parsed date split 
+ * @param withoutTime: date without time signiture
+ * @param date: date to be updated in the right format
+ * @param screenshotBtn: share button
  */
 async function init() {
-  // check if profile exists, and change the create profile button
   const profilebutton = document.getElementById('create-profile');
   const formData = window.localStorage.getItem('formData');
+  //check if profile exists, if it does, then set previous reading button
   if (formData !== null) {
     profilebutton.textContent = 'Previous Readings';
     profilebutton.addEventListener('click', function () {
       window.location.href = 'previous-fortunes.html' + window.location.search;
     });
-  } else {
+  } 
+  //if not, set newprofile button
+  else {
     profilebutton.addEventListener('click', function () {
       window.location.href = 'newprofile.html' + window.location.search;
     });
   }
+
+  //find reading type
   const urlParams = new URLSearchParams(window.location.search);
   const currentUnixTimestamp = Date.now() / 1000.0;
 
@@ -67,27 +97,30 @@ async function init() {
     currentReadings = [];
   }
 
+  //set date into the correct format
   const ogdate = (new Date()).toISOString();
   const separatedDate = ogdate.split('T'); // separate date from time first
   const withoutTime = separatedDate[0].split('-');
   const date = withoutTime[1] + '/' + withoutTime[2] + '/' + withoutTime[0];
 
+  //add the reading to currentReadings
   currentReadings.push({
     date,
     reading
   });
 
+  //update local storage
   window.localStorage.setItem('readings', JSON.stringify(currentReadings));
 
   /**
-   * Event listener for home button click. Navigates back to index.html
+   * purpose: Event listener for home button click. Navigates back to index.html
    */
   document.getElementById('home').addEventListener('click', function () {
     window.location.href = 'index.html' + window.location.search;
   });
 
   /**
-   * Event listener for new button click. gets you new fortune
+   * purpose: Event listener for new button click. gets you new fortune
    */
   document.getElementById('new-fortune').addEventListener('click', function () {
     reading = randomArrayItem(READINGS[readingType][overallEmotion]);
@@ -107,7 +140,13 @@ async function init() {
   // Attach click event listener to the screenshot button
   const screenshotBtn = document.getElementById("share");
   screenshotBtn.addEventListener("click", captureScreenshot);
-  // Function to capture screenshot and save it as a download
+  /**
+   * purpose: Function to capture screenshot and save it as a download
+   * 
+   * @param screenshotTarget: to be screenshotted (the whole body of the document)
+   * @param image: canvas converted into an image
+   * @param link: link element made to be shared
+   */
   function captureScreenshot() {
     const screenshotTarget = document.body;
     // Capture the current page as an image using html2canvas library
