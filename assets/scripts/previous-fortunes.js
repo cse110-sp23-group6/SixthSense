@@ -174,7 +174,7 @@ function deleteAllItems () {
     const UL = document.getElementById('reading-list');
     UL.innerHTML = '';
     console.log('clearing out LOCAL STORAGE!');
-    //window.localStorage.removeItem('readings');
+    window.localStorage.removeItem('readings');
   }
 }
 /**
