@@ -1,3 +1,7 @@
+/*
+ * choose your fortunes javascript doc
+ * for populating the page at start and multiple functions
+ */
 import { RE_ASK_INTERVAL_SECONDS } from "./constants.js";
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -49,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
       playButtonHoverSound('assets/sounds/button-hover.mp3');
     });
 
+    //when the category is clicked, go to function handleNavigation with input: type
     const careerDiv = document.getElementById('career-div');
     careerDiv.addEventListener('click', function () {
       handleNavigation('career');
@@ -81,7 +86,12 @@ document.addEventListener("DOMContentLoaded", function () {
       playButtonHoverSound('assets/sounds/button-hover.mp3');
     });
 
-    // Function to play the button hover sound
+    /*
+     * function name: playButtonHoverSound
+     * purpose: Function to play the button hover sound
+     * 
+     * @param buttonHoverSound: new audio with soundSrc
+     */
     function playButtonHoverSound(soundSrc) {
       const buttonHoverSound = new Audio(soundSrc);
       buttonHoverSound.volume = (volumeSlider.value) / 10; // change volume according sound bar
@@ -120,6 +130,12 @@ document.addEventListener("DOMContentLoaded", function () {
     volumeSlider.addEventListener('change', updateVolume);
     volumeSlider.addEventListener('mousemove', updateVolume);
 
+    /* 
+     * function name: updateVolume
+     * purpose: update the volume of sound effects
+     * 
+     * @param volumelevel: level of volume ranges from 0 to 3
+     */
     function updateVolume() {
       console.log(volumeSlider.value); 
       backgroundSound.volume = volumeSlider.value;
@@ -139,6 +155,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }, 2000); // Delay in milliseconds matching the fade-in animation duration
 });
+
+/*
+ * function name: handleNavigation
+ * purpose: handle the navigation to each one of the categories when clicked
+ * checks if emotion1 or 2 was set more than 12 hours ago, if not, redirect to emotions1
+ * if so, redirect to general reading with the emotion and reading type already in hand
+ * 
+ * @param emotion10bj: emotion1
+ * @param emotion20bj: emotion2
+ * @param currentUnixTimestamp: current date
+ * @input type = the category of reading that the user picked
+ */
 
 function handleNavigation (type) {
   const emotion1Obj = JSON.parse(window.localStorage.getItem('emotion1'));
