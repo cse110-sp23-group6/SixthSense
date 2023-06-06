@@ -38,11 +38,13 @@ export function getStarSign (month, date) {
  * @input listItems: the list of readings to be added into the list
  */
 function createEntries (listItems) {
+  let deleteButton = document.getElementById('delete');
   for (let i = 0; i < listItems.length; i++) {
     listItems[i].addEventListener('click', function () {
       if (this.classList.contains('selected')) {
         // If the item is already selected, remove the 'selected' class
         this.classList.remove('selected');
+        deleteButton.innerHTML= 'Delete All';
       } else {
         // Remove 'selected' class from all items
         for (let j = 0; j < listItems.length; j++) {
@@ -52,6 +54,7 @@ function createEntries (listItems) {
         // Add 'selected' class to the clicked item
         this.classList.add('selected');
         console.log('selected:' + this.innerText);
+        deleteButton.innerHTML = 'Delete Fortune';
       }
     });
   }
@@ -141,6 +144,24 @@ function deleteSelectedItem () {
   }
 }
 
+/**
+ * When no fortune is selected, deletes all of the stored fortunes
+ */
+function deleteAllItems () {
+  // if there are no readings, nothing happens
+  if (formattedReadings.length == 0) {
+    console.log('nothing to delete');
+    return;
+  } else {
+    // clear out the container of readings
+    console.log('at least one item was found');
+    const UL = document.getElementById('reading-list');
+    UL.innerHTML = '';
+    console.log('clearing out LOCAL STORAGE!');
+    //window.localStorage.removeItem('readings');
+  }
+}
+
 function init () {
   // profile emotion -- retrieve emotions from local storage
   /*const emotion1 = !window.localStorage.getItem('emotion1') ? '' : JSON.parse(window.localStorage.getItem('emotion1')).emotion;
@@ -206,7 +227,14 @@ function init () {
 
   // deletebutton
   const deleteButton = document.getElementById('delete');
-  deleteButton.addEventListener('click', deleteSelectedItem);
+  deleteButton.addEventListener('click', function () {
+    const buttonText = deleteButton.innerHTML;
+    if (buttonText == 'Delete Fortune') {
+      deleteSelectedItem();
+    } else {
+      deleteAllItems();
+    }
+  })
 
   // Go back to welcome page if user clicks home
   const homeButton = document.getElementById('home');

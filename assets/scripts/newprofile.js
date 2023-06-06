@@ -67,7 +67,7 @@ function handleSubmit () {
   const year = yearBox.value;
   const date = dateBox.value;
   const month = monthBox.value;
-  const status = statusBox.value;
+  const status = statusBox.options[statusBox.selectedIndex].text;
 
   // Create an object to store the form data
   const formData = {
