@@ -1,4 +1,5 @@
 /**
+ * file name: emotions1
  * Randomly generate one set of images to show for each emotion.
  * The order of images within each set is randomized as well.
  */
@@ -43,6 +44,7 @@ let next;
 let selectedEmotion;
 
 /**
+ * function name: handleNextButtonClick
  * Moves to next page in flow (emotions2), and passes along desired fortune type
  */
 function handleNextButtonClick () {
@@ -54,14 +56,29 @@ function handleNextButtonClick () {
 }
 
 /**
- * Moves to next page in flow (emotions2), resets desired fortune type
+ * function name: handleBackButtonClick
+ * removes emotion1 in local storage
+ * moves to next page in flow (emotions2), resets desired fortune type
  */
 function handleBackButtonClick () {
   window.localStorage.removeItem('emotion1');
   window.location.href = 'choose-your-fortune.html';
 }
 
-// Generate a new set of images on page load.
+/**
+ * function name: init
+ * purpose: Generate a new set of images on page load.
+ * user cannot click next until a picture is selected
+ * 
+ * @param urlParams: new URLsearchParams
+ * @param readingtype: reading from urlParams
+ * @param next: next button on the page
+ * @param buttons: 5 buttons with pics
+ * @param randomSet: random number between 0 and 2, choose which set to display
+ * @param shuffledEmotions: shuffled list of emotions to display on buttons
+ * @param emotion: used to loop through shuffledEmotions
+ * @param back: back button on the page
+ */
 function init () {
   const urlParams = new URLSearchParams(window.location.search);
 
@@ -70,6 +87,7 @@ function init () {
     window.location.href = 'choose-your-fortune.html';
   }
 
+  //disable next button till someone selects a button
   next = document.getElementById('button-right');
   next.disabled = true;
 
@@ -88,10 +106,12 @@ function init () {
   // Generate shuffled list to randomize order within the set
   const shuffledEmotions = shuffleArray(RAW_EMOTIONS);
 
+  //loop through the shuffled Array list to display pics on the buttons
   for (let i = 0; i < buttons.length; i++) {
     const emotion = shuffledEmotions[i];
     buttons[i].setAttribute('src', randomSet[emotion]);
 
+    //when you click and select a button, it highlights and you can now click next
     buttons[i].addEventListener('click', function () {
       selectedEmotion = emotion;
       const selected = buttons[i];
@@ -112,7 +132,7 @@ function init () {
 
 window.addEventListener('DOMContentLoaded', init);
 
-// Navigation buttons
+// back navigation button
 const backButton = document.getElementById('button-left');
 
 backButton.addEventListener('click', handleBackButtonClick);

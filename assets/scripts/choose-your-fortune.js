@@ -1,9 +1,23 @@
-/*
+/**
+ * file name: choose-your-fortune
  * choose your fortunes javascript doc
- * for populating the page at start and multiple functions
+ * purpose: for populating the page at start and multiple functions
  */
 import { RE_ASK_INTERVAL_SECONDS } from "./constants.js";
 
+/**
+ * purpose: runs when page is loaded
+ * mostly handles sounds and each button that is populated (each category)
+ * 
+ * @param headerText: header text
+ * @param typingSound: typing-sound when you click something
+ * @param backgroundsound: background Sound
+ * @param text: textcontent of the header text
+ * @param delay: 100 milisecond delay to use for header animation
+ * @param volumeSlider: volume slider
+ * @param volumeIcon: icon for volume
+ * @param lastVolume: for storing the volume in local storage for remembering
+ */
 document.addEventListener("DOMContentLoaded", function () {
   const headerText = document.getElementById('header-text');
   const typingSound = document.getElementById('typing-sound');
@@ -39,6 +53,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   typingSound.currentTime = 0;
 
+  /**
+   * purpose: create the four buttons and add sound if hovered on
+   * 
+   * @param buttonHoverSound: sound that plays when you hover on a button
+   * @param loveDiv: button for love category
+   * @param careerDiv: button for career category
+   * @param healthDiv: button for health category
+   * @param friendsAndFamilyDiv: button for friends and family
+   */
   setTimeout(function () {
 
     const buttonHoverSound = new Audio('assets/sounds/button-hover.mp3');
@@ -86,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
       playButtonHoverSound('assets/sounds/button-hover.mp3');
     });
 
-    /*
+    /**
      * function name: playButtonHoverSound
      * purpose: Function to play the button hover sound
      * 
@@ -130,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
     volumeSlider.addEventListener('change', updateVolume);
     volumeSlider.addEventListener('mousemove', updateVolume);
 
-    /* 
+    /**
      * function name: updateVolume
      * purpose: update the volume of sound effects
      * 
@@ -156,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 2000); // Delay in milliseconds matching the fade-in animation duration
 });
 
-/*
+/**
  * function name: handleNavigation
  * purpose: handle the navigation to each one of the categories when clicked
  * checks if emotion1 or 2 was set more than 12 hours ago, if not, redirect to emotions1
