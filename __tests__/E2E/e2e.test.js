@@ -35,6 +35,11 @@ describe('End to end testing', () => {
     console.log("1 cyf->e");
     const but1 = await page.$('#love-div');
     await but1.click();
+    try {
+      await page.waitForNavigation();
+    } catch(e){
+      console.warn("Page wait for navigation timeout");
+    }
     const newUrl = await page.url();
     expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=love');
   }, 300000);
