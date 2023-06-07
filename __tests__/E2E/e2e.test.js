@@ -38,6 +38,7 @@ describe('End to end testing', () => {
   test('choose your fortune to emotions1 (love) navigation test', async () => {
     console.log("1 cyf->e");
     const but1 = await page.$('#love-div');
+    console.log(but1);
     console.log(2);
     await but1.click();
     console.log(3);
