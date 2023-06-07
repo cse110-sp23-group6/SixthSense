@@ -18,6 +18,7 @@ describe('End to end testing', () => {
     // let text = await page.evaluate(but => but.textContent, but1);
     // console.log(text);
     await but1.click();
+    await page.waitForNavigation();
     let newUrl = await page.url();
     expect(newUrl).toBe('http://127.0.0.1:8080/choose-your-fortune.html');
   });
