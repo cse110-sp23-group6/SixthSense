@@ -16,7 +16,7 @@ const formattedReadings = window.localStorage.getItem('readings')
  * @param {string} date: date of the birthday
  * @return {string} name of the star sign and null if none match
  */
-export function getStarSign (month, date) {
+export function getStarSign(month, date) {
   // Convert the month and date strings to numbers
   const monthNum = parseInt(month);
   const dateNum = parseInt(date);
@@ -41,14 +41,14 @@ export function getStarSign (month, date) {
  * @type {Element} deleteButton: the delete button
  * @param listItems: the list of readings to be added into the list
  */
-function createEntries (listItems) {
+function createEntries(listItems) {
   let deleteButton = document.getElementById('delete');
   for (let i = 0; i < listItems.length; i++) {
     listItems[i].addEventListener('click', function () {
       if (this.classList.contains('selected')) {
         // If the item is already selected, remove the 'selected' class
         this.classList.remove('selected');
-        deleteButton.innerHTML= 'Delete All';
+        deleteButton.innerHTML = 'Delete All';
       } else {
         // Remove 'selected' class from all items
         for (let j = 0; j < listItems.length; j++) {
@@ -72,7 +72,7 @@ function createEntries (listItems) {
  * @const expandedContent: expanded fortune
  * @return the button at the end of the reading that closes the expanded content when clicked
  */
-function createCloseButton () {
+function createCloseButton() {
   const closeButton = document.createElement('button');
   closeButton.className = 'close-button';
   closeButton.innerText = 'Close';
@@ -92,7 +92,7 @@ function createCloseButton () {
  * @const expandedContent: expanded fortune
  * @const closeButton: close button created at the end of the reading
  */
-function openSelectedItem () {
+function openSelectedItem() {
   const selectedItem = document.querySelector('.selected');
   if (selectedItem) {
     // Open the selected item (perform the desired action)
@@ -127,7 +127,7 @@ function openSelectedItem () {
  * @const selectedReading: actual reading of selected reading
  * @const reading: looping through formatted reading to find the selected fortune
  */
-function deleteSelectedItem () {
+function deleteSelectedItem() {
   const selectedItem = document.querySelector('.selected');
   if (selectedItem) {
     // Delete the selected item from the list
@@ -163,7 +163,7 @@ function deleteSelectedItem () {
  * 
  * @const UL: the whole reading list
  */
-function deleteAllItems () {
+function deleteAllItems() {
   // if there are no readings, nothing happens
   if (formattedReadings.length == 0) {
     console.log('nothing to delete');
@@ -195,7 +195,7 @@ function deleteAllItems () {
  * @const buttonText: text inside delete button that says delete fortune
  * @const homeButton: home button
  */
-function init () {
+function init() {
   // profile emotion -- finalemotion from local storage
   const overallEmotion = JSON.parse(window.localStorage.getItem('overallEmotion'));
   const finalemotion = document.getElementById('finalemotion');
@@ -236,7 +236,7 @@ function init () {
    * @param reading: the individual reading to be added to the list
    * @const liElement: list element created to be added to the ul
    */
-  function addReadingToList (reading) {
+  function addReadingToList(reading) {
     const liElement = document.createElement('li');
 
     //add reading and date to the reading list in the correct format
@@ -252,7 +252,7 @@ function init () {
     console.log(reading);
   }
 
-  createEntries(liElements); 
+  createEntries(liElements);
 
   //open button
   const openButton = document.getElementById('open-button');
@@ -265,7 +265,7 @@ function init () {
     //if something is selected, it says delete fortune and delete selected
     if (buttonText == 'Delete Fortune') {
       deleteSelectedItem();
-    } 
+    }
     //if nothing is selected, it says delete all items and it deletes all fortunes
     else {
       deleteAllItems();
@@ -277,116 +277,114 @@ function init () {
   homeButton.addEventListener('click', function () {
     location.href = 'index.html';
   });
+
+
+  // sound control
+  const backgroundSound = new Audio('assets/sounds/background-music.mp3');
+  const volumeSlider = document.getElementById('volume-slider');
+  const volumeIcon = document.getElementById('volume-icon');
+
+  let lastVolume = retrieveVolume(); // Retrieve volume value from local storage
+  backgroundSound.volume = lastVolume; // Set the initial volume
+  // Set the volume slider to reflect the initial volume
+  volumeSlider.value = lastVolume;
+  updateVolume();
+  backgroundSound.currentTime = 0; // Reset the background sound to start
+  backgroundSound.loop = true; // Enable looping
+  backgroundSound.play(); // Play the background sound
+
+  // mute and unmute for clicking icon
+
+  function retrieveVolume() {
+    let storedVolume = localStorage.getItem('lastVolume');
+
+    // If there's no stored volume level or it's 0, set the default to 1
+    if (storedVolume === null) {
+      return 1;
+    } else {
+      return Number(storedVolume); // Convert the stored string value to a number before returning
+    }
+  }
+
+  // store the last volumn in record 
+  volumeSlider.addEventListener('input', function () {
+    backgroundSound.volume = volumeSlider.value;
+    lastVolume = backgroundSound.volume; // Update the lastVolume to reflect the volume of the background sound
+    localStorage.setItem('lastVolume', lastVolume); // Store the volume level in local storage
+    updateVolume();
+  });
+
+  volumeIcon.addEventListener('click', function () {
+    if (backgroundSound.volume == 0) {
+      if (lastVolume == 0) {
+        backgroundSound.volume = 1;
+        volumeSlider.value = 1;
+      } else {
+        backgroundSound.volume = lastVolume;
+        volumeSlider.value = lastVolume;
+      }
+    } else {
+      lastVolume = backgroundSound.volume;
+      backgroundSound.volume = 0;
+      volumeSlider.value = 0;
+    }
+    updateVolume();
+  });
+
+  volumeSlider.addEventListener('change', updateVolume);
+  volumeSlider.addEventListener('mousemove', updateVolume);
+
+  /**
+   * function name: updateVolume
+   * purpose: update the volume of sound effects
+   * 
+   * @const volumelevel: level of volume ranges from 0 to 3
+   */
+  function updateVolume() {
+    backgroundSound.volume = volumeSlider.value;
+    backgroundSound.volume = volumeSlider.value;
+    let volumeLevel;
+
+    window.localStorage.setItem('lastVolume', volumeSlider.value);
+
+    if (backgroundSound.volume === 0) {
+      volumeLevel = "0";
+    } else if (backgroundSound.volume < 0.33) {
+      volumeLevel = "1";
+    } else if (backgroundSound.volume < 0.66) {
+      volumeLevel = "2";
+    } else {
+      volumeLevel = "3";
+    }
+    volumeIcon.src = `assets/images/volume-level-${volumeLevel}.svg`;
+  }
+
+  /**
+   * function name: playButtonHoverSound
+   * purpose: Function to play the button hover sound
+   * 
+   * @const buttonHoverSound: new audio with soundSrc
+   */
+  function playButtonHoverSound(soundSrc) {
+    const buttonHoverSound = new Audio(soundSrc);
+    buttonHoverSound.volume = (volumeSlider.value) / 20; // change volume according sound bar
+    buttonHoverSound.currentTime = 0; // Reset the sound to start
+    buttonHoverSound.play();
+  }
+
+  // open button hover sounds
+  openButton.addEventListener('mouseenter', function () {
+    playButtonHoverSound('assets/sounds/button-hover.mp3');
+  });
+
+  // gome button hover sounds
+  homeButton.addEventListener('mouseenter', function () {
+    playButtonHoverSound('assets/sounds/button-hover.mp3');
+  });
+  // delete button hover sounds
+  deleteButton.addEventListener('mouseenter', function () {
+    playButtonHoverSound('assets/sounds/button-hover.mp3');
+  });
 }
 
 document.addEventListener('DOMContentLoaded', init);
-
-// sound control
-const backgroundSound = new Audio('assets/sounds/background-music.mp3');
-const volumeSlider = document.getElementById('volume-slider');
-const volumeIcon = document.getElementById('volume-icon');
-
-let lastVolume = retrieveVolume(); // Retrieve volume value from local storage
-backgroundSound.volume = lastVolume; // Set the initial volume
-  // Set the volume slider to reflect the initial volume
-volumeSlider.value = lastVolume; 
-updateVolume();
-backgroundSound.currentTime = 0; // Reset the background sound to start
-backgroundSound.loop = true; // Enable looping
-backgroundSound.play(); // Play the background sound
-
-// mute and unmute for clicking icon
-
-function retrieveVolume() {
-  let storedVolume = localStorage.getItem('lastVolume');
-
-  // If there's no stored volume level or it's 0, set the default to 1
-  if (storedVolume === null) {
-    return 1;
-  } else {
-    return Number(storedVolume); // Convert the stored string value to a number before returning
-  }
-}
-
-// store the last volumn in record 
-volumeSlider.addEventListener('input', function () {
-  backgroundSound.volume = volumeSlider.value;
-  lastVolume = backgroundSound.volume; // Update the lastVolume to reflect the volume of the background sound
-  localStorage.setItem('lastVolume', lastVolume); // Store the volume level in local storage
-  updateVolume();
-});
-
-volumeIcon.addEventListener('click', function() {
-  if (backgroundSound.volume == 0) {
-    if (lastVolume == 0) {
-      backgroundSound.volume = 1;
-      volumeSlider.value = 1;
-    } else {
-      backgroundSound.volume = lastVolume;
-      volumeSlider.value = lastVolume;
-    }
-  } else {
-    lastVolume = backgroundSound.volume;
-    backgroundSound.volume = 0;
-    volumeSlider.value = 0;
-  }
-  updateVolume();
-});
-
-volumeSlider.addEventListener('change', updateVolume);
-volumeSlider.addEventListener('mousemove', updateVolume);
-
-/**
- * function name: updateVolume
- * purpose: update the volume of sound effects
- * 
- * @const volumelevel: level of volume ranges from 0 to 3
- */
-function updateVolume() {
-  backgroundSound.volume = volumeSlider.value;
-  backgroundSound.volume = volumeSlider.value;
-  let volumeLevel;
-
-  window.localStorage.setItem('lastVolume', volumeSlider.value);
-
-  if (backgroundSound.volume === 0) {
-    volumeLevel = "0";
-  } else if (backgroundSound.volume < 0.33) {
-    volumeLevel = "1";
-  } else if (backgroundSound.volume < 0.66) {
-    volumeLevel = "2";
-  } else {
-    volumeLevel = "3";
-  }
-  volumeIcon.src = `assets/images/volume-level-${volumeLevel}.svg`;
-}
-
-/**
- * function name: playButtonHoverSound
- * purpose: Function to play the button hover sound
- * 
- * @const buttonHoverSound: new audio with soundSrc
- */
-function playButtonHoverSound(soundSrc) {
-  const buttonHoverSound = new Audio(soundSrc);
-  buttonHoverSound.volume = (volumeSlider.value) / 20; // change volume according sound bar
-  buttonHoverSound.currentTime = 0; // Reset the sound to start
-  buttonHoverSound.play();
-}
-
-// open button hover sounds
-const openButton = document.getElementById('open-button');
-openButton.addEventListener('mouseenter', function () {
-  playButtonHoverSound('assets/sounds/button-hover.mp3');
-});
-
-// gome button hover sounds
-const homeButton = document.getElementById('home');
-homeButton.addEventListener('mouseenter', function () {
-  playButtonHoverSound('assets/sounds/button-hover.mp3');
-});
-// delete button hover sounds
-const deleteButton = document.getElementById('delete');
-deleteButton.addEventListener('mouseenter', function () {
-  playButtonHoverSound('assets/sounds/button-hover.mp3');
-});
