@@ -146,6 +146,7 @@ async function init() {
     localStorage.setItem('readings', JSON.stringify(currentReadings))
   })
 
+
   // Attach click event listener to the share button
   const shareBtn = document.getElementById("share");
   shareBtn.addEventListener("click", async function() {
@@ -163,6 +164,7 @@ async function init() {
     );
     alert("Share link copied to URL!");
   });
+
 }
 
 window.addEventListener('DOMContentLoaded', init);
