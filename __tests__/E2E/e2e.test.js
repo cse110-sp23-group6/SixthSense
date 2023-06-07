@@ -42,7 +42,7 @@ describe('End to end testing', () => {
     await but1.click();
     console.log(3);
     await page.waitForNavigation();
-    console.log(4);
+    console.log(await page.url());
     const newUrl = await page.url();
     console.log(5);
     expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=love');
