@@ -5,20 +5,6 @@
  */
 import { RE_ASK_INTERVAL_SECONDS } from "./constants.js";
 
-/**
- * purpose: runs when page is loaded
- * mostly handles sounds and each button that is populated (each category)
- * 
- * @const headerText: header text
- * @const typingSound: typing-sound when you click something
- * @const backgroundsound: background Sound
- * @const text: textcontent of the header text
- * @type {String} html: html used for the categories
- * @type {number} delay: 100 milisecond delay to use for header animation
- * @const volumeSlider: volume slider
- * @const volumeIcon: icon for volume
- * @const lastVolume: for storing the volume in local storage for remembering
- */
 document.addEventListener("DOMContentLoaded", function () {
   const headerText = document.getElementById('header-text');
   const typingSound = document.getElementById('typing-sound');
@@ -36,11 +22,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
   headerText.innerHTML = html;
 
+  const volumeSlider = document.getElementById('volume-slider');
+  const volumeIcon = document.getElementById('volume-icon');
+
+  // function to retrieve volumn from previous accessed page
+  function retrieveVolume() {
+    let storedVolume = localStorage.getItem('lastVolume');
+
+    // If there's no stored volume level or it's 0, set the default to 1
+    if (storedVolume === null) {
+      return 1;
+    } else {
+      return Number(storedVolume); // Convert the stored string value to a number before returning
+    }
+  }
+
+  let lastVolume = retrieveVolume(); // Retrieve volume value from local storage
+  backgroundSound.volume = lastVolume; // Set the initial volume
+  // Set the volume slider to reflect the initial volume
+  volumeSlider.value = lastVolume; 
+
   typingSound.currentTime = 0; // Reset the sound to start
   typingSound.playbackRate = 1.5;
-  typingSound.volume = 0.5; // Lower volume
+  typingSound.volume = volumeSlider.value /5 ; // Lower volume
   typingSound.play(); // Play the typing sound
-
+  // for volume control
+  
+  updateVolume();
   backgroundSound.currentTime = 0; // Reset the background sound to start
   backgroundSound.loop = true; // Enable looping
   backgroundSound.play(); // Play the background sound
@@ -54,15 +62,55 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   typingSound.currentTime = 0;
 
-  /**
-   * purpose: create the four buttons and add sound if hovered on
-   * 
-   * @const buttonHoverSound: sound that plays when you hover on a button
-   * @const loveDiv: button for love category
-   * @const careerDiv: button for career category
-   * @const healthDiv: button for health category
-   * @const friendsAndFamilyDiv: button for friends and family
-   */
+  // store the last volumn in record 
+  volumeSlider.addEventListener('input', function () {
+    backgroundSound.volume = volumeSlider.value;
+    lastVolume = backgroundSound.volume; // Update the lastVolume to reflect the volume of the background sound
+    localStorage.setItem('lastVolume', lastVolume); // Store the volume level in local storage
+    updateVolume();
+  });
+
+  volumeIcon.addEventListener('click', function() {
+    if (backgroundSound.volume == 0) {
+      if (lastVolume == 0) {
+        backgroundSound.volume = 1;
+        volumeSlider.value = 1;
+      } else {
+        backgroundSound.volume = lastVolume;
+        volumeSlider.value = lastVolume;
+      }
+    } else {
+      lastVolume = backgroundSound.volume;
+      backgroundSound.volume = 0;
+      volumeSlider.value = 0;
+    }
+    localStorage.setItem('lastVolume', volumeSlider.value); // Store the volume level in local storage
+    updateVolume();
+  });
+
+  volumeSlider.addEventListener('change', updateVolume);
+  volumeSlider.addEventListener('mousemove', updateVolume);
+
+  function updateVolume() {
+    console.log(volumeSlider.value); 
+    backgroundSound.volume = volumeSlider.value;
+    let volumeLevel;
+
+    if (backgroundSound.volume === 0) {
+      volumeLevel = "0";
+    } else if (backgroundSound.volume < 0.33) {
+      volumeLevel = "1";
+    } else if (backgroundSound.volume < 0.66) {
+      volumeLevel = "2";
+    } else {
+      volumeLevel = "3";
+    }
+    volumeIcon.src = `assets/images/volume-level-${volumeLevel}.svg`;
+
+    // Store the volume level in local storage
+    localStorage.setItem('lastVolume', volumeSlider.value);
+  }
+
   setTimeout(function () {
 
     const buttonHoverSound = new Audio('assets/sounds/button-hover.mp3');
@@ -72,12 +120,10 @@ document.addEventListener("DOMContentLoaded", function () {
     loveDiv.addEventListener('click', function () {
       handleNavigation('love');
     });
-        // Add event listeners for hovering over fortune boxes
     loveDiv.addEventListener('mouseenter', function () {
       playButtonHoverSound('assets/sounds/button-hover.mp3');
     });
 
-    //when the category is clicked, go to function handleNavigation with input: type
     const careerDiv = document.getElementById('career-div');
     careerDiv.addEventListener('click', function () {
       handleNavigation('career');
@@ -110,87 +156,14 @@ document.addEventListener("DOMContentLoaded", function () {
       playButtonHoverSound('assets/sounds/button-hover.mp3');
     });
 
-    /**
-     * function name: playButtonHoverSound
-     * purpose: Function to play the button hover sound
-     * 
-     * @const buttonHoverSound: new audio with soundSrc
-     */
     function playButtonHoverSound(soundSrc) {
       const buttonHoverSound = new Audio(soundSrc);
-      buttonHoverSound.volume = (volumeSlider.value) / 10; // change volume according sound bar
+      buttonHoverSound.volume = (volumeSlider.value) / 20; // change volume according sound bar
       buttonHoverSound.currentTime = 0; // Reset the sound to start
       buttonHoverSound.play();
     }
-
-    // function for volume control
-    const volumeSlider = document.getElementById('volume-slider');
-    const volumeIcon = document.getElementById('volume-icon');
-
-    // mute and unmute for clicking icon
-
-    let lastVolume = 1;
-    backgroundSound.volume = lastVolume;
-
-    // store the last volumn in record 
-    volumeSlider.addEventListener('input', function () {
-      lastVolume = volumeSlider.value;
-      backgroundSound.volume = lastVolume;
-      updateVolume();
-    });
-
-    volumeIcon.addEventListener('click', function() {
-      if (backgroundSound.volume == 0) {
-        backgroundSound.volume = lastVolume;
-        volumeSlider.value = lastVolume;
-      } else {
-        lastVolume = backgroundSound.volume;
-        backgroundSound.volume = 0;
-        volumeSlider.value = 0;
-      }
-      updateVolume();
-    });
-
-    volumeSlider.addEventListener('change', updateVolume);
-    volumeSlider.addEventListener('mousemove', updateVolume);
-
-    /**
-     * function name: updateVolume
-     * purpose: update the volume of sound effects
-     * 
-     * @const volumelevel: level of volume ranges from 0 to 3
-     */
-    function updateVolume() {
-      console.log(volumeSlider.value); 
-      backgroundSound.volume = volumeSlider.value;
-      backgroundSound.volume = volumeSlider.value;
-      let volumeLevel;
-
-      if (backgroundSound.volume === 0) {
-        volumeLevel = "0";
-      } else if (backgroundSound.volume < 0.33) {
-        volumeLevel = "1";
-      } else if (backgroundSound.volume < 0.66) {
-        volumeLevel = "2";
-      } else {
-        volumeLevel = "3";
-      }
-      volumeIcon.src = `assets/images/volume-level-${volumeLevel}.svg`;
-    }
   }, 2000); // Delay in milliseconds matching the fade-in animation duration
 });
-
-/**
- * function name: handleNavigation
- * purpose: handle the navigation to each one of the categories when clicked
- * checks if emotion1 or 2 was set more than 12 hours ago, if not, redirect to emotions1
- * if so, redirect to general reading with the emotion and reading type already in hand
- * 
- * @const emotion10bj: emotion1
- * @const emotion20bj: emotion2
- * @const currentUnixTimestamp: current date
- * @param type = the category of reading that the user picked
- */
 
 function handleNavigation (type) {
   const emotion1Obj = JSON.parse(window.localStorage.getItem('emotion1'));
@@ -211,4 +184,3 @@ function handleNavigation (type) {
     window.location.assign('reading.html?reading=' + type);
   }
 }
-
