@@ -1,3 +1,4 @@
+/* Add Custom Font */
 @font-face {
   font-family: AnekDevanagari;
   src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
@@ -8,11 +9,13 @@
   color: white;
 }
 
-/* Set default styles for the body */
+/* Default Background Style */
 body {
   margin-right: 0;
   padding: 0;
   position: relative;
+
+  /* background gradient */
   background-image: linear-gradient(281.58deg, #aba4d856.06%, #8119e242 89.61%),
     linear-gradient(134.31deg, #6554cc 61.9%, #9b60e7 95.78%),
     linear-gradient(258.13deg, #7751b3 51.11%, #332845 95.05%);
@@ -24,6 +27,7 @@ body {
   overflow: hidden;
 }
 
+/* Animate Header Text */
 @keyframes fade-in-animation {
   0% {
     opacity: 0;
@@ -34,12 +38,13 @@ body {
   }
 }
 
+/* Position Top Navigation Button */
 header {
   margin-bottom: 0;
   text-align: right;
 }
 
-/* Style the main button */
+/* Style Main Navigation Buttons */
 button {
   border: none;
   background: #3b2b66ce;
@@ -55,13 +60,13 @@ button {
   cursor: pointer;
 }
 
-/* Style the main button on hover */
+/* Animate Navigation Buttons */
 button:hover {
   background-color: rgba(65 48 112 / 70%);
   transform: scale(1.1);
 }
 
-/* Style the main content */
+/* Organize Main Content w/Flex Box */
 main {
   display: flex;
   flex-direction: column;
@@ -72,7 +77,7 @@ main {
   margin-top: 2vh;
 }
 
-/* Style the main content title */
+/* Style Header Text */
 h1 {
   color: white;
   font-size: calc(5vh + 5vw);
@@ -88,7 +93,7 @@ h1 {
   top: 30vh;
 }
 
-/* Style the main content buttons */
+/* Style Navigation Buttons */
 .inner-button {
   font-size: 6vh;
   padding: 2vh;
@@ -109,17 +114,18 @@ h1 {
   top: 73vh;
 }
 
-/* Style the main content buttons on hover */
+/* Animate Navigation Buttons */
 .inner-button:hover {
   background-color: rgba(65 48 112 / 70%);
   transform: scale(1.1);
 }
 
-/* Style the user button when disabled */
+/* Disable New User Button */
 #user:disabled {
   visibility: hidden;
 }
 
+/* Position Decorative Images */
 .vector1 {
   position: absolute;
   top: 10vh;
@@ -147,3 +153,41 @@ h1 {
   height: 30vh;
   z-index: -1;
 }
+
+/* Style Sound Button */
+.sound-button {
+  position: fixed;
+  top: 30px;
+  left: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.volume-slider {
+  position: absolute;
+  top: 35%;
+  left: calc(100%);
+  transform: translateY(-50%,-50%);
+  width: 120px;
+  height: 15px;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  background-color: purple;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 30%);
+}
+
+/* Sound Button Animations */
+.sound-button:hover .volume-slider {
+  width: 100px;
+  height: 15px;
+  opacity: 1;
+}
+
+#volume-icon {
+  width: 50px;
+  height: 50px;
+}
+

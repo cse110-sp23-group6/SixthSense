@@ -6,6 +6,9 @@ import { expect, test, describe, beforeAll } from '@jest/globals';
 
 describe('End to end testing', () => {
   beforeAll(async () => {
+    // We have some long-running tests, so set default timeout to 15s
+    jest.setTimeout(15000);
+    
     await page.goto('http://127.0.0.1:8080/index.html');
   }, 30000);
 

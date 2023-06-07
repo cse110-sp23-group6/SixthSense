@@ -1,3 +1,4 @@
+/* Add Custom Font */
 @font-face {
   font-family: AnekDevanagari;
   src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
@@ -8,22 +9,13 @@
   color: white;
 }
 
+/* Background Gradient */
 body {
   background-image: linear-gradient(to right, #6554cc, #8f6fc4);
   overflow: hidden;
 }
 
-h1 {
-  text-align: center; /*
-    font-size: calc(6vh + 2vw); */
-  font-size: 55px;
-  font-weight: 600;
-  margin: 4% 20% 5%;
-  position: relative;
-  height: 8vh;
-  line-height: 1.2;
-}
-
+/* Position Decorative Images */
 .leftvector {
   position: absolute;
   bottom: 0;
@@ -33,11 +25,24 @@ h1 {
   z-index: -1;
 }
 
+/* Style Header Text */
+h1 {
+  text-align: center;
+  font-size: 55px;
+  font-weight: 600;
+  margin: 4% 20% 5%;
+  position: relative;
+  height: 8vh;
+  line-height: 1.2;
+}
+
+
 .profile,
 ul {
   display: inline-block;
 }
 
+/* Style Left Half of the Page */
 #finalemotion {
   max-width: 65%;
   width: 20vw;
@@ -52,13 +57,129 @@ ul {
 }
 
 #star-sign {
-  font-size: 3.5vmin;
+  font-size: 3.2vmin;
 }
 
 #relationship {
   font-size: 3vmin;
 }
 
+.profile {
+  position: absolute;
+  text-align: center;
+  top: 25vh;
+  height: 50%;
+  margin-left: 5%;
+  margin-top: 1%;
+  width: 20%;
+  border-radius: 20px;
+  max-height: 800px;
+  background-color: #413070bf;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-bottom: 40px;
+}
+
+p {
+  margin-bottom: 0.2cm;
+  margin-top: 0;
+}
+
+
+/* Style Right Half of the Page */
+ul {
+  position: absolute;
+  top: 21%;
+  right: 5%;
+  height: 59vh;
+  width: 66%;
+  overflow: auto;
+  float: right;
+  border-radius: 15px;
+  background-color: #413070bf;
+  border-spacing: 20px;
+  padding: 0.5% 0.2% 1%;
+}
+
+/* Style List of Previous Fortunes */
+li {
+  width: 93%;
+  height: calc(6vh + 1vw);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-items: center;
+  border-radius: 12px;
+  background-color: #afa4f1bf;
+  padding-top: 0.5vh;
+  padding-left: 2%;
+  margin-top: 1.5%;
+  margin-left: 2%;
+  margin-right: 2%;
+  font-size: calc(3vh + 1vw);
+}
+
+/* Add Hover Animations to Fortune */
+li:hover {
+  box-shadow: 0 12px 16px 0 #ffffff3d, 0 17px 50px 0 #00000030;
+  background-color: rgba(65 48 112 / 70%);
+  transform: scale(1.02);
+}
+
+/* Selected Fortune Animation */
+.selected {
+  box-shadow: 0 0 5px #fffd, 0 0 10px #fffd, 0 0 10px #fffd,
+    inset 0 0 10px #00000080;
+}
+
+/* Style Expanded Fortune */
+#expanded-content {
+  background-color: #55428c;
+  position: absolute;
+  top: 45%;
+  left: 35%;
+  transform: translate(-30%, -40%);
+  font-size: 3.5vmin;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  width: 68%; /* Adjust the width to match the list box */
+  z-index: 1; /* Set a higher z-index to position it in front */
+  overflow: auto; /* Hide content that exceeds the height */
+  transition: height 0.3s ease-in-out; /* Add a transition effect */
+  line-height: 1.5;
+}
+
+.expanded-box {
+  display: none; /* Initially hide the expanded box */
+}
+
+.expanded {
+  min-height: 20vh; /* Expand to the desired height */
+  max-height: 60vh;
+  display: block; /* Show the expanded box when expanded class is added */
+  box-shadow: 0 0 100px #fff,
+    inset 0 0 10px #00000080;
+}
+
+/* Style Button for Expanded View */
+.close-button {
+  background-color: #afa4f1bf;
+  border: none;
+  border-radius: 10px;
+  font-size: 30px;
+  text-align: center;
+  justify-content: center;
+  float: right;
+}
+
+.close-button:hover {
+  box-shadow: 0 12px 16px 0 #ffffff3d, 0 17px 50px 0 #00000030;
+  background-color: rgba(65 48 112 / 70%);
+  transform: scale(1.02);
+}
+
+/* Style Navigation Buttons */
 button {
   border: none;
   border-radius: 12px;
@@ -75,22 +196,7 @@ button {
   justify-content: center;
 }
 
-.profile {
-  position: absolute;
-  text-align: center;
-  top: 23vh;
-  height: 50%;
-  margin-left: 5%;
-  margin-top: 1%;
-  width: 20%;
-  border-radius: 20px;
-  max-height: 800px;
-  background-color: #413070bf;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  padding-bottom: 40px;
-}
-
+/* Add Hover Animation */
 .hover {
   background-color: rgb(65 48 112);
   transition: transform 0.3s ease;
@@ -100,79 +206,6 @@ button {
   background-color: rgba(65 48 112 / 70%);
   transform: scale(1.1);
   box-shadow: 0 12px 16px 0 #ffffff3d, 0 17px 50px 0 #00000030;
-}
-
-ul {
-  position: absolute;
-  top: 21%;
-  right: 5%;
-  height: 59vh;
-  width: 67%;
-  overflow: auto;
-  float: right;
-  border-radius: 15px;
-  background-color: #413070bf;
-  border-spacing: 20px;
-  padding-top: 0.5%;
-  padding-left: 0.2%;
-  padding-right: 0.2%;
-}
-
-li {
-  width: 90%;
-  height: calc(6vh + 1vw);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  align-items: center;
-  border-radius: 12px;
-  background-color: #afa4f1bf;
-  padding-top: 0.5vh;
-  padding-left: 2%;
-  margin-top: 1.5%;
-  margin-left: 2%;
-  margin-right: 2%;
-  font-size: calc(3vh + 1vw);
-}
-
-.selected {
-  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff,
-    inset 0 0 10px #00000080;
-}
-
-#expanded-content {
-  background-color: #413070f2;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-30%, -40%);
-  font-size: 30px;
-  padding: 20px;
-  border: none;
-  border-radius: 10px;
-  width: 68%; /* Adjust the width to match the list box */
-  z-index: 1; /* Set a higher z-index to position it in front */
-  overflow: hidden; /* Hide content that exceeds the height */
-  transition: height 0.3s ease-in-out; /* Add a transition effect */
-}
-
-.expanded-box {
-  display: none; /* Initially hide the expanded box */
-}
-
-.expanded {
-  height: 65vh; /* Expand to the desired height */
-  display: block; /* Show the expanded box when expanded class is added */
-}
-
-.close-button {
-  background-color: #afa4f1bf;
-  border: none;
-  border-radius: 10px;
-  font-size: 30px;
-  text-align: center;
-  justify-content: center;
-  float: right;
 }
 
 .nav-home {
@@ -207,17 +240,39 @@ li {
   padding: 2% 8%;
 }
 
-li:hover {
-  box-shadow: 0 12px 16px 0 #ffffff3d, 0 17px 50px 0 #00000030;
-  background-color: rgba(65 48 112 / 70%);
-  transform: scale(1.02);
-  /*
-    transform: scale(1.03);
-    background-color: #413070b3;
-    */
+/* Style Sound Button */
+.sound-button {
+  position: fixed;
+  top: 30px;
+  left: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
-p {
-  margin-bottom: 0.2cm;
-  margin-top: 0;
+.volume-slider {
+  position: absolute;
+  top: 35%;
+  left: calc(100%);
+  transform: translateY(-50%,-50%);
+  width: 120px;
+  height: 15px;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  background-color: purple;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 30%);
+}
+
+/* Sound Button Animations */
+.sound-button:hover .volume-slider {
+  width: 100px;
+  height: 15px;
+  opacity: 1;
+}
+
+#volume-icon {
+  width: 50px;
+  height: 50px;
 }

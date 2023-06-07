@@ -1,3 +1,5 @@
 # SixthSense
 
-JSDocs: Look at 'gh-pages' branch to look at the generated documentation in .html
+Documentation: https://cse110-sp23-group6.github.io/SixthSense/jsdocs/
+
+Deployment: https://cse110-sp23-group6.github.io/SixthSense/

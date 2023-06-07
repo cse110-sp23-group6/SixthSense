@@ -1,4 +1,4 @@
-name: Perform Continuous Integration
+name: Lint and Test
 
 # Runs on each push and pull request
 on:

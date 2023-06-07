@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html>
 
+<!-- Setup Page -->
 <head>
   <title>Choose Your Fortune</title>
   <link rel="stylesheet" href="assets/styles/choose-your-fortune.css">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
   <script src="assets/scripts/constants.js" type="module"></script>
   <script src="assets/scripts/choose-your-fortune.js" type="module"></script>
 </head>
 
 <body>
+
+  <!-- Decorative Images -->
   <div class="background-layer layer1"></div>
   <div class="background-layer layer2"></div>
 
+  <!-- Animationed Text -->
   <h1 id="header-text">Choose Your Fortune</h1>
-
   <audio autoplay id="typing-sound" src="assets/sounds/typing-sound.mp3" preload="auto"></audio>
-
   <div class="fortune-box fade-in-animation" id="love-div">
     <img src="assets/images/choose-fortune/love_icon.png" alt="Love Icon">
     <p>Love</p>
   </div>
-
   <div class="fortune-box fade-in-animation" id="career-div">
     <img src="assets/images/choose-fortune/career_icon.png" alt="Career Icon">
     <p>Career</p>
   </div>
-
   <div class="fortune-box fade-in-animation" id="health-div">
     <img src="assets/images/choose-fortune/health_icon.png" alt="Health Icon">
     <p>Health</p>
   </div>
-
   <div class="fortune-box fade-in-animation" id="friends-and-family-div">
     <img src="assets/images/choose-fortune/friends_family_icon.png" alt="Friends & Family Icon">
     <p>Friends &amp; Family</p>
   </div>
-
   <div id="back-button">
-    <button type="button" class="button" id="create-profile">back</button>
+    <button type="button" class="button" id="create-profile">Back</button>
+  </div>
+  <div id="sound-button" class="sound-button">
+    <img id="volume-icon" src="assets/images/volume-level-3.svg" alt="Volume Icon">
+    <input type="range" min="0" max="1" value="1" step="0.01" class="volume-slider" id="volume-slider">
   </div>
 
 </body>
