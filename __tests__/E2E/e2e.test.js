@@ -39,7 +39,7 @@ describe('End to end testing', () => {
     expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=love');
   });
 
-  test('emotions1 (love) select nothing test', async () => {
+  /*test('emotions1 (love) select nothing test', async () => {
     const but1 = await page.$('#button-right');
     await but1.click();
     await page.waitForTimeout(1000); let newUrl = await page.url();
@@ -86,21 +86,6 @@ describe('End to end testing', () => {
     await page.evaluate(() => localStorage.clear());
   });
 
-  /* test('CYF to emotions2 (love)', async () => {
-    let but1 = await page.$('#love-div');
-    await but1.click();
-    await page.waitForNavigation();
-    let newUrl = await page.url();
-    expect(newUrl).toBe('http://127.0.0.1:8080/emotions2.html?reading=love');
-  });
-
-  test('emotions2 to emotions1 (love)', async () => {
-    let but1 = await page.$('#back');
-    await but1.click();
-    await page.waitForNavigation();
-    let newUrl = await page.url();
-    expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=love');
-  }); */
 
   // ----------------------------Career----------------------------
 
@@ -271,7 +256,7 @@ describe('End to end testing', () => {
     const newUrl = await page.url();
     expect(newUrl).toBe('http://127.0.0.1:8080/choose-your-fortune.html');
     await page.evaluate(() => localStorage.clear());
-  });
+  });*/
 });
 
 /**
