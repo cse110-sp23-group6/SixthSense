@@ -163,6 +163,8 @@ async function init() {
       link.click();
     });
   }
+  
+
 }
 
 window.addEventListener('DOMContentLoaded', init);
