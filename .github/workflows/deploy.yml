@@ -9,11 +9,18 @@ jobs:
   other-jobs:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for linting / testing to succeed
+      - name: Wait for linting to succeed
         uses: lewagon/wait-on-check-action@v1.3.1
         with:
           ref: ${{ github.ref }}
-          running-workflow-name: 'Lint and Test'
+          running-workflow-name: 'Lint Code Base'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+      - name: Wait for testing to succeed
+        uses: lewagon/wait-on-check-action@v1.3.1
+        with:
+          ref: ${{ github.ref }}
+          running-workflow-name: 'Run tests'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10
       - name: Wait for jsdocs creation to succeed
