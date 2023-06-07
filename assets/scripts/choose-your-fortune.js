@@ -4,6 +4,7 @@
  * purpose: for populating the page at start and multiple functions
  */
 import { RE_ASK_INTERVAL_SECONDS } from "./constants.js";
+import { addSearchParams } from "./helpers.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   const headerText = document.getElementById('header-text');
@@ -40,14 +41,14 @@ document.addEventListener("DOMContentLoaded", function () {
   let lastVolume = retrieveVolume(); // Retrieve volume value from local storage
   backgroundSound.volume = lastVolume; // Set the initial volume
   // Set the volume slider to reflect the initial volume
-  volumeSlider.value = lastVolume; 
+  volumeSlider.value = lastVolume;
 
   typingSound.currentTime = 0; // Reset the sound to start
   typingSound.playbackRate = 1.5;
-  typingSound.volume = volumeSlider.value /5 ; // Lower volume
+  typingSound.volume = volumeSlider.value / 5; // Lower volume
   typingSound.play(); // Play the typing sound
   // for volume control
-  
+
   updateVolume();
   backgroundSound.currentTime = 0; // Reset the background sound to start
   backgroundSound.loop = true; // Enable looping
@@ -70,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updateVolume();
   });
 
-  volumeIcon.addEventListener('click', function() {
+  volumeIcon.addEventListener('click', function () {
     if (backgroundSound.volume == 0) {
       if (lastVolume == 0) {
         backgroundSound.volume = 1;
@@ -92,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
   volumeSlider.addEventListener('mousemove', updateVolume);
 
   function updateVolume() {
-    console.log(volumeSlider.value); 
+    console.log(volumeSlider.value);
     backgroundSound.volume = volumeSlider.value;
     let volumeLevel;
 
@@ -165,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 2000); // Delay in milliseconds matching the fade-in animation duration
 });
 
-function handleNavigation (type) {
+function handleNavigation(type) {
   const emotion1Obj = JSON.parse(window.localStorage.getItem('emotion1'));
   const emotion2Obj = JSON.parse(window.localStorage.getItem('emotion2'));
   const currentUnixTimestamp = Date.now() / 1000.0;
@@ -174,13 +175,28 @@ function handleNavigation (type) {
   if (emotion1Obj == null ||
     emotion1Obj.emotion == null ||
     currentUnixTimestamp - emotion1Obj.timestamp > RE_ASK_INTERVAL_SECONDS) {
-    window.location.assign('emotions1.html?reading=' + type);
+    window.location.href = addSearchParams(
+      new URL(window.location.origin + "/emotions1.html"),
+      {
+        reading: type
+      }
+    );
     // If no emotion2 is set or emotion2 was set > 12 hours ago, redirect to emotion1
   } else if (emotion2Obj == null ||
     emotion2Obj.emotion == null ||
     currentUnixTimestamp - emotion1Obj.timestamp > RE_ASK_INTERVAL_SECONDS) {
-    window.location.assign('emotions2.html?reading=' + type);
+    window.location.href = addSearchParams(
+      new URL(window.location.origin + "/emotions2.html"),
+      {
+        reading: type
+      }
+    );
   } else {
-    window.location.assign('reading.html?reading=' + type);
+    window.location.href = addSearchParams(
+      new URL(window.location.origin + "/reading.html"),
+      {
+        reading: type
+      }
+    );
   }
 }

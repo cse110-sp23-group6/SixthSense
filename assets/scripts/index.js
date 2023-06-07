@@ -48,7 +48,7 @@ todayButton.addEventListener('click', function () {
 previousButton.addEventListener('click', function () {
   const readings = window.localStorage.getItem('readings');
   if(formData === null){
-    alert("please create a profile to access previous fortunes")
+    alert("Please create a profile to access previous fortunes")
     return
   }
   if(readings === null){
