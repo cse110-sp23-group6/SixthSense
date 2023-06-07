@@ -162,7 +162,7 @@ async function init() {
         }
       )
     );
-    alert("Share link copied to URL!");
+    alert("Share link copied to clipboard!");
   });
 
 }
