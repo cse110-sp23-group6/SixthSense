@@ -15,15 +15,10 @@ describe('End to end testing', () => {
   test('Home page to choose your fortune navigation test', async () => {
     console.log('attempting to go from home to get fortunes');
     const but1 = await page.$('#b1');
-    console.log(1);
     // let text = await page.evaluate(but => but.textContent, but1);
     // console.log(text);
     await but1.click();
-    console.log(2);
-    await page.waitForNavigation();
-    console.log(3);
     let newUrl = await page.url();
-    console.log(4);
     expect(newUrl).toBe('http://127.0.0.1:8080/choose-your-fortune.html');
   });
 
@@ -38,18 +33,8 @@ describe('End to end testing', () => {
   test('choose your fortune to emotions1 (love) navigation test', async () => {
     console.log("1 cyf->e");
     const but1 = await page.$('#love-div');
-    console.log(but1);
-    console.log(2);
     await but1.click();
-    console.log(3);
-    try {
-      await page.waitForNavigation();
-    } catch(e){
-      console.log("unable to navigate");
-    }
-    console.log(4);
     const newUrl = await page.url();
-    console.log(newUrl);
     expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=love');
   }, 300000);
 
