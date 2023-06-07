@@ -16,8 +16,8 @@ body {
   /* background gradient */
   background-image: linear-gradient(
     to bottom,
-    rgb(65 48 112) 50%,
-    rgb(101 84 204)
+    #413070 50%,
+    #6554cc
   );
   color: white;
   overflow: hidden;
@@ -97,7 +97,7 @@ select option[value=""] {
 button {
   border: none;
   border-radius: 2vh;
-  background-color: rgb(65 48 112);
+  background-color: #413070;
   color: white;
   align-self: center;
   width: 25%;
@@ -117,7 +117,7 @@ button:disabled {
 
 /* Add Animation */
 button:hover:enabled {
-  background-color: rgba(65 48 112 / 70%);
+  background-color: #413070b3;
   transform: scale(1.1);
 }
 
@@ -170,7 +170,7 @@ button:hover:enabled {
   transition: all 0.5s ease-in-out;
   background-color: purple;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 30%);
+  box-shadow: 0 2px 5px #0000004d;
 }
 
 /* Sound Button Animations */

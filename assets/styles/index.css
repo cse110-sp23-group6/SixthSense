@@ -62,7 +62,7 @@ button {
 
 /* Animate Navigation Buttons */
 button:hover {
-  background-color: rgba(65 48 112 / 70%);
+  background-color: #413070b3;
   transform: scale(1.1);
 }
 
@@ -97,7 +97,7 @@ h1 {
 .inner-button {
   font-size: 6vh;
   padding: 2vh;
-  background-color: rgb(65 48 112);
+  background-color: #413070;
   color: white;
   border-radius: 20px;
   width: 50vw;
@@ -117,7 +117,7 @@ h1 {
 
 /* Animate Navigation Buttons */
 .inner-button:hover {
-  background-color: rgba(65 48 112 / 70%);
+  background-color: #413070b3;
   transform: scale(1.1);
 }
 
@@ -177,7 +177,7 @@ h1 {
   transition: all 0.5s ease-in-out;
   background-color: purple;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 30%);
+  box-shadow: 0 2px 5px #0000004d;
 }
 
 /* Sound Button Animations */

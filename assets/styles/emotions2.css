@@ -142,19 +142,19 @@ button {
 button:hover:enabled {
   transform: scale(1.1);
   box-shadow: 0 17px 50px 0 #00000030;
-  background-color: rgba(65 48 112 / 90%);
+  background-color: #413070e6;
 }
 
 #next:hover:enabled {
   transform: scale(1.1);
   box-shadow: 0 17px 50px 0 #00000030;
-  background-color: rgba(65 48 112 / 90%);
+  background-color: #413070e6;
 }
 
 #back:hover:enabled {
   transform: scale(1.1);
   box-shadow: 0 17px 50px 0 #00000030;
-  background-color: rgba(65 48 112 / 90%);
+  background-color: #413070e6;
 }
 
 @media (max-width: 860px) {
@@ -195,7 +195,7 @@ button:hover:enabled {
   transition: all 0.5s ease-in-out;
   background-color: purple;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 30%);
+  box-shadow: 0 2px 5px #0000004d;
 }
 
 /* Sound Button Animations */

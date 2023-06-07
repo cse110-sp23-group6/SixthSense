@@ -102,7 +102,7 @@ h1 {
 
 #button-left,
 #button-right {
-  background-color: rgb(65 48 112);
+  background-color: #413070;
   align-self: center;
   width: 50%;
   height: 8vh;
@@ -120,7 +120,7 @@ h1 {
 
 /* Add Nav Button Animations */
 #button-left:hover:enabled {
-  background-color: rgba(65 48 112 / 70%);
+  background-color: #413070b3;
   cursor: pointer;
 }
 
@@ -131,7 +131,7 @@ h1 {
 }
 
 #button-right:hover:enabled {
-  background-color: rgba(65 48 112 / 70%);
+  background-color: #413070b3;
 }
 
 .selected {
@@ -175,7 +175,7 @@ img {
   transition: all 0.5s ease-in-out;
   background-color: purple;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 30%);
+  box-shadow: 0 2px 5px #0000004d;
 }
 
 /* Sound Button Animations */

@@ -87,7 +87,7 @@ h1 {
   height: 28vh;
   border-radius: 1vw;
   margin: 1vw;
-  background-color: rgb(255 255 255 / 20%);
+  background-color: #ffffff33;
   padding: 0.1vw;
   transition: transform 0.25s ease;
   opacity: 0;
@@ -142,7 +142,7 @@ h1 {
 }
 
 .button:hover {
-  background-color: rgba(65 48 112 / 70%);
+  background-color: #413070b3;
   transform: scale(1.1);
 }
 
@@ -168,7 +168,7 @@ h1 {
   transition: all 0.5s ease-in-out;
   background-color: purple;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 30%);
+  box-shadow: 0 2px 5px #0000004d;
 }
 
 /* Sound Button Animations */
