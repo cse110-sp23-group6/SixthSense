@@ -6,7 +6,7 @@
  */
 
 import { RAW_EMOTIONS, QUOTES, READING_TYPES } from './constants.js';
-import { shuffleArray, randomArrayItem } from './helpers.js';
+import { shuffleArray, randomArrayItem, addSearchParams } from './helpers.js';
 
 
 const allButtons = [];
@@ -25,7 +25,7 @@ let emotion2;
  * @const randomQuote: quote randomly chosen from the list of quotes per emotion
  * @const button: each button created
  */
-function init () {
+function init() {
   const urlParams = new URLSearchParams(window.location.search);
 
   next = document.getElementById('next');
@@ -71,7 +71,7 @@ function init () {
     button.addEventListener('mouseenter', function () {
       playButtonHoverSound('assets/sounds/button-hover.mp3');
     });
-    
+
 
     // add it to the page
     buttonContainer.appendChild(button);
@@ -83,16 +83,22 @@ function init () {
    */
   document.getElementById('back').addEventListener('click', function () {
     window.localStorage.removeItem('emotion2');
-    window.location.href = 'emotions1.html' + window.location.search;
+    window.location.href = addSearchParams(
+      new URL(window.location.origin + "/emotions1.html"),
+      Object.fromEntries((new URLSearchParams(window.location.search)).entries())
+    );
   });
-  
+
 
   /**
    * purpose: Event listener for next button click. Navigates to readings.html
    */
   next.addEventListener('click', function () {
     window.localStorage.setItem('emotion2', JSON.stringify(emotion2));
-    window.location.href = 'reading.html' + window.location.search;
+    window.location.href = addSearchParams(
+      new URL(window.location.origin + "/reading.html"),
+      Object.fromEntries((new URLSearchParams(window.location.search)).entries())
+    );
   });
 
   // next button hover sound
@@ -110,8 +116,8 @@ const volumeIcon = document.getElementById('volume-icon');
 
 let lastVolume = retrieveVolume(); // Retrieve volume value from local storage
 backgroundSound.volume = lastVolume; // Set the initial volume
-  // Set the volume slider to reflect the initial volume
-volumeSlider.value = lastVolume; 
+// Set the volume slider to reflect the initial volume
+volumeSlider.value = lastVolume;
 updateVolume();
 backgroundSound.currentTime = 0; // Reset the background sound to start
 backgroundSound.loop = true; // Enable looping
@@ -138,7 +144,7 @@ volumeSlider.addEventListener('input', function () {
   updateVolume();
 });
 
-volumeIcon.addEventListener('click', function() {
+volumeIcon.addEventListener('click', function () {
   if (backgroundSound.volume == 0) {
     if (lastVolume == 0) {
       backgroundSound.volume = 1;

@@ -3,9 +3,10 @@
  * purpose: show emotion and reading based off of the category and emotions they chose
  */
 
-import { READINGS, EMOTIONS_TABLE, READING_TYPES, RE_ASK_INTERVAL_SECONDS } from './constants.js';
-import { addSearchParams, copyStringToClipboard, randomArrayItem, randomInt } from './helpers.js';
+import { READINGS, EMOTIONS_TABLE, EMOTIONS, READING_TYPES } from './constants.js';
+import { randomArrayItem } from './helpers.js';
 
+const SECONDS_PER_DAY = 86400;
 
 /**
  * function name: init
@@ -30,18 +31,20 @@ import { addSearchParams, copyStringToClipboard, randomArrayItem, randomInt } fr
  * @const separatedDate: parsed date split 
  * @const withoutTime: date without time signiture
  * @const date: date to be updated in the right format
- * @const shareBtn: share button
+ * @const screenshotBtn: share button
  */
 async function init() {
   const profilebutton = document.getElementById('create-profile');
   const formData = window.localStorage.getItem('formData');
+  const readingTitle = document.getElementById("they-were-feeling");
+
   //check if profile exists, if it does, then set previous reading button
   if (formData !== null) {
     profilebutton.textContent = 'Previous Readings';
     profilebutton.addEventListener('click', function () {
       window.location.href = 'previous-fortunes.html' + window.location.search;
     });
-  } 
+  }
   //if not, set newprofile button
   else {
     profilebutton.addEventListener('click', function () {
@@ -51,117 +54,36 @@ async function init() {
 
   //find reading type
   const urlParams = new URLSearchParams(window.location.search);
-  const currentUnixTimestamp = Date.now() / 1000.0;
 
-  const readingType = urlParams.get('reading');
-  if (readingType == null || !READING_TYPES.includes(readingType)) {
+  const readingType = urlParams.get('readingType');
+  const overallEmotion = urlParams.get('overallEmotion');
+  const name = urlParams.get('name');
+  const readingNum = parseInt(urlParams.get('readingNum'));
+
+  // Validate URL params
+  if (readingType == null ||
+      !READING_TYPES.includes(readingType) ||
+      !EMOTIONS.includes(overallEmotion) ||
+      isNaN(readingNum) || !isFinite(readingNum) || 
+      readingNum < 0 || readingNum >= READINGS[readingType][overallEmotion].length) {
     window.location.href = 'choose-your-fortune.html';
   }
+
+  readingTitle.textContent = `${name === "" ? "The Person" : name} Was Feeling:`;
 
   const auraImage = document.getElementById('aura-image');
   const readingBox = document.getElementById('reading');
 
-  const emotion1Obj = JSON.parse(window.localStorage.getItem('emotion1'));
-  const emotion2Obj = JSON.parse(window.localStorage.getItem('emotion2'));
-
-  // If no emotion1 is set or emotion1 was set > RE_ASK_INTERVAL_SECONDS, redirect to emotion1
-  if (emotion1Obj == null ||
-    emotion1Obj.emotion == null ||
-    currentUnixTimestamp - emotion1Obj.timestamp > RE_ASK_INTERVAL_SECONDS) {
-    window.location.href = addSearchParams(
-      new URL(window.location.origin + "/emotions1.html"),
-      Object.fromEntries((new URLSearchParams(window.location.search)).entries())
-    );  
-  }
-
-  // If no emotion2 is set or emotion2 was set > RE_ASK_INTERVAL_SECONDS, redirect to emotion2
-  if (emotion2Obj == null ||
-    emotion2Obj.emotion == null ||
-    currentUnixTimestamp - emotion1Obj.timestamp > RE_ASK_INTERVAL_SECONDS) {
-    window.location.href = addSearchParams(
-      new URL(window.location.origin + "/emotions2.html"),
-      Object.fromEntries((new URLSearchParams(window.location.search)).entries())
-    );
-  }
-
-  // Calculate overall emotion based on emotion1 and emotion2
-  const emotion1 = emotion1Obj.emotion;
-  const emotion2 = emotion2Obj.emotion;
-  const overallEmotion = EMOTIONS_TABLE[emotion1][emotion2];
-  // Upload overall emotions to local storage
-  window.localStorage.setItem('overallEmotion', JSON.stringify(overallEmotion));
-
   // Generate a random reading from readings list
-  let readingInd = randomInt(0, READINGS[readingType][overallEmotion].length - 1);
-  let reading = READINGS[readingType][overallEmotion][readingInd];
+  let reading = READINGS[readingType][overallEmotion][readingNum];
   auraImage.src = `assets/emotion_auras/${overallEmotion}.gif`;
   readingBox.textContent = reading;
-  readingBox.setAttribute('index', readingInd.toString());
-
-  // Update localstorage
-  let currentReadings = JSON.parse(window.localStorage.getItem('readings'));
-  if (currentReadings == null) {
-    currentReadings = [];
-  }
-
-  //set date into the correct format
-  const ogdate = (new Date()).toISOString();
-  const separatedDate = ogdate.split('T'); // separate date from time first
-  const withoutTime = separatedDate[0].split('-');
-  const date = withoutTime[1] + '/' + withoutTime[2] + '/' + withoutTime[0];
-
-  //add the reading to currentReadings
-  currentReadings.push({
-    date,
-    reading
-  });
-
-  //update local storage
-  window.localStorage.setItem('readings', JSON.stringify(currentReadings));
 
   /**
    * purpose: Event listener for home button click. Navigates back to index.html
    */
   document.getElementById('home').addEventListener('click', function () {
-    window.location.href = 'index.html';
-  });
-
-  /**
-   * purpose: Event listener for new button click. gets you new fortune
-   */
-  document.getElementById('new-fortune').addEventListener('click', function () {
-    readingInd = randomInt(0, READINGS[readingType][overallEmotion].length - 1);
-    reading = READINGS[readingType][overallEmotion][readingInd]
-    readingBox.textContent = reading;
-    readingBox.setAttribute('index', readingInd.toString());
-
-    // Update localstorage
-    currentReadings.pop();
-
-    currentReadings.push({
-      date,
-      reading
-    });
-
-    localStorage.setItem('readings', JSON.stringify(currentReadings))
-  })
-
-  // Attach click event listener to the share button
-  const shareBtn = document.getElementById("share");
-  shareBtn.addEventListener("click", async function() {
-    await copyStringToClipboard(
-      addSearchParams(
-        new URL(window.location.origin + "/share.html"),
-        {
-          readingType: readingType,
-          name: window.localStorage.getItem("formData") === null || 
-                  window.localStorage.getItem("formData").name.length > 15 ? "" : window.localStorage.getItem("formData").name,
-          readingNum: readingBox.getAttribute("index"),
-          overallEmotion: overallEmotion
-        }
-      )
-    );
-    alert("Share link copied to URL!");
+    window.location.href = 'index.html' + window.location.search;
   });
 }
 
@@ -174,8 +96,8 @@ const volumeIcon = document.getElementById('volume-icon');
 
 let lastVolume = retrieveVolume(); // Retrieve volume value from local storage
 backgroundSound.volume = lastVolume; // Set the initial volume
-  // Set the volume slider to reflect the initial volume
-volumeSlider.value = lastVolume; 
+// Set the volume slider to reflect the initial volume
+volumeSlider.value = lastVolume;
 updateVolume();
 backgroundSound.currentTime = 0; // Reset the background sound to start
 backgroundSound.loop = true; // Enable looping
@@ -202,7 +124,7 @@ volumeSlider.addEventListener('input', function () {
   updateVolume();
 });
 
-volumeIcon.addEventListener('click', function() {
+volumeIcon.addEventListener('click', function () {
   if (backgroundSound.volume == 0) {
     if (lastVolume == 0) {
       backgroundSound.volume = 1;

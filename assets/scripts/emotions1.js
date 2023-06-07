@@ -4,7 +4,7 @@
  * The order of images within each set is randomized as well.
  */
 
-import { shuffleArray, randomInt } from './helpers.js';
+import { shuffleArray, randomInt, addSearchParams } from './helpers.js';
 import { RAW_EMOTIONS, READING_TYPES } from './constants.js';
 
 // Set 1: Abstract Paints
@@ -52,7 +52,10 @@ function handleNextButtonClick () {
     emotion: selectedEmotion,
     timestamp: Date.now() / 1000.0
   }));
-  window.location.href = 'emotions2.html' + window.location.search;
+  window.location.href = addSearchParams(
+    new URL(window.location.origin + "/emotions2.html"),
+    Object.fromEntries((new URLSearchParams(window.location.search)).entries())
+  );
 }
 
 /**

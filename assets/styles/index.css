@@ -104,6 +104,7 @@ h1 {
   height: 10vh;
   transition: transform 0.3s ease;
   position: absolute;
+  cursor: pointer;
 }
 
 #b1 {
@@ -184,6 +185,7 @@ h1 {
   width: 100px;
   height: 15px;
   opacity: 1;
+  cursor: pointer;
 }
 
 #volume-icon {

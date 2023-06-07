@@ -44,3 +44,30 @@ export function randomInt (minimum, maximum) {
 export function randomArrayItem (array) {
   return array[randomInt(0, array.length - 1)];
 }
+
+/**
+ * function name: addSearchParams
+ * purpose: Provides a **safe** and easy manner in which to add url search params
+ * 
+ * @param {URL} url current url object
+ * @param {Object} paramsObject object with URL params to add 
+ * @returns URL with encoded parameters
+ */
+export function addSearchParams(url, paramsObject) {
+  const newURLSearchParams = new URLSearchParams([
+    ...Array.from(url.searchParams.entries()),
+    ...Object.entries(paramsObject),
+  ]).toString();
+
+  return new URL(`${url.origin}${url.pathname}?${newURLSearchParams}`);
+}
+
+/**
+ * function name: copyStringToClipboard
+ * purpose: Writes string to clipboard
+ * 
+ * @param {string} text
+ */
+export async function copyStringToClipboard(text) {
+  await navigator.clipboard.writeText(text);
+}

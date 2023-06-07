@@ -58,7 +58,7 @@ body {
   width: 50vw;
 }
 
-#you-are-feeling {
+#they-were-feeling {
   position: absolute;
   text-align: center;
   left: calc(12vw);
@@ -125,7 +125,7 @@ body {
   height: fit-content;
 }
 
-#your-reading {
+#reading-header {
   text-align: center;
   font-size: 2.5vw;
   margin-bottom: -2vh;
@@ -175,7 +175,7 @@ body {
   position: absolute;
   top: 35%;
   left: calc(100%);
-  transform: translateY(-50%,-50%);
+  transform: translateY(-50%, -50%);
   width: 120px;
   height: 15px;
   opacity: 0;

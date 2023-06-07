@@ -121,6 +121,7 @@ h1 {
 /* Add Nav Button Animations */
 #button-left:hover:enabled {
   background-color: rgba(65 48 112 / 70%);
+  cursor: pointer;
 }
 
 #button-right:disabled {
