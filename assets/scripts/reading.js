@@ -155,7 +155,7 @@ async function init() {
         {
           readingType: readingType,
           name: window.localStorage.getItem("formData") === null || 
-                  window.localStorage.getItem("formData").name.length > 15 ? "" : window.localStorage.getItem("formData").name,
+                  JSON.parse(window.localStorage.getItem("formData")).name.length > 15 ? "" : JSON.parse(window.localStorage.getItem("formData")).name,
           readingNum: readingBox.getAttribute("index"),
           overallEmotion: overallEmotion
         }
