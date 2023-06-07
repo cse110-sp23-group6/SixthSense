@@ -36,6 +36,7 @@ describe('End to end testing', () => {
     const but1 = await page.$('#love-div');
     await but1.click();
     try {
+      await delay(3000);
       await page.waitForNavigation();
     } catch(e){
       console.warn("Page wait for navigation timeout");
