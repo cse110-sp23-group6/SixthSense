@@ -33,7 +33,7 @@ describe('End to end testing', () => {
 
   test('choose your fortune to emotions1 (love) navigation test', async () => {
     const but1 = await page.$('#love-div');
-    await delay(4000);
+    await page.waitForTimeout(4000);
     await but1.click();
     try {
       await page.waitForNavigation();
@@ -96,7 +96,7 @@ describe('End to end testing', () => {
 
   test('choose your fortune to emotions1 (career) navigation test', async () => {
     const but1 = await page.$('#career-div');
-    await delay(4000);
+    await page.waitForTimeout(4000);
     await but1.click();
     await page.waitForNavigation();
     const newUrl = await page.url();
@@ -154,7 +154,7 @@ describe('End to end testing', () => {
 
   test('choose your fortune to emotions1 (health) navigation test', async () => {
     const but1 = await page.$('#health-div');
-    await delay(4000);
+    await page.waitForTimeout(4000);
     await but1.click();
     await page.waitForNavigation();
     const newUrl = await page.url();
@@ -212,7 +212,7 @@ describe('End to end testing', () => {
 
   test('choose your fortune to emotions1 (friends_and_family) navigation test', async () => {
     const but1 = await page.$('#friends-and-family-div');
-    await delay(4000);
+    await page.waitForTimeout(4000);
     await but1.click();
     await page.waitForNavigation();
     const newUrl = await page.url();
