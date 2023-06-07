@@ -140,23 +140,27 @@ function updateVolume() {
   volumeIcon.src = `assets/images/volume-level-${volumeLevel}.svg`;
 }
 
-  /**
-   * function name: playButtonHoverSound
-   * purpose: Function to play the button hover sound
-   * 
-   * @const buttonHoverSound: new audio with soundSrc
-   */
-  function playButtonHoverSound(soundSrc) {
-    const buttonHoverSound = new Audio(soundSrc);
-    buttonHoverSound.volume = (volumeSlider.value) / 20; // change volume according sound bar
-    buttonHoverSound.currentTime = 0; // Reset the sound to start
-    buttonHoverSound.play();
-  }
+ /**
+  * function name: playButtonHoverSound
+  * purpose: Function to play the button hover sound
+  * 
+  * @const buttonHoverSound: new audio with soundSrc
+  */
+ function playButtonHoverSound(soundSrc) {
+   const buttonHoverSound = new Audio(soundSrc);
+   buttonHoverSound.volume = (volumeSlider.value) / 20; // change volume according sound bar
+   buttonHoverSound.currentTime = 0; // Reset the sound to start
+   buttonHoverSound.play();
+ }
 
-  todayButton.addEventListener('mouseenter', function () {
-    playButtonHoverSound('assets/sounds/button-hover.mp3');
-  });
+ todayButton.addEventListener('mouseenter', function () {
+   playButtonHoverSound('assets/sounds/button-hover.mp3');
+ });
 
-  previousButton.addEventListener('mouseenter', function () {
-    playButtonHoverSound('assets/sounds/button-hover.mp3');
-  });
+ previousButton.addEventListener('mouseenter', function () {
+   playButtonHoverSound('assets/sounds/button-hover.mp3');
+ });
+
+userButton.addEventListener('mouseenter', function () {
+  playButtonHoverSound('assets/sounds/button-hover.mp3');
+});
