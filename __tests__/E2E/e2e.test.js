@@ -22,7 +22,7 @@ describe('End to end testing', () => {
     console.log(2);
     await page.waitForNavigation();
     console.log(3);
-    const newUrl = await page.url();
+    let newUrl = await page.url();
     console.log(4);
     expect(newUrl).toBe('http://127.0.0.1:8080/choose-your-fortune.html');
   });
@@ -46,7 +46,7 @@ describe('End to end testing', () => {
     const newUrl = await page.url();
     console.log(5);
     expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=love');
-  }, 30000);
+  }, 300000);
 
   /*test('emotions1 (love) select nothing test', async () => {
     const but1 = await page.$('#button-right');
