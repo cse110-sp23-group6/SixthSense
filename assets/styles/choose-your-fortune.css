@@ -159,7 +159,7 @@ h1 {
 .volume-slider {
   position: absolute;
   top: 35%;
-  left: calc(100% + 10px);
+  left: calc(100%);
   transform: translateY(-50%,-50%);
   width: 120px;
   height: 15px;
