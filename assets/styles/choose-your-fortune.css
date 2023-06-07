@@ -1,3 +1,4 @@
+/* Add Custom Font */
 @font-face {
   font-family: AnekDevanagari;
   src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
@@ -8,6 +9,7 @@
   color: white;
 }
 
+/* Default Background Style */
 body {
   background-image: url("../images/choose-fortune/todays-bg.png");
   background-size: cover;
@@ -17,8 +19,10 @@ body {
   text-align: center;
   font-family: "Anek Devanagari", sans-serif;
   font-weight: 700;
+  overflow: hidden;
 }
 
+/* Animate Header Text */
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -45,8 +49,10 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  margin: 0;
 }
 
+/* Position Decorative Images */
 .layer1 {
   background-image: url("../images/choose-fortune/v1.png");
   opacity: 0;
@@ -61,6 +67,7 @@ body {
   animation-delay: 2s;
 }
 
+/* Style 'Choose Your Fortune' Text */
 h1 {
   font-size: 10vh;
   color: white;
@@ -73,18 +80,20 @@ h1 {
   display: inline-block;
 }
 
+/* Style Each Category */
 .fortune-box {
   display: inline-block;
   width: max(28vh, 20px);
   height: 28vh;
   border-radius: 1vw;
   margin: 1vw;
-  background-color: rgb(255 255 255 / 20%);
+  background-color: #ffffff33;
   padding: 0.1vw;
   transition: transform 0.25s ease;
   opacity: 0;
   animation: fade-in 1s ease-in forwards;
   animation-delay: 1.5s; /* delay this animation until after text animation */
+  cursor: pointer;
 }
 
 .fortune-box img {
@@ -100,6 +109,7 @@ h1 {
   color: #fff;
 }
 
+/* Add Animations */
 .fortune-box:hover {
   transform: scale(1.1);
 }
@@ -108,6 +118,7 @@ h1 {
   transform: scale(1.15);
 }
 
+/* Style Navigation Buttons */
 .button {
   background-color: #3b2b66ce;
   align-items: center;
@@ -131,8 +142,43 @@ h1 {
 }
 
 .button:hover {
-  background-color: rgba(65 48 112 / 70%);
-
-  /* box-shadow: 0 12px 16px 0 #0000003d, 0 17px 50px 0 #00000030; */
+  background-color: #413070b3;
   transform: scale(1.1);
+}
+
+/* Style Sound Button */
+.sound-button {
+  position: fixed;
+  top: 30px;
+  left: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.volume-slider {
+  position: absolute;
+  top: 35%;
+  left: calc(100%);
+  transform: translateY(-50%,-50%);
+  width: 120px;
+  height: 15px;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  background-color: purple;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px #0000004d;
+}
+
+/* Sound Button Animations */
+.sound-button:hover .volume-slider {
+  width: 100px;
+  height: 15px;
+  opacity: 1;
+}
+
+#volume-icon {
+  width: 50px;
+  height: 50px;
 }

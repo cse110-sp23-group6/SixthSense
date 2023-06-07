@@ -1,4 +1,4 @@
-/* fonts */
+/* Add Custom Font */
 @font-face {
   font-family: AnekDevanagari;
   src: url("../font/AnekDevanagari-VariableFont_wdth\,wght.ttf");
@@ -8,22 +8,25 @@
   font-family: AnekDevanagari, sans-serif;
 }
 
+/* Default Background Style */
 body {
-  /* background gradient */
   background-image: linear-gradient(to left, #b094ff, #927aeb 47%, #6554cc);
   color: white;
   overflow: hidden;
 }
 
+/* Style Header Text */
 h1 {
   text-align: center;
   font-size: calc(2vh + 2vw);
   font-weight: 600;
-  margin: 0 20% 2vh;
+  margin: 4% 20% 2%;
   position: relative;
   height: 8vh;
+  line-height: 1.2;
 }
 
+/* Animate Quote Boxes */
 .container {
   animation: fade-in ease 5s;
   animation-iteration-count: 1;
@@ -34,7 +37,7 @@ h1 {
   width: 100%;
 }
 
-/* vectors for background */
+/* Position Decorative Images */
 .rightvector {
   position: absolute;
   top: 0;
@@ -51,7 +54,7 @@ h1 {
   max-height: 100%;
 }
 
-/* buttons */
+/* Display Quotes w/Flex */
 .buttons {
   position: relative;
   display: flex;
@@ -60,58 +63,66 @@ h1 {
   margin-top: 10vh;
 }
 
+/* Style Quote Buttons */
 button {
-  /* rounded borders */
   border: none;
   border-radius: 2vh;
   background-color: #413070b3;
   color: white;
-  padding: 2vh;
-  font-size: calc(0.9vh + 0.9vw);
+  padding: 1.7vh 2vw;
+  font-size: 2.6vmin;
   margin-bottom: 2vh;
-  width: 55%; /* Adjust the width as needed */
-  height: 10vh;
+  width: 55%; 
   transition: transform 0.3s ease;
   cursor: pointer;
+  align-items: center;
+  min-height: 10vh;
+  line-height: 1.2;
 }
 
-/* navigation buttons */
-#traversal {
-  position: relative;
+/* Style Navigation Buttons */
+.nav-back {
+  position: absolute;
+  width: 10%;
+  height: 8vh;
+  top: 85%;
+  left: 2vw;
+  z-index: 1;
   text-align: center;
-  margin: 1vh 25%;
-  height: 20vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: inline-block;
+  font-weight: bold;
+  border-radius: 1.25rem;
+}
+
+.nav-next {
+  align-items: center;
+  width: 10%;
+  height: 8vh;
+  border-radius: 1.25rem;
+  position: absolute;
+  top: 85%;
+  right: 5vw;
+  z-index: 1;
+  text-align: center;
+  display: inline-block;
+  font-weight: bold;
 }
 
 #back {
-  background-color: rgb(65 48 112);
-  align-self: center;
-  width: 25%;
-  height: 8vh;
-  line-height: 1em;
-  font-weight: bold;
-  font-size: calc(1vh + 1vw);
+  padding: 2% 8%;
 }
 
 #next {
-  background-color: rgb(65 48 112);
-  align-self: center;
-  width: 25%;
-  height: 8vh;
-  line-height: 1em;
-  font-weight: bold;
-  font-size: calc(1vh + 1vw);
+  padding: 2% 8%;
 }
 
+/* Shadow when Button Selected */
 .selected {
   box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff,
     inset 0 0 10px #00000080;
 }
 
-/* animate fade in */
+/* Add Fade in Animation */
 .images {
   animation: fade-in ease 1.5s;
   animation-iteration-count: 1;
@@ -121,26 +132,34 @@ button {
   object-fit: cover;
 }
 
+/* Style Disabled Next */
 #next:disabled {
   background-color: gray;
   color: lightgray;
 }
 
+/* Add Hover Animations */
 button:hover:enabled {
   transform: scale(1.1);
+  box-shadow: 0 17px 50px 0 #00000030;
+  background-color: #413070e6;
 }
 
 #next:hover:enabled {
-  background-color: rgba(65 48 112 / 70%);
+  transform: scale(1.1);
+  box-shadow: 0 17px 50px 0 #00000030;
+  background-color: #413070e6;
 }
 
 #back:hover:enabled {
-  background-color: rgba(65 48 112 / 70%);
+  transform: scale(1.1);
+  box-shadow: 0 17px 50px 0 #00000030;
+  background-color: #413070e6;
 }
 
-@media (width <= 860px) {
+@media (max-width: 860px) {
   button {
-    width: 80%; /* Adjust the width for smaller screens */
+    width: 80%;
   }
 }
 
@@ -152,4 +171,41 @@ button:hover:enabled {
   100% {
     opacity: 1;
   }
+}
+
+/* Style Sound Button */
+.sound-button {
+  position: fixed;
+  top: 30px;
+  left: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.volume-slider {
+  position: absolute;
+  top: 35%;
+  left: calc(100%);
+  transform: translateY(-50%,-50%);
+  width: 120px;
+  height: 15px;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  background-color: purple;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px #0000004d;
+}
+
+/* Sound Button Animations */
+.sound-button:hover .volume-slider {
+  width: 100px;
+  height: 15px;
+  opacity: 1;
+}
+
+#volume-icon {
+  width: 50px;
+  height: 50px;
 }

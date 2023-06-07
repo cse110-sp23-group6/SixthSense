@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Setup Page -->
 <head>
   <title>Emotions2 page</title>
   <link rel="stylesheet" type="text/css" href="assets/styles/emotions2.css">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
   <script src="assets/scripts/constants.js" type="module"></script>
   <script src="assets/scripts/helpers.js" type="module"></script>
   <script src="assets/scripts/emotions2.js" type="module"></script>
 </head>
 
 <body>
+  <!-- Decorative Images -->
   <div class="images">
-    <!-- Empty alt tag for decorative images https://www.w3.org/WAI/tutorials/images/decorative/ -->
     <img src="assets/images/e2-leftbackvector.png" class="leftvector" alt="">
     <img src="assets/images/e2-leftfrontvector.png" class="leftvector" alt="">
     <img src="assets/images/e2-rightbackvector.png" class="rightvector" alt="">
@@ -22,13 +24,23 @@
 
     <h1 id="prompt">Which phrase do you resonate most with?</h1>
     <div id="button-container">
-      <!-- buttons will be dynamically allocated through js-->
+      <!-- dynamically allocate buttons in emotions2.js-->
     </div>
 
-    <nav id="traversal">
-      <button id="back">back</button>
-      <button id="next">next</button>
-    </nav>
+    <!-- Navigation Buttons -->
+    <div class="nav-back">
+      <button id="back">Back</button>
+    </div>
+    <div class="nav-next">
+      <button id="next">Next</button>
+    </div>
+
+    <!-- Sound Buttons -->
+    <div id="sound-button" class="sound-button">
+      <img id="volume-icon" src="assets/images/volume-level-3.svg" alt="Volume Icon">
+      <input type="range" min="0" max="1" value="1" step="0.01" class="volume-slider" id="volume-slider">
+    </div>
+    
   </div>
 </body>
 
