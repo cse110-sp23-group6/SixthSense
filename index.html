@@ -16,7 +16,6 @@
   <header>
     <button id="user">New User</button>
   </header>
-  <audio src="assets/sounds/background-music.mp3" preload autoplay loop></audio>
   <main>
     <!-- Text -->
     <h1 id="top-line">Sixth Sense</h1>
@@ -25,6 +24,10 @@
     <!-- Buttons -->
     <div class="inner-button" id="b1">Get Today's Fortune</div>
     <div class="inner-button" id="b2">See Previous Fortunes</div>
+    <div id="sound-button" class="sound-button">
+      <img id="volume-icon" src="assets/images/volume-level-3.svg" alt="Volume Icon">
+      <input type="range" min="0" max="1" value="1" step="0.01" class="volume-slider" id="volume-slider">
+    </div>
 
      <!-- Background Images -->
     <img src="assets/images/welcome-vector1.png" class="vector1" alt="">
