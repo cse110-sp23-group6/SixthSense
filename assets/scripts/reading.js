@@ -151,7 +151,7 @@ async function init() {
     const screenshotTarget = document.body;
     // Capture the current page as an image using html2canvas library
     html2canvas(screenshotTarget).then(function (canvas) {
-      // Convert the canvas to a base64-encoded image
+      // Convert the canvas to an image
       const image = canvas.toDataURL("image/png");
 
       // Create a link element and set its attributes
@@ -163,8 +163,6 @@ async function init() {
       link.click();
     });
   }
-  
-
 }
 
 window.addEventListener('DOMContentLoaded', init);
