@@ -157,7 +157,7 @@ button:hover:enabled {
   background-color: #413070e6;
 }
 
-@media (max-width: 860px) {
+@media (width <= 860px) {
   button {
     width: 80%;
   }
