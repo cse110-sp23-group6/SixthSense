@@ -4,7 +4,7 @@
 
 describe('End to end testing for emotions 1 / 2', () => {
   beforeAll(async () => {
-    await page.goto('http://127.0.0.1:5500/index.html');
+    await page.goto('http://127.0.0.1:8080/index.html');
   });
 
   beforeEach(async () => {
@@ -19,7 +19,7 @@ describe('End to end testing for emotions 1 / 2', () => {
     await but1.click();
     await page.waitForNavigation();
     let newUrl = await page.url();
-    expect(newUrl).toBe('http://127.0.0.1:5500/choose-your-fortune.html');
+    expect(newUrl).toBe('http://127.0.0.1:8080/choose-your-fortune.html');
   }, 30000);
 
   /**
@@ -40,7 +40,7 @@ describe('End to end testing for emotions 1 / 2', () => {
         console.warn("Page wait for navigation timeout");
       }
       const newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions1.html?reading=love');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=love');
     }, 30000);
   
     it('emotions1 (love) select nothing test', async () => {
@@ -48,7 +48,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForTimeout(1000); 
       let newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions1.html?reading=love');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=love');
   
       const buttons = await page.$$('.round-button');
       expect(buttons.length).toBe(5);
@@ -61,7 +61,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but2.click();
       await page.waitForNavigation();
       const newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions2.html?reading=love');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions2.html?reading=love');
     }, 30000);
   
     it('emotions2 (love) select nothing test', async () => {
@@ -69,7 +69,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForTimeout(1000); 
       let newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions2.html?reading=love');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions2.html?reading=love');
   
       const buttons = await page.$$('.button');
       expect(buttons.length).toBe(5);
@@ -80,7 +80,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForNavigation();
       const newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions1.html?reading=love');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=love');
     }, 30000);
   
     it('emotions1 (love) back to choose your fortune', async () => {
@@ -88,7 +88,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForNavigation();
       const newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/choose-your-fortune.html');
+      expect(newUrl).toBe('http://127.0.0.1:8080/choose-your-fortune.html');
       await page.evaluate(() => localStorage.clear());
     }, 30000);  
   });
@@ -102,7 +102,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForNavigation();
       const newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions1.html?reading=career');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=career');
     }, 30000);
   
     it('emotions1 (career) select nothing test', async () => {
@@ -110,7 +110,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForTimeout(1000); 
       let newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions1.html?reading=career');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=career');
   
       const buttons = await page.$$('.round-button');
       expect(buttons.length).toBe(5);
@@ -123,7 +123,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but2.click();
       await page.waitForNavigation();
       const newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions2.html?reading=career');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions2.html?reading=career');
     }, 30000);
   
     it('emotions2 (career) select nothing test', async () => {
@@ -131,7 +131,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForTimeout(1000); 
       let newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions2.html?reading=career');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions2.html?reading=career');
   
       const buttons = await page.$$('.button');
       expect(buttons.length).toBe(5);
@@ -142,7 +142,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForNavigation();
       const newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions1.html?reading=career');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=career');
     }, 30000);
   
     it('emotions1 (career) back to choose your fortune', async () => {
@@ -150,7 +150,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForNavigation();
       const newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/choose-your-fortune.html');
+      expect(newUrl).toBe('http://127.0.0.1:8080/choose-your-fortune.html');
       await page.evaluate(() => localStorage.clear());
     }, 30000);  
   });
@@ -163,7 +163,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForNavigation();
       const newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions1.html?reading=health');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=health');
     }, 30000);
   
     it('emotions1 (health) select nothing test', async () => {
@@ -171,7 +171,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForTimeout(1000); 
       let newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions1.html?reading=health');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=health');
   
       const buttons = await page.$$('.round-button');
       expect(buttons.length).toBe(5);
@@ -184,7 +184,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but2.click();
       await page.waitForNavigation();
       const newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions2.html?reading=health');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions2.html?reading=health');
     }, 30000);
   
     it('emotions2 (health) select nothing test', async () => {
@@ -192,7 +192,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForTimeout(1000); 
       let newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions2.html?reading=health');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions2.html?reading=health');
   
       const buttons = await page.$$('.button');
       expect(buttons.length).toBe(5);
@@ -203,7 +203,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForNavigation();
       const newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions1.html?reading=health');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=health');
     }, 30000);
   
     it('emotions1 (health) back to choose your fortune', async () => {
@@ -211,7 +211,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForNavigation();
       const newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/choose-your-fortune.html');
+      expect(newUrl).toBe('http://127.0.0.1:8080/choose-your-fortune.html');
       await page.evaluate(() => localStorage.clear());
     }, 30000); 
   });
@@ -224,7 +224,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForNavigation();
       const newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions1.html?reading=friends_and_family');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=friends_and_family');
     }, 30000);
   
     it('emotions1 (friends_and_family) select nothing test', async () => {
@@ -232,7 +232,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForTimeout(1000);
       let newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions1.html?reading=friends_and_family');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=friends_and_family');
   
       const buttons = await page.$$('.round-button');
       expect(buttons.length).toBe(5);
@@ -245,7 +245,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but2.click();
       await page.waitForNavigation();
       const newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions2.html?reading=friends_and_family');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions2.html?reading=friends_and_family');
     }, 30000);
   
     it('emotions2 (friends_and_family) select nothing test', async () => {
@@ -253,7 +253,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForTimeout(1000); 
       let newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions2.html?reading=friends_and_family');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions2.html?reading=friends_and_family');
   
       const buttons = await page.$$('.button');
       expect(buttons.length).toBe(5);
@@ -264,7 +264,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForNavigation();
       const newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/emotions1.html?reading=friends_and_family');
+      expect(newUrl).toBe('http://127.0.0.1:8080/emotions1.html?reading=friends_and_family');
     }, 30000);
   
     it('emotions1 (friends_and_family) back to choose your fortune', async () => {
@@ -273,7 +273,7 @@ describe('End to end testing for emotions 1 / 2', () => {
       await but1.click();
       await page.waitForNavigation();
       const newUrl = await page.url();
-      expect(newUrl).toBe('http://127.0.0.1:5500/choose-your-fortune.html');
+      expect(newUrl).toBe('http://127.0.0.1:8080/choose-your-fortune.html');
       await page.evaluate(() => localStorage.clear());
     }, 30000);
   });
