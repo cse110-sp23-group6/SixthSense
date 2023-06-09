@@ -1,12 +1,12 @@
 /**
  * File Name: emotions2.js
  * Purpose: randomly show quotes and save results to local storage in "emotions2"
- * 
+ *
  * @const allButtons: array of all buttons
  */
 
-import { RAW_EMOTIONS, QUOTES, READING_TYPES } from './constants.js';
-import { shuffleArray, randomArrayItem } from './helpers.js';
+import { QUOTES, RAW_EMOTIONS, READING_TYPES } from './constants.js';
+import { randomArrayItem, shuffleArray } from './helpers.js';
 import { playButtonHoverSound } from './VolumeControl.js';
 
 const allButtons = [];
@@ -17,7 +17,7 @@ let emotion2;
  * function name: init
  * Runs on window initialization
  * shuffles array, create buttons by randomizing, user cannot click next until a button is selected
- * 
+ *
  * @const urlParams: urlSearchParam
  * @const readingType: get reading from urlParams for category
  * @const emotions: randomly shuffled array of emotions for button location
@@ -25,7 +25,7 @@ let emotion2;
  * @const randomQuote: quote randomly chosen from the list of quotes per emotion
  * @const button: each button created
  */
-function init() {
+function init () {
   const urlParams = new URLSearchParams(window.location.search);
 
   next = document.getElementById('next');
@@ -76,8 +76,8 @@ function init() {
     buttonContainer.appendChild(button);
   });
 
-  const volumeControl = document.createElement("volume-control");
-  const soundButtonContainer = document.getElementById("sound-button-container");
+  const volumeControl = document.createElement('volume-control');
+  const soundButtonContainer = document.getElementById('sound-button-container');
   soundButtonContainer.appendChild(volumeControl);
 
   /**
@@ -86,16 +86,15 @@ function init() {
    */
   document.getElementById('back').addEventListener('click', function () {
     window.localStorage.removeItem('emotion2');
-    window.location.href = "emotions1.html" + window.location.search;
+    window.location.href = 'emotions1.html' + window.location.search;
   });
-
 
   /**
    * purpose: Event listener for next button click. Navigates to readings.html
    */
   next.addEventListener('click', function () {
     window.localStorage.setItem('emotion2', JSON.stringify(emotion2));
-    window.location.href = "reading.html" + window.location.search;
+    window.location.href = 'reading.html' + window.location.search;
   });
 
   // next button hover sound

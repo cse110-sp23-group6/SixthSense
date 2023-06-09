@@ -4,7 +4,7 @@
  * The order of images within each set is randomized as well.
  */
 
-import { shuffleArray, randomInt } from './helpers.js';
+import { randomInt, shuffleArray } from './helpers.js';
 import { RAW_EMOTIONS, READING_TYPES } from './constants.js';
 import { playButtonHoverSound } from './VolumeControl.js';
 
@@ -48,7 +48,7 @@ let selectedEmotion;
  * function name: handleNextButtonClick
  * Moves to next page in flow (emotions2), and passes along desired fortune type
  */
-function handleNextButtonClick() {
+function handleNextButtonClick () {
   window.localStorage.setItem('emotion1', JSON.stringify({
     emotion: selectedEmotion,
     timestamp: Date.now() / 1000.0
@@ -61,7 +61,7 @@ function handleNextButtonClick() {
  * removes emotion1 in local storage
  * moves to next page in flow (emotions2), resets desired fortune type
  */
-function handleBackButtonClick() {
+function handleBackButtonClick () {
   window.localStorage.removeItem('emotion1');
   window.location.href = 'choose-your-fortune.html';
 }
@@ -70,7 +70,7 @@ function handleBackButtonClick() {
  * function name: init
  * purpose: Generate a new set of images on page load.
  * user cannot click next until a picture is selected
- * 
+ *
  * @const urlParams: new URLsearchParams
  * @const readingtype: reading from urlParams
  * @const next: next button on the page
@@ -80,7 +80,7 @@ function handleBackButtonClick() {
  * @const emotion: used to loop through shuffledEmotions
  * @const back: back button on the page
  */
-function init() {
+function init () {
   const urlParams = new URLSearchParams(window.location.search);
 
   const readingType = urlParams.get('reading');
@@ -88,7 +88,7 @@ function init() {
     window.location.href = 'choose-your-fortune.html';
   }
 
-  //disable next button till someone selects a button
+  // disable next button till someone selects a button
   next = document.getElementById('button-right');
   next.disabled = true;
 
@@ -107,12 +107,12 @@ function init() {
   // Generate shuffled list to randomize order within the set
   const shuffledEmotions = shuffleArray(RAW_EMOTIONS);
 
-  //loop through the shuffled Array list to display pics on the buttons
+  // loop through the shuffled Array list to display pics on the buttons
   for (let i = 0; i < buttons.length; i++) {
     const emotion = shuffledEmotions[i];
     buttons[i].setAttribute('src', randomSet[emotion]);
 
-    //when you click and select a button, it highlights and you can now click next
+    // when you click and select a button, it highlights and you can now click next
     buttons[i].addEventListener('click', function () {
       selectedEmotion = emotion;
       const selected = buttons[i];
@@ -129,14 +129,14 @@ function init() {
     });
   }
 
-  const volumeControl = document.createElement("volume-control");
-  const soundButtonContainer = document.getElementById("sound-button-container");
+  const volumeControl = document.createElement('volume-control');
+  const soundButtonContainer = document.getElementById('sound-button-container');
   soundButtonContainer.appendChild(volumeControl);
 
   next.addEventListener('click', handleNextButtonClick);
   // hover sound for next when enabled
   next.addEventListener('mouseenter', playButtonHoverSound);
-  
+
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('mouseenter', playButtonHoverSound);
   }

@@ -2,7 +2,7 @@
  * File Name: previous-fortunes.js
  * purpose: populate profile and previous fortunes, where user can view, close, delete fortunes
  */
-import { EMOTIONS_TABLE, STAR_SIGNS } from './constants.js';
+import { STAR_SIGNS } from './constants.js';
 import { playButtonHoverSound } from './VolumeControl.js';
 
 // create variable formattedReadings which pulls from local storage. used throughout the page
@@ -18,7 +18,7 @@ const formattedReadings = window.localStorage.getItem('readings')
  * @param {string} date: date of the birthday
  * @return {string} name of the star sign and null if none match
  */
-export function getStarSign(month, date) {
+export function getStarSign (month, date) {
   // Convert the month and date strings to numbers
   const monthNum = parseInt(month);
   const dateNum = parseInt(date);
@@ -43,8 +43,8 @@ export function getStarSign(month, date) {
  * @type {Element} deleteButton: the delete button
  * @param listItems: the list of readings to be added into the list
  */
-function createEntries(listItems) {
-  let deleteButton = document.getElementById('delete');
+function createEntries (listItems) {
+  const deleteButton = document.getElementById('delete');
   for (let i = 0; i < listItems.length; i++) {
     listItems[i].addEventListener('click', function () {
       if (this.classList.contains('selected')) {
@@ -74,7 +74,7 @@ function createEntries(listItems) {
  * @const expandedContent: expanded fortune
  * @return the button at the end of the reading that closes the expanded content when clicked
  */
-function createCloseButton() {
+function createCloseButton () {
   const closeButton = document.createElement('button');
   closeButton.className = 'close-button';
   closeButton.innerText = 'Close';
@@ -88,13 +88,13 @@ function createCloseButton() {
 /**
  * function name: openSelectedItem
  * purpose: Function to open the selected list item
- * 
+ *
  * @const selectedItem: item that has been selected (is selected class)
  * @const text: inner text of the selected item
  * @const expandedContent: expanded fortune
  * @const closeButton: close button created at the end of the reading
  */
-function openSelectedItem() {
+function openSelectedItem () {
   const selectedItem = document.querySelector('.selected');
   if (selectedItem) {
     // Open the selected item (perform the desired action)
@@ -122,14 +122,14 @@ function openSelectedItem() {
 /**
  * function name: deleteSelectedItem
  * purpose: Function to delete the selected list item
- * 
+ *
  * @const selectedItem: selected item that has the selected class
  * @const selectedText: inner text of selected item
  * @const selectedDate: date of selected reading
  * @const selectedReading: actual reading of selected reading
  * @const reading: looping through formatted reading to find the selected fortune
  */
-function deleteSelectedItem() {
+function deleteSelectedItem () {
   const selectedItem = document.querySelector('.selected');
   if (selectedItem) {
     // Delete the selected item from the list
@@ -139,7 +139,7 @@ function deleteSelectedItem() {
     const selectedText = selectedItem.innerText;
     const selectedDate = selectedText.split(': ')[0];
     const selectedReading = selectedText.split(': ')[1];
- 
+
     for (let i = 0; i < formattedReadings.length; i++) {
       const reading = formattedReadings[i];
       if (reading.date === selectedDate && reading.reading === selectedReading) {
@@ -156,13 +156,13 @@ function deleteSelectedItem() {
 /**
  * function name: deleteAllItems
  * purpose: When no fortune is selected, deletes all of the stored fortunes
- * 
+ *
  * @const UL: the whole reading list
  */
-function deleteAllItems() {
+function deleteAllItems () {
   // if there are no readings, nothing happens
   if (formattedReadings.length == 0) {
-    return;
+
   } else {
     // clear out the container of readings
     const UL = document.getElementById('reading-list');
@@ -174,7 +174,7 @@ function deleteAllItems() {
 /**
  * function name: init
  * purpose: runs when page is loaded, populate profile and reading as well as buttons
- * 
+ *
  * @const overallEmotion: emotion retreived from local storage
  * @const finalemotion: finalemotion image
  * @type {String} formData: profile data in local storage from newprofile.js
@@ -189,7 +189,7 @@ function deleteAllItems() {
  * @const buttonText: text inside delete button that says delete fortune
  * @const homeButton: home button
  */
-function init() {
+function init () {
   // profile emotion -- finalemotion from local storage
   const overallEmotion = JSON.parse(window.localStorage.getItem('overallEmotion'));
   const finalemotion = document.getElementById('finalemotion');
@@ -219,12 +219,12 @@ function init() {
   // Create an array to store the dynamically created <li> elements
   const liElements = [];
 
-  //go through formattedReadings to add each entry
+  // go through formattedReadings to add each entry
   for (let i = formattedReadings.length - 1; i >= 0; i--) {
     const reading = formattedReadings[i];
     const liElement = document.createElement('li');
 
-    //add reading and date to the reading list in the correct format
+    // add reading and date to the reading list in the correct format
     liElement.innerText = reading.date + ': ' + reading.reading;
     ulElement.appendChild(liElement); // Append to the end
     liElements.push(liElement);
@@ -233,7 +233,7 @@ function init() {
 
   createEntries(liElements);
 
-  //open button
+  // open button
   const openButton = document.getElementById('open-button');
   openButton.addEventListener('click', openSelectedItem);
 
@@ -241,15 +241,15 @@ function init() {
   const deleteButton = document.getElementById('delete');
   deleteButton.addEventListener('click', function () {
     const buttonText = deleteButton.innerHTML;
-    //if something is selected, it says delete fortune and delete selected
+    // if something is selected, it says delete fortune and delete selected
     if (buttonText == 'Delete Fortune') {
       deleteSelectedItem();
     }
-    //if nothing is selected, it says delete all items and it deletes all fortunes
+    // if nothing is selected, it says delete all items and it deletes all fortunes
     else {
       deleteAllItems();
     }
-  })
+  });
 
   // Go back to welcome page if user clicks home
   const homeButton = document.getElementById('home');
@@ -257,8 +257,8 @@ function init() {
     location.href = 'index.html';
   });
 
-  const volumeControl = document.createElement("volume-control");
-  const soundButtonContainer = document.getElementById("sound-button-container");
+  const volumeControl = document.createElement('volume-control');
+  const soundButtonContainer = document.getElementById('sound-button-container');
   soundButtonContainer.appendChild(volumeControl);
 
   // open button hover sounds

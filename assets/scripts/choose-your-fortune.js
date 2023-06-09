@@ -3,11 +3,11 @@
  * choose your fortunes javascript doc
  * purpose: for populating the page at start and multiple functions
  */
-import { RE_ASK_INTERVAL_SECONDS } from "./constants.js";
-import { encodeSearchParams } from "./helpers.js";
-import { playButtonHoverSound } from "./VolumeControl.js";
+import { RE_ASK_INTERVAL_SECONDS } from './constants.js';
+import { encodeSearchParams } from './helpers.js';
+import { playButtonHoverSound } from './VolumeControl.js';
 
-function init() {
+function init () {
   const headerText = document.getElementById('header-text');
   const typingSound = document.getElementById('typing-sound');
   const text = headerText.textContent;
@@ -32,8 +32,8 @@ function init() {
   });
   typingSound.currentTime = 0;
 
-  const volumeControl = document.createElement("volume-control");
-  const soundButtonContainer = document.getElementById("sound-button-container");
+  const volumeControl = document.createElement('volume-control');
+  const soundButtonContainer = document.getElementById('sound-button-container');
   soundButtonContainer.appendChild(volumeControl);
 
   setTimeout(function () {
@@ -70,9 +70,9 @@ function init() {
   }, 2000); // Delay in milliseconds matching the fade-in animation duration
 }
 
-document.addEventListener("DOMContentLoaded", init);
+document.addEventListener('DOMContentLoaded', init);
 
-function handleNavigation(type) {
+function handleNavigation (type) {
   const emotion1Obj = JSON.parse(window.localStorage.getItem('emotion1'));
   const emotion2Obj = JSON.parse(window.localStorage.getItem('emotion2'));
   const currentUnixTimestamp = Date.now() / 1000.0;

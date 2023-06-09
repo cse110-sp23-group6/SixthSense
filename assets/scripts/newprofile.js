@@ -1,16 +1,16 @@
-import { playButtonHoverSound } from "./VolumeControl.js";
+import { playButtonHoverSound } from './VolumeControl.js';
 
 /**
  * file name: newprofile.js
  * purpose: newprofile page to get input and send it to local storage as new user info
- * 
+ *
  * @const yearBox: input box for year
  * @const dateBox: input box for date
  * @const monthBox: input box for month
  * @const nameBox: input box for name
  * @const statusBox: input box for relationship status
  * @const submitButton: button to submit info, disabled until info is complete and validated
- * @const homeButton: home button 
+ * @const homeButton: home button
  */
 
 // Document Selectors
@@ -87,7 +87,7 @@ function validateInput (event) {
  * function name: handleSubmit
  * purpose: Function that stores the create profile information into JSON format to save.
  * Also redirects the user to the welcome page.
- * 
+ *
  * @const name: input value in name box
  * @const year: input value in year box
  * @const date: input value in date box
@@ -125,8 +125,8 @@ nameBox.addEventListener('change', validateInput);
 statusBox.addEventListener('change', validateInput);
 submitButton.addEventListener('click', handleSubmit);
 
-const volumeControl = document.createElement("volume-control");
-const soundButtonContainer = document.getElementById("sound-button-container");
+const volumeControl = document.createElement('volume-control');
+const soundButtonContainer = document.getElementById('sound-button-container');
 soundButtonContainer.appendChild(volumeControl);
 
 // Go back to welcome page if user clicks home

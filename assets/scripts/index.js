@@ -6,9 +6,9 @@
  * Previous fortunes will tell them that they have to have at least 1 fortune or a profile
  */
 
-import { playButtonHoverSound } from "./VolumeControl.js";
+import { playButtonHoverSound } from './VolumeControl.js';
 
-function init() {
+function init () {
   // Document Selectors
   const userButton = document.getElementById('user');
   const mainButtons = document.getElementsByClassName('inner-button');
@@ -39,26 +39,24 @@ function init() {
    * when clicked but doesn't have a profile, it tells you to create a profile
    * if you don't have a single fortune, it says you need at least 1 previously generated forutne
    * if user qualifies for both, it takes the user to previous-fortunes.html
-   * 
+   *
    * @const readings: readings from local storage
    */
   previousButton.addEventListener('click', function () {
     const readings = window.localStorage.getItem('readings');
     if (formData === null) {
-      alert("Please create a profile to access previous fortunes")
-      return
+      alert('Please create a profile to access previous fortunes');
+      return;
     }
     if (readings === null) {
-      alert("you need at least 1 previously generated fortune to access previous fortunes")
-      return
-    }
-    else {
+      alert('you need at least 1 previously generated fortune to access previous fortunes');
+    } else {
       location.href = 'previous-fortunes.html';
     }
   });
 
-  const volumeControl = document.createElement("volume-control");
-  const soundButtonContainer = document.getElementById("sound-button-container");
+  const volumeControl = document.createElement('volume-control');
+  const soundButtonContainer = document.getElementById('sound-button-container');
   soundButtonContainer.appendChild(volumeControl);
 
   todayButton.addEventListener('mouseenter', playButtonHoverSound);

@@ -3,34 +3,34 @@
  * purpose: show emotion and reading based off of the category and emotions they chose
  */
 
-import { READINGS, EMOTIONS, READING_TYPES } from './constants.js';
+import { EMOTIONS, READING_TYPES, READINGS } from './constants.js';
 import { playButtonHoverSound } from './VolumeControl.js';
 
 /**
  * function name: init
- * purpose: Runs on page initialization. 
+ * purpose: Runs on page initialization.
  * Generates a reading based on emotion1 and emotion2 and records it to localstorage.
  */
-async function init() {
+async function init () {
   const profilebutton = document.getElementById('create-profile');
   const formData = window.localStorage.getItem('formData');
-  const readingTitle = document.getElementById("they-were-feeling");
+  const readingTitle = document.getElementById('they-were-feeling');
 
-  //check if profile exists, if it does, then set previous reading button
+  // check if profile exists, if it does, then set previous reading button
   if (formData !== null) {
     profilebutton.textContent = 'Previous Readings';
     profilebutton.addEventListener('click', function () {
       window.location.href = 'previous-fortunes.html' + window.location.search;
     });
   }
-  //if not, set newprofile button
+  // if not, set newprofile button
   else {
     profilebutton.addEventListener('click', function () {
       window.location.href = 'newprofile.html' + window.location.search;
     });
   }
 
-  //find reading type
+  // find reading type
   const urlParams = new URLSearchParams(window.location.search);
 
   const readingType = urlParams.get('readingType');
@@ -42,18 +42,18 @@ async function init() {
   if (readingType == null ||
       !READING_TYPES.includes(readingType) ||
       !EMOTIONS.includes(overallEmotion) ||
-      isNaN(readingNum) || !isFinite(readingNum) || 
+      isNaN(readingNum) || !isFinite(readingNum) ||
       readingNum < 0 || readingNum >= READINGS[readingType][overallEmotion].length) {
     window.location.href = 'choose-your-fortune.html';
   }
 
-  readingTitle.textContent = `${name === "" ? "The Person" : name} Was Feeling:`;
+  readingTitle.textContent = `${name === '' ? 'The Person' : name} Was Feeling:`;
 
   const auraImage = document.getElementById('aura-image');
   const readingBox = document.getElementById('reading');
 
   // Generate a random reading from readings list
-  let reading = READINGS[readingType][overallEmotion][readingNum];
+  const reading = READINGS[readingType][overallEmotion][readingNum];
   auraImage.src = `assets/emotion_auras/${overallEmotion}.gif`;
   readingBox.textContent = reading;
 
@@ -64,8 +64,8 @@ async function init() {
     window.location.href = 'index.html' + window.location.search;
   });
 
-  const volumeControl = document.createElement("volume-control");
-  const soundButtonContainer = document.getElementById("sound-button-container");
+  const volumeControl = document.createElement('volume-control');
+  const soundButtonContainer = document.getElementById('sound-button-container');
   soundButtonContainer.appendChild(volumeControl);
 }
 
