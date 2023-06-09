@@ -1,9 +1,10 @@
 module.exports = {
   launch: {
-    headless: process.env.CI === 'true'
+    headless: process.env.CI === 'true',
+    slowMo: 25
   },
   server: {
-    command: 'npm run start',
+    command: 'npm start',
     port: 8080,
     launchTimeout: 180000
   }
