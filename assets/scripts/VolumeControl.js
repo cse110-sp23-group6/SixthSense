@@ -82,8 +82,8 @@ class VolumeControl extends HTMLElement {
     volumeSlider.value = storedVolume;
     backgroundSound.currentTime = 0; // Reset the background sound to start
     backgroundSound.loop = true; // Enable looping
-    backgroundSound.play(); // Play the background sound
-
+    // Catch any errors from not being able to play audio due to activity
+    backgroundSound.play().catch((e) => {console.warn(e);}); // Play the background sound
 
     /**
      * function name: updateVolume
@@ -91,7 +91,7 @@ class VolumeControl extends HTMLElement {
      * 
      * @const volumelevel: level of volume ranges from 0 to 3
      */
-    this.updateVolume = function() {
+    this.updateVolume = function () {
       backgroundSound.volume = volumeSlider.value;
       let volumeLevel;
 
@@ -147,7 +147,9 @@ export function playButtonHoverSound() {
   const buttonHoverSound = new Audio("assets/sounds/button-hover.mp3");
   buttonHoverSound.volume = (volumeControl.getAttribute("volume")) / 20; // change volume according sound bar
   buttonHoverSound.currentTime = 0; // Reset the sound to start
-  buttonHoverSound.play();
+
+  // Catch any errors from not being able to play audio due to activity
+  buttonHoverSound.play().catch((e) => {console.warn(e);}); // Play the background sound
 }
 
 customElements.define("volume-control", VolumeControl);
