@@ -11,6 +11,7 @@ Documentation: https://github.com/cse110-sp23-group6/SixthSense/tree/main/jsdocs
 
 New Features: (WIP) 
 - Sound Control: Users now have the ability to control the in-app sounds across the pages, customizing their journey even more. 
+- Zodiac Emojis: Each user profile now comes with a matching zodiac emoji, representing the user's zodiac sign. 
 - Deployment Bug Fix: Does not deploy as intended to Github pages, so this version intends to fix that *** 
 
 Info: Version 1.0.0 serves as our major release, as we have fine tuned the functionalities of our project. New functionalities, such as the sound button, have been added based on feedback from real people testing the project. There are some minor bugs that we will aim to repair, but this essentially our final product. 
@@ -20,6 +21,7 @@ Info: Version 1.0.0 serves as our major release, as we have fine tuned the funct
 New Features: 
 - Share Button: Users now have the ability to take an in-app screen capture of their fortune and current emotion, which they can share via a link to their friends! 
 - More Fortunes: Our project now offers even more readings for each category, so that users can explore greater possibilites. 
+- Page Icon: Now there is cute SixthSense icon on our page! 
 
 Info: Version 0.1.1 serves as our updated release, which has significant updates from the inital MVP version. The CI/CD Pipeline is both complete and functions with a linter, JSDocs (now stored in the [jsdocs](https://github.com/cse110-sp23-group6/SixthSense/tree/main/jsdocs) folder), Code Climate (tag displayed at the top of this file), and Minifier. The UI has been updated to be uniform across all pages and animations have been added. To view this version of the project, check out this [deployment](https://github.com/cse110-sp23-group6/SixthSense/actions/runs/5158284771) from the end of sprint 2 on Github pages.
 
