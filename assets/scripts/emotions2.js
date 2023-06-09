@@ -6,7 +6,7 @@
  */
 
 import { RAW_EMOTIONS, QUOTES, READING_TYPES } from './constants.js';
-import { shuffleArray, randomArrayItem, addSearchParams } from './helpers.js';
+import { shuffleArray, randomArrayItem } from './helpers.js';
 
 
 const allButtons = [];
@@ -83,10 +83,7 @@ function init() {
    */
   document.getElementById('back').addEventListener('click', function () {
     window.localStorage.removeItem('emotion2');
-    window.location.href = addSearchParams(
-      new URL(window.location.origin + "/emotions1.html"),
-      Object.fromEntries((new URLSearchParams(window.location.search)).entries())
-    );
+    window.location.href = "emotions1.html" + window.location.search;
   });
 
 
@@ -95,10 +92,7 @@ function init() {
    */
   next.addEventListener('click', function () {
     window.localStorage.setItem('emotion2', JSON.stringify(emotion2));
-    window.location.href = addSearchParams(
-      new URL(window.location.origin + "/reading.html"),
-      Object.fromEntries((new URLSearchParams(window.location.search)).entries())
-    );
+    window.location.href = "reading.html" + window.location.search;
   });
 
   // next button hover sound

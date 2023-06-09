@@ -46,20 +46,16 @@ export function randomArrayItem (array) {
 }
 
 /**
- * function name: addSearchParams
- * purpose: Provides a **safe** and easy manner in which to add url search params
+ * function name: encodeSearchParams
+ * purpose: Provides a **safe** way to encode search parameters
  * 
- * @param {URL} url current url object
  * @param {Object} paramsObject object with URL params to add 
- * @returns URL with encoded parameters
+ * @returns encoded parameters
  */
-export function addSearchParams(url, paramsObject) {
-  const newURLSearchParams = new URLSearchParams([
-    ...Array.from(url.searchParams.entries()),
+export function encodeSearchParams(paramsObject) {
+  return new URLSearchParams([
     ...Object.entries(paramsObject),
   ]).toString();
-
-  return new URL(`${url.origin}${url.pathname}?${newURLSearchParams}`);
 }
 
 /**
