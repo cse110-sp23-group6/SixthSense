@@ -4,7 +4,7 @@
  */
 
 import { READINGS, EMOTIONS_TABLE, READING_TYPES, RE_ASK_INTERVAL_SECONDS } from './constants.js';
-import { addSearchParams, copyStringToClipboard, randomArrayItem, randomInt } from './helpers.js';
+import { copyStringToClipboard, encodeSearchParams, randomInt } from './helpers.js';
 
 
 /**
@@ -68,20 +68,14 @@ async function init() {
   if (emotion1Obj == null ||
     emotion1Obj.emotion == null ||
     currentUnixTimestamp - emotion1Obj.timestamp > RE_ASK_INTERVAL_SECONDS) {
-    window.location.href = addSearchParams(
-      new URL(window.location.origin + "/emotions1.html"),
-      Object.fromEntries((new URLSearchParams(window.location.search)).entries())
-    );  
+    window.location.href = "emotions1.html" + window.location.search;
   }
 
   // If no emotion2 is set or emotion2 was set > RE_ASK_INTERVAL_SECONDS, redirect to emotion2
   if (emotion2Obj == null ||
     emotion2Obj.emotion == null ||
     currentUnixTimestamp - emotion1Obj.timestamp > RE_ASK_INTERVAL_SECONDS) {
-    window.location.href = addSearchParams(
-      new URL(window.location.origin + "/emotions2.html"),
-      Object.fromEntries((new URLSearchParams(window.location.search)).entries())
-    );
+    window.location.href = "emotions2.html" + window.location.search;
   }
 
   // Calculate overall emotion based on emotion1 and emotion2
@@ -151,16 +145,19 @@ async function init() {
   const shareBtn = document.getElementById("share");
   shareBtn.addEventListener("click", async function() {
     await copyStringToClipboard(
-      addSearchParams(
-        new URL(window.location.origin + "/share.html"),
-        {
+      // Note: We separately get window.location.origin + window.location.pathname
+      // to make it work with both local testing and Github Pages deployment (which adds the repo
+      // name to the pathname).
+      `${window.location.origin}${window.location.pathname.replace('reading.html', 'share.html')}?${
+        encodeSearchParams({
           readingType: readingType,
           name: window.localStorage.getItem("formData") === null || 
-                  JSON.parse(window.localStorage.getItem("formData")).name.length > 15 ? "" : JSON.parse(window.localStorage.getItem("formData")).name,
+                  JSON.parse(window.localStorage.getItem("formData")).name.length > 15 ? "" : 
+                    JSON.parse(window.localStorage.getItem("formData")).name,
           readingNum: readingBox.getAttribute("index"),
           overallEmotion: overallEmotion
-        }
-      )
+        })
+      }`
     );
     alert("Share link copied to clipboard!");
   });

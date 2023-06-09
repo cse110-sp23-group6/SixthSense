@@ -4,7 +4,7 @@
  * purpose: for populating the page at start and multiple functions
  */
 import { RE_ASK_INTERVAL_SECONDS } from "./constants.js";
-import { addSearchParams } from "./helpers.js";
+import { encodeSearchParams } from "./helpers.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   const headerText = document.getElementById('header-text');
@@ -175,28 +175,13 @@ function handleNavigation(type) {
   if (emotion1Obj == null ||
     emotion1Obj.emotion == null ||
     currentUnixTimestamp - emotion1Obj.timestamp > RE_ASK_INTERVAL_SECONDS) {
-    window.location.href = addSearchParams(
-      new URL(window.location.origin + "/emotions1.html"),
-      {
-        reading: type
-      }
-    );
+    window.location.href = `emotions1.html?${encodeSearchParams({reading: type})}`; 
     // If no emotion2 is set or emotion2 was set > 12 hours ago, redirect to emotion1
   } else if (emotion2Obj == null ||
     emotion2Obj.emotion == null ||
     currentUnixTimestamp - emotion1Obj.timestamp > RE_ASK_INTERVAL_SECONDS) {
-    window.location.href = addSearchParams(
-      new URL(window.location.origin + "/emotions2.html"),
-      {
-        reading: type
-      }
-    );
+    window.location.href = `emotions2.html?${encodeSearchParams({reading: type})}`; 
   } else {
-    window.location.href = addSearchParams(
-      new URL(window.location.origin + "/reading.html"),
-      {
-        reading: type
-      }
-    );
+    window.location.href = `reading.html?${encodeSearchParams({reading: type})}`; 
   }
 }
