@@ -8,6 +8,7 @@
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <script src="assets/scripts/constants.js" type="module"></script>
     <script src="assets/scripts/newprofile.js" type="module"></script>
+    <script src="assets/scripts/VolumeControl.js" type="module"></script>
 </head>
 
 <body>
@@ -45,10 +46,7 @@
     </div>
 
     <!-- Sound Buttons -->
-    <div id="sound-button" class="sound-button">
-        <img id="volume-icon" src="assets/images/volume-level-3.svg" alt="Volume Icon">
-        <input type="range" min="0" max="1" value="1" step="0.01" class="volume-slider" id="volume-slider">
-    </div>
+    <div id="sound-button-container"></div>
 
     <!-- Navigation Buttons -->
     <div class="buttons">
