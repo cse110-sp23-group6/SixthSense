@@ -14,7 +14,7 @@ New Features: (WIP)
 - Zodiac Emojis: Each user profile now comes with a matching zodiac emoji, representing the user's zodiac sign. 
 - Deployment Bug Fix: Does not deploy as intended to Github pages, so this version intends to fix that *** 
 
-Info: Version 1.0.0 serves as our major release, as we have fine tuned the functionalities of our project. New functionalities, such as the sound button, have been added based on feedback from real people testing the project. There are some minor bugs that we will aim to repair, but this essentially our final product. 
+Info: Version 1.0.0 serves as our major release, as we have fine tuned the functionalities of our project. New functionalities, such as the sound button, have been added based on feedback from real people testing the project. We hope to improve our code maintainability by removing the duplicate code. There are some minor bugs that we will aim to repair, but this essentially our final product. 
 
 ## Version 1.0
 
