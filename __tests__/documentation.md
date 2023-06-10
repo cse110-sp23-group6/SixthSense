@@ -10,66 +10,66 @@ Function: Tests whether clicking on the 'Get Today's Fortune' button correctly t
 
 **Love Navigation:** These are designed to test the navigation and functionality of Choose Your Fortune, Emotions1 and Emotions2 pages after the user selects the Love Fortune
 
-### Test 2 (Line 34)
+### Test 2 (Line 33)
 Function: From the Choose Your Fortune page: Tests if clicking on the Love fortune button takes the user to the next page where the user picks an image (Emotions1) while sending a query of 'love' through the url.
 
-### Test 3 (Line 42)
+### Test 3 (Line 46)
 Function: From Emotions1 page: Tests if the user did not select an image on the first quiz, then clicking on the next button keeps the user on the same page.
 
-### Test 4 (Line 52)
+### Test 4 (Line 57)
 Function: From Emotions1 page: Tests after selecting the second image and then clicking on the next button, it takes the user to the next page where the user picks a quote (Emotions2). Checks if the query of 'love' is maintained.
 
-### Test 5 (Line 62)
+### Test 5 (Line 67)
 Function: From Emotions2 page: Tests if the user did not select a quote on the second quiz, then clicking on the next button keeps the user on the same page.
 
-### Test 6 (Line 72)
+### Test 6 (Line 78)
 Function: Tests whether clicking on the back button from Emotions2 takes the user to Emotions1. Checks if the query of 'love' is maintained.
 
-### Test 7 (Line 80)
+### Test 7 (Line 86)
 Function: Tests whether clicking on the back button from Emotions1 takes the user to the Choose-Your-Fortune page. Checks if the query is cleared.
 
 ---
 
 **Career Navigation:** These are designed to test the navigation and functionality of Choose Your Fortune, Emotions1 and Emotions2 pages after the user selects the Career Fortune
 
-### Test 8 (Line 107)
+### Test 8 (Line 99)
 Function: From the Choose Your Fortune page: Tests if clicking on the Career fortune button takes the user to the next page where the user picks an image (Emotions1) while sending a query of 'career' through the url.
 
-### Test 9 (Line 115)
+### Test 9 (Line 108)
 Function: From Emotions1 page: Tests if the user did not select an image on the first quiz, then clicking on the next button keeps the user on the same page.
 
-### Test 10 (Line 125)
+### Test 10 (Line 119)
 Function: From Emotions1 page: Tests after selecting the second image and then clicking on the next button, it takes the user to the next page where the user picks a quote (Emotions2). Checks if the query of 'career' is maintained.
 
-### Test 11 (Line 135)
+### Test 11 (Line 129)
 Function: From Emotions2 page: Tests if the user did not select a quote on the second quiz, then clicking on the next button keeps the user on the same page.
 
-### Test 12 (Line 145)
+### Test 12 (Line 140)
 Function: Tests whether clicking on the back button from Emotions2 takes the user to Emotions1. Checks if the query of 'career' is maintained.
 
-### Test 13 (Line 153)
+### Test 13 (Line 148)
 Function: Tests whether clicking on the back button from Emotions1 takes the user to the Choose-Your-Fortune page. Checks if the query is cleared.
 
 ---
 
 **Health Navigation:** These are designed to test the navigation and functionality of Choose Your Fortune, Emotions1 and Emotions2 pages after the user selects the Health Fortune
 
-### Test 14 (Line 164)
+### Test 14 (Line 160)
 Function: From the Choose Your Fortune page: Tests if clicking on the Health fortune button takes the user to the next page where the user picks an image (Emotions1) while sending a query of 'health' through the url.
 
-### Test 15 (Line 172)
+### Test 15 (Line 169)
 Function: From Emotions1 page: Tests if the user did not select an image on the first quiz, then clicking on the next button keeps the user on the same page.
 
-### Test 16 (Line 182)
+### Test 16 (Line 180)
 Function: From Emotions1 page: Tests after selecting the second image and then clicking on the next button, it takes the user to the next page where the user picks a quote (Emotions2). Checks if the query of 'health' is maintained.
 
-### Test 17 (Line 192)
+### Test 17 (Line 190)
 Function: From Emotions2 page: Tests if the user did not select a quote on the second quiz, then clicking on the next button keeps the user on the same page.
 
-### Test 18 (Line 202)
+### Test 18 (Line 201)
 Function: Tests whether clicking on the back button from Emotions2 takes the user to Emotions1. Checks if the query of 'health' is maintained.
 
-### Test 19 (Line 210)
+### Test 19 (Line 209)
 Function: Tests whether clicking on the back button from Emotions1 takes the user to the Choose-Your-Fortune page. Checks if the query is cleared.
 
 ---
@@ -79,20 +79,46 @@ Function: Tests whether clicking on the back button from Emotions1 takes the use
 ### Test 20 (Line 221)
 Function: From the Choose Your Fortune page: Tests if clicking on the Friends & Family fortune button takes the user to the next page where the user picks an image (Emotions1) while sending a query of 'friends_and_family' through the url.
 
-### Test 21 (Line 229)
+### Test 21 (Line 230)
 Function: From Emotions1 page: Tests if the user did not select an image on the first quiz, then clicking on the next button keeps the user on the same page.
 
-### Test 22 (Line 239)
+### Test 22 (Line 241)
 Function: From Emotions1 page: Tests after selecting the second image and then clicking on the next button, it takes the user to the next page where the user picks a quote (Emotions2). Checks if the query of 'friends_and_family' is maintained.
 
-### Test 23 (Line 249)
+### Test 23 (Line 251)
 Function: From Emotions2 page: Tests if the user did not select a quote on the second quiz, then clicking on the next button keeps the user on the same page.
 
-### Test 24 (Line 259)
+### Test 24 (Line 262)
 Function: Tests whether clicking on the back button from Emotions2 takes the user to Emotions1. Checks if the query of 'friends_and_family' is maintained.
 
-### Test 25 (Line 267)
+### Test 25 (Line 270)
 Function: Tests whether clicking on the back button from Emotions1 takes the user to the Choose-Your-Fortune page. Checks if the query is cleared.
+
+### Test 26 (Line 280)
+Function: Goes through the entire process of selecting our fortune. Choose your fortune -> randomly pick fortune -> randomly pick an image -> randomly pick a quote -> arrive at your reading. Tests if a fortune was successfuly generated after this process.
+
+---
+
+## File name: newprofile.test.js
+
+**Profile Validation and Navigation** These are designed to test navigation between main page and new profile page along with the functionality of creating a page
+
+### Test 1 (Line 15)
+Function: Tests whether clicking on the new user button takes you from main page to newprofile page.
+
+### Test 2 (Line 23)
+Function: Tests whether clicking on the home button takes you from newprofile page to main page.
+
+### Test 3 (Line 31)
+Function: Tests whether inputting invalid profile data keeps the submit button disabled. Sets `day` = 32 since 32 is not a valid day in the calendar. 
+
+### Test 4 (Line 50)
+Function: Tests whether inputting valid profile data enables the submit button. Then clicks the submit button to go back to the main page.
+
+### Test 5 (Line 72)
+Function: Tests if the new user button is now hidden after successfully creating a profile.
+
+---
 
 # Unit Tests
 

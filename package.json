@@ -2,7 +2,7 @@
   "name": "sixthsense",
   "scripts": {
     "start": "http-server",
-    "test": "jest"
+    "test": "jest --no-sandbox"
   },
   "devDependencies": {
     "@babel/core": "^7.22.1",
@@ -18,6 +18,6 @@
     "jest-environment-jsdom": "^29.5.0",
     "jest-puppeteer": "^9.0.0",
     "jsdom": "^22.1.0",
-    "puppeteer": "^20.5.0"
+    "puppeteer": "^20.4.0"
   }
 }

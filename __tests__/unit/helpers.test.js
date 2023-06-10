@@ -1,9 +1,8 @@
-import { expect, test, describe } from '@jest/globals';
 import { shuffleArray, randomInt } from '../../assets/scripts/helpers';
 import { countItemsInsideArray } from './jest_helpers';
 
 describe('Testing Helpers', function () {
-  test('Sanity check: jest helper countItemsInsideArray correctly counts items', function () {
+  it('Sanity check: jest helper countItemsInsideArray correctly counts items', function () {
     const testArray = [6, 'a', 'a', 'b', 'c', 'c', 'c', 1, 2, 6, 'd', 'e'];
 
     expect(countItemsInsideArray(testArray)).toEqual(
@@ -20,7 +19,7 @@ describe('Testing Helpers', function () {
     );
   });
 
-  test('randomInt gives valid int between the lower / upper bound, inclusive (n = 1000)', function () {
+  it('randomInt gives valid int between the lower / upper bound, inclusive (n = 1000)', function () {
     const lowerBound = 0;
     const upperBound = 10;
     for (let i = 0; i < 1000; i++) {
@@ -28,7 +27,7 @@ describe('Testing Helpers', function () {
     }
   });
 
-  test('shuffleArray gives valid permutation of array (n = 1000)', function () {
+  it('shuffleArray gives valid permutation of array (n = 1000)', function () {
     const testArray1 = ['a', 'b', 'c', 'c', 'd', 'e'];
     const testArray2 = [100, 200, 300, 400, 500, 600, 700];
 
@@ -50,7 +49,7 @@ describe('Testing Helpers', function () {
     runTestOnArray(testArray2);
   });
 
-  test('shuffleArray moves items inside array', function () {
+  it('shuffleArray moves items inside array', function () {
     const testArray = [100, 200, 300, 400, 500, 600];
 
     /**
