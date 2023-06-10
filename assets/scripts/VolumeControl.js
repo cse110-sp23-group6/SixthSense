@@ -76,30 +76,33 @@ class VolumeControl extends HTMLElement {
     const volumeSlider = this.shadow.getElementById('volume-slider');
 
     const storedVolume = localStorage.getItem('lastVolume') ? Number(localStorage.getItem('lastVolume')) : 0.5;
-    const backgroundSound = new Audio('assets/sounds/background-music.mp3');
-    backgroundSound.volume = storedVolume; // Set the initial volume
+    this.backgroundSound = new Audio('assets/sounds/background-music.mp3');
+    this.backgroundSound.volume = storedVolume; // Set the initial volume
     // Set the volume slider to reflect the initial volume
     volumeSlider.value = storedVolume;
-    backgroundSound.currentTime = 0; // Reset the background sound to start
-    backgroundSound.loop = true; // Enable looping
+
+    const lastTime = localStorage.getItem('lastBackgroundSoundTime') ? Number(localStorage.getItem('lastBackgroundSoundTime')) : 0.5;
+
+    this.backgroundSound.currentTime = lastTime; // Reset the background sound to start
+    this.backgroundSound.loop = true; // Enable looping
     // Catch any errors from not being able to play audio due to activity
-    backgroundSound.play().catch((e) => { console.warn(e); }); // Play the background sound
+    this.backgroundSound.play().catch((e) => { console.warn(e); }); // Play the background sound
 
     /**
      * function name: updateVolume
      * purpose: update the volume of sound effects icon
      */
     this.updateVolume = function () {
-      backgroundSound.volume = volumeSlider.value;
+      _this.backgroundSound.volume = volumeSlider.value;
       let volumeLevel;
 
       window.localStorage.setItem('lastVolume', volumeSlider.value);
 
-      if (backgroundSound.volume === 0) {
+      if (_this.backgroundSound.volume === 0) {
         volumeLevel = '0';
-      } else if (backgroundSound.volume < 0.33) {
+      } else if (_this.backgroundSound.volume < 0.33) {
         volumeLevel = '1';
-      } else if (backgroundSound.volume < 0.66) {
+      } else if (_this.backgroundSound.volume < 0.66) {
         volumeLevel = '2';
       } else {
         volumeLevel = '3';
@@ -115,17 +118,17 @@ class VolumeControl extends HTMLElement {
 
     volumeSlider.addEventListener('input', this.updateVolume);
     volumeIcon.addEventListener('click', function () {
-      if (backgroundSound.volume == 0) {
+      if (_this.backgroundSound.volume == 0) {
         if (volumeSlider.value == 0) {
-          backgroundSound.volume = 1;
+          _this.backgroundSound.volume = 1;
           volumeSlider.value = 1;
         } else {
-          backgroundSound.volume = _this.unmutedVolume;
+          _this.backgroundSound.volume = _this.unmutedVolume;
           volumeSlider.value = _this.unmutedVolume;
         }
       } else {
-        _this.unmutedVolume = backgroundSound.volume;
-        backgroundSound.volume = 0;
+        _this.unmutedVolume = _this.backgroundSound.volume;
+        _this.backgroundSound.volume = 0;
         volumeSlider.value = 0;
       }
       _this.updateVolume();
@@ -133,6 +136,10 @@ class VolumeControl extends HTMLElement {
 
     volumeSlider.addEventListener('change', this.updateVolume);
     volumeSlider.addEventListener('mousemove', this.updateVolume);
+
+    window.addEventListener('beforeunload', async function(e) {
+      window.localStorage.setItem('lastBackgroundSoundTime', _this.backgroundSound.currentTime);
+    });
   }
 }
 
