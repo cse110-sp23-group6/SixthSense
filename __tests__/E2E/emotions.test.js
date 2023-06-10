@@ -278,6 +278,7 @@ describe('End to end testing for emotions 1 / 2', () => {
     }, 30000);
 
     it('random attempt at getting a fortune', async () => {
+      console.log("start random");
       await page.waitForTimeout(2000);
       let randomNumber = Math.floor(Math.random() * 4);
       let type;
@@ -295,9 +296,11 @@ describe('End to end testing for emotions 1 / 2', () => {
         type = "friends_and_family";
         but1 = await page.$('#friends-and-family-div');
       }
+      console.log("random checkpoint 1");
       await but1.click();
       await page.waitForNavigation();
       randomNumber = Math.floor(Math.random() * 5);
+      console.log("random checkpoint 2");
       let but2;
       await page.waitForTimeout(2000);
       if(randomNumber == 0){
@@ -311,17 +314,19 @@ describe('End to end testing for emotions 1 / 2', () => {
       } else {
         but2 = await page.$('#five');
       }
+      console.log("random checkpoint 3");
       await but2.click();
       let but3 = await page.$('#button-right');
       await but3.click();
       await page.waitForNavigation();
-
+      console.log("random checkpoint 4");
       await page.waitForTimeout(2000);
       randomNumber = Math.floor(Math.random() * 5);
       let but4 = await page.$$('.button');
       but4 = but4[randomNumber];
       await but4.click();
       let but5 = await page.$('#next');
+      console.log("random checkpoint 5");
       await but5.click();
       await page.waitForNavigation();
       const newUrl = await page.url();
@@ -329,12 +334,13 @@ describe('End to end testing for emotions 1 / 2', () => {
       const expectedUrl = "http://127.0.0.1:8080/reading.html?reading=".concat(type);
       expect(expectedUrl).toBe(newUrl);
       await page.waitForTimeout(1000);
+      console.log("random checkpoint 6");
       let fortune = await page.$('.typing-text');
       let fortuneText = fortune.innerText;
       expect(fortfortuneTextune).not.toBe(" Hmm ... hang tight, we're generating your reading. ");
-
+      console.log("random checkpoint 7");
       
-    })
+    }, 30000);
   });
 });
 
