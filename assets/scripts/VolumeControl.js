@@ -88,8 +88,6 @@ class VolumeControl extends HTMLElement {
     /**
      * function name: updateVolume
      * purpose: update the volume of sound effects icon
-     *
-     * @const volumelevel: level of volume ranges from 0 to 3
      */
     this.updateVolume = function () {
       backgroundSound.volume = volumeSlider.value;

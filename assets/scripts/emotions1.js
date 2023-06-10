@@ -70,15 +70,6 @@ function handleBackButtonClick () {
  * function name: init
  * purpose: Generate a new set of images on page load.
  * user cannot click next until a picture is selected
- *
- * @const urlParams: new URLsearchParams
- * @const readingtype: reading from urlParams
- * @const next: next button on the page
- * @const buttons: 5 buttons with pics
- * @const randomSet: random number between 0 and 2, choose which set to display
- * @const shuffledEmotions: shuffled list of emotions to display on buttons
- * @const emotion: used to loop through shuffledEmotions
- * @const back: back button on the page
  */
 function init () {
   const urlParams = new URLSearchParams(window.location.search);

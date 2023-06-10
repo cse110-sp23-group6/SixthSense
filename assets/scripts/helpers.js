@@ -3,7 +3,6 @@
  * purpose: Returns a random shuffle of an array using Fisher-Yates.
  * Does not modify array in-place.
  *
- * @const array: original Array sliced
  * @param {Array} originalArray - array to shuffle
  * @returns {Array} shuffled array
  */

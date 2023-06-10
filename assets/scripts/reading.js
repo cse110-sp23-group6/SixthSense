@@ -9,28 +9,7 @@ import { copyStringToClipboard, encodeSearchParams, randomInt } from './helpers.
 
 /**
  * function name: init
- * purpose: Runs on page initialization.
- * Generates a reading based on emotion1 and emotion2 and records it to localstorage.
- *
- * @const profilebutton: button that says create-profile
- * @const formData: profile data sent to local storage from newprofile page
- * @const urlParams: new urlParam for category
- * @const currentUnixTimestamp: current time
- * @const readingType: category they picked
- * @const auraImage: image space to show aura
- * @const readingbox: box to diplay reading
- * @const emotion10bj: local storage from emotion1
- * @const emotion20bj: local storage from emotion2
- * @const emotion1: emotion1
- * @const emotion2: emotion2
- * @const overallEmotion: the final emotion based on emotiosn 1 and 2
- * @type {String} reading: reading to be displayed (randmoly picked from the readings for that category and emoton)
- * @type {Array} currentReadings: all of the readings already in localstorage
- * @const ogdate: date we get from new Date()
- * @const separatedDate: parsed date split
- * @const withoutTime: date without time signiture
- * @const date: date to be updated in the right format
- * @const shareBtn: share button
+ * purpose: Runs on page initialization. Generates a reading based on emotion1 and emotion2 and records it to localstorage.
  */
 async function init () {
   const profilebutton = document.getElementById('create-profile');
@@ -58,6 +37,7 @@ async function init () {
     window.location.href = 'choose-your-fortune.html';
   }
 
+  // Grab elements
   const auraImage = document.getElementById('aura-image');
   const readingBox = document.getElementById('reading');
 
@@ -114,7 +94,7 @@ async function init () {
   window.localStorage.setItem('readings', JSON.stringify(currentReadings));
 
   /**
-   * purpose: Event listener for home button click. Navigates back to index.html
+   * purpose: Event listener for home button. Navigates back to index.html
    */
   document.getElementById('home').addEventListener('click', function () {
     window.location.href = 'index.html';

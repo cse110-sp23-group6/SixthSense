@@ -2,33 +2,21 @@
  * File Name: emotions2.js
  * Purpose: randomly show quotes and save results to local storage in "emotions2"
  *
- * @const allButtons: array of all buttons
  */
 
 import { QUOTES, RAW_EMOTIONS, READING_TYPES } from './constants.js';
 import { randomArrayItem, shuffleArray } from './helpers.js';
 import { playButtonHoverSound } from './VolumeControl.js';
 
-const allButtons = [];
-let next;
-let emotion2;
-
 /**
  * function name: init
  * Runs on window initialization
  * shuffles array, create buttons by randomizing, user cannot click next until a button is selected
- *
- * @const urlParams: urlSearchParam
- * @const readingType: get reading from urlParams for category
- * @const emotions: randomly shuffled array of emotions for button location
- * @const buttonContainer: container of buttons (where buttons will be added)
- * @const randomQuote: quote randomly chosen from the list of quotes per emotion
- * @const button: each button created
  */
 function init () {
   const urlParams = new URLSearchParams(window.location.search);
 
-  next = document.getElementById('next');
+  const next = document.getElementById('next');
   next.disabled = true;
   const readingType = urlParams.get('reading');
   if (readingType == null || !READING_TYPES.includes(readingType)) {
@@ -44,6 +32,8 @@ function init () {
     // choose random quote from each category
     const randomQuote = randomArrayItem(QUOTES[emotion]);
 
+    const allButtons = [];
+
     // create button
     const button = document.createElement('button');
     button.classList.add('button');
@@ -54,17 +44,15 @@ function init () {
       if (this.classList.contains('selected')) {
         next.disabled = true;
         this.classList.remove('selected');
+        buttonContainer.setAttribute("selectedEmotion", emotion);
       } else {
         next.disabled = false;
         allButtons.forEach(button => {
           button.classList.remove('selected');
         });
         this.classList.add('selected');
+        buttonContainer.setAttribute("selectedEmotion", "");
       }
-      emotion2 = {
-        emotion,
-        timestamp: Date.now() / 1000.0
-      };
     });
 
     // button hover sound
@@ -93,7 +81,10 @@ function init () {
    * purpose: Event listener for next button click. Navigates to readings.html
    */
   next.addEventListener('click', function () {
-    window.localStorage.setItem('emotion2', JSON.stringify(emotion2));
+    window.localStorage.setItem('emotion2', JSON.stringify({
+      emotion: buttonContainer.getAttribute("selectedEmotion"),
+      timestamp: Date.now() / 1000
+    }));
     window.location.href = 'reading.html' + window.location.search;
   });
 

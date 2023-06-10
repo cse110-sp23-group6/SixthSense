@@ -34,13 +34,10 @@ function init () {
   todayButton.addEventListener('click', function () {
     location.href = 'choose-your-fortune.html';
   });
+  
   /**
    * purpose: event listener for previous fortunes button
-   * when clicked but doesn't have a profile, it tells you to create a profile
-   * if you don't have a single fortune, it says you need at least 1 previously generated forutne
-   * if user qualifies for both, it takes the user to previous-fortunes.html
-   *
-   * @const readings: readings from local storage
+   * Checks whether profile exists, and whether previous fortunes have been generated.
    */
   previousButton.addEventListener('click', function () {
     const readings = window.localStorage.getItem('readings');

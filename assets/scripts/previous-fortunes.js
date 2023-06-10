@@ -70,9 +70,7 @@ function createEntries (listItems) {
  * function name: createCloseButton
  * purpose: Function to create the close button for the expanded content
  *
- * @const closeButton: close button
- * @const expandedContent: expanded fortune
- * @return the button at the end of the reading that closes the expanded content when clicked
+ * @return {HTMLButtonElement} the button at the end of the reading that closes the expanded content when clicked
  */
 function createCloseButton () {
   const closeButton = document.createElement('button');
@@ -88,11 +86,6 @@ function createCloseButton () {
 /**
  * function name: openSelectedItem
  * purpose: Function to open the selected list item
- *
- * @const selectedItem: item that has been selected (is selected class)
- * @const text: inner text of the selected item
- * @const expandedContent: expanded fortune
- * @const closeButton: close button created at the end of the reading
  */
 function openSelectedItem () {
   const selectedItem = document.querySelector('.selected');
@@ -114,20 +107,12 @@ function openSelectedItem () {
 
     // Add the expanded class to show the expanded content
     expandedContent.classList.add('expanded');
-  } else {
-    console.log('No item selected.');
   }
 }
 
 /**
  * function name: deleteSelectedItem
  * purpose: Function to delete the selected list item
- *
- * @const selectedItem: selected item that has the selected class
- * @const selectedText: inner text of selected item
- * @const selectedDate: date of selected reading
- * @const selectedReading: actual reading of selected reading
- * @const reading: looping through formatted reading to find the selected fortune
  */
 function deleteSelectedItem () {
   const selectedItem = document.querySelector('.selected');
@@ -157,7 +142,6 @@ function deleteSelectedItem () {
  * function name: deleteAllItems
  * purpose: When no fortune is selected, deletes all of the stored fortunes
  *
- * @const UL: the whole reading list
  */
 function deleteAllItems () {
   // if there are no readings, nothing happens
@@ -174,20 +158,6 @@ function deleteAllItems () {
 /**
  * function name: init
  * purpose: runs when page is loaded, populate profile and reading as well as buttons
- *
- * @const overallEmotion: emotion retreived from local storage
- * @const finalemotion: finalemotion image
- * @type {String} formData: profile data in local storage from newprofile.js
- * @const nameElement: name in profile
- * @const signElement: sign in profile (use getStarSign function)
- * @const loveElement: relationship status in profile
- * @const ulElement: list element of readings
- * @const liEleemnts: list element array to store readings
- * @const reading: going through formattedReadings to ad them to list
- * @const openButton: open btuton
- * @const deleteButton: delete button
- * @const buttonText: text inside delete button that says delete fortune
- * @const homeButton: home button
  */
 function init () {
   // profile emotion -- finalemotion from local storage
