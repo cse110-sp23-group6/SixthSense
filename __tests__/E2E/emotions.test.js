@@ -284,15 +284,15 @@ describe('End to end testing for emotions 1 / 2', () => {
       let but1;
       if(randomNumber == 0){
         but1 = await page.$('#love-div');
-        type = love;
+        type = "love";
       } else if (randomNumber == 1){
-        type = career;
+        type = "career";
         but1 = await page.$('#career-div');
       } else if (randomNumber == 2){
-        type = health;
+        type = "health";
         but1 = await page.$('#health-div');
       } else {
-        type = friends_and_family;
+        type = "friends_and_family";
         but1 = await page.$('#friends-and-family-div');
       }
       await but1.click();
