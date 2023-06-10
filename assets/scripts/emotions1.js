@@ -169,7 +169,7 @@ backButton.addEventListener('mouseenter', function () {
 });
 
 // sound control
-const backgroundSound = new Audio('assets/sounds/background-music.mp3');
+const backgroundSound = new Audio('assets/sounds/aura.mp3');
 const volumeSlider = document.getElementById('volume-slider');
 const volumeIcon = document.getElementById('volume-icon');
 

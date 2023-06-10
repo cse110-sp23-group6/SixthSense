@@ -9,7 +9,7 @@ import { addSearchParams } from "./helpers.js";
 document.addEventListener("DOMContentLoaded", function () {
   const headerText = document.getElementById('header-text');
   const typingSound = document.getElementById('typing-sound');
-  const backgroundSound = new Audio('assets/sounds/background-music.mp3');
+  const backgroundSound = new Audio('assets/sounds/aura.mp3');
   const text = headerText.textContent;
   let html = '';
 
