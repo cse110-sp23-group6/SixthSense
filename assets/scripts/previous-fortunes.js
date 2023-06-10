@@ -2,7 +2,9 @@
  * File Name: previous-fortunes.js
  * purpose: populate profile and previous fortunes, where user can view, close, delete fortunes
  */
-import { EMOTIONS_TABLE, STAR_SIGNS } from './constants.js';
+import { STAR_SIGNS } from './constants.js';
+import { playButtonHoverSound } from './VolumeControl.js';
+
 // create variable formattedReadings which pulls from local storage. used throughout the page
 const formattedReadings = window.localStorage.getItem('readings')
   ? JSON.parse(window.localStorage.getItem('readings'))
@@ -16,7 +18,7 @@ const formattedReadings = window.localStorage.getItem('readings')
  * @param {string} date: date of the birthday
  * @return {string} name of the star sign and null if none match
  */
-export function getStarSign(month, date) {
+export function getStarSign (month, date) {
   // Convert the month and date strings to numbers
   const monthNum = parseInt(month);
   const dateNum = parseInt(date);
@@ -41,8 +43,8 @@ export function getStarSign(month, date) {
  * @type {Element} deleteButton: the delete button
  * @param listItems: the list of readings to be added into the list
  */
-function createEntries(listItems) {
-  let deleteButton = document.getElementById('delete');
+function createEntries (listItems) {
+  const deleteButton = document.getElementById('delete');
   for (let i = 0; i < listItems.length; i++) {
     listItems[i].addEventListener('click', function () {
       if (this.classList.contains('selected')) {
@@ -68,11 +70,9 @@ function createEntries(listItems) {
  * function name: createCloseButton
  * purpose: Function to create the close button for the expanded content
  *
- * @const closeButton: close button
- * @const expandedContent: expanded fortune
- * @return the button at the end of the reading that closes the expanded content when clicked
+ * @return {HTMLButtonElement} the button at the end of the reading that closes the expanded content when clicked
  */
-function createCloseButton() {
+function createCloseButton () {
   const closeButton = document.createElement('button');
   closeButton.className = 'close-button';
   closeButton.innerText = 'Close';
@@ -86,13 +86,8 @@ function createCloseButton() {
 /**
  * function name: openSelectedItem
  * purpose: Function to open the selected list item
- * 
- * @const selectedItem: item that has been selected (is selected class)
- * @const text: inner text of the selected item
- * @const expandedContent: expanded fortune
- * @const closeButton: close button created at the end of the reading
  */
-function openSelectedItem() {
+function openSelectedItem () {
   const selectedItem = document.querySelector('.selected');
   if (selectedItem) {
     // Open the selected item (perform the desired action)
@@ -112,22 +107,14 @@ function openSelectedItem() {
 
     // Add the expanded class to show the expanded content
     expandedContent.classList.add('expanded');
-  } else {
-    console.log('No item selected.');
   }
 }
 
 /**
  * function name: deleteSelectedItem
  * purpose: Function to delete the selected list item
- * 
- * @const selectedItem: selected item that has the selected class
- * @const selectedText: inner text of selected item
- * @const selectedDate: date of selected reading
- * @const selectedReading: actual reading of selected reading
- * @const reading: looping through formatted reading to find the selected fortune
  */
-function deleteSelectedItem() {
+function deleteSelectedItem () {
   const selectedItem = document.querySelector('.selected');
   if (selectedItem) {
     // Delete the selected item from the list
@@ -136,13 +123,10 @@ function deleteSelectedItem() {
     // Remove the corresponding entry from formattedReadings array
     const selectedText = selectedItem.innerText;
     const selectedDate = selectedText.split(': ')[0];
-    console.log('date = ' + selectedDate);
     const selectedReading = selectedText.split(': ')[1];
-    console.log('reading = ' + selectedReading);
 
     for (let i = 0; i < formattedReadings.length; i++) {
       const reading = formattedReadings[i];
-      console.log('iteration reading = ' + reading.date + reading.reading);
       if (reading.date === selectedDate && reading.reading === selectedReading) {
         formattedReadings.splice(i, 1);
         break;
@@ -151,51 +135,31 @@ function deleteSelectedItem() {
 
     // Update the formattedReadings in local storage
     window.localStorage.setItem('readings', JSON.stringify(formattedReadings));
-    console.log('Deleted:', selectedText);
-  } else {
-    console.log('No item selected.');
   }
 }
 
 /**
  * function name: deleteAllItems
  * purpose: When no fortune is selected, deletes all of the stored fortunes
- * 
- * @const UL: the whole reading list
+ *
  */
-function deleteAllItems() {
+function deleteAllItems () {
   // if there are no readings, nothing happens
   if (formattedReadings.length == 0) {
-    console.log('nothing to delete');
-    return;
+
   } else {
     // clear out the container of readings
-    console.log('at least one item was found');
     const UL = document.getElementById('reading-list');
     UL.innerHTML = '';
-    console.log('clearing out LOCAL STORAGE!');
     window.localStorage.removeItem('readings');
   }
 }
+
 /**
  * function name: init
  * purpose: runs when page is loaded, populate profile and reading as well as buttons
- * 
- * @const overallEmotion: emotion retreived from local storage
- * @const finalemotion: finalemotion image
- * @type {String} formData: profile data in local storage from newprofile.js
- * @const nameElement: name in profile
- * @const signElement: sign in profile (use getStarSign function)
- * @const loveElement: relationship status in profile
- * @const ulElement: list element of readings
- * @const liEleemnts: list element array to store readings
- * @const reading: going through formattedReadings to ad them to list
- * @const openButton: open btuton
- * @const deleteButton: delete button
- * @const buttonText: text inside delete button that says delete fortune
- * @const homeButton: home button
  */
-function init() {
+function init () {
   // profile emotion -- finalemotion from local storage
   const overallEmotion = JSON.parse(window.localStorage.getItem('overallEmotion'));
   const finalemotion = document.getElementById('finalemotion');
@@ -209,12 +173,7 @@ function init() {
   if (formData) {
     // Parse the JSON string back into an object
     formData = JSON.parse(formData);
-    console.log(formData);
-  } else {
-    // Handle the case where no data is stored
-    console.log('No form data found.');
   }
-  console.log(formData.name);
 
   // set up name, star-sign, and relationship
   const nameElement = document.getElementById('name');
@@ -230,31 +189,21 @@ function init() {
   // Create an array to store the dynamically created <li> elements
   const liElements = [];
 
-  /**
-   * purpose: Function to add a reading to the list
-   * 
-   * @param reading: the individual reading to be added to the list
-   * @const liElement: list element created to be added to the ul
-   */
-  function addReadingToList(reading) {
+  // go through formattedReadings to add each entry
+  for (let i = formattedReadings.length - 1; i >= 0; i--) {
+    const reading = formattedReadings[i];
     const liElement = document.createElement('li');
 
-    //add reading and date to the reading list in the correct format
+    // add reading and date to the reading list in the correct format
     liElement.innerText = reading.date + ': ' + reading.reading;
     ulElement.appendChild(liElement); // Append to the end
     liElements.push(liElement);
-  }
-
-  //go through formattedReadings to add each entry
-  for (let i = formattedReadings.length - 1; i >= 0; i--) {
-    const reading = formattedReadings[i];
-    addReadingToList(reading);
     console.log(reading);
   }
 
   createEntries(liElements);
 
-  //open button
+  // open button
   const openButton = document.getElementById('open-button');
   openButton.addEventListener('click', openSelectedItem);
 
@@ -262,15 +211,15 @@ function init() {
   const deleteButton = document.getElementById('delete');
   deleteButton.addEventListener('click', function () {
     const buttonText = deleteButton.innerHTML;
-    //if something is selected, it says delete fortune and delete selected
+    // if something is selected, it says delete fortune and delete selected
     if (buttonText == 'Delete Fortune') {
       deleteSelectedItem();
     }
-    //if nothing is selected, it says delete all items and it deletes all fortunes
+    // if nothing is selected, it says delete all items and it deletes all fortunes
     else {
       deleteAllItems();
     }
-  })
+  });
 
   // Go back to welcome page if user clicks home
   const homeButton = document.getElementById('home');
@@ -278,113 +227,16 @@ function init() {
     location.href = 'index.html';
   });
 
-
-  // sound control
-  const backgroundSound = new Audio('assets/sounds/background-music.mp3');
-  const volumeSlider = document.getElementById('volume-slider');
-  const volumeIcon = document.getElementById('volume-icon');
-
-  let lastVolume = retrieveVolume(); // Retrieve volume value from local storage
-  backgroundSound.volume = lastVolume; // Set the initial volume
-  // Set the volume slider to reflect the initial volume
-  volumeSlider.value = lastVolume;
-  updateVolume();
-  backgroundSound.currentTime = 0; // Reset the background sound to start
-  backgroundSound.loop = true; // Enable looping
-  backgroundSound.play(); // Play the background sound
-
-  // mute and unmute for clicking icon
-
-  function retrieveVolume() {
-    let storedVolume = localStorage.getItem('lastVolume');
-
-    // If there's no stored volume level or it's 0, set the default to 1
-    if (storedVolume === null) {
-      return 1;
-    } else {
-      return Number(storedVolume); // Convert the stored string value to a number before returning
-    }
-  }
-
-  // store the last volumn in record 
-  volumeSlider.addEventListener('input', function () {
-    backgroundSound.volume = volumeSlider.value;
-    lastVolume = backgroundSound.volume; // Update the lastVolume to reflect the volume of the background sound
-    localStorage.setItem('lastVolume', lastVolume); // Store the volume level in local storage
-    updateVolume();
-  });
-
-  volumeIcon.addEventListener('click', function () {
-    if (backgroundSound.volume == 0) {
-      if (lastVolume == 0) {
-        backgroundSound.volume = 1;
-        volumeSlider.value = 1;
-      } else {
-        backgroundSound.volume = lastVolume;
-        volumeSlider.value = lastVolume;
-      }
-    } else {
-      lastVolume = backgroundSound.volume;
-      backgroundSound.volume = 0;
-      volumeSlider.value = 0;
-    }
-    updateVolume();
-  });
-
-  volumeSlider.addEventListener('change', updateVolume);
-  volumeSlider.addEventListener('mousemove', updateVolume);
-
-  /**
-   * function name: updateVolume
-   * purpose: update the volume of sound effects
-   * 
-   * @const volumelevel: level of volume ranges from 0 to 3
-   */
-  function updateVolume() {
-    backgroundSound.volume = volumeSlider.value;
-    backgroundSound.volume = volumeSlider.value;
-    let volumeLevel;
-
-    window.localStorage.setItem('lastVolume', volumeSlider.value);
-
-    if (backgroundSound.volume === 0) {
-      volumeLevel = "0";
-    } else if (backgroundSound.volume < 0.33) {
-      volumeLevel = "1";
-    } else if (backgroundSound.volume < 0.66) {
-      volumeLevel = "2";
-    } else {
-      volumeLevel = "3";
-    }
-    volumeIcon.src = `assets/images/volume-level-${volumeLevel}.svg`;
-  }
-
-  /**
-   * function name: playButtonHoverSound
-   * purpose: Function to play the button hover sound
-   * 
-   * @const buttonHoverSound: new audio with soundSrc
-   */
-  function playButtonHoverSound(soundSrc) {
-    const buttonHoverSound = new Audio(soundSrc);
-    buttonHoverSound.volume = (volumeSlider.value) / 20; // change volume according sound bar
-    buttonHoverSound.currentTime = 0; // Reset the sound to start
-    buttonHoverSound.play();
-  }
+  const volumeControl = document.createElement('volume-control');
+  const soundButtonContainer = document.getElementById('sound-button-container');
+  soundButtonContainer.appendChild(volumeControl);
 
   // open button hover sounds
-  openButton.addEventListener('mouseenter', function () {
-    playButtonHoverSound('assets/sounds/button-hover.mp3');
-  });
-
+  openButton.addEventListener('mouseenter', playButtonHoverSound);
   // gome button hover sounds
-  homeButton.addEventListener('mouseenter', function () {
-    playButtonHoverSound('assets/sounds/button-hover.mp3');
-  });
+  homeButton.addEventListener('mouseenter', playButtonHoverSound);
   // delete button hover sounds
-  deleteButton.addEventListener('mouseenter', function () {
-    playButtonHoverSound('assets/sounds/button-hover.mp3');
-  });
+  deleteButton.addEventListener('mouseenter', playButtonHoverSound);
 }
 
 document.addEventListener('DOMContentLoaded', init);

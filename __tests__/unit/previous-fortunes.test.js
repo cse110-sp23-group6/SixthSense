@@ -5,8 +5,6 @@
  * @jest-environment jsdom
  */
 
-import { expect, test, describe } from '@jest/globals';
-
 import { getStarSign } from '../../assets/scripts/previous-fortunes.js';
 
 describe('Testing getStarSign', () => {

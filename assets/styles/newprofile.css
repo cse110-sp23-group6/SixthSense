@@ -11,13 +11,17 @@
 /* Default Background Style */
 html,
 body {
+  position: relative; /* z-index only works on positioned elements */
+  z-index: -2; /* Lowest stack order */
   height: 100%;
+  margin: 0;
+  padding: 0;
 
   /* background gradient */
   background-image: linear-gradient(
     to bottom,
-    #413070 50%,
-    #6554cc
+    rgb(65 48 112) 50%,
+    rgb(101 84 204)
   );
   color: white;
   overflow: hidden;
@@ -40,6 +44,7 @@ h1 {
   margin-left: calc(25% - 8px);
   margin-top: 20vh;
   font-size: calc(4vh + 0.9vw);
+  z-index: 2;  /* Higher stack order */
 }
 
 /* Style Input Boxes */
@@ -97,7 +102,7 @@ select option[value=""] {
 button {
   border: none;
   border-radius: 2vh;
-  background-color: #413070;
+  background-color: rgb(65 48 112);
   color: white;
   align-self: center;
   width: 25%;
@@ -117,7 +122,7 @@ button:disabled {
 
 /* Add Animation */
 button:hover:enabled {
-  background-color: #413070b3;
+  background-color: rgba(65 48 112 / 70%);
   transform: scale(1.1);
 }
 
@@ -138,6 +143,7 @@ button:hover:enabled {
   right: 0;
   max-width: 50%;
   max-height: 100%;
+  z-index: -1;  /* Lower stack order */
 }
 
 .leftvector {
@@ -146,41 +152,4 @@ button:hover:enabled {
   left: 0;
   max-width: 50%;
   max-height: 100%;
-}
-
-/* Style Sound Button */
-.sound-button {
-  position: fixed;
-  top: 30px;
-  left: 50px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-.volume-slider {
-  position: absolute;
-  top: 15%;
-  left: calc(100%);
-  transform: translateY(-50%,-50%);
-  width: 120px;
-  height: 15px;
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
-  background-color: purple;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px #0000004d;
-}
-
-/* Sound Button Animations */
-.sound-button:hover .volume-slider {
-  width: 100px;
-  height: 15px;
-  opacity: 1;
-}
-
-#volume-icon {
-  width: 50px;
-  height: 50px;
 }

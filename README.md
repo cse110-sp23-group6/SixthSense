@@ -7,7 +7,7 @@ Welcome to the mystical SixthSense Fortune Teller! Discover the profound insight
 
 Deployment: https://cse110-sp23-group6.github.io/SixthSense/
 
-Documentation: https://github.com/cse110-sp23-group6/SixthSense/tree/main/jsdocs
+Documentation: https://cse110-sp23-group6.github.io/SixthSense/jsdocs/
 
 New Features: 
 - Sound Control: Users now have the ability to control the in-app sounds across the pages, customizing their journey even more. 

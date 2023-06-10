@@ -2,18 +2,25 @@
 <html lang="en">
 
 <!-- Setup Page -->
+
 <head>
   <title>General Reading</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anek+Devanagari">
   <link rel="stylesheet" href="assets/styles/share.css">
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <script src="./assets/scripts/constants.js" type="module"></script>
+  <script src="./assets/scripts/helpers.js" type="module"></script>
+  <script src="./assets/scripts/share.js" type="module"></script>
+  <script src="assets/scripts/VolumeControl.js" type="module"></script>
 </head>
 
 <body>
   <main>
     <!-- Decorative Images -->
-    <img src="assets/images/general-reading/topleft-vector.png" class="topleft-vector"  alt="top-left-vector" width="100%">
-    <img src="assets/images/general-reading/bottomright-vector.png" class="bottom-right-vector" alt="bottom-right-vector" >
+    <img src="assets/images/general-reading/topleft-vector.png" class="topleft-vector" alt="top-left-vector"
+      width="100%">
+    <img src="assets/images/general-reading/bottomright-vector.png" class="bottom-right-vector"
+      alt="bottom-right-vector">
     <img src="assets/images/general-reading/bottom-vector.png" class="bottom-vector" alt="bottom-vector" width="100%">
 
     <!-- Page's Left Half -->
@@ -21,7 +28,7 @@
     <div id="aura-image-container">
       <img src="assets/images" alt="" id="aura-image">
     </div>
-    
+
     <!-- Page's Right Half -->
     <div id="right-container">
 
@@ -30,29 +37,21 @@
       <h2 id="reading">
         <span class="typing-text"> Hmm ... hang tight, we're pulling up their reading. </span>
       </h2>
-    
+
       <!-- Navigation Buttons -->
       <button type="button" class="button" id="new-fortune">Find Your Fortune</button>
       <button type="button" class="button" id="create-profile">Create Profile</button>
       <button type="button" class="button2">
         <img id="share" src="assets/images/general-reading/share-icon.png" alt="share icon">
       </button>
-      <button type="button" class="button2" >
+      <button type="button" class="button2">
         <img id="home" src="assets/images/general-reading/home-icon.png" alt="home icon">
       </button>
     </div>
 
     <!-- Sound Buttons -->
-    <div id="sound-button" class="sound-button">
-      <img id="volume-icon" src="assets/images/volume-level-3.svg" alt="Volume Icon">
-      <input type="range" min="0" max="1" value="1" step="0.01" class="volume-slider" id="volume-slider">
-    </div>
+    <div id="sound-button-container"></div>
   </main>
-
-  <!-- Linked Images to Display-->
-  <script src="./assets/scripts/constants.js" type="module"></script>
-  <script src="./assets/scripts/helpers.js" type="module"></script>
-  <script src="./assets/scripts/share.js" type="module"></script>
 </body>
 
 </html>
