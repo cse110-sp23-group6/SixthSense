@@ -328,6 +328,10 @@ describe('End to end testing for emotions 1 / 2', () => {
 
       const expectedUrl = "http://127.0.0.1:8080/reading.html?reading=".concat(type);
       expect(expectedUrl).toBe(newUrl);
+      await page.waitForTimeout(1000);
+      let fortune = await page.$('.typing-text');
+      let fortuneText = fortune.innerText;
+      expect(fortfortuneTextune).not.toBe(" Hmm ... hang tight, we're generating your reading. ");
 
       
     })
