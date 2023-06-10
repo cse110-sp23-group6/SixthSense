@@ -3,18 +3,18 @@
 # SixthSense Fortune Teller
 Welcome to the mystical SixthSense Fortune Teller! Discover the profound insights hidden within your aura and emotions, that will help guide you in love, health, career, and friendships. Unleash the power of tapping into your Sixth Sense and embark on a transformative journey of self-discovery by visiting our site below.
 
-## *Version 1.1* (in progress)
+## *Version 1.1*
 
 Deployment: https://cse110-sp23-group6.github.io/SixthSense/
 
 Documentation: https://cse110-sp23-group6.github.io/SixthSense/jsdocs/
 
-New Features: (WIP) 
+New Features: 
 - Sound Control: Users now have the ability to control the in-app sounds across the pages, customizing their journey even more. 
 - Zodiac Emojis: Each user profile now comes with a matching zodiac emoji, representing the user's zodiac sign. 
-- Deployment Bug Fix: Does not deploy as intended to Github pages, so this version intends to fix that *** 
+- Deployment Bug Fix: Previous version does not deploy as intended to Github pages, bug fixed. 
 
-Info: Version 1.0.0 serves as our major release, as we have fine tuned the functionalities of our project. New functionalities, such as the sound button, have been added based on feedback from real people testing the project. We hope to improve our code maintainability by removing the duplicate code. There are some minor bugs that we will aim to repair, but this essentially our final product. 
+Info: Version 1.0.0 serves as our major release, as we have fine tuned the functionalities of our project. New functionalities, such as the sound button, have been added based on feedback from real people testing the project. We hope to improve our code maintainability by removing the duplicate code. There are some minor bugs that we will aim to repair, but this is essentially our final product. 
 
 ## Version 1.0
 
