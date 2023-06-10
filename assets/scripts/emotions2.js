@@ -41,17 +41,25 @@ function init () {
     allButtons.push(button);
     // Write emotion (and timestamp) to local storage on click, user cannot click next until they choose a button
     button.addEventListener('click', function () {
-      if (this.classList.contains('selected')) {
-        next.disabled = true;
-        this.classList.remove('selected');
+      let selectedButtons = document.getElementsByClassName('button selected');
+      if(selectedButtons.length == 0){
+        //none selected
+        next.disabled = false;
+        this.classList.add('selected');
         buttonContainer.setAttribute("selectedEmotion", emotion);
       } else {
-        next.disabled = false;
-        allButtons.forEach(button => {
-          button.classList.remove('selected');
-        });
-        this.classList.add('selected');
-        buttonContainer.setAttribute("selectedEmotion", "");
+        //one selected
+        if(selectedButtons.item(0).innerText == button.innerText){
+          //deselect
+          next.disable = true;
+          this.classList.remove('selected');
+        } else {
+          //change selected
+          next.disable = false;
+          selectedButtons.item(0).classList.remove('selected');
+          this.classList.add('selected');
+          buttonContainer.setAttribute("selectedEmotion", emotion);
+        }
       }
     });
 
@@ -85,6 +93,7 @@ function init () {
       emotion: buttonContainer.getAttribute("selectedEmotion"),
       timestamp: Date.now() / 1000
     }));
+
     window.location.href = 'reading.html' + window.location.search;
   });
 
