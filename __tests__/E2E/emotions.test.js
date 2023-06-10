@@ -337,9 +337,9 @@ describe('End to end testing for emotions 1 / 2', () => {
       console.log("random checkpoint 6");
       let fortune = await page.$('.typing-text');
       console.log("test");
-      let fortuneText = fortune.innerText;
+      let fortuneText = fortune.textContent;
       console.log(fortune);
-      expect(fortfortuneTextune).not.toBe(" Hmm ... hang tight, we're generating your reading. ");
+      expect(fortuneText).not.toBe(" Hmm ... hang tight, we're generating your reading. ");
       console.log("random checkpoint 7");
       
     }, 30000);
