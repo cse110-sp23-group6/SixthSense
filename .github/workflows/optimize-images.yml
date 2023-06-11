@@ -7,7 +7,7 @@ on:
       - "**.png"
       - "**.webp"
       - "**.gif"
-    workflow-dispatch:
+  workflow_dispatch:
 jobs:
   build:
     # Only run on Pull Requests within the same repository, and not from forks.
