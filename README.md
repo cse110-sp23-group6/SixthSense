@@ -3,6 +3,8 @@
 # SixthSense Fortune Teller
 Welcome to the mystical SixthSense Fortune Teller! Discover the profound insights hidden within your aura and emotions, that will help guide you in love, health, career, and friendships. Unleash the power of tapping into your Sixth Sense and embark on a transformative journey of self-discovery by visiting our site below.
 
+Public video: https://youtu.be/39ZkWywZs3A
+
 ## *Version 1.1*
 
 Deployment: https://cse110-sp23-group6.github.io/SixthSense/
