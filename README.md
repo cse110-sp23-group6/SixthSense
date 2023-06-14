@@ -16,7 +16,7 @@ New Features:
 
 Info: Version 1.0.0 serves as our major release, as we have fine tuned the functionalities of our project. New functionalities, such as the sound button, have been added based on feedback from real people testing the project. Improved code maintainability from D to A. This is essentially our final product. 
 
-## Version 1.0
+## *Version 1.0*
 
 New Features: 
 - Share Button: Users now have the ability to take an in-app screen capture of their fortune and current emotion, which they can share via a link to their friends! 
