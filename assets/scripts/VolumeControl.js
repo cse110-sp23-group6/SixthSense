@@ -1,6 +1,9 @@
-// RecipeCard.js
-
-const VOLUME_CONTROL_STYLE = `
+class e extends HTMLElement{_this=this;constructor(){super(),this.shadow=this.attachShadow({mode:"open"});var e=document.createElement("div"),o=(e.innerHTML=`
+  <div id="sound-button" class="sound-button">
+    <img id="volume-icon" src="assets/images/volume-level-3.svg" alt="Volume Icon">
+    <input type="range" min="0" max="1" value="1" step="0.01" class="volume-slider" id="volume-slider">
+  </div>
+`,document.createElement("style"));o.textContent=`
   .sound-button {
     position: fixed;
     top: 30px;
@@ -38,123 +41,4 @@ const VOLUME_CONTROL_STYLE = `
     height: 50px;
     cursor: pointer;
   }
-`;
-
-const VOLUME_CONTROL_HTML = `
-  <div id="sound-button" class="sound-button">
-    <img id="volume-icon" src="assets/images/volume-level-3.svg" alt="Volume Icon">
-    <input type="range" min="0" max="1" value="1" step="0.01" class="volume-slider" id="volume-slider">
-  </div>
-`;
-
-class VolumeControl extends HTMLElement {
-  _this = this;
-
-  constructor () {
-    super(); // Inheret everything from HTMLElement
-
-    this.shadow = this.attachShadow({ mode: 'open' });
-    const volumeControlContainer = document.createElement('div');
-
-    volumeControlContainer.innerHTML = VOLUME_CONTROL_HTML;
-
-    const style = document.createElement('style');
-    style.textContent = VOLUME_CONTROL_STYLE;
-
-    this.shadow.appendChild(volumeControlContainer);
-    this.shadow.appendChild(style);
-    this._this = this;
-  }
-
-  /**
-   * Runs once everything is initialized
-   */
-  async connectedCallback () {
-    const _this = this;
-
-    const volumeIcon = this.shadow.getElementById('volume-icon');
-    const volumeSlider = this.shadow.getElementById('volume-slider');
-
-    const storedVolume = localStorage.getItem('lastVolume') ? Number(localStorage.getItem('lastVolume')) : 0.5;
-    this.backgroundSound = new Audio('assets/sounds/background-music.mp3');
-    this.backgroundSound.volume = storedVolume; // Set the initial volume
-    // Set the volume slider to reflect the initial volume
-    volumeSlider.value = storedVolume;
-
-    const lastTime = localStorage.getItem('lastBackgroundSoundTime') ? Number(localStorage.getItem('lastBackgroundSoundTime')) : 0.5;
-
-    this.backgroundSound.currentTime = lastTime; // Reset the background sound to start
-    this.backgroundSound.loop = true; // Enable looping
-    // Catch any errors from not being able to play audio due to activity
-    this.backgroundSound.play().catch((e) => { console.warn(e); }); // Play the background sound
-
-    /**
-     * function name: updateVolume
-     * purpose: update the volume of sound effects icon
-     */
-    this.updateVolume = function () {
-      _this.backgroundSound.volume = volumeSlider.value;
-      let volumeLevel;
-
-      window.localStorage.setItem('lastVolume', volumeSlider.value);
-
-      if (_this.backgroundSound.volume === 0) {
-        volumeLevel = '0';
-      } else if (_this.backgroundSound.volume < 0.33) {
-        volumeLevel = '1';
-      } else if (_this.backgroundSound.volume < 0.66) {
-        volumeLevel = '2';
-      } else {
-        volumeLevel = '3';
-      }
-
-      volumeIcon.src = `assets/images/volume-level-${volumeLevel}.svg`;
-
-      this.setAttribute('volume', volumeSlider.value);
-    };
-    this.updateVolume();
-
-    this.unmutedVolume = volumeSlider.value;
-
-    volumeSlider.addEventListener('input', this.updateVolume);
-    volumeIcon.addEventListener('click', function () {
-      if (_this.backgroundSound.volume == 0) {
-        if (volumeSlider.value == 0) {
-          _this.backgroundSound.volume = 1;
-          volumeSlider.value = 1;
-        } else {
-          _this.backgroundSound.volume = _this.unmutedVolume;
-          volumeSlider.value = _this.unmutedVolume;
-        }
-      } else {
-        _this.unmutedVolume = _this.backgroundSound.volume;
-        _this.backgroundSound.volume = 0;
-        volumeSlider.value = 0;
-      }
-      _this.updateVolume();
-    });
-
-    volumeSlider.addEventListener('change', this.updateVolume);
-    volumeSlider.addEventListener('mousemove', this.updateVolume);
-
-    window.addEventListener('beforeunload', async function(e) {
-      window.localStorage.setItem('lastBackgroundSoundTime', _this.backgroundSound.currentTime);
-    });
-  }
-}
-
-/**
- * function name: playButtonHoverSound
- * purpose: Plays the button hover sound
- */
-export function playButtonHoverSound () {
-  const volumeControl = document.querySelector('volume-control');
-  const buttonHoverSound = new Audio('assets/sounds/button-hover.mp3');
-  buttonHoverSound.volume = (volumeControl.getAttribute('volume')) / 20; // change volume according sound bar
-  buttonHoverSound.currentTime = 0; // Reset the sound to start
-
-  // Catch any errors from not being able to play audio due to activity
-  buttonHoverSound.play().catch((e) => { console.warn(e); }); // Play the background sound
-}
-
-customElements.define('volume-control', VolumeControl);
+`,this.shadow.appendChild(e),this.shadow.appendChild(o),this._this=this}async connectedCallback(){const o=this,t=this.shadow.getElementById("volume-icon"),u=this.shadow.getElementById("volume-slider");var e=localStorage.getItem("lastVolume")?Number(localStorage.getItem("lastVolume")):.5,e=(this.backgroundSound=new Audio("assets/sounds/background-music.mp3"),this.backgroundSound.volume=e,u.value=e,localStorage.getItem("lastBackgroundSoundTime")?Number(localStorage.getItem("lastBackgroundSoundTime")):.5);this.backgroundSound.currentTime=e,this.backgroundSound.loop=!0,this.backgroundSound.play().catch(e=>{console.warn(e)}),this.updateVolume=function(){o.backgroundSound.volume=u.value;let e;window.localStorage.setItem("lastVolume",u.value),e=0===o.backgroundSound.volume?"0":o.backgroundSound.volume<.33?"1":o.backgroundSound.volume<.66?"2":"3",t.src=`assets/images/volume-level-${e}.svg`,this.setAttribute("volume",u.value)},this.updateVolume(),this.unmutedVolume=u.value,u.addEventListener("input",this.updateVolume),t.addEventListener("click",function(){0==o.backgroundSound.volume?0==u.value?(o.backgroundSound.volume=1,u.value=1):(o.backgroundSound.volume=o.unmutedVolume,u.value=o.unmutedVolume):(o.unmutedVolume=o.backgroundSound.volume,o.backgroundSound.volume=0,u.value=0),o.updateVolume()}),u.addEventListener("change",this.updateVolume),u.addEventListener("mousemove",this.updateVolume),window.addEventListener("beforeunload",async function(e){window.localStorage.setItem("lastBackgroundSoundTime",o.backgroundSound.currentTime)})}}function o(){var e=document.querySelector("volume-control"),o=new Audio("assets/sounds/button-hover.mp3");o.volume=e.getAttribute("volume")/20,o.currentTime=0,o.play().catch(e=>{console.warn(e)})}customElements.define("volume-control",e);export{o as playButtonHoverSound};

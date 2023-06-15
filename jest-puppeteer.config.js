@@ -1,11 +1,1 @@
-module.exports = {
-  launch: {
-    headless: process.env.CI === 'true',
-    slowMo: 25
-  },
-  server: {
-    command: 'npm start',
-    port: 8080,
-    launchTimeout: 180000
-  }
-};
+module.exports={launch:{headless:"true"===process.env.CI,slowMo:25},server:{command:"npm start",port:8080,launchTimeout:18e4}};
